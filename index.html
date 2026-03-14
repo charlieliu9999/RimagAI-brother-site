@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RimagAi Brother - AI 医学影像助手</title>
-  <meta name="description" content="面向影像科和临床医生的 AI 桌面助手，支持病历录入、临床决策、报告生成、影像诊断等六大场景。">
+  <title>RimagAi Brother - 临床 & 影像全场景 AI 助手</title>
+  <meta name="description" content="面向临床与影像全科医生的智能工作台，覆盖病历录入、临床决策、报告生成等六大医疗场景。">
 
   <!-- SEO & Social Media -->
   <meta property="og:title" content="RimagAi Brother - AI 医学影像助手">
@@ -309,8 +309,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-badge"><span class="dot"></span> v0.1.0 已发布</div>
-      <h1>AI 医学影像助手<br>为医生而生</h1>
-      <p>面向影像科和临床医生的桌面 AI 助手。六大医疗场景，从病历录入到影像诊断，让 AI 融入你的日常工作流。</p>
+      <h1>临床 & 影像全场景<br>AI 桌面助手</h1>
+      <p>打破学科壁垒的多能级 AI 医生伙伴。从门诊病历录入到影像辅助诊断，六大医疗场景全方位赋能医务工作者。</p>
       <div class="hero-actions">
         <a href="#download" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -332,7 +332,15 @@
         <p>现代化的医疗工作台设计</p>
       </div>
       <div class="screenshot-container animate-in">
-        <img src="./landing-v2-visible.png" alt="RimagAi Brother 产品界面" loading="lazy">
+        <style>
+          .screenshot-carousel { display: flex; overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; padding: 10px; background: #000; }
+          .screenshot-carousel img { flex: 0 0 100%; scroll-snap-align: start; border-radius: 8px; border: 1px solid var(--border); }
+        </style>
+        <div class="screenshot-carousel">
+          <img src="./his-demo-clinical.png" alt="临床问诊工作台" loading="lazy">
+          <img src="./his-demo-report-form.png" alt="报告质控预览" loading="lazy">
+          <img src="./his-demo-radiology.png" alt="影像诊断集成" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -537,7 +545,7 @@
         <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank">问题反馈</a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother/blob/main/LICENSE" target="_blank">MIT License</a>
       </div>
-      <p>RimagAi Brother &middot; 面向医生的 AI 桌面助手 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
+      <p>RimagAi Brother &middot; 临床 & 影像全场景 AI 助手 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
       <p style="font-size: 12px; margin-top: 8px; color: var(--text-muted);">Built with Electron + React + OpenClaw · Open Source · MIT License</p>
     </div>
   </footer>
