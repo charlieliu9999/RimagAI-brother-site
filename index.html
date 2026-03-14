@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RimagAi Brother - AI 医学影像助手</title>
+  <meta name="description" content="面向影像科和临床医生的 AI 桌面助手，支持病历录入、临床决策、报告生成、影像诊断等六大场景。">
+
+  <!-- SEO & Social Media -->
+  <meta property="og:title" content="RimagAi Brother - AI 医学影像助手">
+  <meta property="og:description" content="面向影像科和临床医生的 AI 桌面助手，支持病历录入、临床决策、报告生成、影像诊断等六大场景。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/charlieliu9999/RimagAI-brother">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RimagAi Brother - AI 医学影像助手">
+  <meta name="twitter:description" content="面向影像科和临床医生的 AI 桌面助手">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-card: #161618;
+      --bg-card-hover: #1c1c1f;
+      --border: #27272a;
+      --border-hover: #3f3f46;
+      --text-primary: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --orange: #f97316;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+      --purple: #a855f7;
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 11, 0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 700;
+    }
+    .nav-brand .logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      padding: 8px 16px; border-radius: 8px; font-size: 14px;
+      color: var(--text-secondary); transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); background: var(--bg-card); }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 500;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-primary); cursor: pointer; transition: all 0.2s;
+    }
+    .nav-btn:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 140px 0 80px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 100px; font-size: 13px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-secondary); margin-bottom: 24px;
+    }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px; color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto 40px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
+      background: var(--accent); color: #fff; border: none; cursor: pointer;
+      transition: all 0.2s; box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
+      background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+
+    /* ── Scenes / Features ── */
+    .section { padding: 80px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header h2 {
+      font-size: 36px; font-weight: 700; margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .section-header p { font-size: 16px; color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+
+    .scenes-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .scene-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      transition: all 0.25s; cursor: default; position: relative; overflow: hidden;
+    }
+    .scene-card:hover {
+      border-color: var(--border-hover); background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .scene-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 16px;
+    }
+    .scene-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .scene-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .scene-tag {
+      display: inline-block; padding: 3px 10px; border-radius: 6px;
+      font-size: 12px; font-weight: 500; margin-top: 12px;
+      background: var(--accent-glow); color: var(--accent-hover);
+    }
+
+    /* ── Screenshots ── */
+    .screenshot-section { background: var(--bg-secondary); border-top: 1px solid var(--border); }
+    .screenshot-container {
+      max-width: 900px; margin: 0 auto;
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .screenshot-container img { width: 100%; display: block; }
+
+    /* ── Highlights ── */
+    .highlights {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .highlight-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      text-align: center; transition: all 0.2s;
+    }
+    .highlight-card:hover { border-color: var(--border-hover); }
+    .highlight-num {
+      font-size: 36px; font-weight: 800; margin-bottom: 4px;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .highlight-card span { font-size: 14px; color: var(--text-secondary); }
+
+    /* ── Download ── */
+    .download-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .download-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; max-width: 800px; margin: 0 auto;
+    }
+    .download-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; text-align: center;
+      transition: all 0.25s; cursor: pointer;
+    }
+    .download-card:hover {
+      border-color: var(--accent); background: var(--bg-card-hover);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+    .download-card .os-icon { font-size: 36px; margin-bottom: 12px; }
+    .download-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .download-card p { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Tech Stack ── */
+    .tech-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    .tech-pill {
+      padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 500;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-secondary); transition: all 0.2s;
+    }
+    .tech-pill:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+    /* ── Requirements ── */
+    .requirements-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; max-width: 900px; margin: 0 auto;
+    }
+    .req-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .req-card h4 {
+      font-size: 14px; font-weight: 600; margin-bottom: 12px;
+      color: var(--text-primary); display: flex; align-items: center; gap: 8px;
+    }
+    .req-card ul {
+      list-style: none; font-size: 13px; color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .req-card li::before {
+      content: '✓'; margin-right: 8px; color: var(--green);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 40px 0; border-top: 1px solid var(--border);
+      text-align: center; font-size: 14px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--text-primary); }
+    footer .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 120px 0 60px; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .scenes-grid { grid-template-columns: 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 0; }
+    }
+
+    /* ── Animations ── */
+    .animate-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+    .animate-in:nth-child(2) { transition-delay: 0.08s; }
+    .animate-in:nth-child(3) { transition-delay: 0.16s; }
+    .animate-in:nth-child(4) { transition-delay: 0.24s; }
+    .animate-in:nth-child(5) { transition-delay: 0.32s; }
+    .animate-in:nth-child(6) { transition-delay: 0.40s; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <div class="logo">R</div>
+        <span>RimagAi Brother</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">场景</a>
+        <a href="#tech">技术</a>
+        <a href="#download">下载</a>
+      </div>
+      <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank" class="nav-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span> v0.1.0 已发布</div>
+      <h1>AI 医学影像助手<br>为医生而生</h1>
+      <p>面向影像科和临床医生的桌面 AI 助手。六大医疗场景，从病历录入到影像诊断，让 AI 融入你的日常工作流。</p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          下载客户端
+        </a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          查看源码
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshot Preview -->
+  <section class="section screenshot-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>产品界面</h2>
+        <p>现代化的医疗工作台设计</p>
+      </div>
+      <div class="screenshot-container animate-in">
+        <img src="./landing-v2-visible.png" alt="RimagAi Brother 产品界面" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section">
+    <div class="container">
+      <div class="highlights">
+        <div class="highlight-card animate-in">
+          <div class="highlight-num">6</div>
+          <span>医疗场景</span>
+        </div>
+        <div class="highlight-card animate-in">
+          <div class="highlight-num">3</div>
+          <span>平台支持</span>
+        </div>
+        <div class="highlight-card animate-in">
+          <div class="highlight-num">100%</div>
+          <span>本地隐私</span>
+        </div>
+        <div class="highlight-card animate-in">
+          <div class="highlight-num">i18n</div>
+          <span>中英双语</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Scenes -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>六大医疗场景</h2>
+        <p>覆盖影像科和临床医生的核心工作流，每个场景都有专属 AI Agent 驱动</p>
+      </div>
+      <div class="scenes-grid">
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(34,197,94,0.12);">📝</div>
+          <h3>病历录入</h3>
+          <p>语音或文字输入，AI 自动结构化为标准电子病历。左右分栏实时预览，支持语音转写。</p>
+          <span class="scene-tag">EMR Input</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(59,130,246,0.12);">🔍</div>
+          <h3>病历质控</h3>
+          <p>自动检查病历完整性与逻辑一致性，生成质控评分和修改建议，减少漏项和错误。</p>
+          <span class="scene-tag">EMR Quality</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(249,115,22,0.12);">🧠</div>
+          <h3>临床决策支持</h3>
+          <p>基于患者信息提供诊断建议、检查推荐和用药方案，辅助临床决策。</p>
+          <span class="scene-tag">CDSS</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(168,85,247,0.12);">📄</div>
+          <h3>报告生成</h3>
+          <p>从影像所见自动生成规范化诊断报告，支持多种报告模板和格式。</p>
+          <span class="scene-tag">Report Gen</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(236,72,153,0.12);">✅</div>
+          <h3>报告质控</h3>
+          <p>对诊断报告进行文字质控和逻辑审查，自动评分并标注需修改的内容。</p>
+          <span class="scene-tag">Report QC</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(6,182,212,0.12);">🩻</div>
+          <h3>影像诊断</h3>
+          <p>上传或截取医学影像，AI 分析影像特征，提供诊断意见和鉴别诊断。支持 DICOM 格式。</p>
+          <span class="scene-tag">Img Diagnosis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <h2>技术栈</h2>
+        <p>基于现代桌面应用技术构建，安全可靠</p>
+      </div>
+      <div class="tech-pills">
+        <span class="tech-pill">Electron 28</span>
+        <span class="tech-pill">React 18</span>
+        <span class="tech-pill">TypeScript</span>
+        <span class="tech-pill">Vite 5</span>
+        <span class="tech-pill">Tailwind CSS</span>
+        <span class="tech-pill">Zustand</span>
+        <span class="tech-pill">OpenClaw AI</span>
+        <span class="tech-pill">DICOM.js</span>
+        <span class="tech-pill">Tesseract OCR</span>
+        <span class="tech-pill">electron-store</span>
+        <span class="tech-pill">i18n</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>系统要求</h2>
+        <p>确保你的系统满足以下最低配置</p>
+      </div>
+      <div class="requirements-grid">
+        <div class="req-card animate-in">
+          <h4>🍎 macOS</h4>
+          <ul>
+            <li>macOS 11.0 Big Sur 或更高</li>
+            <li>Apple Silicon (M1/M2/M3) 或 Intel</li>
+            <li>8GB RAM 推荐</li>
+          </ul>
+        </div>
+        <div class="req-card animate-in">
+          <h4>🪟 Windows</h4>
+          <ul>
+            <li>Windows 10 (64-bit) 或更高</li>
+            <li>x64 或 x86 处理器</li>
+            <li>8GB RAM 推荐</li>
+          </ul>
+        </div>
+        <div class="req-card animate-in">
+          <h4>🐧 Linux</h4>
+          <ul>
+            <li>Ubuntu 20.04+ / Debian 11+</li>
+            <li>或其他主流发行版</li>
+            <li>8GB RAM 推荐</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <div class="req-card" style="display: inline-block; max-width: 700px;">
+          <h4>🤖 AI 后端模式（v0.1.0 支持双模式）</h4>
+          <ul style="text-align: left;">
+            <li><strong>OpenClaw 模式</strong> - 连接 OpenClaw Gateway (端口 18789)，支持 Agent 编排、多模型 fallback、记忆管理</li>
+            <li><strong>Local Agent 模式</strong> - 内置轻量级 Agent，直接调用 LLM API（OpenAI/Deepseek/Ollama），无需 OpenClaw</li>
+            <li>💡 在设置面板中配置 OpenClaw 连接，留空则自动使用 Local Agent 模式</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="section download-section" id="download">
+    <div class="container">
+      <div class="section-header">
+        <h2>下载安装</h2>
+        <p>v0.1.0 已发布，支持 macOS、Windows 和 Linux</p>
+      </div>
+      <div class="download-grid">
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.0/RimagAi.Brother-0.1.0-arm64.dmg" class="download-card animate-in" target="_blank">
+          <div class="os-icon">🍎</div>
+          <h3>macOS</h3>
+          <p>Apple Silicon<br>.dmg 安装包 (95MB)</p>
+        </a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.0/RimagAi.Brother.Setup.0.1.0.exe" class="download-card animate-in" target="_blank">
+          <div class="os-icon">🪟</div>
+          <h3>Windows</h3>
+          <p>x64 安装程序<br>.exe (77MB)</p>
+        </a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.0/RimagAi.Brother-0.1.0.AppImage" class="download-card animate-in" target="_blank">
+          <div class="os-icon">🐧</div>
+          <h3>Linux</h3>
+          <p>AppImage 通用版<br>(105MB)</p>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">💡 支持 OpenClaw 和 Local Agent 双模式，无需强制依赖 OpenClaw</p>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases" target="_blank" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          查看所有版本
+        </a>
+      </div>
+
+      <!-- macOS 安装问题解决方案 -->
+      <div style="margin-top: 48px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">🍎 macOS 安装提示</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 16px;">如果打开 .dmg 文件时提示"文件已损坏，无法打开"，这是 macOS Gatekeeper 的安全机制。</p>
+        <div style="background: var(--bg-secondary); padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">解决方法（在终端中执行）：</p>
+          <code style="display: block; color: var(--accent); font-family: 'SF Mono', Monaco, monospace; font-size: 13px; line-height: 1.6;">
+            sudo xattr -cr /Applications/RimagAi\ Brother.app
+          </code>
+        </div>
+        <p style="color: var(--text-muted); font-size: 13px;">
+          ⚠️ 这是开发阶段的临时解决方案。未来版本将提供 Apple 代码签名和公证，无需此步骤。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank">GitHub</a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/blob/main/docs/guides/PRODUCT_DEMO_GUIDE.md" target="_blank">产品指南</a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases" target="_blank">版本发布</a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank">问题反馈</a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/blob/main/LICENSE" target="_blank">MIT License</a>
+      </div>
+      <p>RimagAi Brother &middot; 面向医生的 AI 桌面助手 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
+      <p style="font-size: 12px; margin-top: 8px; color: var(--text-muted);">Built with Electron + React + OpenClaw · Open Source · MIT License</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
