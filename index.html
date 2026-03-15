@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RimagAi Brother - 临床 & 影像全场景 AI 助手</title>
-  <meta name="description" content="面向临床与影像全科医生的智能工作台，覆盖病历录入、临床决策、报告生成等六大医疗场景。">
+  <title>RimagAi Brother - 全场景全科医生 AI 助手</title>
+  <meta name="description" content="面向全科、外科及影像科医生的智能工作台，支持门诊病历、临床决策、报告质控等全场景赋能。">
 
   <!-- SEO & Social Media -->
-  <meta property="og:title" content="RimagAi Brother - AI 医学影像助手">
-  <meta property="og:description" content="面向影像科和临床医生的 AI 桌面助手，支持病历录入、临床决策、报告生成、影像诊断等六大场景。">
+  <meta property="og:title" content="RimagAi Brother - 全场景医生 AI 助手">
+  <meta property="og:description" content="面向全科与影像医生的智能工作台，覆盖病历录入、临床决策、报告生成等多维场景。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://github.com/charlieliu9999/RimagAI-brother">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RimagAi Brother - AI 医学影像助手">
-  <meta name="twitter:description" content="面向影像科和临床医生的 AI 桌面助手">
+  <meta name="twitter:title" content="RimagAi Brother - 全场景医生 AI 助手">
+  <meta name="twitter:description" content="面向临床全科与影像专科医生的工作台">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
@@ -309,8 +309,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-badge"><span class="dot"></span> v0.1.0 已发布</div>
-      <h1>临床 & 影像全场景<br>AI 桌面助手</h1>
-      <p>打破学科壁垒的多能级 AI 医生伙伴。从门诊病历录入到影像辅助诊断，六大医疗场景全方位赋能医务工作者。</p>
+      <h1>全场景全科医生<br>AI 桌面助手</h1>
+      <p>打破专科边界，连接临床与影像。无论是门诊问诊、外科决策还是影像诊断，AI 都能精准匹配你的诊疗工作流。</p>
       <div class="hero-actions">
         <a href="#download" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -332,15 +332,7 @@
         <p>现代化的医疗工作台设计</p>
       </div>
       <div class="screenshot-container animate-in">
-        <style>
-          .screenshot-carousel { display: flex; overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; padding: 10px; background: #000; }
-          .screenshot-carousel img { flex: 0 0 100%; scroll-snap-align: start; border-radius: 8px; border: 1px solid var(--border); }
-        </style>
-        <div class="screenshot-carousel">
-          <img src="./his-demo-clinical.png" alt="临床问诊工作台" loading="lazy">
-          <img src="./his-demo-report-form.png" alt="报告质控预览" loading="lazy">
-          <img src="./his-demo-radiology.png" alt="影像诊断集成" loading="lazy">
-        </div>
+        <img src="./005-after-enter.png" alt="RimagAi Brother 系统真实操作界面" loading="lazy">
       </div>
     </div>
   </section>
@@ -373,15 +365,15 @@
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
-        <h2>六大医疗场景</h2>
-        <p>覆盖影像科和临床医生的核心工作流，每个场景都有专属 AI Agent 驱动</p>
+        <h2>涵盖全场景的多角色赋能</h2>
+        <p>支持门诊、住院、影像等多科室，为外科、内科及影像医生提供专属 AI 动力</p>
       </div>
       <div class="scenes-grid">
         <div class="scene-card animate-in">
           <div class="scene-icon" style="background: rgba(34,197,94,0.12);">📝</div>
-          <h3>病历录入</h3>
-          <p>语音或文字输入，AI 自动结构化为标准电子病历。左右分栏实时预览，支持语音转写。</p>
-          <span class="scene-tag">EMR Input</span>
+          <h3>门诊问诊与录入</h3>
+          <p>支持临床各科室问诊语音直转。AI 自动提取关键症状，一键转化为标准病历，大幅减轻门诊医生记录压力。</p>
+          <span class="scene-tag">门诊/内科/外科</span>
         </div>
         <div class="scene-card animate-in">
           <div class="scene-icon" style="background: rgba(59,130,246,0.12);">🔍</div>
@@ -391,9 +383,9 @@
         </div>
         <div class="scene-card animate-in">
           <div class="scene-icon" style="background: rgba(249,115,22,0.12);">🧠</div>
-          <h3>临床决策支持</h3>
-          <p>基于患者信息提供诊断建议、检查推荐和用药方案，辅助临床决策。</p>
-          <span class="scene-tag">CDSS</span>
+          <h3>智能决策推荐</h3>
+          <p>基于跨学科医学指南，为临床医生提供鉴别诊断建议、最优检查方案推荐，辅助外科术前评估。</p>
+          <span class="scene-tag">CDSS 决策</span>
         </div>
         <div class="scene-card animate-in">
           <div class="scene-icon" style="background: rgba(168,85,247,0.12);">📄</div>
