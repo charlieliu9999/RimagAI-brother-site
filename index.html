@@ -308,7 +308,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge"><span class="dot"></span> v0.1.1 已发布</div>
+      <div class="hero-badge"><span class="dot"></span> v0.2.0 已发布</div>
       <h1>全场景全科医生<br>AI 桌面助手</h1>
       <p>打破专科边界，连接临床与影像。无论是门诊问诊、外科决策还是影像诊断，AI 都能精准匹配你的诊疗工作流。</p>
       <div class="hero-actions">
@@ -434,6 +434,54 @@
     </div>
   </section>
 
+  <!-- v0.2.0 新功能 -->
+  <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>v0.2.0 新功能</h2>
+        <p>本次更新带来重磅 HIS 集成、截图 OCR 填充和 CDSS 全面提升</p>
+      </div>
+      <div class="scenes-grid">
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(34,197,94,0.12);">🏥</div>
+          <h3>HIS 自动填充</h3>
+          <p>输入患者 ID 后自动从 HIS 系统拉取患者基本信息，800ms 防抖触发，支持置信度标注，一键填充病历所有字段。</p>
+          <span class="scene-tag">HIS 集成</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(99,102,241,0.12);">📸</div>
+          <h3>截图 OCR 识别填充</h3>
+          <p>截取 HIS 系统界面，AI 视觉模型自动识别患者信息、主诉、病史等内容，结构化提取后直接填入病历输入框。</p>
+          <span class="scene-tag">视觉 OCR</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(59,130,246,0.12);">📅</div>
+          <h3>结构化患者历史时间轴</h3>
+          <p>就诊记录按门诊 / 住院 / 检验 / 影像四类分类展示，支持分类过滤、时间排序和详情一键展开。</p>
+          <span class="scene-tag">时间轴</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(249,115,22,0.12);">↔️</div>
+          <h3>三列可拖拽布局</h3>
+          <p>左侧患者面板、中间病历输入、右侧 CDSS 面板均可拖拽调整宽度，布局设置自动持久化。</p>
+          <span class="scene-tag">自适应布局</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(168,85,247,0.12);">🧠</div>
+          <h3>CDSS 病史上下文增强</h3>
+          <p>推理时自动加载患者完整病史到上下文，修复二次推理 bug，默认全选推荐项目，处置与用药方案独立管理。</p>
+          <span class="scene-tag">CDSS 升级</span>
+        </div>
+        <div class="scene-card animate-in">
+          <div class="scene-icon" style="background: rgba(6,182,212,0.12);">🎨</div>
+          <h3>浅色主题修复</h3>
+          <p>修复 visionos-light 主题背景色不生效问题，动态主题注入现支持 CSS 优先级覆盖，主题切换即时生效。</p>
+          <span class="scene-tag">UI 修复</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features / Scenes -->
   <section class="section" id="features">
     <div class="container">
@@ -540,7 +588,7 @@
       </div>
       <div style="text-align: center; margin-top: 32px;">
         <div class="req-card" style="display: inline-block; max-width: 700px;">
-          <h4>🤖 AI 后端模式（v0.1.1 支持双模式）</h4>
+          <h4>🤖 AI 后端模式（v0.1.2 支持双模式）</h4>
           <ul style="text-align: left;">
             <li><strong>OpenClaw 模式</strong> - 连接 OpenClaw Gateway (端口 18789)，支持 Agent 编排、多模型 fallback、记忆管理</li>
             <li><strong>Local Agent 模式</strong> - 内置轻量级 Agent，直接调用 LLM API（OpenAI/Deepseek/Ollama），无需 OpenClaw</li>
@@ -556,23 +604,23 @@
     <div class="container">
       <div class="section-header">
         <h2>下载安装</h2>
-        <p>v0.1.1 已发布，支持 macOS、Windows 和 Linux</p>
+        <p>v0.2.0 已发布，支持 macOS、Windows 和 Linux</p>
       </div>
       <div class="download-grid">
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.1/RimagAi.Brother-0.1.1-arm64.dmg" class="download-card animate-in" target="_blank">
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.2.0/RimagAi.Brother-0.2.0-arm64.dmg" class="download-card animate-in" target="_blank">
           <div class="os-icon">🍎</div>
           <h3>macOS</h3>
-          <p>Apple Silicon<br>.dmg 安装包 (95MB)</p>
+          <p>Apple Silicon<br>.dmg 安装包 (103MB)</p>
         </a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.1/RimagAi.Brother.Setup.0.1.1.exe" class="download-card animate-in" target="_blank">
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.2.0/RimagAi.Brother-0.2.0-arm64-mac.zip" class="download-card animate-in" target="_blank">
+          <div class="os-icon">📦</div>
+          <h3>macOS ZIP</h3>
+          <p>Apple Silicon<br>.zip 压缩包 (101MB)</p>
+        </a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.2.0/RimagAi.Brother.Setup.0.2.0.exe" class="download-card animate-in" target="_blank">
           <div class="os-icon">🪟</div>
           <h3>Windows</h3>
-          <p>x64 安装程序<br>.exe (77MB)</p>
-        </a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases/download/v0.1.1/RimagAi.Brother-0.1.1.AppImage" class="download-card animate-in" target="_blank">
-          <div class="os-icon">🐧</div>
-          <h3>Linux</h3>
-          <p>AppImage 通用版<br>(105MB)</p>
+          <p>x64 安装程序<br>.exe</p>
         </a>
       </div>
       <div style="text-align: center; margin-top: 40px;">
