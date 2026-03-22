@@ -27,14 +27,15 @@ python3 -m http.server 8080
 
 ## ⚠️ 发布前检查清单
 
-- [x] 修复版本号一致性（v0.2.0）
+- [x] 修复版本号一致性（v0.2.1）
 - [x] 添加 SEO 优化标签
 - [x] 添加 favicon
 - [x] 添加产品截图
 - [x] 添加系统要求说明
 - [x] 说明 OpenClaw 和 Local Agent 双模式支持
 - [x] 添加 macOS 安装问题解决方案
-- [x] 创建 GitHub Release v0.2.0
+- [x] 创建 GitHub Release v0.2.1
+- [x] 更新所有下载链接（macOS Intel/arm64 + Windows + Linux）
 - [x] 验证所有链接可访问
 - [x] 部署到 GitHub Pages
 - [ ] 添加产品演示 GIF/视频
