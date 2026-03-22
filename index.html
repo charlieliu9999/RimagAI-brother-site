@@ -700,13 +700,15 @@
     });
     // Back to Top functionality
     const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) btt.classList.add('show');
-      else btt.classList.remove('show');
-    });
-    btt.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (btt) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) btt.classList.add('show');
+        else btt.classList.remove('show');
+      });
+      btt.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
