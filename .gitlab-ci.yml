@@ -1,0 +1,53 @@
+# GitLab CI/CD — 静态站点部署到 VPS（nginx）
+# 架构：本地 Mac shell runner → rsync → VPS:/var/www/rimagai-brother-site/
+
+stages:
+  - deploy
+
+variables:
+  DEPLOY_PATH: "/var/www/rimagai-brother-site"
+  VPS_HOST: "220.154.3.166"
+  VPS_USER: "root"
+  HEALTH_URL: "http://localhost:18088/nginx-health"
+
+deploy_production:
+  stage: deploy
+  script:
+    - echo "==> Deploying static site to ${VPS_HOST}:${DEPLOY_PATH}"
+    # 1. rsync 同步（删除目标多余文件，但保留 nginx 配置外文件）
+    - |
+      sshpass -p "${VPS_PASSWORD}" rsync -avz --delete \
+        --exclude='.git/' \
+        --exclude='.gitlab-ci.yml' \
+        --exclude='.gitignore' \
+        --exclude='.github/' \
+        --exclude='.vscode/' \
+        --exclude='.idea/' \
+        --exclude='.DS_Store' \
+        --exclude='._*' \
+        --exclude='*.bak' \
+        --exclude='node_modules/' \
+        --exclude='README.md' \
+        --exclude='sync-whitepaper.js' \
+        -e "ssh -o StrictHostKeyChecking=no" \
+        "${CI_PROJECT_DIR}/" \
+        ${VPS_USER}@${VPS_HOST}:${DEPLOY_PATH}/
+    # 2. reload nginx（无 downtime）
+    - |
+      sshpass -p "${VPS_PASSWORD}" ssh -o StrictHostKeyChecking=no \
+        ${VPS_USER}@${VPS_HOST} \
+        "nginx -t && systemctl reload nginx && echo 'nginx reloaded'"
+    # 3. 健康检查
+    - |
+      sshpass -p "${VPS_PASSWORD}" ssh -o StrictHostKeyChecking=no \
+        ${VPS_USER}@${VPS_HOST} \
+        "curl -sf ${HEALTH_URL} && echo ' -- health OK'"
+    - echo "==> Deployment successful"
+  only:
+    - main
+  environment:
+    name: production
+    url: http://220.154.3.166:18088/
+  tags:
+    - shell
+    - macos
