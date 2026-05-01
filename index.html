@@ -3,102 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RimagAi Brother - 全场景全科医生 AI 助手</title>
-  <meta name="description" content="面向全科、外科及影像科医生的智能工作台，支持门诊病历、临床决策、报告质控等全场景赋能。">
-  <meta name="keywords" content="RimagAi, AI医生助手, 临床决策支持, CDSS, 影像诊断AI, 电子病历, 医疗人工智能">
-
-  <!-- SEO & Social Media -->
-  <meta property="og:title" content="RimagAi Brother - 全场景医生 AI 助手">
-  <meta property="og:description" content="面向全科与影像医生的智能工作台，覆盖病历录入、临床决策、报告生成等多维场景。">
+  <title>RimagAi — 从工具到系统，让 AI 真正进入临床工作流</title>
+  <meta name="description" content="RimagAi 不只是 AI 助手，而是医疗认知运行层（MCOS）的第一个落地产品。桌面 AI 工作台 + 院内数据智能体，覆盖门诊、影像、质控全场景。">
+  <meta name="keywords" content="RimagAi, MCOS, 医疗AI, 临床决策支持, 影像诊断AI, 院内数据查询, 医疗认知操作系统">
+  <meta property="og:title" content="RimagAi — 从工具到系统，让 AI 真正进入临床工作流">
+  <meta property="og:description" content="医疗认知运行层（MCOS）的第一个落地产品。桌面 AI 工作台 + 院内数据智能体。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://charlieliu9999.github.io/RimagAI-brother-site/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RimagAi Brother - 全场景医生 AI 助手">
-  <meta name="twitter:description" content="面向临床全科与影像专科医生的工作台">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-card: #161618;
-      --bg-card-hover: #1c1c1f;
-      --border: #27272a;
-      --border-hover: #3f3f46;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1aa;
-      --text-muted: #71717a;
-      --accent: #6366f1;
-      --accent-hover: #818cf8;
-      --accent-glow: rgba(99, 102, 241, 0.15);
-      --green: #22c55e;
-      --blue: #3b82f6;
-      --orange: #f97316;
-      --pink: #ec4899;
-      --cyan: #06b6d4;
-      --purple: #a855f7;
-      --radius: 12px;
-      --radius-lg: 16px;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── Nav ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10, 10, 11, 0.8);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav .container {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-brand {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 18px; font-weight: 700;
-    }
-    .nav-brand .logo {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent), var(--purple));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-    }
-    .nav-links { display: flex; align-items: center; gap: 8px; }
-    .nav-links a {
-      padding: 8px 16px; border-radius: 8px; font-size: 14px;
-      color: var(--text-secondary); transition: all 0.2s;
-    }
-    .nav-links a:hover { color: var(--text-primary); background: var(--bg-card); }
-    .nav-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 500;
-      background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-primary); cursor: pointer; transition: all 0.2s;
-    }
-    .nav-btn:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
-
     /* ── Hero ── */
     .hero {
-      padding: 140px 0 80px; text-align: center;
+      padding: 150px 0 80px; text-align: center;
       position: relative; overflow: hidden;
     }
     .hero::before {
       content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 600px;
+      width: 900px; height: 600px;
       background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -106,94 +28,104 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 16px; border-radius: 100px; font-size: 13px;
       background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-secondary); margin-bottom: 24px;
+      color: var(--text-secondary); margin-bottom: 28px;
     }
     .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
     .hero h1 {
-      font-size: clamp(40px, 6vw, 72px); font-weight: 800;
-      line-height: 1.1; letter-spacing: -0.02em;
+      font-size: clamp(36px, 5.5vw, 64px); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.02em;
       margin-bottom: 20px;
       background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero p {
-      font-size: 18px; color: var(--text-secondary);
-      max-width: 600px; margin: 0 auto 40px; line-height: 1.7;
+    .hero-sub {
+      font-size: 17px; color: var(--text-secondary);
+      max-width: 640px; margin: 0 auto 16px; line-height: 1.75;
+    }
+    .hero-insight {
+      font-size: 14px; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 40px;
+      padding: 12px 20px; border-radius: 10px;
+      background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.12);
     }
     .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
-      background: var(--accent); color: #fff; border: none; cursor: pointer;
-      transition: all 0.2s; box-shadow: 0 0 20px var(--accent-glow);
-    }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
-      background: var(--bg-card); color: var(--text-primary);
-      border: 1px solid var(--border); cursor: pointer; transition: all 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
 
-    /* ── Scenes / Features ── */
-    .section { padding: 80px 0; }
-    .section-header { text-align: center; margin-bottom: 60px; }
-    .section-header h2 {
-      font-size: 36px; font-weight: 700; margin-bottom: 12px;
-      letter-spacing: -0.01em;
+    /* ── Capabilities ── */
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     }
-    .section-header p { font-size: 16px; color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
-
-    .scenes-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 16px;
-    }
-    .scene-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-      transition: all 0.25s; cursor: default; position: relative; overflow: hidden;
-    }
-    .scene-card:hover {
-      border-color: var(--border-hover); background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    }
-    .scene-icon {
+    .cap-card { position: relative; overflow: hidden; }
+    .cap-icon {
       width: 44px; height: 44px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; margin-bottom: 16px;
+      font-size: 20px; margin-bottom: 14px;
     }
-    .scene-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .scene-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-    .scene-tag {
-      display: inline-block; padding: 3px 10px; border-radius: 6px;
-      font-size: 12px; font-weight: 500; margin-top: 12px;
-      background: var(--accent-glow); color: var(--accent-hover);
+    .cap-card .sub {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
+    }
+    .cap-card .sub span {
+      padding: 2px 8px; border-radius: 5px; font-size: 11px;
+      background: rgba(255,255,255,0.05); color: var(--text-muted);
     }
 
-    /* ── Screenshots ── */
-    .screenshot-section { background: var(--bg-secondary); border-top: 1px solid var(--border); }
-    .screenshot-container {
+    /* ── Product Matrix ── */
+    .matrix-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .matrix-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .matrix-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+    .matrix-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--purple)); }
+    .matrix-card:nth-child(2)::before { background: linear-gradient(90deg, var(--cyan), var(--teal)); }
+    .matrix-card:nth-child(3)::before { background: linear-gradient(90deg, var(--orange), var(--pink)); }
+    .matrix-card:hover {
+      border-color: var(--border-hover); transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .matrix-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .status-released { background: rgba(34,197,94,0.12); color: var(--green); }
+    .status-planning { background: rgba(6,182,212,0.12); color: var(--cyan); }
+    .status-published { background: rgba(249,115,22,0.12); color: var(--orange); }
+    .matrix-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .matrix-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
+    .matrix-link {
+      font-size: 14px; font-weight: 500; color: var(--accent-hover);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+
+    /* ── Screenshot ── */
+    .screenshot-frame {
       max-width: 900px; margin: 0 auto;
       border-radius: var(--radius-lg); overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
-    .screenshot-container img { width: 100%; display: block; }
+    .screenshot-frame img { width: 100%; display: block; }
+    .screenshot-caption {
+      padding: 16px 20px; text-align: center;
+      background: var(--bg-secondary); border-top: 1px solid var(--border);
+      font-size: 14px; color: var(--text-secondary);
+    }
 
     /* ── Highlights ── */
     .highlights {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
     .highlight-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      text-align: center; transition: all 0.2s;
+      border-radius: var(--radius); padding: 24px; text-align: center;
     }
-    .highlight-card:hover { border-color: var(--border-hover); }
     .highlight-num {
       font-size: 36px; font-weight: 800; margin-bottom: 4px;
       background: linear-gradient(135deg, var(--accent), var(--cyan));
@@ -203,99 +135,45 @@
     .highlight-card span { font-size: 14px; color: var(--text-secondary); }
 
     /* ── Download ── */
-    .download-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .download-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px; max-width: 800px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px; max-width: 900px; margin: 0 auto;
     }
     .download-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px; text-align: center;
+      border-radius: var(--radius); padding: 24px; text-align: center;
       transition: all 0.25s; cursor: pointer;
     }
     .download-card:hover {
-      border-color: var(--accent); background: var(--bg-card-hover);
-      box-shadow: 0 0 30px var(--accent-glow);
+      border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow);
     }
-    .download-card .os-icon { font-size: 36px; margin-bottom: 12px; }
-    .download-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-    .download-card p { font-size: 13px; color: var(--text-muted); }
-
-    /* ── Tech Stack ── */
-    .tech-pills {
-      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-    }
-    .tech-pill {
-      padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 500;
-      background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-secondary); transition: all 0.2s;
-    }
-    .tech-pill:hover { border-color: var(--border-hover); color: var(--text-primary); }
-
-    /* ── Requirements ── */
-    .requirements-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px; max-width: 900px; margin: 0 auto;
-    }
-    .req-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px;
-    }
-    .req-card h4 {
-      font-size: 14px; font-weight: 600; margin-bottom: 12px;
-      color: var(--text-primary); display: flex; align-items: center; gap: 8px;
-    }
-    .req-card ul {
-      list-style: none; font-size: 13px; color: var(--text-secondary);
-      line-height: 1.8;
-    }
-    .req-card li::before {
-      content: '✓'; margin-right: 8px; color: var(--green);
-    }
-
-    /* ── Footer ── */
-    footer {
-      padding: 40px 0; border-top: 1px solid var(--border);
-      text-align: center; font-size: 14px; color: var(--text-muted);
-    }
-    footer a { color: var(--text-secondary); transition: color 0.2s; }
-    footer a:hover { color: var(--text-primary); }
-    footer .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero { padding: 120px 0 60px; }
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .scenes-grid { grid-template-columns: 1fr; }
-      .download-grid { grid-template-columns: 1fr; }
-      .section { padding: 60px 0; }
-    }
-
-    /* ── Animations ── */
-    .animate-in {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .animate-in.visible { opacity: 1; transform: translateY(0); }
-    .animate-in:nth-child(2) { transition-delay: 0.08s; }
-    .animate-in:nth-child(3) { transition-delay: 0.16s; }
-    .animate-in:nth-child(4) { transition-delay: 0.24s; }
-    .animate-in:nth-child(5) { transition-delay: 0.32s; }
-    .animate-in:nth-child(6) { transition-delay: 0.40s; }
-    /* ── Back to Top ── */
-    #backToTop {
-      position: fixed; bottom: 32px; right: 32px; z-index: 90;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-primary); cursor: pointer;
+    .download-card .os-icon {
+      width: 40px; height: 40px; margin: 0 auto 12px;
       display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden; transition: all 0.3s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    #backToTop.show { opacity: 1; visibility: visible; }
-    #backToTop:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateY(-3px); }
+    .download-card .os-icon svg { width: 36px; height: 36px; }
+    .download-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .download-card p { font-size: 12px; color: var(--text-muted); }
+
+    .install-tip {
+      margin: 40px auto 0; padding: 20px 24px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); max-width: 700px;
+    }
+    .install-tip h4 { font-size: 15px; margin-bottom: 10px; }
+    .install-tip code {
+      display: block; padding: 10px 14px; margin: 8px 0;
+      background: var(--bg-secondary); border-radius: 8px;
+      color: var(--accent); font-family: 'SF Mono', Monaco, monospace; font-size: 13px;
+    }
+    .install-tip .note { font-size: 12px; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 120px 0 60px; }
+      .cap-grid, .matrix-grid { grid-template-columns: 1fr; }
+      .highlights { grid-template-columns: repeat(2, 1fr); }
+      .download-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -303,137 +181,122 @@
   <!-- Nav -->
   <nav>
     <div class="container">
-      <a href="#" class="nav-brand">
+      <a href="index.html" class="nav-brand">
         <div class="logo">R</div>
-        <span>RimagAi Brother</span>
+        <span>RimagAi</span>
       </a>
       <div class="nav-links">
-        <a href="#features">场景</a>
-        <a href="#tech">技术</a>
-        <a href="#download">下载</a>
+        <a href="index.html" class="active">首页</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="data-platform.html">数据智能体</a>
+        <a href="index.html#download">下载</a>
+        <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank" rel="noopener">反馈</a>
       </div>
-      <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank" class="nav-btn">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub
-      </a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge"><span class="dot"></span> v0.3.0 已发布 - 规则引擎 + MCP 集成</div>
-      <h1>全场景全科医生<br>AI 桌面助手</h1>
-      <p>打破专科边界，连接临床与影像。内置规则引擎、报告模板、MCP 协议，无论是门诊问诊、外科决策还是影像诊断，AI 都能精准匹配你的诊疗工作流。</p>
+      <div class="hero-badge"><span class="dot"></span> v0.3.0 — 规则引擎 + MCP 协议 + Skill 化工具管理</div>
+      <h1>从工具到系统<br>让 AI 真正进入临床工作流</h1>
+      <p class="hero-sub">RimagAi 不只是一个 AI 助手。它是医疗认知运行层（MCOS）的第一个落地产品——把模型、规则、工具和工作流组织成医生可用、可控、可积累的长期能力。</p>
+      <div class="hero-insight">核心判断：医疗 AI 的主要矛盾，正在从"模型能力不足"转向"架构能力缺位"。</div>
       <div class="hero-actions">
         <a href="#download" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          下载客户端
+          下载 Brother 桌面端
         </a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          查看源码
-        </a>
+        <a href="architecture.html" class="btn-secondary">了解 MCOS 架构</a>
       </div>
     </div>
   </section>
 
-  <section class="section screenshot-section">
+  <!-- Core Capabilities -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>产品界面展示</h2>
-        <p>适配多种医疗办公场景的高端界面设计</p>
+        <h2>三大核心能力</h2>
+        <p>不是功能堆叠，而是围绕临床工作流的系统性设计</p>
       </div>
-      
-      <style>
-        .feature-main-display {
-          margin-top: 40px;
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 80%; /* 缩小一半显示 */
-          background: var(--bg-card);
-          border: 1px solid var(--border);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-          transition: border-color 0.3s;
-        }
-        .feature-main-display:hover { border-color: var(--accent); }
-        .feature-main-display img { width: 100%; display: block; }
-        .feature-main-display .caption {
-          padding: 20px;
-          text-align: center;
-          background: var(--bg-secondary);
-          color: var(--text-primary);
-          font-weight: 500;
-          border-top: 1px solid var(--border);
-        }
-
-        .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr); /* 强制三列 */
-          gap: 20px;
-          margin: 24px auto 0;
-          max-width: 80%; /* 整体缩小 1/3 左右的效果 */
-        }
-        .gallery-item {
-          background: var(--bg-card);
-          border: 1px solid var(--border);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          transition: all 0.3s ease;
-          display: flex;
-          flex-direction: column;
-        }
-        .gallery-item:hover {
-          transform: translateY(-5px);
-          border-color: var(--accent);
-          box-shadow: 0 10px 30px var(--accent-glow);
-        }
-        .gallery-item img {
-          width: 100%;
-          height: auto;
-          display: block;
-          object-fit: contain;
-          background: #000;
-        }
-        .gallery-item .caption {
-          padding: 16px;
-          font-size: 14px;
-          color: var(--text-secondary);
-          background: var(--bg-secondary);
-          border-top: 1px solid var(--border);
-          text-align: center;
-        }
-        @media (max-width: 768px) {
-          .gallery-grid { grid-template-columns: 1fr; }
-        }
-      </style>
-
-      <div class="feature-main-display animate-in">
-        <img src="./cdss-recommendation.png" alt="RimagAi Brother 临床决策支持系统" loading="lazy">
-        <div class="caption">RimagAi Brother CDSS 智能临床决策支持与工作流引擎</div>
+      <div class="cap-grid">
+        <div class="card cap-card animate-in">
+          <div class="cap-icon" style="background: rgba(99,102,241,0.12);">🧠</div>
+          <h3>场景化 AI Agent</h3>
+          <p>7 个医疗场景，每个场景有专属 Agent、提示词模板和工具集。不是通用对话，而是嵌入工作流的认知执行。</p>
+          <div class="sub">
+            <span>门诊录入</span><span>病历质控</span><span>CDSS 决策</span>
+            <span>报告生成</span><span>报告质控</span><span>影像诊断</span><span>费用合规</span>
+          </div>
+        </div>
+        <div class="card cap-card animate-in">
+          <div class="cap-icon" style="background: rgba(6,182,212,0.12);">⚙️</div>
+          <h3>规则引擎 + MCP 工具</h3>
+          <p>本地优先的质控规则引擎，零延迟同步执行。MCP 协议可扩展工具框架，Agent 自动加载工具，Skill 管理工具白名单。</p>
+          <div class="sub">
+            <span>5 种规则类型</span><span>3 个规则集</span>
+            <span>MCP stdio/SSE/HTTP</span><span>Skill 化管理</span>
+          </div>
+        </div>
+        <div class="card cap-card animate-in">
+          <div class="cap-icon" style="background: rgba(249,115,22,0.12);">🔒</div>
+          <h3>本地优先 + 双通道 AI</h3>
+          <p>敏感数据本地处理，不出院墙。OpenClaw 远程通道和 Local Agent 本地通道按配置自动选择，不做 fallback，行为可预期。</p>
+          <div class="sub">
+            <span>本地隐私</span><span>OpenClaw 远程</span>
+            <span>Local Agent 本地</span><span>多模型支持</span>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="gallery-grid">
-        <div class="gallery-item animate-in">
-          <img src="./report-generation.png" alt="RimagAi Brother 报告生成" loading="lazy">
-          <div class="caption">自动化诊断报告生成</div>
+  <!-- Product Screenshot -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>产品界面</h2>
+        <p>CDSS 智能临床决策支持与工作流引擎</p>
+      </div>
+      <div class="screenshot-frame animate-in">
+        <img src="./cdss-recommendation.png" alt="RimagAi Brother CDSS 临床决策支持" loading="lazy">
+        <div class="screenshot-caption">分阶段推理：诊断 → 检查 → 用药 → 处置，每一步都有依据和置信度</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Matrix -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>产品矩阵</h2>
+        <p>不是单点工具，而是有架构思考的产品体系</p>
+      </div>
+      <div class="matrix-grid">
+        <div class="matrix-card animate-in">
+          <span class="matrix-status status-released">v0.3.0 已发布</span>
+          <h3>RimagAi Brother</h3>
+          <p>医生桌面 AI 工作台。7 个临床场景，双通道 AI，规则引擎，MCP 工具集成，语音识别，截屏分析。跨平台支持 macOS / Windows / Linux。</p>
+          <a href="#download" class="matrix-link">下载体验 →</a>
         </div>
-        <div class="gallery-item animate-in">
-          <img src="./report-quality-control.png" alt="RimagAi Brother 报告质控" loading="lazy">
-          <div class="caption">智能报告逻辑质控</div>
+        <div class="matrix-card animate-in">
+          <span class="matrix-status status-planning">规划中</span>
+          <h3>院内数据智能体</h3>
+          <p>受控语义查询 + 规则引擎 + 权限治理。不是开放式 NL2SQL，而是可控、可审计、可解释的院内数据查询与质控平台。覆盖医嘱、检验、检查等核心业务域。</p>
+          <a href="data-platform.html" class="matrix-link">了解方案 →</a>
         </div>
-        <div class="gallery-item animate-in">
-          <img src="./patient-history.png" alt="RimagAi Brother 患者历史时间轴" loading="lazy">
-          <div class="caption">结构化诊疗时间轴</div>
+        <div class="matrix-card animate-in">
+          <span class="matrix-status status-published">白皮书已发布</span>
+          <h3>MCOS 认知运行层</h3>
+          <p>医疗 AI 的架构定义。六层架构（感知 → 上下文 → 认知 → 执行 → 治理 → 进化），把模型能力组织成医院可用、可控、可积累的长期能力。</p>
+          <a href="architecture.html" class="matrix-link">阅读架构 →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Highlights -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="highlights">
         <div class="highlight-card animate-in">
@@ -441,189 +304,23 @@
           <span>医疗场景</span>
         </div>
         <div class="highlight-card animate-in">
+          <div class="highlight-num">6</div>
+          <span>MCOS 架构层</span>
+        </div>
+        <div class="highlight-card animate-in">
+          <div class="highlight-num">58</div>
+          <span>测试用例</span>
+        </div>
+        <div class="highlight-card animate-in">
           <div class="highlight-num">3</div>
           <span>平台支持</span>
-        </div>
-        <div class="highlight-card animate-in">
-          <div class="highlight-num">100%</div>
-          <span>本地隐私</span>
-        </div>
-        <div class="highlight-card animate-in">
-          <div class="highlight-num">i18n</div>
-          <span>中英双语</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- v0.3.0 新功能 -->
-  <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="section-header">
-        <h2>v0.3.0 新功能</h2>
-        <p>本次更新带来规则引擎、报告模板系统、MCP 协议集成和 Cost-DRG 场景</p>
-      </div>
-      <div class="scenes-grid">
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(34,197,94,0.12);">⚙️</div>
-          <h3>规则引擎</h3>
-          <p>本地优先的质控框架，支持 5 种规则类型（模式替换、正则匹配、阈值检查、必填字段、术语冲突），内置 3 个规则集（报告质控、病历质量、费用合规），零延迟同步执行。</p>
-          <span class="scene-tag">质控引擎</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(99,102,241,0.12);">📋</div>
-          <h3>报告模板系统</h3>
-          <p>25 个预置医学影像报告模板，覆盖 CT、MR、X-ray、US、DR 多种模态和胸部、头部、腹部等部位，3 级评分匹配（模态+部位+关键词命中率）。</p>
-          <span class="scene-tag">模板库</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(59,130,246,0.12);">🔌</div>
-          <h3>MCP 协议集成</h3>
-          <p>Model Context Protocol 可扩展工具框架，支持 stdio/SSE/HTTP 传输，主进程 McpManager + IPC 桥接，Agent 自动加载工具，内置 HIS UI 自动化服务器（6 个工具）。</p>
-          <span class="scene-tag">MCP</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(249,115,22,0.12);">💰</div>
-          <h3>Cost-DRG 场景</h3>
-          <p>新增第 7 个医疗场景，基于 DRG 的费用合规检查，包括药占比、耗占比、检查次数阈值、住院天数和费用异常检测，可配置阈值。</p>
-          <span class="scene-tag">费用合规</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(168,85,247,0.12);">🛠️</div>
-          <h3>自定义规则 CRUD</h3>
-          <p>完整的规则管理 UI，支持创建、编辑、删除自定义规则，实时预览规则效果，规则优先级排序，违规卡片内联显示严重程度和修改建议。</p>
-          <span class="scene-tag">规则管理</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(6,182,212,0.12);">🔍</div>
-          <h3>模板智能匹配</h3>
-          <p>报告模板检索采用关键词匹配算法，自动识别检查类型和部位，匹配的模板作为参考注入 AI 上下文，提升报告生成质量和规范性。</p>
-          <span class="scene-tag">智能检索</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features / Scenes -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>涵盖全场景的多角色赋能</h2>
-        <p>支持门诊、住院、影像等多科室，为外科、内科及影像医生提供专属 AI 动力</p>
-      </div>
-      <div class="scenes-grid">
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(34,197,94,0.12);">📝</div>
-          <h3>门诊问诊与录入</h3>
-          <p>支持临床各科室问诊语音直转。AI 自动提取关键症状，一键转化为标准病历，大幅减轻门诊医生记录压力。</p>
-          <span class="scene-tag">门诊/内科/外科</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(59,130,246,0.12);">🔍</div>
-          <h3>病历质控</h3>
-          <p>自动检查病历完整性与逻辑一致性，生成质控评分和修改建议，减少漏项和错误。</p>
-          <span class="scene-tag">EMR Quality</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(249,115,22,0.12);">🧠</div>
-          <h3>智能决策推荐</h3>
-          <p>基于跨学科医学指南，为临床医生提供鉴别诊断建议、最优检查方案推荐，辅助外科术前评估。</p>
-          <span class="scene-tag">CDSS 决策</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(168,85,247,0.12);">📄</div>
-          <h3>报告生成</h3>
-          <p>从影像所见自动生成规范化诊断报告，支持多种报告模板和格式。</p>
-          <span class="scene-tag">Report Gen</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(236,72,153,0.12);">✅</div>
-          <h3>报告质控</h3>
-          <p>对诊断报告进行文字质控和逻辑审查，自动评分并标注需修改的内容。</p>
-          <span class="scene-tag">Report QC</span>
-        </div>
-        <div class="scene-card animate-in">
-          <div class="scene-icon" style="background: rgba(6,182,212,0.12);">🩻</div>
-          <h3>影像诊断</h3>
-          <p>上传或截取医学影像，AI 分析影像特征，提供诊断意见和鉴别诊断。支持 DICOM 格式。</p>
-          <span class="scene-tag">Img Diagnosis</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack -->
-  <section class="section" id="tech">
-    <div class="container">
-      <div class="section-header">
-        <h2>技术栈</h2>
-        <p>基于现代桌面应用技术构建，安全可靠</p>
-      </div>
-      <div class="tech-pills">
-        <span class="tech-pill">Electron 28</span>
-        <span class="tech-pill">React 18</span>
-        <span class="tech-pill">TypeScript</span>
-        <span class="tech-pill">Vite 5</span>
-        <span class="tech-pill">Tailwind CSS</span>
-        <span class="tech-pill">Zustand</span>
-        <span class="tech-pill">OpenClaw AI</span>
-        <span class="tech-pill">MCP Protocol</span>
-        <span class="tech-pill">DICOM.js</span>
-        <span class="tech-pill">Tesseract OCR</span>
-        <span class="tech-pill">electron-store</span>
-        <span class="tech-pill">i18n</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- System Requirements -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>系统要求</h2>
-        <p>确保你的系统满足以下最低配置</p>
-      </div>
-      <div class="requirements-grid">
-        <div class="req-card animate-in">
-          <h4>🍎 macOS</h4>
-          <ul>
-            <li>macOS 11.0 Big Sur 或更高</li>
-            <li>Apple Silicon (M1/M2/M3) 或 Intel</li>
-            <li>8GB RAM 推荐</li>
-          </ul>
-        </div>
-        <div class="req-card animate-in">
-          <h4>🪟 Windows</h4>
-          <ul>
-            <li>Windows 10 (64-bit) 或更高</li>
-            <li>x64 或 x86 处理器</li>
-            <li>8GB RAM 推荐</li>
-          </ul>
-        </div>
-        <div class="req-card animate-in">
-          <h4>🐧 Linux</h4>
-          <ul>
-            <li>Ubuntu 20.04+ / Debian 11+</li>
-            <li>或其他主流发行版</li>
-            <li>8GB RAM 推荐</li>
-          </ul>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 32px;">
-        <div class="req-card" style="display: inline-block; max-width: 700px;">
-          <h4>🤖 AI 后端模式（v0.3.0 支持双模式）</h4>
-          <ul style="text-align: left;">
-            <li><strong>OpenClaw 模式</strong> - 连接 OpenClaw Gateway (端口 18789)，支持 Agent 编排、多模型 fallback、记忆管理</li>
-            <li><strong>Local Agent 模式</strong> - 内置轻量级 Agent，直接调用 LLM API（OpenAI/Deepseek/Ollama），无需 OpenClaw</li>
-            <li>💡 在设置面板中配置 OpenClaw 连接，留空则自动使用 Local Agent 模式</li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Download -->
-  <section class="section download-section" id="download">
+  <section class="section" id="download">
     <div class="container">
       <div class="section-header">
         <h2>下载安装</h2>
@@ -631,47 +328,34 @@
       </div>
       <div class="download-grid">
         <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/download/v0.3.0/RimagAi.Brother-0.3.0-arm64.dmg" class="download-card animate-in" target="_blank">
-          <div class="os-icon">🍎</div>
-          <h3>macOS (Apple Silicon)</h3>
-          <p>M1/M2/M3/M4 芯片<br>.dmg 安装包</p>
+          <div class="os-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.05 12.18c-.03-2.26 1.84-3.35 1.92-3.4-1.05-1.54-2.68-1.75-3.26-1.77-1.39-.14-2.71.82-3.42.82-.7 0-1.79-.8-2.95-.78-1.51.02-2.91.88-3.69 2.24-1.58 2.74-.4 6.8 1.13 9.02.75 1.09 1.65 2.31 2.83 2.27 1.14-.05 1.57-.74 2.94-.74 1.37 0 1.76.74 2.96.72 1.22-.02 1.99-1.11 2.74-2.2.86-1.26 1.22-2.48 1.24-2.54-.03-.01-2.38-.91-2.44-3.64ZM14.8 5.55c.62-.75 1.04-1.79.93-2.83-.89.04-1.97.59-2.61 1.34-.57.66-1.07 1.72-.94 2.73.99.08 2-.5 2.62-1.24Z"/></svg></div>
+          <h4>macOS (Apple Silicon)</h4>
+          <p>M1 / M2 / M3 / M4</p>
         </a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/download/v0.3.0/RimagAi.Brother-0.3.0.dmg" class="download-card animate-in" target="_blank">
-          <div class="os-icon">🍎</div>
-          <h3>macOS (Intel)</h3>
-          <p>x64 处理器<br>.dmg 安装包</p>
+          <div class="os-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.05 12.18c-.03-2.26 1.84-3.35 1.92-3.4-1.05-1.54-2.68-1.75-3.26-1.77-1.39-.14-2.71.82-3.42.82-.7 0-1.79-.8-2.95-.78-1.51.02-2.91.88-3.69 2.24-1.58 2.74-.4 6.8 1.13 9.02.75 1.09 1.65 2.31 2.83 2.27 1.14-.05 1.57-.74 2.94-.74 1.37 0 1.76.74 2.96.72 1.22-.02 1.99-1.11 2.74-2.2.86-1.26 1.22-2.48 1.24-2.54-.03-.01-2.38-.91-2.44-3.64ZM14.8 5.55c.62-.75 1.04-1.79.93-2.83-.89.04-1.97.59-2.61 1.34-.57.66-1.07 1.72-.94 2.73.99.08 2-.5 2.62-1.24Z"/></svg></div>
+          <h4>macOS (Intel)</h4>
+          <p>x64 处理器</p>
         </a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/download/v0.3.0/RimagAi.Brother.Setup.0.3.0.exe" class="download-card animate-in" target="_blank">
-          <div class="os-icon">🪟</div>
-          <h3>Windows</h3>
-          <p>x64 安装程序<br>.exe 安装包</p>
+          <div class="os-icon" style="color:#60a5fa;"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.2 10.6 4v7.2H3V5.2Zm8.6-1.35L21 2.45v8.75h-9.4V3.85ZM3 12.8h7.6V20L3 18.8v-6Zm8.6 0H21v8.75l-9.4-1.4V12.8Z"/></svg></div>
+          <h4>Windows</h4>
+          <p>x64 安装程序</p>
         </a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/download/v0.3.0/RimagAi.Brother-0.3.0.AppImage" class="download-card animate-in" target="_blank">
-          <div class="os-icon">🐧</div>
-          <h3>Linux</h3>
-          <p>通用 Linux<br>.AppImage 便携版</p>
+          <div class="os-icon" style="color:#fbbf24;"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.3c-2.62 0-4.25 2.06-4.25 5.08 0 1.48-.45 2.64-1.14 3.73-.74 1.17-1.62 2.57-1.62 4.55 0 3.34 2.93 5.84 7.01 5.84s7.01-2.5 7.01-5.84c0-1.98-.88-3.38-1.62-4.55-.69-1.09-1.14-2.25-1.14-3.73 0-3.02-1.63-5.08-4.25-5.08Z"/></svg></div>
+          <h4>Linux</h4>
+          <p>AppImage 便携版</p>
         </a>
       </div>
-      <div style="text-align: center; margin-top: 40px;">
-        <p style="color: var(--text-secondary); margin-bottom: 20px;">💡 支持 OpenClaw 和 Local Agent 双模式，无需强制依赖 OpenClaw</p>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases" target="_blank" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          查看所有版本
-        </a>
+      <div style="text-align:center; margin-top:28px;">
+        <a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases" target="_blank" class="btn-secondary" style="font-size:14px; padding:10px 22px;">查看所有版本</a>
       </div>
-
-      <!-- macOS 安装问题解决方案 -->
-      <div style="margin-top: 48px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); max-width: 800px; margin-left: auto; margin-right: auto;">
-        <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">🍎 macOS 安装提示</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 16px;">如果打开 .dmg 文件时提示"文件已损坏，无法打开"，这是 macOS Gatekeeper 的安全机制。</p>
-        <div style="background: var(--bg-secondary); padding: 16px; border-radius: 8px; margin-bottom: 16px;">
-          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">解决方法（在终端中执行）：</p>
-          <code style="display: block; color: var(--accent); font-family: 'SF Mono', Monaco, monospace; font-size: 13px; line-height: 1.6;">
-            sudo xattr -cr /Applications/RimagAi\ Brother.app
-          </code>
-        </div>
-        <p style="color: var(--text-muted); font-size: 13px;">
-          ⚠️ 这是开发阶段的临时解决方案。未来版本将提供 Apple 代码签名和公证，无需此步骤。
-        </p>
+      <div class="install-tip">
+        <h4>macOS 安装提示</h4>
+        <p style="color:var(--text-secondary); font-size:14px; margin-bottom:8px;">如果提示"文件已损坏"，在终端执行：</p>
+        <code>sudo xattr -cr /Applications/RimagAi\ Brother.app</code>
+        <p class="note">开发阶段临时方案，未来版本将提供 Apple 代码签名。</p>
       </div>
     </div>
   </section>
@@ -680,16 +364,20 @@
   <footer>
     <div class="container">
       <div class="footer-links">
+        <a href="architecture.html">架构与愿景</a>
+        <a href="data-platform.html">数据智能体</a>
+        <a href="mcos-blueprint-whitepaper.html">MCOS 白皮书全文</a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank">GitHub</a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/blob/main/docs/guides/PRODUCT_DEMO_GUIDE.md" target="_blank">产品指南</a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/releases" target="_blank">版本发布</a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank">问题反馈</a>
         <a href="https://github.com/charlieliu9999/RimagAI-brother/blob/main/LICENSE" target="_blank">MIT License</a>
       </div>
-      <p>RimagAi Brother &middot; 临床 & 影像全场景 AI 助手 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
-      <p style="font-size: 12px; margin-top: 8px; color: var(--text-muted);">Built with Electron + React + OpenClaw · Open Source · MIT License</p>
+      <p>RimagAi &middot; 医疗认知运行层的第一个落地产品 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
     </div>
   </footer>
+
+  <button id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -699,27 +387,15 @@
         if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-    // Back to Top functionality
     const btt = document.getElementById('backToTop');
     if (btt) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) btt.classList.add('show');
-        else btt.classList.remove('show');
-      });
-      btt.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
-
     const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
     document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
   </script>
-  <button id="backToTop" aria-label="回到顶部">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-  </button>
 </body>
 </html>

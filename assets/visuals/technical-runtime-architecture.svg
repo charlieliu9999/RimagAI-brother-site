@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="620" viewBox="0 0 1180 620" role="img" aria-labelledby="title desc">
+  <title id="title">RimagAi Brother 技术运行架构</title>
+  <desc id="desc">展示桌面端、场景层、Agent 编排、MCP 工具层、院内系统和治理边界的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0b"/>
+      <stop offset=".5" stop-color="#121827"/>
+      <stop offset="1" stop-color="#08141a"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+    <style>
+      .text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fafafa}
+      .muted{fill:#a1a1aa}
+      .title{font-size:34px;font-weight:850;letter-spacing:-.03em}
+      .h{font-size:22px;font-weight:760}
+      .p{font-size:16px}
+      .tag{font-size:14px;font-weight:800;letter-spacing:.08em;fill:#a5b4fc}
+    </style>
+  </defs>
+  <rect width="1180" height="620" rx="34" fill="url(#bg)"/>
+  <text x="72" y="70" class="text title">产品技术架构：桌面入口 + Agent 编排 + MCP 工具层</text>
+  <text x="72" y="106" class="text muted p">敏感执行能力留在桌面端或院内网关，模型只通过受控工具访问医疗系统能力</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="160" width="210" height="330" rx="26" fill="#161618" stroke="#27272a"/>
+    <text x="104" y="206" class="text tag">01 DESKTOP</text>
+    <text x="104" y="244" class="text h">桌面工作台</text>
+    <text x="104" y="280" class="text muted p">Electron / React</text>
+    <text x="104" y="314" class="text muted p">多窗口 / 截屏 / 语音</text>
+    <text x="104" y="348" class="text muted p">DICOM / 配置管理</text>
+    <rect x="104" y="386" width="146" height="50" rx="16" fill="#1d2432" stroke="#334155"/>
+    <text x="177" y="418" text-anchor="middle" class="text p">医生工作站</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="342" y="138" width="220" height="374" rx="26" fill="#111827" stroke="#334155"/>
+    <text x="374" y="184" class="text tag">02 SCENE</text>
+    <text x="374" y="222" class="text h">场景层</text>
+    <g transform="translate(374 258)">
+      <rect width="156" height="38" rx="12" fill="#1e1b4b" stroke="#4f46e5"/>
+      <text x="78" y="25" text-anchor="middle" class="text p">病历录入</text>
+      <rect y="50" width="156" height="38" rx="12" fill="#1e1b4b" stroke="#4f46e5"/>
+      <text x="78" y="75" text-anchor="middle" class="text p">CDSS</text>
+      <rect y="100" width="156" height="38" rx="12" fill="#1e1b4b" stroke="#4f46e5"/>
+      <text x="78" y="125" text-anchor="middle" class="text p">报告质控</text>
+      <rect y="150" width="156" height="38" rx="12" fill="#1e1b4b" stroke="#4f46e5"/>
+      <text x="78" y="175" text-anchor="middle" class="text p">影像诊断</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="622" y="138" width="220" height="374" rx="26" fill="#101827" stroke="#334155"/>
+    <text x="654" y="184" class="text tag">03 AGENT</text>
+    <text x="654" y="222" class="text h">智能体编排</text>
+    <text x="654" y="260" class="text muted p">OpenClaw / Local Agent</text>
+    <text x="654" y="294" class="text muted p">Prompt Template</text>
+    <text x="654" y="328" class="text muted p">Skill Whitelist</text>
+    <text x="654" y="362" class="text muted p">Tool Registry</text>
+    <rect x="654" y="402" width="156" height="52" rx="16" fill="url(#violet)"/>
+    <text x="732" y="435" text-anchor="middle" fill="#050816" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="850">受控调用</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="902" y="160" width="210" height="330" rx="26" fill="#161618" stroke="#27272a"/>
+    <text x="934" y="206" class="text tag">04 SYSTEMS</text>
+    <text x="934" y="244" class="text h">院内系统能力</text>
+    <text x="934" y="282" class="text muted p">HIS / EMR</text>
+    <text x="934" y="316" class="text muted p">LIS / RIS / PACS</text>
+    <text x="934" y="350" class="text muted p">SQL Gateway</text>
+    <text x="934" y="384" class="text muted p">数据集市 / 中间库</text>
+  </g>
+
+  <path d="M292 325 H330" stroke="#818cf8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M552 325 H610" stroke="#818cf8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M832 325 H890" stroke="#06b6d4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M324 309 L344 325 L324 341 Z" fill="#818cf8"/>
+  <path d="M604 309 L624 325 L604 341 Z" fill="#818cf8"/>
+  <path d="M884 309 L904 325 L884 341 Z" fill="#06b6d4"/>
+
+  <rect x="242" y="540" width="696" height="44" rx="22" fill="#132d35" stroke="#0891b2"/>
+  <text x="590" y="568" text-anchor="middle" class="text p">治理边界：规则预检 · 工具白名单 · 本地执行 · 权限审计 · 结果可追溯</text>
+</svg>

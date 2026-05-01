@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="600" viewBox="0 0 1180 600" role="img" aria-labelledby="title desc">
+  <title id="title">院内数据查询与治理闭环</title>
+  <desc id="desc">展示自然语言查询、语义层、规则引擎、权限审计和评审材料输出的闭环流程。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081316"/>
+      <stop offset=".55" stop-color="#0d1b21"/>
+      <stop offset="1" stop-color="#071015"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <style>
+      .text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#f4fbfb}
+      .muted{fill:#a8b8bd}
+      .title{font-size:34px;font-weight:850;letter-spacing:-.03em}
+      .h{font-size:21px;font-weight:760}
+      .p{font-size:16px}
+      .tag{font-size:13px;font-weight:850;letter-spacing:.1em;fill:#99f6e4}
+    </style>
+  </defs>
+  <rect width="1180" height="600" rx="34" fill="url(#bg)"/>
+  <text x="70" y="72" class="text title">院内数据查询智能体：受控语义查询与治理闭环</text>
+  <text x="70" y="108" class="text muted p">不让模型自由直连数据库，而是用语义对象、规则模板、权限审计和导出佐证建立可信入口</text>
+
+  <g filter="url(#shadow)">
+    <circle cx="590" cy="326" r="116" fill="#0d252b" stroke="#0e7490" stroke-width="2"/>
+    <circle cx="590" cy="326" r="78" fill="url(#teal)" opacity=".95"/>
+    <text x="590" y="315" text-anchor="middle" fill="#031014" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="900">可信查询</text>
+    <text x="590" y="348" text-anchor="middle" fill="#031014" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="760">Query + Rule + Audit</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="178" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="100" y="218" class="text tag">01 ASK</text>
+    <text x="100" y="254" class="text h">自然语言提问</text>
+    <text x="100" y="286" class="text muted p">科室、时间、指标、明细</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="465" y="140" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="495" y="180" class="text tag">02 SEMANTIC</text>
+    <text x="495" y="216" class="text h">语义对象与模板</text>
+    <text x="495" y="248" class="text muted p">医嘱 / 检验 / 检查</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="860" y="178" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="890" y="218" class="text tag">03 RULE</text>
+    <text x="890" y="254" class="text h">规则引擎计算</text>
+    <text x="890" y="286" class="text muted p">完整性 / 一致性 / 整合性</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="860" y="392" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="890" y="432" class="text tag">04 POLICY</text>
+    <text x="890" y="468" class="text h">权限脱敏与审计</text>
+    <text x="890" y="500" class="text muted p">角色、科室、字段、导出记录</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="465" y="430" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="495" y="470" class="text tag">05 EVIDENCE</text>
+    <text x="495" y="506" class="text h">佐证材料输出</text>
+    <text x="495" y="538" class="text muted p">月报、明细、整改清单</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="392" width="250" height="130" rx="22" fill="#122026" stroke="#24444d"/>
+    <text x="100" y="432" class="text tag">06 ACTION</text>
+    <text x="100" y="468" class="text h">问题下钻整改</text>
+    <text x="100" y="500" class="text muted p">字段、记录、来源表、责任单元</text>
+  </g>
+
+  <path d="M320 230 C390 170 420 165 465 190" fill="none" stroke="#06b6d4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M715 190 C790 165 820 170 860 230" fill="none" stroke="#06b6d4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M985 308 V392" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M860 468 C790 540 760 540 715 512" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M465 512 C390 540 355 540 320 468" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M195 392 V308" fill="none" stroke="#06b6d4" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M452 179 L468 191 L449 197 Z" fill="#06b6d4"/>
+  <path d="M847 220 L863 232 L843 238 Z" fill="#06b6d4"/>
+  <path d="M974 378 L985 397 L996 378 Z" fill="#14b8a6"/>
+  <path d="M728 520 L710 511 L730 501 Z" fill="#14b8a6"/>
+  <path d="M333 477 L315 467 L335 458 Z" fill="#14b8a6"/>
+  <path d="M184 322 L195 303 L206 322 Z" fill="#06b6d4"/>
+
+  <rect x="401" y="300" width="378" height="52" rx="18" fill="#071015" stroke="#1f5f6b"/>
+  <text x="590" y="333" text-anchor="middle" class="text p">所有结果必须有口径、规则版本、来源依据与审计编号</text>
+</svg>
