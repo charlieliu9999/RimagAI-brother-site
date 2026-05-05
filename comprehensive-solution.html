@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>综合方案 — 知识库·DRG·质控·数据分析 | RimagAi</title>
+  <meta name="description" content="RimagAi 综合场景方案：知识库管理、DRG 费用合规预警、病历内涵质控、数据分析看板。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    .hero-comp { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-comp::before {
+      content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(34,197,94,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-comp h1 {
+      font-size: clamp(34px, 5vw, 56px); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
+      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-comp p { font-size: 17px; color: var(--text-secondary); max-width: 680px; margin: 0 auto 32px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .module-section { border-top: 1px solid var(--border); }
+    .module-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+    .module-header .badge {
+      padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    }
+    .module-header h3 { font-size: 22px; font-weight: 700; }
+
+    .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .module-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.25s;
+    }
+    .module-card:hover { border-color: var(--border-hover); }
+    .module-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .module-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    .screenshot-box {
+      max-width: 900px; margin: 32px auto 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .screenshot-box img { width: 100%; display: block; }
+
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto; padding: 48px 40px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(99,102,241,0.08));
+      border: 1px solid rgba(34,197,94,0.2);
+    }
+    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .hero-comp { padding: 120px 0 60px; }
+      .module-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-brand"><div class="logo">R</div><span>RimagAi</span></a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#" class="active">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-comp">
+    <div class="container">
+      <h1>综合场景方案</h1>
+      <p>知识库管理、DRG 费用合规、病历内涵质控、数据分析看板——这些横跨多科室的能力模块，由 MCOS 治理层和进化层统一支撑。</p>
+    </div>
+  </section>
+
+  <!-- Knowledge Base -->
+  <section class="section module-section">
+    <div class="container">
+      <div class="module-header">
+        <span class="badge" style="background:rgba(34,197,94,0.12); color:var(--green);">L6 进化层</span>
+        <h3>知识库管理</h3>
+      </div>
+      <div class="module-grid">
+        <div class="module-card animate-in">
+          <h4>本院规范沉淀</h4>
+          <p>将科室诊疗规范、操作流程、用药习惯等隐性知识结构化存储，形成可检索、可引用的组织级知识资产。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>智能问答</h4>
+          <p>基于知识库的精准问答，支持自然语言查询本院规范和临床指南。答案附带来源引用，可追溯验证。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>反馈学习</h4>
+          <p>捕获医生对 AI 推荐的采纳/修正行为，自动萃取经验规则，持续优化本地知识库质量。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>版本管理</h4>
+          <p>知识条目支持版本追踪和审批流程，确保规范更新有据可查，避免过时信息误导临床决策。</p>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_rimagai_brother/通用-知识问答.png" alt="知识库问答界面" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- DRG -->
+  <section class="section section-alt module-section">
+    <div class="container">
+      <div class="module-header">
+        <span class="badge" style="background:rgba(249,115,22,0.12); color:var(--orange);">L5 治理层</span>
+        <h3>DRG 费用合规预警</h3>
+      </div>
+      <div class="module-grid">
+        <div class="module-card animate-in">
+          <h4>医嘱前置拦截</h4>
+          <p>在医嘱提交前实时检查编码正确性、费用合理性和医保政策合规性，将问题拦截在源头。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>分组预测</h4>
+          <p>根据当前诊断和操作预测 DRG 分组结果，提示可能的费用超标风险和优化建议。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>规则引擎驱动</h4>
+          <p>本地规则引擎零延迟执行，不依赖网络。支持自定义规则集，适配各地医保政策差异。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>统计分析</h4>
+          <p>科室/病种维度的费用分析看板，识别异常模式，辅助医保办和质管科进行精细化管理。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMR Quality -->
+  <section class="section module-section">
+    <div class="container">
+      <div class="module-header">
+        <span class="badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 认知层</span>
+        <h3>病历内涵质控</h3>
+      </div>
+      <div class="module-grid">
+        <div class="module-card animate-in">
+          <h4>后台自动轮询</h4>
+          <p>无需医生主动触发，系统后台定时批量扫描在院和归档病历，发现问题自动推送至质管科。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>多维度检查</h4>
+          <p>完整性检查（必填项）+ 逻辑一致性（诊断与用药匹配）+ 时效性（签名时限）+ 规范性（术语使用）。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>问题分级</h4>
+          <p>按严重程度分级（提示/警告/错误），关键问题实时阻断，一般问题汇总报告，避免过度打扰。</p>
+        </div>
+        <div class="module-card animate-in">
+          <h4>整改闭环</h4>
+          <p>问题项推送至责任医生，支持在线整改和复核。质管科可追踪整改进度和科室质控趋势。</p>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_report_qc/质控分析.png" alt="质控分析看板" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-in">
+        <h2>构建医院级知识与治理体系</h2>
+        <p>知识库、DRG 预审和病历质控模块可独立部署，也可与 CDSS、报告生成等场景联动，形成完整的医院认知网络。</p>
+        <div class="hero-actions">
+          <a href="hospital-solution.html" class="btn-primary">查看落地方案</a>
+          <a href="data-platform.html" class="btn-secondary">数据智能体</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <a href="cdss-solution.html">CDSS 决策支持</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
+      </div>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    const btt = document.getElementById('backToTop');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

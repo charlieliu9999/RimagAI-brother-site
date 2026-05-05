@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医院解决方案 — 三科室系统级 AI 落地路径 | RimagAi</title>
+  <meta name="description" content="RimagAi 为临床、影像、信息三大科室提供系统级 AI 落地方案。基于 MCOS 六层架构，90 天分阶段交付，本地优先部署。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    .hero-hospital { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-hospital::before {
+      content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-hospital h1 {
+      font-size: clamp(34px, 5vw, 56px); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
+      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-hospital p { font-size: 17px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .dept-section { border-top: 1px solid var(--border); }
+    .dept-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .dept-header .badge { padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+    .dept-header h3 { font-size: 22px; font-weight: 700; }
+
+    .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+    .solution-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.25s;
+    }
+    .solution-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .solution-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .solution-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .solution-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .solution-card .tag {
+      display: inline-block; margin-top: 10px; padding: 2px 8px; border-radius: 4px;
+      font-size: 11px; font-weight: 600; background: rgba(99,102,241,0.1); color: var(--accent);
+    }
+
+    .timeline-section { max-width: 800px; margin: 0 auto; }
+    .timeline-item {
+      display: grid; grid-template-columns: 80px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-phase {
+      text-align: center; padding: 12px 8px; border-radius: var(--radius);
+      font-size: 13px; font-weight: 700; height: fit-content;
+    }
+    .timeline-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .timeline-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    .deploy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .deploy-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; text-align: center; transition: all 0.25s;
+    }
+    .deploy-card:hover { border-color: var(--border-hover); }
+    .deploy-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .deploy-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .deploy-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    .screenshot-box {
+      max-width: 900px; margin: 40px auto 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .screenshot-box img { width: 100%; display: block; }
+
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto; padding: 48px 40px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(99,102,241,0.08));
+      border: 1px solid rgba(168,85,247,0.2);
+    }
+    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .hero-hospital { padding: 120px 0 60px; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .deploy-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 60px 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-brand"><div class="logo">R</div><span>RimagAi</span></a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html" class="active">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-hospital">
+    <div class="container">
+      <h1>医院解决方案</h1>
+      <p>不是卖单点工具，而是帮医院建设系统级 AI 能力。基于 MCOS 六层架构，覆盖临床、影像、信息三大科室，90 天分阶段交付，本地优先部署。</p>
+      <div class="hero-actions">
+        <a href="architecture.html" class="btn-secondary">了解 MCOS 架构</a>
+        <a href="mcos-blueprint-whitepaper.html" class="btn-secondary">阅读白皮书</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Department -->
+  <section class="section dept-section">
+    <div class="container">
+      <div class="dept-header">
+        <span class="badge" style="background:rgba(59,130,246,0.12); color:var(--blue);">临床科室</span>
+        <h3>门诊 + 住院全流程覆盖</h3>
+      </div>
+      <p style="font-size:14px; color:var(--text-secondary); max-width:700px; margin:0 auto 24px; text-align:center; line-height:1.7;">从患者进入诊室到医嘱提交，AI 贯穿每个环节：录入提效、决策辅助、费用合规。不打断工作流，不增加操作步骤。</p>
+      <div class="solution-grid animate-in">
+        <div class="solution-card">
+          <div class="icon">🧠</div>
+          <h4>CDSS 分阶段推理</h4>
+          <p>诊断→检查→用药→处置四阶段独立推理，每步附带置信度评分与文献/指南依据。医生可在任意节点介入修正，规则引擎同步拦截关键禁忌。</p>
+          <span class="tag">L3 认知层</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">📝</div>
+          <h4>智能病历录入</h4>
+          <p>语音（FunASR 流式识别）、截屏（OCR + 视觉理解）、文字三通道并行。AI 自动提取结构化 EMR 字段，字段级置信度标记，一键确认写回 HIS。</p>
+          <span class="tag">L1 + L4</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">💰</div>
+          <h4>DRG 费用预警</h4>
+          <p>医嘱提交前实时检查编码正确性、费用合理性和医保政策合规性。本地规则引擎零延迟执行，支持自定义规则集适配各地政策。</p>
+          <span class="tag">L5 治理层</span>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/presentation/product-emr-entry.webp" alt="智能病历录入工作站 — 语音/截屏/文字三通道并行" loading="lazy">
+      </div>
+      <div class="screenshot-box animate-in" style="margin-top:20px;">
+        <img src="assets/presentation/product-cdss-workbench.webp" alt="CDSS 分阶段推理工作台" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Radiology Department -->
+  <section class="section section-alt dept-section">
+    <div class="container">
+      <div class="dept-header">
+        <span class="badge" style="background:rgba(6,182,212,0.12); color:var(--cyan);">影像科室</span>
+        <h3>报告生成 + 质控双闭环</h3>
+      </div>
+      <p style="font-size:14px; color:var(--text-secondary); max-width:700px; margin:0 auto 24px; text-align:center; line-height:1.7;">影像科医生的核心痛点是报告编写耗时和质量一致性。MCOS 从生成到质控形成闭环，同时通过 ACRAC 减少不必要检查。</p>
+      <div class="solution-grid animate-in">
+        <div class="solution-card">
+          <div class="icon">📄</div>
+          <h4>智能报告生成</h4>
+          <p>语音控制 + DICOM 影像集成 + 结构化模板引擎。支持 CT/MR/DR/US 多模态，自动关联患者历史影像对比，报告编写时间缩短 60%+。</p>
+          <span class="tag">L1 + L4</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">🔍</div>
+          <h4>双重质控</h4>
+          <p>第一层：规则引擎实时拦截低级错误（漏项、左右标记、格式）。第二层：大模型语义质控（逻辑一致性、遗漏发现、术语规范）。</p>
+          <span class="tag">L3 + L5</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">🎯</div>
+          <h4>ACRAC 检查推荐</h4>
+          <p>基于 ACR 适宜性准则 + 国内专科共识，覆盖 200+ 临床场景。医嘱提交前评估检查适宜性（1-9 分），低适宜性检查给出替代建议。</p>
+          <span class="tag">L3 认知层</span>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_rimagai_brother/影像科-报告生成.png" alt="智能影像报告生成 — 语音控制 + 结构化模板" loading="lazy">
+      </div>
+      <div class="screenshot-box animate-in" style="margin-top:20px;">
+        <img src="assets/image_rimagai_brother/影像科-报告质控.png" alt="影像报告双重质控 — 规则引擎 + 语义质控" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- IT Department -->
+  <section class="section dept-section">
+    <div class="container">
+      <div class="dept-header">
+        <span class="badge" style="background:rgba(34,197,94,0.12); color:var(--green);">信息科室</span>
+        <h3>数据治理 + 知识沉淀</h3>
+      </div>
+      <p style="font-size:14px; color:var(--text-secondary); max-width:700px; margin:0 auto 24px; text-align:center; line-height:1.7;">信息科不再是"跑报表"的部门。数据智能体让业务人员自助查询，病历质控自动化运行，知识库持续积累组织级资产。</p>
+      <div class="solution-grid animate-in">
+        <div class="solution-card">
+          <div class="icon">🗄️</div>
+          <h4>院内数据智能体</h4>
+          <p>自然语言查询院内数据库，AI 自动生成安全 SQL。权限矩阵细粒度到表/字段级别，审计日志完整记录每次查询。MCP 工具链支持复杂分析任务自动拆解。</p>
+          <span class="tag">L2 + L5</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">📊</div>
+          <h4>病历内涵质控</h4>
+          <p>后台自动轮询批量扫描在院和归档病历。多维度检查：完整性 + 逻辑一致性 + 时效性 + 规范性。问题项按严重程度分级推送至质管科，支持整改闭环追踪。</p>
+          <span class="tag">L3 认知层</span>
+        </div>
+        <div class="solution-card">
+          <div class="icon">🌱</div>
+          <h4>知识沉淀与自进化</h4>
+          <p>将科室诊疗规范、操作流程、用药习惯等隐性知识结构化存储。捕获医生对 AI 推荐的采纳/修正行为，自动萃取经验规则，持续迭代本地知识库。</p>
+          <span class="tag">L6 进化层</span>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_rimagai_brother/数据分析.png" alt="院内数据智能体 — 自然语言查询 + 智能可视化" loading="lazy">
+      </div>
+      <div class="screenshot-box animate-in" style="margin-top:20px;">
+        <img src="assets/image_report_qc/质控分析.png" alt="病历内涵质控分析看板" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 90-Day Plan -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>90 天落地路径</h2>
+        <p>分阶段交付，每阶段可独立验收，降低实施风险</p>
+      </div>
+      <div class="timeline-section">
+        <div class="timeline-item animate-in">
+          <div class="timeline-phase" style="background:rgba(59,130,246,0.12); color:var(--blue);">P1<br>30天</div>
+          <div class="timeline-content">
+            <h4>基础接入 + 单场景验证</h4>
+            <p>完成 HIS/EMR/PACS 数据对接，部署 MCOS 核心运行层，选择 1 个高价值场景（如影像报告生成）完成端到端验证。</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-in">
+          <div class="timeline-phase" style="background:rgba(168,85,247,0.12); color:var(--purple);">P2<br>60天</div>
+          <div class="timeline-content">
+            <h4>多场景扩展 + 治理层上线</h4>
+            <p>扩展至 3-4 个场景，上线治理层（审计日志、权限矩阵、规则引擎），完成安全评估和合规审查。</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-in">
+          <div class="timeline-phase" style="background:rgba(34,197,94,0.12); color:var(--green);">P3<br>90天</div>
+          <div class="timeline-content">
+            <h4>全场景覆盖 + 进化层启动</h4>
+            <p>8 个核心场景全部上线，启动知识沉淀和反馈学习机制，建立持续优化的运营体系。</p>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/presentation/mcos-90-day-plan.webp" alt="MCOS 90 天落地计划" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Deployment -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>部署方式</h2>
+        <p>本地优先，灵活适配不同医院的基础设施条件</p>
+      </div>
+      <div class="deploy-grid">
+        <div class="deploy-card animate-in">
+          <div class="icon">🏥</div>
+          <h4>院内私有化部署</h4>
+          <p>全部组件部署在院内服务器，数据不出院墙。支持国产算力和国产大模型。Docker Compose 一键编排。</p>
+        </div>
+        <div class="deploy-card animate-in">
+          <div class="icon">☁️</div>
+          <h4>混合云部署</h4>
+          <p>敏感数据和核心推理本地运行，非敏感能力（知识检索、模型更新）可选云端。灵活平衡成本与安全。</p>
+        </div>
+        <div class="deploy-card animate-in">
+          <div class="icon">🔌</div>
+          <h4>非侵入式对接</h4>
+          <p>通过标准接口对接现有 HIS/EMR/PACS/RIS/LIS，不改动原有系统架构，提供平滑的工作流改造路径。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-in">
+        <h2>开始构建医院认知网络</h2>
+        <p>MCOS 已在 8 个核心场景完成工程级验证（58 个测试用例）。我们提供从需求评估到上线运营的全程支持，欢迎安排技术交流。</p>
+        <div class="hero-actions">
+          <a href="mcos-blueprint-whitepaper.html" class="btn-primary">阅读白皮书</a>
+          <a href="architecture.html" class="btn-secondary">技术架构详情</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="radiology-solution.html">影像科方案</a>
+        <a href="cdss-solution.html">CDSS 决策支持</a>
+        <a href="data-platform.html">数据智能体</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
+      </div>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    const btt = document.getElementById('backToTop');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

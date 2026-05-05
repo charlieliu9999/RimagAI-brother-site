@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDSS 临床决策支持 — 分阶段推理与检查推荐 | RimagAi</title>
+  <meta name="description" content="基于 MCOS 认知层的 CDSS 分阶段推理引擎，融合 ACR 准则的智能检查推荐，为临床医生提供置信度与依据关联的决策支持。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    .hero-cdss { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-cdss::before {
+      content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-cdss h1 {
+      font-size: clamp(34px, 5vw, 56px); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
+      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-cdss p { font-size: 17px; color: var(--text-secondary); max-width: 680px; margin: 0 auto 32px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .stage-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 960px; margin: 0 auto; }
+    .stage-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; text-align: center; position: relative; transition: all 0.25s;
+    }
+    .stage-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .stage-card .num {
+      width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff; background: var(--accent);
+    }
+    .stage-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .stage-card p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.25s;
+    }
+    .feature-card:hover { border-color: var(--border-hover); }
+    .feature-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    .screenshot-box {
+      max-width: 900px; margin: 48px auto 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .screenshot-box img { width: 100%; display: block; }
+
+    .acrac-section { border-top: 1px solid var(--border); }
+    .acrac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .acrac-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.25s;
+    }
+    .acrac-card:hover { border-color: var(--border-hover); }
+    .acrac-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .acrac-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .acrac-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto; padding: 48px 40px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.08));
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .hero-cdss { padding: 120px 0 60px; }
+      .stage-flow { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid, .acrac-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-brand"><div class="logo">R</div><span>RimagAi</span></a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#" class="active">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-cdss">
+    <div class="container">
+      <h1>CDSS 智能<br>临床决策支持</h1>
+      <p>不是传统弹窗式 CDSS，而是融合在工作流中的分阶段推理引擎。从诊断到处置，每步提供置信度与依据关联，结合 ACR 准则实现智能检查推荐。</p>
+      <div class="hero-actions">
+        <a href="hospital-solution.html" class="btn-secondary">查看落地方案</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stage Flow -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>分阶段推理流程</h2>
+        <p>每个阶段独立推理，医生可在任意节点介入确认或修正</p>
+      </div>
+      <div class="stage-flow">
+        <div class="stage-card animate-in">
+          <div class="num">1</div>
+          <h4>诊断推理</h4>
+          <p>基于主诉、病史和检查结果，生成鉴别诊断列表及置信度排序</p>
+        </div>
+        <div class="stage-card animate-in">
+          <div class="num">2</div>
+          <h4>检查建议</h4>
+          <p>根据诊断假设推荐必要检查项目，标注 ACR 适宜性等级和辐射剂量</p>
+        </div>
+        <div class="stage-card animate-in">
+          <div class="num">3</div>
+          <h4>用药方案</h4>
+          <p>结合诊断和患者特征推荐用药，自动检查禁忌、相互作用和剂量</p>
+        </div>
+        <div class="stage-card animate-in">
+          <div class="num">4</div>
+          <h4>处置计划</h4>
+          <p>生成综合处置建议，包含随访计划、注意事项和患者教育要点</p>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/presentation/product-cdss-workbench.webp" alt="CDSS 工作台界面" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>核心能力</h2>
+        <p>区别于传统 CDSS 的关键特性</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card animate-in">
+          <h4>📊 显式不确定性</h4>
+          <p>每个推荐都附带置信度评分和依据来源。医生清楚知道 AI 的"把握程度"，而非面对一个黑盒结论。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <h4>🔗 依据关联</h4>
+          <p>推荐结果关联到具体的临床指南、文献或本院规范。支持一键跳转查看原始依据。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <h4>🛡️ 规则引擎兜底</h4>
+          <p>大模型推理之外，本地规则引擎作为确定性兜底。关键禁忌和红线规则零延迟同步执行。</p>
+        </div>
+        <div class="feature-card animate-in">
+          <h4>🔄 上下文感知</h4>
+          <p>自动整合患者纵向病史、当前就诊信息和 HIS 数据，无需医生手动输入背景信息。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACRAC Section -->
+  <section class="section acrac-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>ACRAC 检查适宜性推荐</h2>
+        <p>基于 ACR 准则的智能检查方案推荐，减少不必要的辐射暴露</p>
+      </div>
+      <div class="acrac-grid">
+        <div class="acrac-card animate-in">
+          <div class="icon">📋</div>
+          <h4>准则数字化</h4>
+          <p>将 ACR 适宜性准则和国内专科共识转化为可计算的知识网络，覆盖 200+ 临床场景。</p>
+        </div>
+        <div class="acrac-card animate-in">
+          <div class="icon">🎯</div>
+          <h4>精准匹配</h4>
+          <p>根据患者临床信息自动匹配最适宜的检查方案，给出适宜性评分（1-9 分）和推荐等级。</p>
+        </div>
+        <div class="acrac-card animate-in">
+          <div class="icon">⚡</div>
+          <h4>实时拦截</h4>
+          <p>在医嘱提交前实时评估检查适宜性，对低适宜性检查给出替代建议，减少不必要辐射。</p>
+        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_acrac_web/ACRAC-架构.png" alt="ACRAC 检查适宜性推荐系统架构" loading="lazy">
+      </div>
+      <div class="screenshot-box animate-in" style="margin-top:24px;">
+        <img src="assets/image_acrac_web/ACRAC-dashscope.png" alt="ACRAC 智能推荐界面" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-in">
+        <h2>体验 CDSS 分阶段推理</h2>
+        <p>CDSS 模块已完成工程级验证，支持门诊和住院两种工作流。欢迎安排演示，了解如何在贵院临床科室落地。</p>
+        <div class="hero-actions">
+          <a href="hospital-solution.html" class="btn-primary">查看落地方案</a>
+          <a href="architecture.html" class="btn-secondary">技术架构</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <a href="radiology-solution.html">影像科方案</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
+      </div>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    const btt = document.getElementById('backToTop');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
