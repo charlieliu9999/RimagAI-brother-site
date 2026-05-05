@@ -27,8 +27,8 @@ deploy_production:
         --exclude='._*' \
         --exclude='*.bak' \
         --exclude='node_modules/' \
-        --exclude='README.md' \
-        --exclude='sync-whitepaper.js' \
+        --exclude='scripts/' \
+        --exclude='AGENTS.md' \
         -e "ssh -o StrictHostKeyChecking=no" \
         "${CI_PROJECT_DIR}/" \
         ${VPS_USER}@${VPS_HOST}:${DEPLOY_PATH}/
