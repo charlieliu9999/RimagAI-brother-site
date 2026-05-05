@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RimagAi Brother 下载</title>
+  <meta name="description" content="下载 RimagAi Brother 桌面端安装包，支持 Windows、macOS 与 Linux。">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    .download-page { padding: 128px 0 72px; }
+    .download-head { max-width: 760px; margin-bottom: 44px; }
+    .download-head .eyebrow {
+      color: var(--accent-hover); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; margin-bottom: 12px;
+    }
+    .download-head h1 {
+      font-size: 42px; line-height: 1.16; margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .download-head p {
+      color: var(--text-secondary); font-size: 16px; max-width: 640px;
+    }
+    .release-note {
+      display: inline-flex; gap: 10px; align-items: center;
+      margin-top: 22px; padding: 8px 12px; border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text-muted); font-size: 13px;
+      background: rgba(255,255,255,0.02);
+    }
+    .download-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 32px;
+    }
+    .download-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px; min-height: 220px;
+      display: flex; flex-direction: column;
+    }
+    .download-card h2 { font-size: 18px; margin-bottom: 8px; }
+    .download-card p {
+      color: var(--text-secondary); font-size: 14px; line-height: 1.65;
+      margin-bottom: 18px; flex: 1;
+    }
+    .download-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .download-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 38px; padding: 8px 14px; border-radius: 8px;
+      background: rgba(99,102,241,0.14); color: var(--accent-hover);
+      border: 1px solid rgba(99,102,241,0.24); font-size: 13px; font-weight: 600;
+    }
+    .download-link.secondary {
+      background: transparent; color: var(--text-secondary); border-color: var(--border);
+    }
+    .download-link:hover { color: var(--text-primary); border-color: var(--accent-hover); }
+    .quiet-panel {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      color: var(--text-muted); font-size: 13px; line-height: 1.8;
+    }
+    @media (max-width: 900px) {
+      .download-grid { grid-template-columns: 1fr; }
+      .download-head h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <div class="logo">R</div>
+        <span>RimagAi</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="download-page">
+    <div class="container">
+      <section class="download-head">
+        <div class="eyebrow">RimagAi Brother</div>
+        <h1>桌面端安装包下载</h1>
+        <p>面向院内工作站使用的桌面端应用，支持 Windows、macOS 与 Linux。医院部署时建议由信息科统一分发，并结合本院网络、权限与数据安全要求完成配置。</p>
+        <div class="release-note">当前版本：v0.3.0 · 安装包托管于 GitHub Releases</div>
+      </section>
+
+      <section class="download-grid" aria-label="按平台下载">
+        <article class="download-card">
+          <h2>Windows</h2>
+          <p>适用于 Windows 医生工作站。推荐下载 Setup 安装包，便于标准桌面环境安装与升级。</p>
+          <div class="download-actions">
+            <a class="download-link" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest/download/RimagAi.Brother.Setup.0.3.0.exe">下载安装包</a>
+            <a class="download-link secondary" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest">查看 Release</a>
+          </div>
+        </article>
+
+        <article class="download-card">
+          <h2>macOS</h2>
+          <p>提供 Apple Silicon 与 Intel 两类安装包。请根据终端设备芯片类型选择对应版本。</p>
+          <div class="download-actions">
+            <a class="download-link" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest/download/RimagAi.Brother-0.3.0-arm64.dmg">Apple Silicon</a>
+            <a class="download-link secondary" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest/download/RimagAi.Brother-0.3.0.dmg">Intel</a>
+          </div>
+        </article>
+
+        <article class="download-card">
+          <h2>Linux</h2>
+          <p>适用于院内 Linux 终端或测试环境。可选择 AppImage 直接运行，或使用 deb 包纳入系统安装管理。</p>
+          <div class="download-actions">
+            <a class="download-link" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest/download/RimagAi.Brother-0.3.0.AppImage">AppImage</a>
+            <a class="download-link secondary" href="https://github.com/charlieliu9999/RimagAI-brother-site/releases/latest/download/rimagai-brother_0.3.0_amd64.deb">deb</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="quiet-panel">
+        <p>桌面端需要配合院内服务、模型服务或受控 API 使用。涉及患者数据的场景应优先采用院内部署、权限控制与审计策略。</p>
+        <p><a href="https://github.com/charlieliu9999/RimagAI-brother-site/releases" style="color:var(--text-secondary); text-decoration:underline;">查看历史版本</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <a href="radiology-solution.html">影像科方案</a>
+        <a href="cdss-solution.html">CDSS 决策支持</a>
+        <a href="data-platform.html">数据智能体</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">MCOS 白皮书</a>
+        <a href="download.html">下载</a>
+      </div>
+      <p>RimagAi · 医疗认知操作系统（MCOS）· 重塑医院智能底层逻辑</p>
+    </div>
+  </footer>
+</body>
+</html>
