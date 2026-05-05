@@ -1,0 +1,1866 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIMAG Brother MCOS 医疗智能操作系统介绍</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5b6673;
+      --line: #d9e0e8;
+      --paper: #f6f8fb;
+      --surface: #ffffff;
+      --accent: #116d6e;
+      --accent-2: #355c9f;
+      --accent-3: #9a5b18;
+      --green-soft: #e8f4f1;
+      --blue-soft: #eaf0fb;
+      --amber-soft: #fff3df;
+      --red-soft: #faeaea;
+      --gray-soft: #edf1f5;
+      --shadow: 0 16px 42px rgba(23, 33, 43, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.62;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 48px;
+      align-items: center;
+      padding: 56px 0 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      max-width: 760px;
+    }
+
+    h2 {
+      font-size: clamp(27px, 3vw, 40px);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero-copy {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .pill {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.76);
+      color: #263440;
+    }
+
+    .visual {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      border-radius: 8px;
+    }
+
+    .visual-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .visual-title strong {
+      font-size: 18px;
+    }
+
+    .visual-title span {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      min-height: 72px;
+      overflow: hidden;
+    }
+
+    .layer-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      background: var(--accent);
+      font-size: 20px;
+    }
+
+    .layer:nth-child(2) .layer-num,
+    .layer:nth-child(5) .layer-num {
+      background: var(--accent-2);
+    }
+
+    .layer:nth-child(3) .layer-num,
+    .layer:nth-child(6) .layer-num {
+      background: var(--accent-3);
+    }
+
+    .layer-body {
+      padding: 11px 14px 10px 0;
+    }
+
+    .layer-body b {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .layer-body span {
+      color: var(--muted);
+      font-size: 13px;
+      display: block;
+      line-height: 1.45;
+    }
+
+    section {
+      padding: 38px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.75fr) minmax(360px, 1.25fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(23, 33, 43, 0.045);
+    }
+
+    .card .tag {
+      display: inline-flex;
+      min-height: 26px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--green-soft);
+      color: #0c5e5f;
+      margin-bottom: 14px;
+    }
+
+    .card.blue .tag {
+      background: var(--blue-soft);
+      color: #294f93;
+    }
+
+    .card.amber .tag {
+      background: var(--amber-soft);
+      color: #854b11;
+    }
+
+    .card.red .tag {
+      background: var(--red-soft);
+      color: #914041;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 19px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .band {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 18px 0;
+    }
+
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: table;
+      box-shadow: 0 8px 22px rgba(23, 33, 43, 0.045);
+    }
+
+    .matrix th,
+    .matrix td {
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      padding: 14px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .matrix th {
+      background: #eaf0f3;
+      color: #253342;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .matrix td {
+      color: var(--muted);
+    }
+
+    .matrix tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .matrix th:last-child,
+    .matrix td:last-child {
+      border-right: 0;
+    }
+
+    .matrix strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+      margin-top: 16px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 112px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      width: 10px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .step span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .scenario {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(23, 33, 43, 0.045);
+    }
+
+    .scenario + .scenario {
+      margin-top: 14px;
+    }
+
+    .scenario-label {
+      border-right: 1px solid var(--line);
+      padding-right: 18px;
+    }
+
+    .scenario-label span {
+      display: block;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .scenario-body {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .mini p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.52;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      background: #fbfcfe;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 116px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .interaction-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .interaction-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 18px;
+      min-height: 136px;
+    }
+
+    .interaction-card b {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .interaction-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.48;
+    }
+
+    .product {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(23, 33, 43, 0.045);
+      padding: 26px;
+    }
+
+    .product + .product {
+      margin-top: 18px;
+    }
+
+    .product-head {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.78fr) minmax(420px, 1.22fr);
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .product-label {
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--blue-soft);
+      color: #294f93;
+      margin-bottom: 14px;
+    }
+
+    .product-head p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .product-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .flow-node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 94px;
+      background: #fbfcfe;
+      position: relative;
+    }
+
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      width: 8px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .flow-node:last-child::after {
+      display: none;
+    }
+
+    .flow-node b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .flow-node span {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .product-body {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .product-copy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .split-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .info-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfcfe;
+    }
+
+    .info-box h4 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .info-box ul {
+      margin-top: 8px;
+    }
+
+    .info-box li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric-chip {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+      min-height: 82px;
+    }
+
+    .metric-chip b {
+      display: block;
+      color: var(--accent);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .metric-chip span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.38;
+    }
+
+    .mock-screen {
+      border: 1px solid #cfd8e3;
+      border-radius: 8px;
+      background: #f8fafc;
+      overflow: hidden;
+      min-height: 430px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .screen-bar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--line);
+      background: #eef3f8;
+      color: #475463;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .screen-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .screen-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #8aa0b7;
+    }
+
+    .screen-content {
+      padding: 14px;
+    }
+
+    .mock-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr 0.86fr;
+      gap: 10px;
+    }
+
+    .mock-grid.two {
+      grid-template-columns: 0.88fr 1.12fr;
+    }
+
+    .mock-panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 116px;
+    }
+
+    .mock-panel h5 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: #253342;
+    }
+
+    .mock-line {
+      height: 9px;
+      border-radius: 999px;
+      background: #dfe6ee;
+      margin-bottom: 8px;
+    }
+
+    .mock-line.short {
+      width: 58%;
+    }
+
+    .mock-line.mid {
+      width: 76%;
+    }
+
+    .mock-line.accent {
+      background: #b7d8d4;
+    }
+
+    .patient-card {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .alert {
+      border-left: 4px solid var(--accent-3);
+      background: var(--amber-soft);
+      padding: 9px 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      color: #654018;
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .voice-wave {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 42px;
+      margin: 10px 0;
+    }
+
+    .voice-wave i {
+      display: block;
+      width: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .voice-wave i:nth-child(1) { height: 12px; }
+    .voice-wave i:nth-child(2) { height: 24px; }
+    .voice-wave i:nth-child(3) { height: 34px; }
+    .voice-wave i:nth-child(4) { height: 18px; }
+    .voice-wave i:nth-child(5) { height: 30px; }
+    .voice-wave i:nth-child(6) { height: 14px; }
+
+    .recommend-list,
+    .qc-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .recommend-item,
+    .qc-item {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 9px;
+      background: #fbfcfe;
+    }
+
+    .recommend-item b,
+    .qc-item b {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .recommend-item span,
+    .qc-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .score {
+      flex: 0 0 auto;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 2px 7px;
+      font-size: 11px;
+    }
+
+    .score.warn {
+      background: var(--accent-3);
+    }
+
+    .score.danger {
+      background: #9b4242;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 72px 1fr 36px;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .bar-track {
+      height: 9px;
+      background: #e4ebf2;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent-2);
+      border-radius: 999px;
+    }
+
+    .vision-tile {
+      min-height: 162px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(17, 109, 110, 0.18) 1px, transparent 1px),
+        linear-gradient(rgba(17, 109, 110, 0.16) 1px, transparent 1px),
+        #eef4f5;
+      background-size: 18px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-tile::before {
+      content: "";
+      position: absolute;
+      width: 102px;
+      height: 64px;
+      border: 2px solid var(--accent-3);
+      border-radius: 8px;
+      right: 36px;
+      top: 44px;
+      background: rgba(255, 243, 223, 0.42);
+    }
+
+    .vision-tile::after {
+      content: "异常区域标注";
+      position: absolute;
+      right: 34px;
+      top: 116px;
+      color: #854b11;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 32px 0 54px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 34px;
+    }
+
+    .print-note {
+      display: inline-block;
+      margin-top: 12px;
+      color: #44505b;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section-head,
+      .grid-3,
+      .grid-2,
+      .workflow,
+      .metrics,
+      .interaction-grid,
+      .product-head,
+      .product-body,
+      .product-flow,
+      .split-list,
+      .metric-row,
+      .mock-grid,
+      .mock-grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-node::after {
+        display: none;
+      }
+
+      .scenario {
+        grid-template-columns: 1fr;
+      }
+
+      .scenario-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 14px;
+      }
+
+      .scenario-body {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .step::after {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: auto;
+        margin: 0 12mm;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 18mm;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+
+      .card,
+      .visual,
+      .scenario,
+      .matrix,
+      .metric,
+      .step,
+      .product,
+      .mock-screen {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">医院决策者介绍文件</div>
+        <h1>RIMAG Brother MCOS 医疗智能操作系统</h1>
+        <p class="hero-copy">
+          以六层架构承接医院从临床、医技、信息、质控到医保运营的智能化需求，
+          将大模型能力、医学知识、院内数据、业务系统和持续治理机制整合为可落地、可审计、可进化的专业系统。
+        </p>
+        <div class="hero-actions">
+          <span class="pill">系统全貌</span>
+          <span class="pill">六层技术架构</span>
+          <span class="pill">视觉/语音/文本交互</span>
+          <span class="pill">场景化产品方案</span>
+          <span class="pill">自进化学习闭环</span>
+        </div>
+      </div>
+
+      <aside class="visual" aria-label="MCOS 六层架构摘要">
+        <div class="visual-title">
+          <strong>MCOS 六层架构</strong>
+          <span>从基础设施到业务闭环的统一承载</span>
+        </div>
+        <div class="stack">
+          <div class="layer">
+            <div class="layer-num">L6</div>
+            <div class="layer-body">
+              <b>应用与多模态交互层</b>
+              <span>临床助手、检查推荐、报告质控、语音录入、视觉理解、知识库门户</span>
+            </div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L5</div>
+            <div class="layer-body">
+              <b>智能体编排层</b>
+              <span>任务规划、工具调用、流程编排、人机协同、跨系统自动化</span>
+            </div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L4</div>
+            <div class="layer-body">
+              <b>模型与推理层</b>
+              <span>医学大模型、语音模型、视觉理解、影像文本模型、检索增强、评测与路由</span>
+            </div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L3</div>
+            <div class="layer-body">
+              <b>知识与规则层</b>
+              <span>指南、路径、药品、检验、影像模板、病案质控、DRG 规则库</span>
+            </div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L2</div>
+            <div class="layer-body">
+              <b>数据与互联层</b>
+              <span>HIS、EMR、LIS、RIS、PACS、CDR、医保、病案首页、主数据</span>
+            </div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L1</div>
+            <div class="layer-body">
+              <b>安全与部署层</b>
+              <span>私有化、混合云、权限、审计、脱敏、容器化、GPU 与信创适配</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">01. 决策价值</div>
+          <h2>不是单点 AI 工具，而是面向医院业务的智能底座</h2>
+        </div>
+        <p class="section-lead">
+          MCOS 的核心价值在于把大模型能力从“试点能力”转化为“医院级生产系统”：
+          能接入院内真实数据，能嵌入现有业务流程，能被医生和管理部门校验，能持续学习院内知识与规则，并能通过权限、审计和评测体系满足医疗场景的安全要求。
+        </p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">业务全局</span>
+          <h3>覆盖诊疗、医技、管理和医保</h3>
+          <p>围绕医生工作站、影像科、信息科、质控办、病案室、医保办等关键部门，把自然语言交互、自动生成、辅助判断和质量闭环统一到一套平台中。</p>
+        </article>
+        <article class="card blue">
+          <span class="tag">技术可控</span>
+          <h3>院内数据不裸奔，模型输出可追踪</h3>
+          <p>通过私有化或混合云部署、数据脱敏、接口网关、知识溯源、提示词版本、模型评测和日志审计，降低医疗 AI 进入生产流程的风险。</p>
+        </article>
+        <article class="card amber">
+          <span class="tag">长期演进</span>
+          <h3>从项目交付走向持续运营</h3>
+          <p>把医生反馈、质控结果、规则更新、典型病例和院内知识沉淀为可复用资产，形成“使用越多、越贴近本院”的持续优化机制。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="page">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">02. 架构特征</div>
+            <h2>六层架构把通用模型变成医院可用系统</h2>
+          </div>
+          <p class="section-lead">
+            每个场景不是孤立建设，而是在同一个 MCOS 架构上按需装配：底层统一安全部署和数据接入，中层统一知识、模型和智能体能力，上层按科室和业务流程形成专业应用。
+          </p>
+        </div>
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>架构层</th>
+              <th>医院关心的问题</th>
+              <th>MCOS 提供的能力</th>
+              <th>典型落点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>L1 安全与部署层</strong></td>
+              <td>数据能否留在院内，系统是否可审计，能否适配现有基础设施。</td>
+              <td>私有化、混合云、网络隔离、身份权限、操作审计、脱敏策略、模型资源调度。</td>
+              <td>内网部署、信创环境、GPU 资源池、统一认证、日志留痕。</td>
+            </tr>
+            <tr>
+              <td><strong>L2 数据与互联层</strong></td>
+              <td>AI 能否理解院内真实业务数据，而不只是回答通用问题。</td>
+              <td>对接 HIS、EMR、LIS、RIS、PACS、CDR、医保、病案、主数据，统一患者上下文和数据权限。</td>
+              <td>患者时间轴、检查检验摘要、病历结构化、院内指标查询。</td>
+            </tr>
+            <tr>
+              <td><strong>L3 知识与规则层</strong></td>
+              <td>输出是否符合临床规范、质控规则和本院制度。</td>
+              <td>指南路径、药品知识、检验参考、影像模板、质控标准、DRG 分组与医保规则、院内 SOP。</td>
+              <td>CDSS、合理用药提示、报告质控、病历质控、DRG 风险提醒。</td>
+            </tr>
+            <tr>
+              <td><strong>L4 模型与推理层</strong></td>
+              <td>模型是否稳定，复杂问题能否选择合适能力处理。</td>
+              <td>医学大模型、语音识别、视觉理解、文本生成、实体抽取、RAG 检索增强、多模型路由、评测集和安全约束。</td>
+              <td>语音病历、检查项目推荐、影像报告生成、医学问答、辅助诊断、知识库检索。</td>
+            </tr>
+            <tr>
+              <td><strong>L5 智能体编排层</strong></td>
+              <td>能否跨系统完成流程，而不是只给一段文本。</td>
+              <td>任务拆解、工具调用、表单填写、校验确认、人工复核、流程状态管理、异常回退。</td>
+              <td>自动填写病历、医嘱建议核查、报告质控流转、DRG 预审任务。</td>
+            </tr>
+            <tr>
+              <td><strong>L6 应用与多模态交互层</strong></td>
+              <td>医院各部门是否能直接使用，医生是否能用自然方式进入流程。</td>
+              <td>面向科室的应用入口、角色工作台、文本问答、语音录入、视觉标注、指标看板、反馈闭环、运营分析、版本管理。</td>
+              <td>临床助手、检查推荐助手、影像科助手、报告质控助手、信息科数据助手、DRG 助手。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="interaction-grid">
+          <div class="interaction-card">
+            <b>文本交互</b>
+            <span>支持自然语言问诊摘要、病历草稿、数据查询、知识库问答和质控意见生成，让非技术用户直接使用院内数据和知识。</span>
+          </div>
+          <div class="interaction-card">
+            <b>语音交互</b>
+            <span>支持门诊问诊录音、医生口述病历、影像报告语音生成、语音指令和结构化转写，减少键盘录入负担。</span>
+          </div>
+          <div class="interaction-card">
+            <b>视觉交互</b>
+            <span>支持检查影像上下文、报告截图、表单截图、质控标注和关键区域提示，把视觉材料纳入智能助手工作台。</span>
+          </div>
+          <div class="interaction-card">
+            <b>业务系统交互</b>
+            <span>通过工具调用和流程编排完成查询、推荐、校验、回写、复核和整改流转，避免 AI 停留在单次问答。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03. 场景矩阵</div>
+          <h2>按同一架构复用能力，按不同场景形成专业应用</h2>
+        </div>
+        <p class="section-lead">
+          医院可以从一个高价值场景切入，也可以按“临床效率、医疗质量、运营管理、知识服务”四条线分期建设。
+          MCOS 保持底座统一，避免每个部门重复建设数据接入、知识库、模型服务和安全审计。
+        </p>
+      </div>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>临床场景</span>
+          <h3>问诊、病历、CDSS、辅助诊断</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>围绕门诊和住院医生工作站，形成患者问诊摘要、病历自动草拟、检查检验解读、诊疗建议和风险提醒。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L2 汇聚患者上下文，L3 引入指南路径与药品规则，L4 生成和推理，L5 完成表单填充与医生确认。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>减少文书时间，提高病历完整性，帮助年轻医生规范诊疗，降低漏诊、漏问和不合理用药风险。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>影像科场景</span>
+          <h3>语音报告生成、报告质控</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>医生口述影像所见，系统生成结构化报告草稿，并对左右侧、部位、术语、结论一致性和危急值进行质控。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L2 对接 RIS/PACS，L3 管理报告模板和质控规则，L4 处理语音与文本生成，L5 触发复核和报告回写。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>提升报告出具效率，统一报告表达，减少低级错误和漏报风险，为影像科质控提供可量化抓手。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>信息科场景</span>
+          <h3>自然语言数据查询</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>管理者和业务科室用自然语言询问运营、质量、科研或医保指标，系统自动生成可解释查询并返回表格和图形。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L2 建立数据目录和指标口径，L3 管理指标解释和权限规则，L4 将问题转为查询，L5 执行校验和结果解读。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>降低临时取数压力，让管理者更快获得经营和医疗质量视图，同时保留权限、口径和查询过程审计。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>医学文本质控</span>
+          <h3>病历、报告、出院小结质控</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>对入院记录、病程记录、手术记录、出院小结、检查报告进行完整性、一致性、时效性和合规性检查。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L2 获取文书与诊疗事件，L3 维护质控规则，L4 做医学实体抽取和逻辑判断，L5 生成整改建议和复核任务。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>把事后抽检变为过程质控，减少病历返修，提高等级评审、医保审核和医疗安全管理的支撑能力。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>DRG 场景</span>
+          <h3>编码、分组、控费、病案首页</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>围绕住院过程和出院前审核，识别主要诊断、主要操作、并发症、合并症、费用异常和入组风险。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L2 对接 EMR、费用和病案首页，L3 管理 ICD、手术编码和 DRG 规则，L4 抽取证据，L5 形成预审闭环。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>提高首页质量和入组准确性，减少低倍率、超支和拒付风险，让医保运营从结果统计前移到过程管理。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="scenario">
+        <div class="scenario-label">
+          <span>专业知识库</span>
+          <h3>指南、制度、病例、科研知识</h3>
+        </div>
+        <div class="scenario-body">
+          <div class="mini">
+            <h4>业务流程</h4>
+            <p>把院内制度、临床路径、专科指南、药品目录、典型病例和科研资料建设为可检索、可引用的知识服务。</p>
+          </div>
+          <div class="mini">
+            <h4>架构实现</h4>
+            <p>L3 建立知识版本和证据等级，L4 提供 RAG 问答和摘要，L5 支持审批发布、过期提醒和专家反馈。</p>
+          </div>
+          <div class="mini">
+            <h4>决策收益</h4>
+            <p>让医院知识资产沉淀下来，支撑医生培训、专科能力建设、科研检索和跨院区标准化管理。</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="products">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">04. 场景化产品</div>
+          <h2>把平台能力包装成院内可直接落地的专业产品</h2>
+        </div>
+        <p class="section-lead">
+          以下三个产品是 MCOS 在医院核心业务中的典型落地形态：临床智能助手解决医生效率与诊疗规范问题，
+          检查项目推荐把 CDSS 前移到检查决策环节，报告质控把报告生成、规则审核和质量运营打通。
+        </p>
+      </div>
+
+      <article class="product">
+        <div class="product-head">
+          <div>
+            <span class="product-label">产品 1 | 临床场景</span>
+            <h2>临床智能助手</h2>
+            <p>
+              面向门诊、住院和专科诊疗场景，围绕“患者问诊、病历生成、CDSS 提醒、辅助诊断、医嘱核查”
+              形成医生工作站内的智能助手，帮助医生把更多时间放在诊疗判断上。
+            </p>
+          </div>
+          <div class="product-flow" aria-label="临床智能助手产品流程">
+            <div class="flow-node">
+              <b>患者进入</b>
+              <span>读取挂号、主诉、历史就诊、过敏史和基础信息。</span>
+            </div>
+            <div class="flow-node">
+              <b>问诊采集</b>
+              <span>支持文本录入、语音转写和专科问诊模板。</span>
+            </div>
+            <div class="flow-node">
+              <b>病历生成</b>
+              <span>自动形成现病史、体征、诊疗摘要和病历草稿。</span>
+            </div>
+            <div class="flow-node">
+              <b>智能校验</b>
+              <span>CDSS 检查诊断证据、用药风险和检查遗漏。</span>
+            </div>
+            <div class="flow-node">
+              <b>医生确认</b>
+              <span>医生修改确认后写回 EMR，并沉淀反馈。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-body">
+          <div class="product-copy">
+            <div class="split-list">
+              <div class="info-box">
+                <h4>核心功能</h4>
+                <ul>
+                  <li>患者病情摘要和就诊时间轴。</li>
+                  <li>语音问诊转写、主诉提炼和专科问诊追问。</li>
+                  <li>门诊病历、入院记录、病程记录和出院小结草稿。</li>
+                  <li>诊断建议、检查建议、用药核查和风险提示。</li>
+                </ul>
+              </div>
+              <div class="info-box">
+                <h4>产品优势</h4>
+                <ul>
+                  <li>嵌入医生工作站，减少系统切换。</li>
+                  <li>以患者上下文驱动，不是通用问答。</li>
+                  <li>建议均带证据来源，医生保留最终决策权。</li>
+                  <li>支持专科模板和本院诊疗规范持续更新。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-chip">
+                <b>文书效率</b>
+                <span>单份病历草稿生成时间、医生修改时间、模板复用率。</span>
+              </div>
+              <div class="metric-chip">
+                <b>诊疗质量</b>
+                <span>CDSS 提醒有效率、风险拦截数、病历完整性得分。</span>
+              </div>
+              <div class="metric-chip">
+                <b>医生采纳</b>
+                <span>建议采纳率、语音录入使用率、医生反馈满意度。</span>
+              </div>
+              <div class="metric-chip">
+                <b>运营闭环</b>
+                <span>规则命中趋势、专科差异、问题整改闭环率。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mock-screen" aria-label="临床智能助手截图示意">
+            <div class="screen-bar">
+              <div class="screen-dots"><i class="screen-dot"></i><i class="screen-dot"></i><i class="screen-dot"></i></div>
+              <span>截图示意 | 临床智能助手工作台</span>
+            </div>
+            <div class="screen-content">
+              <div class="mock-grid">
+                <div class="mock-panel">
+                  <h5>患者概览</h5>
+                  <div class="patient-card">
+                    <span>患者：张某某 | 56 岁 | 男</span>
+                    <span>主诉：胸闷、活动后气促 3 天</span>
+                    <span>过敏史：青霉素</span>
+                    <span>既往史：高血压 8 年</span>
+                  </div>
+                  <div class="alert">自动提示：既往高血压，建议补充心电图、肌钙蛋白等证据。</div>
+                </div>
+                <div class="mock-panel">
+                  <h5>病历草稿</h5>
+                  <div class="mock-line accent"></div>
+                  <div class="mock-line"></div>
+                  <div class="mock-line mid"></div>
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                  <div class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="mock-line accent"></div>
+                  <div class="mock-line mid"></div>
+                </div>
+                <div class="mock-panel">
+                  <h5>CDSS 建议</h5>
+                  <div class="recommend-list">
+                    <div class="recommend-item">
+                      <b>胸痛风险评估 <em class="score danger">高</em></b>
+                      <span>建议补全心电图、心肌酶谱，排除急性冠脉综合征。</span>
+                    </div>
+                    <div class="recommend-item">
+                      <b>用药核查 <em class="score warn">注意</em></b>
+                      <span>存在青霉素过敏史，处方前需再次确认。</span>
+                    </div>
+                    <div class="recommend-item">
+                      <b>病历完整性 <em class="score">92</em></b>
+                      <span>缺少体格检查中肺部听诊描述。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-head">
+          <div>
+            <span class="product-label">产品 2 | 检查项目推荐</span>
+            <h2>智能检查项目推荐系统</h2>
+            <p>
+              面向门诊首诊、住院入院评估、术前评估、专病随访和疑难病例讨论，
+              系统根据患者主诉、诊断假设、既往病史、检验检查结果和指南路径，推荐合适的检查项目组合。
+            </p>
+          </div>
+          <div class="product-flow" aria-label="检查项目推荐产品流程">
+            <div class="flow-node">
+              <b>输入上下文</b>
+              <span>主诉、症状、诊断假设、既往史、当前检验检查。</span>
+            </div>
+            <div class="flow-node">
+              <b>规则匹配</b>
+              <span>匹配专科指南、临床路径、禁忌证和本院检查目录。</span>
+            </div>
+            <div class="flow-node">
+              <b>项目推荐</b>
+              <span>输出必要检查、可选检查、复查建议和优先级。</span>
+            </div>
+            <div class="flow-node">
+              <b>理由解释</b>
+              <span>展示推荐依据、适应证、排除理由和费用影响。</span>
+            </div>
+            <div class="flow-node">
+              <b>医嘱确认</b>
+              <span>医生确认后进入医嘱系统，并回收采纳反馈。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-body">
+          <div class="product-copy">
+            <div class="split-list">
+              <div class="info-box">
+                <h4>核心功能</h4>
+                <ul>
+                  <li>按症状、疾病、专科路径推荐检查组合。</li>
+                  <li>识别已做检查，避免重复开单和遗漏关键项目。</li>
+                  <li>对禁忌证、检查前准备、优先级和时效性进行提醒。</li>
+                  <li>支持儿童、孕产妇、老年、肾功能异常等特殊人群规则。</li>
+                </ul>
+              </div>
+              <div class="info-box">
+                <h4>产品优势</h4>
+                <ul>
+                  <li>把 CDSS 前移到检查决策环节。</li>
+                  <li>推荐结果与本院检查目录和收费项目一致。</li>
+                  <li>既支持规范诊疗，也能减少不必要检查。</li>
+                  <li>为管理部门提供检查合理性和路径执行情况看板。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-chip">
+                <b>推荐准确</b>
+                <span>专家一致率、医生采纳率、关键检查遗漏下降。</span>
+              </div>
+              <div class="metric-chip">
+                <b>合理控费</b>
+                <span>重复检查识别数、不必要检查拦截数、费用结构变化。</span>
+              </div>
+              <div class="metric-chip">
+                <b>路径执行</b>
+                <span>临床路径符合率、检查时效性、复查建议执行率。</span>
+              </div>
+              <div class="metric-chip">
+                <b>用户体验</b>
+                <span>推荐响应时间、医嘱确认点击数、医生反馈问题数。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mock-screen" aria-label="检查项目推荐截图示意">
+            <div class="screen-bar">
+              <div class="screen-dots"><i class="screen-dot"></i><i class="screen-dot"></i><i class="screen-dot"></i></div>
+              <span>截图示意 | 检查项目推荐工作台</span>
+            </div>
+            <div class="screen-content">
+              <div class="mock-grid two">
+                <div class="mock-panel">
+                  <h5>患者上下文</h5>
+                  <div class="patient-card">
+                    <span>主诉：发热、咳嗽 5 天</span>
+                    <span>体征：T 38.6℃，SpO2 94%</span>
+                    <span>既往：慢阻肺，肾功能轻度异常</span>
+                    <span>已完成：血常规、CRP、胸片</span>
+                  </div>
+                  <div class="bar-chart">
+                    <div class="bar-row"><span>感染风险</span><div class="bar-track"><i class="bar-fill" style="width: 86%"></i></div><span>86</span></div>
+                    <div class="bar-row"><span>重复检查</span><div class="bar-track"><i class="bar-fill" style="width: 24%"></i></div><span>24</span></div>
+                    <div class="bar-row"><span>路径匹配</span><div class="bar-track"><i class="bar-fill" style="width: 78%"></i></div><span>78</span></div>
+                  </div>
+                </div>
+                <div class="mock-panel">
+                  <h5>推荐检查项目</h5>
+                  <div class="recommend-list">
+                    <div class="recommend-item">
+                      <b>胸部 CT 平扫 <em class="score">优先</em></b>
+                      <span>胸片信息不足，结合低氧和慢阻肺病史，建议进一步明确肺部感染范围。</span>
+                    </div>
+                    <div class="recommend-item">
+                      <b>降钙素原 PCT <em class="score">必要</em></b>
+                      <span>用于判断细菌感染可能性，与抗菌药物选择和疗效评估相关。</span>
+                    </div>
+                    <div class="recommend-item">
+                      <b>增强 CT <em class="score warn">暂缓</em></b>
+                      <span>存在肾功能轻度异常，需评估造影剂风险后确认。</span>
+                    </div>
+                    <div class="recommend-item">
+                      <b>血常规复查 <em class="score warn">避免重复</em></b>
+                      <span>今日已完成，短期内重复价值有限。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-head">
+          <div>
+            <span class="product-label">产品 3 | 报告质控</span>
+            <h2>医学报告智能质控系统</h2>
+            <p>
+              面向影像、超声、内镜、病理和检验解释类报告，系统在报告生成、提交和审核前进行实时质控，
+              对术语规范、左右侧一致性、所见结论一致性、危急值和结构化完整性进行自动检查。
+            </p>
+          </div>
+          <div class="product-flow" aria-label="报告质控产品流程">
+            <div class="flow-node">
+              <b>报告生成</b>
+              <span>支持语音录入、模板选择、结构化字段和报告草稿生成。</span>
+            </div>
+            <div class="flow-node">
+              <b>规则质控</b>
+              <span>检查部位、左右侧、性别、危急值、术语和字段完整性。</span>
+            </div>
+            <div class="flow-node">
+              <b>模型复核</b>
+              <span>识别所见与结论不一致、表达歧义和遗漏信息。</span>
+            </div>
+            <div class="flow-node">
+              <b>整改建议</b>
+              <span>定位问题段落，生成可采纳的修改建议。</span>
+            </div>
+            <div class="flow-node">
+              <b>质量运营</b>
+              <span>进入科室看板、医生画像、模板优化和培训闭环。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-body">
+          <div class="product-copy">
+            <div class="split-list">
+              <div class="info-box">
+                <h4>核心功能</h4>
+                <ul>
+                  <li>语音报告生成和结构化报告模板。</li>
+                  <li>报告提交前实时质控和问题定位。</li>
+                  <li>危急值、左右侧、部位、性别、术语和结论一致性检查。</li>
+                  <li>科室质控看板、缺陷分类、医生培训和模板治理。</li>
+                </ul>
+              </div>
+              <div class="info-box">
+                <h4>产品优势</h4>
+                <ul>
+                  <li>从报告末端抽检变为过程实时质控。</li>
+                  <li>规则引擎和医学大模型结合，覆盖机械错误和语义错误。</li>
+                  <li>问题定位到句子和字段，医生修改成本低。</li>
+                  <li>沉淀科室质量数据，支持持续改进和评级检查。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-chip">
+                <b>质量指标</b>
+                <span>报告缺陷率、重大缺陷拦截率、危急值漏报风险。</span>
+              </div>
+              <div class="metric-chip">
+                <b>效率指标</b>
+                <span>报告生成时间、审核返修时间、语音录入使用率。</span>
+              </div>
+              <div class="metric-chip">
+                <b>一致性</b>
+                <span>模板规范率、术语统一率、所见结论一致性得分。</span>
+              </div>
+              <div class="metric-chip">
+                <b>运营指标</b>
+                <span>科室缺陷趋势、医生整改闭环率、模板优化次数。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mock-screen" aria-label="报告质控截图示意">
+            <div class="screen-bar">
+              <div class="screen-dots"><i class="screen-dot"></i><i class="screen-dot"></i><i class="screen-dot"></i></div>
+              <span>截图示意 | 报告质控工作台</span>
+            </div>
+            <div class="screen-content">
+              <div class="mock-grid">
+                <div class="mock-panel">
+                  <h5>PACS 视觉上下文</h5>
+                  <div class="vision-tile"></div>
+                </div>
+                <div class="mock-panel">
+                  <h5>报告正文</h5>
+                  <div class="mock-line accent"></div>
+                  <div class="mock-line"></div>
+                  <div class="mock-line mid"></div>
+                  <div class="alert">定位问题：所见描述“右肺下叶”，结论写为“左肺下叶感染”，存在左右侧不一致。</div>
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                </div>
+                <div class="mock-panel">
+                  <h5>质控结果</h5>
+                  <div class="qc-list">
+                    <div class="qc-item">
+                      <b>左右侧一致性 <em class="score danger">严重</em></b>
+                      <span>建议将结论中“左肺下叶”核对为“右肺下叶”。</span>
+                    </div>
+                    <div class="qc-item">
+                      <b>危急值检查 <em class="score">通过</em></b>
+                      <span>未发现需触发危急值上报的描述。</span>
+                    </div>
+                    <div class="qc-item">
+                      <b>术语规范 <em class="score warn">提示</em></b>
+                      <span>建议使用本院标准术语“磨玻璃密度影”。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="band">
+      <div class="page">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">05. 重点案例</div>
+            <h2>从可见效果切入，再扩展到平台级复用</h2>
+          </div>
+          <p class="section-lead">
+            建议以“科室痛点明确、数据接入可控、效果指标清晰”的场景作为一期，例如临床文书减负、影像报告质控、DRG 出院前预审或信息科自然语言取数。
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <span class="tag">案例 A</span>
+            <h3>临床智能助手：从问诊到病历草稿</h3>
+            <ul>
+              <li>接入患者基本信息、历史就诊、检验检查、用药和过敏史。</li>
+              <li>根据医生选择的专科模板生成问诊提纲、病历草稿和诊疗摘要。</li>
+              <li>CDSS 在医生提交前提示关键风险，例如禁忌用药、检查遗漏、诊断证据不足。</li>
+              <li>医生确认后写回业务系统，所有模型建议保留证据来源和操作日志。</li>
+            </ul>
+          </article>
+          <article class="card blue">
+            <span class="tag">案例 B</span>
+            <h3>影像报告质控：从文本生成到闭环整改</h3>
+            <ul>
+              <li>语音识别结合报告模板，自动生成标准化影像所见与结论草稿。</li>
+              <li>质控规则检查性别部位冲突、左右侧冲突、结论与所见不一致、危急值遗漏。</li>
+              <li>系统对问题报告给出修改建议，严重问题进入上级医师复核流程。</li>
+              <li>质控结果进入科室看板，用于模板优化、医生培训和质量改进。</li>
+            </ul>
+          </article>
+          <article class="card amber">
+            <span class="tag">案例 C</span>
+            <h3>DRG 智能预审：把医保风险前置</h3>
+            <ul>
+              <li>抽取住院过程中的诊断、操作、并发症、费用明细和病程证据。</li>
+              <li>对主要诊断选择、ICD 编码、手术操作、CC/MCC 证据进行提示。</li>
+              <li>在出院前识别低倍率、超支、异常费用和首页缺项风险。</li>
+              <li>为临床、病案、医保办形成同一证据链，减少反复沟通成本。</li>
+            </ul>
+          </article>
+          <article class="card red">
+            <span class="tag">案例 D</span>
+            <h3>信息科数据助手：自然语言驱动指标查询</h3>
+            <ul>
+              <li>将院内数据表、指标口径、权限范围和常用报表纳入统一数据目录。</li>
+              <li>用户用自然语言提出问题，系统生成查询计划并解释指标口径。</li>
+              <li>敏感数据按角色脱敏，复杂查询可进入信息科审核后执行。</li>
+              <li>高频问题沉淀为标准指标服务，逐步减少重复取数和临时 SQL。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">06. 自进化方案</div>
+          <h2>让系统在使用中持续贴近本院业务</h2>
+        </div>
+        <p class="section-lead">
+          医疗 AI 不能只依赖一次性交付。MCOS 通过反馈采集、专家审核、知识更新、模型评测和灰度发布，
+          将真实使用过程转化为系统能力提升，同时保证每一次变化都有版本、证据和责任边界。
+        </p>
+      </div>
+      <div class="workflow">
+        <div class="step">
+          <b>1. 采集反馈</b>
+          <span>医生修改、质控结果、病案审核、医保拒付、用户评价进入反馈池。</span>
+        </div>
+        <div class="step">
+          <b>2. 专家复核</b>
+          <span>按专科、规则类型和风险等级分派给专家或管理人员确认。</span>
+        </div>
+        <div class="step">
+          <b>3. 知识更新</b>
+          <span>更新模板、规则、指南条目、指标口径、典型问答和证据片段。</span>
+        </div>
+        <div class="step">
+          <b>4. 模型评测</b>
+          <span>用院内评测集验证准确性、一致性、安全边界和不同科室表现。</span>
+        </div>
+        <div class="step">
+          <b>5. 灰度发布</b>
+          <span>按角色、科室和场景逐步上线，持续监测效果和异常。</span>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <strong>可追溯</strong>
+          <span>每条建议保留数据来源、知识来源、模型版本、提示词版本和用户确认记录。</span>
+        </div>
+        <div class="metric">
+          <strong>可评测</strong>
+          <span>关键场景建立本院评测集，避免模型升级后出现不可感知的质量波动。</span>
+        </div>
+        <div class="metric">
+          <strong>可控权</strong>
+          <span>高风险任务坚持医生或专家最终确认，系统负责建议、校验、提醒和证据整理。</span>
+        </div>
+        <div class="metric">
+          <strong>可扩展</strong>
+          <span>同一套数据、知识、模型和智能体底座可复用到更多科室和管理场景。</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">07. 建设路径</div>
+          <h2>分期建设，先形成示范闭环，再扩大覆盖面</h2>
+        </div>
+        <p class="section-lead">
+          推荐采用“三阶段”路线：一期完成高价值场景验证和基础接入，二期沉淀平台能力并扩大应用范围，三期形成跨部门智能运营和持续学习体系。
+        </p>
+      </div>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>建设重点</th>
+            <th>交付成果</th>
+            <th>决策指标</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>一期：示范场景</strong></td>
+            <td>选择 1-2 个痛点明确场景，完成数据接入、知识配置、流程嵌入和效果评估。</td>
+            <td>临床助手、影像质控、DRG 预审或数据助手的可用版本。</td>
+            <td>节省时间、质控命中率、医生采纳率、取数响应时间、风险拦截数。</td>
+          </tr>
+          <tr>
+            <td><strong>二期：平台复用</strong></td>
+            <td>统一身份权限、知识库、模型服务、智能体编排和审计评测能力。</td>
+            <td>MCOS 平台底座、统一门户、场景配置中心、运营看板。</td>
+            <td>新增场景上线周期、跨部门复用率、知识更新效率、系统稳定性。</td>
+          </tr>
+          <tr>
+            <td><strong>三期：智能运营</strong></td>
+            <td>建立反馈学习闭环、院内评测集、专家治理机制和管理驾驶舱。</td>
+            <td>持续学习流程、质量运营体系、医保运营闭环、专科知识资产库。</td>
+            <td>病历返修下降、报告缺陷下降、DRG 风险下降、管理决策响应提升。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">08. 面向院方的核心表述</div>
+          <h2>MCOS 的优势可以概括为四个统一</h2>
+        </div>
+        <p class="section-lead">
+          对医院管理层而言，MCOS 不是采购一个模型，而是建设一个能够长期承载医疗智能化应用的系统平台。
+        </p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <span class="tag">统一底座</span>
+          <h3>避免多部门重复建设</h3>
+          <p>数据接入、知识库、模型服务、权限审计和运维评测由平台统一承载，各场景按需配置和扩展。</p>
+        </article>
+        <article class="card blue">
+          <span class="tag">统一知识</span>
+          <h3>让 AI 输出符合本院规范</h3>
+          <p>把指南、制度、质控、编码、医保和专科经验沉淀为可版本化管理的知识资产。</p>
+        </article>
+        <article class="card amber">
+          <span class="tag">统一流程</span>
+          <h3>嵌入真实业务而非停留在问答</h3>
+          <p>通过智能体编排完成查询、生成、校验、回写、复核和整改闭环，使 AI 进入生产流程。</p>
+        </article>
+        <article class="card red">
+          <span class="tag">统一治理</span>
+          <h3>安全、质量和效果都能管理</h3>
+          <p>从权限、审计、评测、反馈到灰度发布建立治理体系，保障医疗场景可控落地。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>建议用途：</strong>院领导汇报、信息化建设立项、科室试点沟通、厂商方案说明、招采前技术交流。
+      <br>
+      <span class="print-note">浏览器打开后可直接使用打印功能导出 PDF；如需进入正式标书或 PPT，可在此版本基础上补充医院名称、现有系统清单、接口范围和试点指标。</span>
+    </footer>
+  </main>
+</body>
+</html>

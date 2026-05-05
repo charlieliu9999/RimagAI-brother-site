@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系统介绍 — 为什么医院需要 MCOS | RimagAi</title>
+  <meta name="description" content="医疗 AI 的主要矛盾已从模型能力不足转变为架构与治理能力缺位。了解 MCOS 如何解决单点工具孤岛问题。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    .hero-intro { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-intro::before {
+      content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(20,184,166,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-intro h1 {
+      font-size: clamp(34px, 5vw, 56px); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
+      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-intro p { font-size: 17px; color: var(--text-secondary); max-width: 680px; margin: 0 auto 32px; line-height: 1.75; }
+
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .pain-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px; transition: all 0.25s;
+    }
+    .pain-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .pain-card .icon { font-size: 28px; margin-bottom: 14px; }
+    .pain-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .pain-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    .insight-box {
+      max-width: 800px; margin: 48px auto 0; padding: 24px 28px; border-radius: var(--radius);
+      background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.15);
+      text-align: center; font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+    }
+    .insight-box strong { color: var(--orange); }
+
+    .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .value-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px; transition: all 0.25s;
+    }
+    .value-card:hover { border-color: var(--border-hover); }
+    .value-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .value-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    .compare-table {
+      width: 100%; max-width: 960px; margin: 0 auto; border-collapse: collapse; font-size: 14px;
+    }
+    .compare-table th {
+      padding: 14px 16px; text-align: left; font-weight: 600;
+      background: var(--bg-card); border-bottom: 1px solid var(--border);
+    }
+    .compare-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(39,39,42,0.5); color: var(--text-secondary);
+    }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .compare-table .highlight { color: var(--accent-hover); font-weight: 500; }
+
+    .runtime-visual {
+      max-width: 900px; margin: 48px auto 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .runtime-visual img { width: 100%; display: block; }
+
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto; padding: 48px 40px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(20,184,166,0.08), rgba(99,102,241,0.08));
+      border: 1px solid rgba(20,184,166,0.2);
+    }
+    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .hero-intro { padding: 120px 0 60px; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-brand"><div class="logo">R</div><span>RimagAi</span></a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="system-introduction.html" class="active">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-intro">
+    <div class="container">
+      <h1>为什么医院需要<br>智能·认知底座？</h1>
+      <p>过去两年，医院上了不少 AI 工具——智能问答、辅助诊断、语音录入。但坦率讲，这些工具大多是"单点插件"，彼此不通、数据不共享、治理不统一。MCOS 正是为解决这个系统级问题而生。</p>
+      <div class="hero-actions">
+        <a href="hospital-solution.html" class="btn-primary">查看落地方案</a>
+        <a href="architecture.html" class="btn-secondary">了解技术架构</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>当前医院 AI 的三大困境</h2>
+        <p>单点工具越多，系统性问题越突出</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card animate-in">
+          <div class="icon">🏝️</div>
+          <h4>工具孤岛</h4>
+          <p>各科室独立采购的 AI 工具彼此不通、数据不共享。医生在多个系统间切换，信息科逐个对接维护，成本高且效率低。</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="icon">⚠️</div>
+          <h4>治理真空</h4>
+          <p>AI 生成内容无统一审计、无权限分级、无责任归属。质管科无法追溯 AI 辅助决策的完整路径，合规风险持续累积。</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="icon">🔄</div>
+          <h4>能力不可积累</h4>
+          <p>每个工具独立运行，医生的反馈、科室的规范、本院的经验无法沉淀为组织级知识资产，系统不会随使用而进化。</p>
+        </div>
+      </div>
+      <div class="insight-box animate-in">
+        <strong>核心判断：</strong>医疗 AI 的主要矛盾，已从"模型能力不足"转变为"架构与治理能力缺位"。
+      </div>
+      <div class="runtime-visual animate-in" style="margin-top:48px;">
+        <img src="assets/presentation/mcos-core-definition.webp" alt="MCOS 核心定位 — 智能·认知底座定义" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- MCOS Value -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>MCOS 的价值主张</h2>
+        <p>不是又一个 AI 工具，而是让所有 AI 能力有序运行的系统层</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-card animate-in">
+          <h4>🔗 统一编排</h4>
+          <p>将大模型、规则引擎、知识库、工具调用统一编排进临床工作流，医生只需面对一个系统入口，而非多个割裂的 AI 窗口。</p>
+        </div>
+        <div class="value-card animate-in">
+          <h4>🛡️ 内建治理</h4>
+          <p>权限分级、审计链、规则引擎、风险阻断——治理不是事后补丁，而是架构的一部分。所有 AI 操作可追溯、可审计。</p>
+        </div>
+        <div class="value-card animate-in">
+          <h4>🏥 本地优先</h4>
+          <p>核心数据不出院墙，敏感计算端侧优先。支持国产算力本地模型私有化部署，满足等保和数据安全要求。</p>
+        </div>
+        <div class="value-card animate-in">
+          <h4>🌱 持续进化</h4>
+          <p>整合本院诊疗规范，捕获医生反馈，持续迭代本地规则库与知识检索库。系统越用越懂本院业务。</p>
+        </div>
+      </div>
+      <div class="runtime-visual animate-in">
+        <img src="assets/presentation/mcos-runtime-loop.webp" alt="MCOS 运行时闭环" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>与现有方案的对比</h2>
+        <p>MCOS 不是替代，而是在更高维度上组织能力</p>
+      </div>
+      <table class="compare-table animate-in">
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>单点 AI 工具</th>
+            <th>传统 CDSS</th>
+            <th>通用 Agent 框架</th>
+            <th class="highlight">MCOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>场景覆盖</td>
+            <td>单一场景</td>
+            <td>规则驱动，有限场景</td>
+            <td>通用但缺医疗适配</td>
+            <td class="highlight">8 个核心临床场景</td>
+          </tr>
+          <tr>
+            <td>治理能力</td>
+            <td>无</td>
+            <td>基础审计</td>
+            <td>无医疗治理</td>
+            <td class="highlight">权限 + 审计 + 规则引擎</td>
+          </tr>
+          <tr>
+            <td>数据安全</td>
+            <td>依赖厂商</td>
+            <td>本地但封闭</td>
+            <td>云端为主</td>
+            <td class="highlight">本地优先 + 国产算力</td>
+          </tr>
+          <tr>
+            <td>系统集成</td>
+            <td>独立运行</td>
+            <td>深度耦合 HIS</td>
+            <td>需大量定制</td>
+            <td class="highlight">非侵入式对接</td>
+          </tr>
+          <tr>
+            <td>知识积累</td>
+            <td>不可积累</td>
+            <td>规则库手动维护</td>
+            <td>无组织级沉淀</td>
+            <td class="highlight">自动经验萃取 + 反馈学习</td>
+          </tr>
+          <tr>
+            <td>模型锁定</td>
+            <td>绑定单一模型</td>
+            <td>无模型能力</td>
+            <td>绑定特定框架</td>
+            <td class="highlight">多模型调度，不锁定</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="runtime-visual animate-in" style="margin-top:48px;">
+        <img src="assets/presentation/mcos-product-matrix.webp" alt="MCOS 产品矩阵 — 8 个核心临床场景" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Governance Visual -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>治理层级</h2>
+        <p>没有治理层，MCOS 只是能力系统；有了治理层，才是可落地的临床辅助系统</p>
+      </div>
+      <div class="runtime-visual animate-in">
+        <img src="assets/presentation/mcos-governance-levels.webp" alt="MCOS 治理层级" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-in">
+        <h2>从了解到落地</h2>
+        <p>MCOS 六层架构已在 8 个核心临床场景中完成工程级验证。了解具体的院内部署方案和分期路径，或深入技术架构细节。</p>
+        <div class="hero-actions">
+          <a href="hospital-solution.html" class="btn-primary">查看落地方案</a>
+          <a href="architecture.html" class="btn-secondary">技术架构详情</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <a href="radiology-solution.html">影像科方案</a>
+        <a href="architecture.html">架构与愿景</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
+      </div>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    const btt = document.getElementById('backToTop');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

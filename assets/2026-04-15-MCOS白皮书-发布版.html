@@ -1,314 +1,195 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCOS 医疗 AI 智能·认知底座白皮书 | RimagAi Brother</title>
-
-  <!-- SEO -->
-  <meta name="description" content="MCOS：医疗 AI 智能·认知底座的架构定义、验证边界与落地路径。">
-  <meta property="og:title" content="MCOS 医疗 AI 智能·认知底座白皮书">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>M</text></svg>">
-
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MCOS 智能·认知底座白皮书</title>
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-card: #161618;
-      --bg-card-hover: #1c1c1f;
-      --border: #27272a;
-      --border-hover: #3f3f46;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1aa;
-      --text-muted: #71717a;
-      --accent: #6366f1;
-      --accent-hover: #818cf8;
-      --accent-glow: rgba(99, 102, 241, 0.15);
-      --green: #22c55e;
-      --radius: 12px;
-      --radius-lg: 16px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--accent-hover); }
-
-    /* ===== NAV BAR ===== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(10, 10, 11, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nav-brand svg { width: 28px; height: 28px; }
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a {
-      color: var(--text-secondary);
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text-primary); }
-
-    /* ===== LAYOUT ===== */
-    .page-wrapper {
-      display: flex;
-      margin-top: 56px;
-      min-height: calc(100vh - 56px);
-    }
-
-    /* ===== SIDEBAR TOC ===== */
-    .sidebar {
-      position: sticky;
-      top: 56px;
-      width: 280px;
-      min-width: 280px;
-      height: calc(100vh - 56px);
-      overflow-y: auto;
-      padding: 24px 16px;
-      border-right: 1px solid var(--border);
-      background: var(--bg-secondary);
-    }
-    .sidebar::-webkit-scrollbar { width: 4px; }
-    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-    .sidebar-title {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      padding-left: 12px;
-    }
-    .toc-list { list-style: none; }
-    .toc-list li { margin-bottom: 2px; }
-    .toc-list a {
-      display: block;
-      padding: 6px 12px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      border-radius: 6px;
-      transition: all 0.2s;
-      line-height: 1.4;
-    }
-    .toc-list a:hover {
-      color: var(--text-primary);
-      background: var(--bg-card);
-    }
-    .toc-list a.active {
-      color: var(--accent);
-      background: var(--accent-glow);
-      font-weight: 500;
-    }
-    .toc-list .toc-h3 { padding-left: 24px; font-size: 12px; }
-
-    /* ===== CONTENT ===== */
-    .content-wrapper {
-      flex: 1;
-      min-width: 0;
-      padding: 48px 56px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* ===== ARTICLE STYLES ===== */
-    .article-header {
-      text-align: center;
-      margin-bottom: 48px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .article-header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 16px;
-    }
-    .article-meta {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-    .article-meta span { margin: 0 8px; }
-
-    .article-body h2 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-top: 48px;
-      margin-bottom: 16px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--text-primary);
-    }
-    .article-body h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
-    .article-body h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: var(--text-secondary);
-    }
-    .article-body p {
-      margin-bottom: 16px;
-      color: var(--text-secondary);
-      text-align: justify;
-    }
-    .article-body ul, .article-body ol {
-      margin-bottom: 16px;
-      padding-left: 1.5em;
-      color: var(--text-secondary);
-    }
-    .article-body li { margin-bottom: 6px; }
-    .article-body strong { color: var(--text-primary); }
-
-    /* Tables */
-    .article-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 24px 0;
-      font-size: 14px;
-    }
-    .article-body thead th {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      font-weight: 600;
-      text-align: left;
-    }
-    .article-body th, .article-body td {
-      border: 1px solid var(--border);
-      padding: 10px 14px;
-      vertical-align: top;
-      color: var(--text-secondary);
-    }
-    .article-body tbody tr:hover { background: var(--bg-card); }
-
-    /* Blockquotes */
-    .article-body blockquote {
-      margin: 20px 0;
-      padding: 14px 20px;
-      background: var(--bg-card);
-      border-left: 4px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      color: var(--text-secondary);
-    }
-    .article-body blockquote p { margin-bottom: 8px; }
-    .article-body blockquote p:last-child { margin-bottom: 0; }
-
-    /* Images / SVG figures */
-    .article-body img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 24px auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    /* Code */
-    .article-body code {
-      font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
-      font-size: 0.9em;
-      background: var(--bg-card);
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: var(--accent-hover);
-    }
-
-    /* Horizontal rules */
-    .article-body hr {
-      border: 0;
-      border-top: 1px solid var(--border);
-      margin: 40px 0;
-    }
-
-    /* Cover elements from pandoc - hide */
-    .article-body .cover-brand,
-    .article-body .cover-meta,
-    .article-body .front-matter-break { display: none; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .sidebar { display: none; }
-      .content-wrapper { padding: 32px 24px 60px; }
-    }
-    @media (max-width: 640px) {
-      .content-wrapper { padding: 24px 16px 48px; }
-      .article-header h1 { font-size: 24px; }
-      .article-body h2 { font-size: 20px; }
-    }
-  </style>
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">@page {
+size: A4;
+margin: 18mm 16mm 20mm 16mm;
+}
+:root {
+--text: #1f2937;
+--muted: #475569;
+--line: #dbe4ee;
+--accent: #14b8a6;
+--accent-dark: #0f766e;
+--bg-soft: #f8fafc;
+}
+html {
+-webkit-print-color-adjust: exact;
+print-color-adjust: exact;
+}
+body {
+font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", Arial, sans-serif;
+color: var(--text);
+line-height: 1.78;
+font-size: 15px;
+max-width: 980px;
+margin: 0 auto;
+padding: 0;
+}
+p, li {
+text-align: justify;
+}
+h1, h2, h3, h4 {
+color: #0f172a;
+break-after: avoid;
+}
+h1 {
+text-align: center;
+font-size: 34px;
+margin: 0 0 14px 0;
+line-height: 1.28;
+}
+h2 {
+margin-top: 28px;
+padding-top: 8px;
+border-top: 1px solid var(--line);
+font-size: 22px;
+}
+h3 {
+margin-top: 22px;
+font-size: 18px;
+}
+h4 {
+margin-top: 18px;
+font-size: 16px;
+}
+.cover-brand {
+text-align: center;
+margin-top: 74mm;
+margin-bottom: 28mm;
+}
+.cover-logo {
+width: 300px;
+max-width: 66%;
+}
+.cover-meta {
+margin: 0 auto;
+width: 78%;
+padding: 18px 22px;
+text-align: center;
+background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+border: 1px solid var(--line);
+border-radius: 14px;
+color: var(--muted);
+box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+.cover-meta > div {
+margin: 6px 0;
+font-size: 15px;
+}
+.front-matter-break {
+break-after: page;
+page-break-after: always;
+height: 1px;
+}
+hr {
+border: 0;
+border-top: 1px solid transparent;
+margin: 0;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 18px auto 10px auto;
+break-inside: avoid;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 18px 0;
+font-size: 13px;
+}
+thead th {
+background: #eef6f6;
+color: #0f172a;
+}
+th, td {
+border: 1px solid #d8e1e8;
+padding: 8px 10px;
+vertical-align: top;
+}
+blockquote {
+margin: 16px 0;
+padding: 10px 16px;
+background: var(--bg-soft);
+border-left: 4px solid var(--accent);
+color: var(--muted);
+}
+code {
+font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+font-size: 0.92em;
+}
+ul, ol {
+padding-left: 1.5em;
+}
+a {
+color: var(--accent-dark);
+text-decoration: none;
+}
+p > em:first-child {
+color: var(--muted);
+}
+header#title-block-header {
+display: none;
+}
+.toc, nav[role="doc-toc"] {
+break-before: page;
+page-break-before: always;
+margin-bottom: 28px;
+padding: 16px 20px;
+background: #fbfdff;
+border: 1px solid var(--line);
+border-radius: 12px;
+}
+.toc-title, nav[role="doc-toc"] > h2 {
+margin-top: 0;
+border-top: 0;
+padding-top: 0;
+}
+</style>
 </head>
 <body>
-  <!-- Nav Bar -->
-  <nav class="nav">
-    <a href="/" class="nav-brand">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" rx="20" fill="#6366f1"/>
-        <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="system-ui" font-weight="700">M</text>
-      </svg>
-      RimagAi Brother
-    </a>
-    <div class="nav-links">
-      <a href="/">首页</a>
-      <a href="/#features">功能</a>
-      <a href="/#download">下载</a>
-    </div>
-  </nav>
+<div class="cover-brand">
+<p><img role="img" aria-label="RimagAI" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDEyMDAgMjgwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT48IVtDREFUQVsKICAgICAgLmJyYW5ke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6OTZweDsgZm9udC13ZWlnaHQ6NzAwOyBmaWxsOiMwZjE3MmE7IGxldHRlci1zcGFjaW5nOjFweH0KICAgICAgLmFjY2VudHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjMycHg7IGZvbnQtd2VpZ2h0OjUwMDsgZmlsbDojNDc1NTY5OyBsZXR0ZXItc3BhY2luZzo2cHh9CiAgICAgIC5saW5le3N0cm9rZTojMTRiOGE2OyBzdHJva2Utd2lkdGg6OH0KICAgICAgLmRvdHtmaWxsOiMxNGI4YTZ9CiAgICBdXT48L3N0eWxlPgogIDwvZGVmcz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIyODAiIGZpbGw9IiNmZmZmZmYiLz4KICA8bGluZSB4MT0iMTQwIiB5MT0iNjgiIHgyPSIzMjgiIHkyPSI2OCIgY2xhc3M9ImxpbmUiLz4KICA8Y2lyY2xlIGN4PSIzNTIiIGN5PSI2OCIgcj0iMTAiIGNsYXNzPSJkb3QiLz4KICA8dGV4dCB4PSIxNDAiIHk9IjE1NSIgY2xhc3M9ImJyYW5kIj5SaW1hZ0FJPC90ZXh0PgogIDx0ZXh0IHg9IjE0NCIgeT0iMjE0IiBjbGFzcz0iYWNjZW50Ij5NRURJQ0FMIEFJIFNZU1RFTVM8L3RleHQ+Cjwvc3ZnPgo=" alt="RimagAI" class="cover-logo" /></p>
+</div>
+<h1 id="mcos医疗-ai-智能·认知底座白皮书">MCOS：医疗 AI
+智能·认知底座白皮书</h1>
+<div class="cover-meta">
+<div>
+副标题：智能·认知底座的架构定义、验证边界与落地路径
+</div>
+<div>
+作者：RimagAI Team
+</div>
+<div>
+发布日期：2026-04-15
+</div>
+</div>
+<div class="front-matter-break">
 
-  <div class="page-wrapper">
-    <!-- Sidebar TOC (generated by JS) -->
-    <aside class="sidebar">
-      <div class="sidebar-title">目录</div>
-      <ul class="toc-list" id="toc-list"></ul>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="content-wrapper">
-      <header class="article-header">
-        <h1>MCOS：医疗 AI 智能·认知底座白皮书</h1>
-        <div class="article-meta">
-          <span>作者：RimagAI Team</span>
-          <span>|</span>
-          <span>发布日期：2026-04-15</span>
-        </div>
-      </header>
-
-      <article class="article-body">
+</div>
+<hr />
 <h2 id="执行摘要">0. 执行摘要</h2>
 <p>本白皮书的中心主张是：当模型能力逐渐成为基础资源，医疗行业真正缺失的已不再只是更多
 AI
@@ -362,7 +243,7 @@ Agent，而是一层能够把 AI
 <h2 id="mcos-是什么智能·认知底座的定义与边界">2. MCOS
 是什么：智能·认知底座的定义与边界</h2>
 <p>MCOS 是位于医院现有信息系统与 AI
-能力之间的医疗智能·认知底座，用于把模型、工具、规则、数据和工作流组织成可运行、可治理、可持续进化的临床辅助系统。</p>
+能力之间的智能·认知底座，用于把模型、工具、规则、数据和工作流组织成可运行、可治理、可持续进化的临床辅助系统。</p>
 <p>它不是 HIS、EMR、PACS、RIS
 本身，不承担挂号、收费、医嘱、阅片、存储等基础业务系统职责；它也不是某个影像
 AI 产品、某个医疗大模型的别名，或一个单点工作站界面。MCOS
@@ -1165,57 +1046,5 @@ AI
 的意义，不在于被过早包装为一个已经完成的平台，而在于它为医疗 AI
 提供了一条更具长期性的系统演进路线：先在高价值场景中证明系统价值，再在治理约束下完成复制与沉淀，最终成长为医院可信赖的智能·认知底座。对于医疗
 AI 而言，这不仅是一种产品路径，更可能是一类新的基础设施路径。</p>
-
-      </article>
-    </main>
-  </div>
-
-  <script>
-    // Auto-generate TOC from h2/h3 headings
-    (function() {
-      const article = document.querySelector('.article-body');
-      const tocList = document.getElementById('toc-list');
-      const headings = article.querySelectorAll('h2, h3');
-
-      headings.forEach((heading, i) => {
-        // Ensure heading has an id
-        if (!heading.id) {
-          heading.id = 'section-' + i;
-        }
-
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.textContent = heading.textContent;
-        a.dataset.target = heading.id;
-        if (heading.tagName === 'H3') {
-          a.classList.add('toc-h3');
-        }
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-
-      // Scroll-spy
-      const tocLinks = tocList.querySelectorAll('a');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            tocLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = tocList.querySelector('a[data-target="' + entry.target.id + '"]');
-            if (activeLink) {
-              activeLink.classList.add('active');
-              // Scroll TOC to keep active item visible
-              activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-            }
-          }
-        });
-      }, {
-        rootMargin: '-80px 0px -70% 0px',
-        threshold: 0
-      });
-
-      headings.forEach(heading => observer.observe(heading));
-    })();
-  </script>
 </body>
 </html>

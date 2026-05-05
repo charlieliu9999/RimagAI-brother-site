@@ -3,125 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>院内数据查询智能体平台 | RimagAi</title>
-  <meta name="description" content="受控语义查询 + 规则引擎 + 权限治理。不是开放式 NL2SQL，而是可控、可审计、可解释的院内数据查询与质控智能体平台。">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2306b6d4'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='system-ui'>D</text></svg>">
+  <title>数据智能体 — 院内受控语义查询平台 | RimagAi</title>
+  <meta name="description" content="RimagAi 院内数据智能体：自然语言查询院内数据，MCP 工具链实现受控语义查询，权限矩阵与审计日志保障数据安全。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
   <link rel="stylesheet" href="assets/css/shared.css">
   <style>
-    .hero-data {
-      padding: 140px 0 70px; text-align: center;
-      position: relative; overflow: hidden;
-    }
+    .hero-data { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
     .hero-data::before {
-      content: ''; position: absolute; top: -180px; left: 30%;
-      width: 700px; height: 500px;
-      background: radial-gradient(ellipse, rgba(6,182,212,0.14), transparent 70%);
+      content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(6,182,212,0.1) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-data h1 {
-      font-size: clamp(32px, 5vw, 56px); font-weight: 800;
-      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px;
+      font-size: clamp(34px, 5vw, 56px); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
       background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .hero-data p {
-      font-size: 17px; color: var(--text-secondary);
-      max-width: 680px; margin: 0 auto 32px; line-height: 1.75;
-    }
+    .hero-data p { font-size: 17px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    .principle-box {
-      max-width: 800px; margin: 0 auto 60px;
-      padding: 24px 28px; border-radius: var(--radius-lg);
-      background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.15);
+    .arch-flow {
+      max-width: 900px; margin: 0 auto; padding: 32px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
     }
-    .principle-box h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--cyan); }
-    .principle-box p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .arch-flow-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; align-items: center;
+    }
+    .arch-step {
+      text-align: center; padding: 16px 8px; border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .arch-step .icon { font-size: 24px; margin-bottom: 8px; }
+    .arch-step h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .arch-step p { font-size: 11px; color: var(--text-muted); }
+    .arch-arrow { text-align: center; font-size: 18px; color: var(--text-muted); }
 
-    /* ── MCOS Mapping ── */
-    .mcos-map {
-      display: grid; grid-template-columns: 80px 1fr; gap: 12px;
-      max-width: 860px; margin: 0 auto;
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.25s;
     }
-    .mcos-map-row {
-      display: contents;
-    }
-    .mcos-map-layer {
-      font-size: 14px; font-weight: 700; text-align: center;
-      padding: 14px 0; border-radius: 10px;
-    }
-    .mcos-map-desc {
-      padding: 14px 20px; border-radius: 10px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      font-size: 14px; color: var(--text-secondary); line-height: 1.6;
-    }
-    .mcos-map-desc strong { color: var(--text-primary); }
+    .feature-card:hover { border-color: var(--border-hover); }
+    .feature-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
 
-    /* ── Roles ── */
-    .roles-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    .security-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+    .security-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; text-align: center; transition: all 0.25s;
     }
-    .role-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px;
-    }
-    .role-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-    .role-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .security-card:hover { border-color: var(--border-hover); }
+    .security-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .security-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .security-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
 
-    /* ── Architecture ── */
-    .arch-layers {
-      max-width: 800px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr; gap: 10px;
+    .usecase-list { max-width: 800px; margin: 0 auto; }
+    .usecase-item {
+      display: grid; grid-template-columns: auto 1fr; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--border); align-items: start;
     }
-    .arch-layer {
-      padding: 20px 24px; border-radius: var(--radius);
-      border: 1px solid var(--border); background: var(--bg-card);
+    .usecase-item:last-child { border-bottom: none; }
+    .usecase-icon {
+      width: 40px; height: 40px; border-radius: 10px; display: flex;
+      align-items: center; justify-content: center; font-size: 18px;
+      background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.2);
     }
-    .arch-layer h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-    .arch-layer p { font-size: 13px; color: var(--text-secondary); }
+    .usecase-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .usecase-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
 
-    /* ── Roadmap ── */
-    .roadmap {
-      max-width: 800px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    .screenshot-box {
+      max-width: 900px; margin: 40px auto 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
-    .phase-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      position: relative;
-    }
-    .phase-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      border-radius: 14px 14px 0 0;
-    }
-    .phase-card:nth-child(1)::before { background: var(--green); }
-    .phase-card:nth-child(2)::before { background: var(--cyan); }
-    .phase-card:nth-child(3)::before { background: var(--purple); }
-    .phase-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-    .phase-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
-    .phase-card .phase-label {
-      font-size: 11px; font-weight: 600; text-transform: uppercase;
-      margin-bottom: 10px; letter-spacing: 0.5px;
-    }
+    .screenshot-box img { width: 100%; display: block; }
 
-    /* ── Query Examples ── */
-    .query-examples {
-      max-width: 700px; margin: 0 auto;
-      display: grid; gap: 8px;
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto; padding: 48px 40px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(99,102,241,0.08));
+      border: 1px solid rgba(6,182,212,0.2);
     }
-    .query-ex {
-      padding: 12px 18px; border-radius: 10px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      font-size: 14px; color: var(--text-secondary);
-      font-family: 'SF Mono', Monaco, 'PingFang SC', monospace;
-    }
-    .query-ex::before {
-      content: '> '; color: var(--cyan); font-weight: 600;
-    }
+    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
 
     @media (max-width: 768px) {
-      .roles-grid, .roadmap { grid-template-columns: 1fr; }
-      .mcos-map { grid-template-columns: 60px 1fr; }
+      .hero-data { padding: 120px 0 60px; }
+      .arch-flow-steps { grid-template-columns: 1fr; }
+      .arch-arrow { transform: rotate(90deg); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -132,192 +104,186 @@
       <a href="index.html" class="nav-brand"><div class="logo">R</div><span>RimagAi</span></a>
       <div class="nav-links">
         <a href="index.html">首页</a>
+        <a href="system-introduction.html">系统介绍</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <div class="nav-dropdown">
+          <a href="#" class="active">场景方案</a>
+          <div class="dropdown-menu">
+            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
+            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
+            <a href="data-platform.html">信息 · 数据智能体</a>
+            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+          </div>
+        </div>
         <a href="architecture.html">架构与愿景</a>
-        <a href="data-platform.html" class="active">数据智能体</a>
-        <a href="index.html#download">下载</a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank">反馈</a>
+        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
       </div>
     </div>
   </nav>
 
   <section class="hero-data">
     <div class="container">
-      <h1>院内数据查询<br>智能体平台</h1>
-      <p>不是开放式聊天机器人，而是受控语义查询与数据治理平台。通过统一语义层、规则引擎、权限体系和审计机制，将复杂数据库查询能力封装为临床、管理和质控部门可直接使用的智能服务。</p>
-    </div>
-  </section>
-
-  <!-- Core Principle -->
-  <section class="section">
-    <div class="container">
-      <div class="principle-box animate-in">
-        <h3>设计原则：受控查询，而非开放 NL2SQL</h3>
-        <p>医院场景不适合直接做全开放 NL2SQL。数据安全要求高、底层库表结构复杂且跨系统、医疗术语存在大量别名和上下文歧义、同一问题可能存在多种统计口径、越权查看患者数据风险高。因此采用"意图识别 + 模板选择 + 参数填充"模式，所有查询走白名单模板，AI 只负责理解意图和解释结果。</p>
-      </div>
-
-      <!-- MCOS Mapping -->
-      <div class="section-header">
-        <h2>与 MCOS 架构的关系</h2>
-        <p>数据查询智能体是 MCOS 在数据治理域的具体实例化</p>
-      </div>
-      <div class="mcos-map">
-        <div class="mcos-map-row">
-          <div class="mcos-map-layer" style="background:rgba(59,130,246,0.12); color:var(--blue);">L1</div>
-          <div class="mcos-map-desc"><strong>感知层</strong> → 对接 HIS / EMR / LIS / RIS / PACS 数据源，只读连接或视图接入</div>
-        </div>
-        <div class="mcos-map-row">
-          <div class="mcos-map-layer" style="background:rgba(6,182,212,0.12); color:var(--cyan);">L2</div>
-          <div class="mcos-map-desc"><strong>上下文层</strong> → 统一语义模型 + 字段映射 + 同义词词典 + 查询模板，把复杂表结构封装为业务对象</div>
-        </div>
-        <div class="mcos-map-row">
-          <div class="mcos-map-layer" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3</div>
-          <div class="mcos-map-desc"><strong>认知层</strong> → 查询意图识别 + 角色权限识别 + 受控 SQL 生成 + 规则执行引擎 + 结果解释器</div>
-        </div>
-        <div class="mcos-map-row">
-          <div class="mcos-map-layer" style="background:rgba(168,85,247,0.12); color:var(--purple);">L4</div>
-          <div class="mcos-map-desc"><strong>执行层</strong> → 汇总统计 / 明细记录 / 可视化图表 / 导出文件 / 规则解释与 SQL 说明</div>
-        </div>
-        <div class="mcos-map-row">
-          <div class="mcos-map-layer" style="background:rgba(249,115,22,0.12); color:var(--orange);">L5</div>
-          <div class="mcos-map-desc"><strong>治理层</strong> → 多维权限控制（角色 × 组织 × 数据域 × 粒度）+ 脱敏 + 审计留痕 + 高风险导出审批</div>
-        </div>
-      </div>
-      <p style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:16px; max-width:600px; margin-left:auto; margin-right:auto;">Brother 桌面端的 SQL Tool 是数据查询能力的桌面入口，数据智能体平台是院级 Web 入口。两者共享语义层和规则引擎。</p>
-    </div>
-  </section>
-
-  <!-- Query Examples -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>典型查询示例</h2>
-        <p>自然语言提问，系统自动解析意图并生成受控查询</p>
-      </div>
-      <div class="query-examples">
-        <div class="query-ex animate-in">查询近三个月妇产科住院检验报告中参考值缺失的记录</div>
-        <div class="query-ex animate-in">统计门诊检验报告正常参考值完整率</div>
-        <div class="query-ex animate-in">导出上个月影像检查报告与患者标识无法对应的记录</div>
-        <div class="query-ex animate-in">查看病房护理级别不完整的病区分布</div>
-        <div class="query-ex animate-in">查询医嘱执行记录中开始时间缺失的明细</div>
-        <div class="query-ex animate-in">查看各项目完整性、一致性、整合性得分</div>
+      <h1>院内数据智能体</h1>
+      <p>让信息科从"跑报表"中解放。自然语言提问，AI 自动生成安全 SQL，权限矩阵确保每次查询都在授权范围内。不是 BI 工具的替代，而是数据访问的认知层。</p>
+      <div class="hero-actions">
+        <a href="hospital-solution.html" class="btn-secondary">查看落地方案</a>
       </div>
     </div>
   </section>
 
-  <!-- Service Roles -->
+  <!-- Architecture Flow -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>服务对象</h2>
-        <p>覆盖临床、管理、质控、信息等多角色需求</p>
+        <h2>执行链路</h2>
+        <p>从自然语言到安全查询结果的完整链路</p>
       </div>
-      <div class="roles-grid">
-        <div class="role-card animate-in">
-          <h4>🏥 临床科室</h4>
-          <p>科主任、医生、护士长。查询科室业务数据、医嘱执行缺失、患者全程记录、手术与麻醉匹配。</p>
+      <div class="arch-flow animate-in">
+        <div class="arch-flow-steps">
+          <div class="arch-step">
+            <div class="icon">💬</div>
+            <h5>自然语言输入</h5>
+            <p>用户提问</p>
+          </div>
+          <div class="arch-step">
+            <div class="icon">🔐</div>
+            <h5>权限校验</h5>
+            <p>角色 + 数据范围</p>
+          </div>
+          <div class="arch-step">
+            <div class="icon">🧠</div>
+            <h5>语义理解</h5>
+            <p>意图 → SQL 生成</p>
+          </div>
+          <div class="arch-step">
+            <div class="icon">⚡</div>
+            <h5>受控执行</h5>
+            <p>参数化查询</p>
+          </div>
+          <div class="arch-step">
+            <div class="icon">📊</div>
+            <h5>结果呈现</h5>
+            <p>表格 + 图表</p>
+          </div>
         </div>
-        <div class="role-card animate-in">
-          <h4>📋 医务处 / 质控办</h4>
-          <p>质控专员、评审专班。查询完整性/一致性/整合性得分，导出问题明细，生成评审统计表。</p>
-        </div>
-        <div class="role-card animate-in">
-          <h4>📁 病案室</h4>
-          <p>病案编码员、质控员。查询首页字段完整率、诊断编码缺失、首页与临床记录关联情况。</p>
-        </div>
-        <div class="role-card animate-in">
-          <h4>🩺 护理部</h4>
-          <p>护理管理人员。查询护理级别、体征记录完整率，按病区和时间汇总异常护理记录。</p>
-        </div>
-        <div class="role-card animate-in">
-          <h4>💻 信息科</h4>
-          <p>数据平台主管、DBA。查询指标依赖表和字段，查看规则 SQL 和执行日志，维护字段映射。</p>
-        </div>
-        <div class="role-card animate-in">
-          <h4>👔 院领导</h4>
-          <p>院长、分管院长。查看全院数据质量总览、科室排名、趋势变化、整改闭环进展。</p>
-        </div>
+      </div>
+      <div class="screenshot-box animate-in">
+        <img src="assets/image_rimagai_brother/数据分析.png" alt="数据智能体查询界面" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Five-Layer Architecture -->
+  <!-- Core Features -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>五层系统架构</h2>
-        <p>从数据源到应用展示的完整链路</p>
+        <h2>核心能力</h2>
+        <p>不只是 Text-to-SQL，而是完整的数据访问治理方案</p>
       </div>
-      <div class="arch-layers">
-        <div class="arch-layer animate-in">
-          <h4>① 数据源层</h4>
-          <p>对接 HIS / EMR / LIS / RIS / PACS / 护理 / 手术麻醉 / 输血 / 药房 / 主数据字典。只读连接、视图或数据集市。</p>
+      <div class="feature-grid">
+        <div class="feature-card animate-in">
+          <h4>🗣️ 自然语言查询</h4>
+          <p>支持中文自然语言提问，自动理解业务语义（如"上月骨科手术量"），无需了解数据库表结构和 SQL 语法。</p>
         </div>
-        <div class="arch-layer animate-in">
-          <h4>② 数据治理层</h4>
-          <p>统一数据目录、字段映射、主数据关系、统一编码和字典映射、宽表或主题数据集、口径版本管理。</p>
+        <div class="feature-card animate-in">
+          <h4>🔧 MCP 工具链</h4>
+          <p>基于 MCP 协议的工具编排，AI 可调用 SQL 查询、数据聚合、图表生成等工具，复杂分析任务自动拆解执行。</p>
         </div>
-        <div class="arch-layer animate-in">
-          <h4>③ 语义与规则层</h4>
-          <p>语义模型管理、同义词词典、查询模板、规则库（完整性/一致性/整合性/合法性/时效性）、SQL 模板参数化执行。</p>
+        <div class="feature-card animate-in">
+          <h4>📋 Schema 感知</h4>
+          <p>自动获取数据库表结构和字段说明，结合业务知识库理解字段含义，生成准确的查询语句。</p>
         </div>
-        <div class="arch-layer animate-in">
-          <h4>④ 智能体服务层</h4>
-          <p>查询意图识别、角色权限识别、NL2Intent 解析、受控 SQL 生成器、规则执行引擎、结果解释器、报表生成器。</p>
-        </div>
-        <div class="arch-layer animate-in">
-          <h4>⑤ 应用展示层</h4>
-          <p>Web 门户、科室数据看板、智能问答界面、移动端轻应用、管理后台。</p>
+        <div class="feature-card animate-in">
+          <h4>📈 智能可视化</h4>
+          <p>查询结果自动选择最佳展示方式：表格、柱状图、折线图、饼图。支持导出和分享。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Roadmap -->
+  <!-- Security -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>实施路线</h2>
-        <p>分三阶段，从规则固化到全院扩展</p>
+        <h2>安全与治理</h2>
+        <p>医疗数据安全是底线，每次查询都在治理框架内执行</p>
       </div>
-      <div class="roadmap">
-        <div class="phase-card animate-in">
-          <div class="phase-label" style="color:var(--green);">第一阶段</div>
-          <h4>规则固化与基础查询</h4>
-          <p>从文档提炼规则库，建立语义模型和字段映射。首批覆盖医嘱、检验、检查三大高频域。服务信息科、质控办、病案室。MVP 8-12 周。</p>
+      <div class="security-grid">
+        <div class="security-card animate-in">
+          <div class="icon">🛡️</div>
+          <h4>权限矩阵</h4>
+          <p>基于角色的数据访问控制。不同科室、不同职级看到不同范围的数据，细粒度到表和字段级别。</p>
         </div>
-        <div class="phase-card animate-in">
-          <div class="phase-label" style="color:var(--cyan);">第二阶段</div>
-          <h4>质量治理与整改闭环</h4>
-          <p>增加问题分派、整改、追踪能力。趋势分析和科室排名。告警推送。整改工单与对比分析。</p>
+        <div class="security-card animate-in">
+          <div class="icon">📝</div>
+          <h4>审计日志</h4>
+          <p>每次查询完整记录：谁、何时、查了什么、返回了什么。支持事后审计和异常行为检测。</p>
         </div>
-        <div class="phase-card animate-in">
-          <div class="phase-label" style="color:var(--purple);">第三阶段</div>
-          <h4>全院扩展与多角色智能体</h4>
-          <p>扩展至病历、护理、药品、手术、输血等域。更强的多轮问答和口径解释。多角色门户。评审材料自动化生成。</p>
+        <div class="security-card animate-in">
+          <div class="icon">🚫</div>
+          <h4>SQL 安全沙箱</h4>
+          <p>生成的 SQL 经过安全检查：禁止 DELETE/UPDATE/DROP，限制返回行数，参数化防注入。只读查询，零风险。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Value -->
+  <!-- Use Cases -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>预期价值</h2>
-        <p>同时承担数据查询入口、质量治理平台和评审支撑工具三种角色</p>
+        <h2>典型场景</h2>
+        <p>信息科日常高频需求，现在一句话搞定</p>
       </div>
-      <div class="roles-grid" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="role-card animate-in">
-          <h4>管理价值</h4>
-          <p>提高全院数据查询效率，降低信息科手工取数压力，支撑等级评审和日常质控，建立统一数据口径。</p>
+      <div class="usecase-list">
+        <div class="usecase-item animate-in">
+          <div class="usecase-icon">📊</div>
+          <div>
+            <h4>运营数据查询</h4>
+            <p>"本月各科室门诊量对比上月变化" — 自动关联挂号表和科室表，生成对比图表。</p>
+          </div>
         </div>
-        <div class="role-card animate-in">
-          <h4>业务价值</h4>
-          <p>临床科室快速获取业务数据，质控部门快速定位问题记录，病案和护理部门开展持续整改。</p>
+        <div class="usecase-item animate-in">
+          <div class="usecase-icon">💊</div>
+          <div>
+            <h4>药品用量分析</h4>
+            <p>"近三个月抗生素使用量 TOP10 科室" — 关联处方表和药品目录，按科室聚合排序。</p>
+          </div>
         </div>
-        <div class="role-card animate-in">
-          <h4>技术价值</h4>
-          <p>沉淀院内统一语义层，沉淀规则资产与数据治理资产，为后续 BI、运营分析、临床决策支持提供基础。</p>
+        <div class="usecase-item animate-in">
+          <div class="usecase-icon">🏥</div>
+          <div>
+            <h4>床位周转统计</h4>
+            <p>"ICU 本周平均住院日和床位利用率" — 计算入出院时间差，统计占床率。</p>
+          </div>
+        </div>
+        <div class="usecase-item animate-in">
+          <div class="usecase-icon">⚠️</div>
+          <div>
+            <h4>质量指标监控</h4>
+            <p>"本月非计划再入院率超标的病区" — 关联出院和再入院记录，按 30 天窗口计算。</p>
+          </div>
+        </div>
+        <div class="usecase-item animate-in">
+          <div class="usecase-icon">💰</div>
+          <div>
+            <h4>费用异常检测</h4>
+            <p>"本月单次住院费用超过 DRG 标准 150% 的病例" — 关联费用表和 DRG 分组标准。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-in">
+        <h2>让数据开口说话</h2>
+        <p>数据智能体已完成 Hermes 执行引擎集成验证，支持 MySQL/PostgreSQL 数据源。欢迎安排演示，了解如何在贵院信息科落地。</p>
+        <div class="hero-actions">
+          <a href="hospital-solution.html" class="btn-primary">查看落地方案</a>
+          <a href="comprehensive-solution.html" class="btn-secondary">综合方案</a>
         </div>
       </div>
     </div>
@@ -327,12 +293,13 @@
     <div class="container">
       <div class="footer-links">
         <a href="index.html">首页</a>
+        <a href="hospital-solution.html">医院解决方案</a>
+        <a href="cdss-solution.html">CDSS 决策支持</a>
+        <a href="radiology-solution.html">影像科方案</a>
         <a href="architecture.html">架构与愿景</a>
         <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother" target="_blank">GitHub</a>
-        <a href="https://github.com/charlieliu9999/RimagAI-brother/issues" target="_blank">反馈</a>
       </div>
-      <p>RimagAi &middot; 医疗认知运行层的第一个落地产品 &middot; <a href="https://github.com/charlieliu9999" target="_blank">@charlieliu9999</a></p>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
     </div>
   </footer>
 
