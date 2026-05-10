@@ -18,9 +18,6 @@ node_modules/
 .env
 .env.local
 
-# 部署脚本（含凭证）
-scripts/deploy.sh
-
 # 临时输出
 output/
 .playwright-cli/
