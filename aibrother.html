@@ -724,8 +724,19 @@
     /* ── 部署配置区 ── */
     .deploy-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 30px;
+    }
+
+    /* ── 插件卡片悬停动效 ── */
+    .plugin-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .plugin-card:hover {
+      border-color: rgba(37, 99, 235, 0.3) !important;
+      background: rgba(37, 99, 235, 0.06) !important;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
     }
 
     .deploy-card {
@@ -907,13 +918,26 @@
     }
 
     .ss-grid-2 {
+      display: grid;
       grid-template-columns: 1.3fr 1fr;
       gap: 40px;
       align-items: start;
     }
 
+    .ss-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
     .ss-grid-2.launcher-grid {
       grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .ss-grid-3.launcher-grid {
+      grid-template-columns: 1fr 1.2fr 1.4fr;
       gap: 30px;
     }
 
@@ -1121,8 +1145,8 @@
         grid-template-columns: 1fr;
       }
 
-      .ss-grid-2 {
-        grid-template-columns: 1fr;
+      .ss-grid-2, .ss-grid-3, .launcher-grid {
+        grid-template-columns: 1fr !important;
       }
 
       .qr-box {
@@ -1247,6 +1271,42 @@
     </div>
   </section>
 
+  <!-- 新增：核心设计理念区块 -->
+  <section class="concept-section" style="padding: 80px 0; background: linear-gradient(180deg, rgba(6, 10, 22, 0.4) 0%, rgba(6, 10, 22, 0) 100%); border-top: 1px solid rgba(255, 255, 255, 0.03);">
+    <div class="concept-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+      <div class="concept-visual" style="flex: 1.2; min-width: 320px;">
+        <div class="ss-img-wrap" style="border: 1px solid rgba(37, 99, 235, 0.15); box-shadow: 0 30px 80px rgba(6, 182, 212, 0.15); border-radius: 24px; overflow: hidden; background: rgba(6, 10, 22, 0.8);">
+          <img src="assets/temp_ppt_media/image11.png" alt="RimagAI Brother 让 AI 融入医生工作流" style="width: 100%; display: block; border-radius: 24px; transition: transform 0.4s ease;">
+        </div>
+      </div>
+      <div class="concept-content" style="flex: 1; min-width: 320px;">
+        <span class="section-tag" style="display: inline-block; padding: 6px 12px; border-radius: 30px; background: rgba(6, 182, 212, 0.1); color: #06b6d4; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Core Integration Philosophy</span>
+        <h2 style="font-size: 32px; font-weight: 800; line-height: 1.3; color: var(--text-main); margin-bottom: 24px;">让 AI 悄无声息地<br>融入医生的日常工作流</h2>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+          传统的 AI 工具往往需要医生跳出当前系统，进行繁琐的复制粘贴。RimagAI Brother 2.0 桌面客户端颠覆了这一模式，围绕 <strong>“融入”</strong> 这一核心理念，打造了全新一代医生桌面智能伴侣。
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 18px; transition: all 0.3s ease;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #06b6d4; margin-bottom: 8px;">🚀 01 入口在工作流中</h4>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">以极简悬浮入口融入 PACS 影像系统和电子病历，不打扰是最好的支持。</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 18px; transition: all 0.3s ease;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #a78bfa; margin-bottom: 8px;">🎙️ 02 语音+视觉双模态</h4>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">支持高精度医学语音输入及屏幕视觉智能截屏，打造自然的医生交互。</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 18px; transition: all 0.3s ease;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #3b82f6; margin-bottom: 8px;">⛓️ 03 极低系统接入成本</h4>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">支持免接口 OCR 识别与标准 API 混合接入，当天部署即可当天上线。</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 18px; transition: all 0.3s ease;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #f59e0b; margin-bottom: 8px;">🔌 04 架构无缝横向扩展</h4>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">基于腾讯 Agent 生态，无缝订阅加载最新医疗智能体应用。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 产品界面展示 -->
   <section id="screenshots">
     <div class="section-header">
@@ -1257,14 +1317,21 @@
     <div class="screenshots-tabs">
       <button class="stab active" onclick="switchTab(this,'tab-launcher')">🚀 启动器 &amp; 面板</button>
       <button class="stab" onclick="switchTab(this,'tab-cdss')">🩺 检查推荐</button>
+      <button class="stab" onclick="switchTab(this,'tab-gen')">🎙️ 报告生成</button>
       <button class="stab" onclick="switchTab(this,'tab-qc')">🛡️ 报告质控</button>
       <button class="stab" onclick="switchTab(this,'tab-qa')">📚 知识问答</button>
     </div>
 
-    <div id="tab-launcher" class="stab-pane active ss-grid-2 launcher-grid">
+    <div id="tab-launcher" class="stab-pane active ss-grid-3 launcher-grid">
       <div class="ss-img-wrap fit">
         <img src="assets/image_aibrother2/launcher_icon.png" alt="边缘悬浮球启动器" loading="lazy">
         <div class="ss-caption"><strong>边缘悬浮球</strong>贴边收起，不占阅片屏幕空间；鼠标触碰即滑出控制条</div>
+      </div>
+      <div class="ss-img-wrap" style="background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.08), transparent 70%), rgba(6, 10, 22, 0.55); display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px;">
+          <img src="assets/image_aibrother2/app_main.png" alt="登录桌面工作台" loading="lazy" style="max-height: 280px; width: auto; max-width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05);">
+        </div>
+        <div class="ss-caption"><strong>安全登录工作台</strong>提供清爽的账号安全接入界面</div>
       </div>
       <div class="ss-img-wrap fit panel-large">
         <img src="assets/image_aibrother2/rimag_report_qc_win.png" alt="客户端页面" loading="lazy">
@@ -1274,63 +1341,84 @@
 
     <div id="tab-cdss" class="stab-pane ss-grid-2">
       <div class="ss-img-wrap">
-        <img src="assets/presentation/product-cdss-workbench.webp" alt="检查推荐界面 — CDSS 智能推荐工作流" loading="lazy">
-        <div class="ss-caption"><strong>i-CDSS 检查推荐</strong>综合主诉病史给出影像检查方案与诊断依据</div>
+        <img src="assets/image_aibrother2/_crop/full-ppt-cdss.png" alt="智能检查推荐 (CDSS)" loading="lazy">
+        <div class="ss-caption"><strong>i-CDSS 检查推荐工作流</strong>结合患者主诉、历史诊疗及多维规则进行模型推理</div>
       </div>
       <div class="ss-side">
         <div class="ss-feature-item">
-          <h4>🎯 Top-3 符合率 93%+</h4>
-          <p>基于院内真实病例与医保规则训练，推荐贴合科室实际需求。</p>
+          <h4>🎯 智能推荐工作流</h4>
+          <p><strong>1. 患者画像获取：</strong>一键自动提取当前患者的性别、年龄、主诉及现病史等信息。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>💡 自动提取主诉病史</h4>
-          <p>屏幕 OCR 或语音输入均可，无需手动输入，秒级给出推荐。</p>
+          <h4>🔍 历史诊疗深度追溯</h4>
+          <p><strong>2. 历史信息调取：</strong>从院内 HIS / EMR / CDR 等系统中调取患者历史就诊记录、住院史及检查结果。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>🛡️ 医保合规保障</h4>
-          <p>内置医保审核规则，降低拒付风险，为医生决策提供可溯依据。</p>
+          <h4>🛡️ 规则分析与推理</h4>
+          <p><strong>3. 多维分析：</strong>结合影像规则、医保收费及院内路径。<br><strong>4. 多路由推理：</strong>秒级输出检查推荐与循证依据。</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-gen" class="stab-pane ss-grid-2">
+      <div class="ss-img-wrap">
+        <img src="assets/image_aibrother2/_crop/full-ppt-report-gen.png" alt="语音驱动报告生成" loading="lazy">
+        <div class="ss-caption"><strong>语音驱动报告生成</strong>支持实时转写、医学专业热词及语音口述交互修改</div>
+      </div>
+      <div class="ss-side">
+        <div class="ss-feature-item">
+          <h4>🎙️ 边看片边说话</h4>
+          <p>支持高精度医疗语音实时转写，内置深度优化医学专业热词库，保障专有名词录入准确。</p>
+        </div>
+        <div class="ss-feature-item">
+          <h4>💡 AI 一键生成报告</h4>
+          <p>根据口述内容与科室规范模板，智能排版并自动生成符合医疗规范格式的影像报告。</p>
+        </div>
+        <div class="ss-feature-item">
+          <h4>⚡ 语音交互修改</h4>
+          <p>支持自然语言口述修改意见（如“修改左肺为右肺”、“补充结节大小”），AI 自动理解并更新内容。</p>
         </div>
       </div>
     </div>
 
     <div id="tab-qc" class="stab-pane ss-grid-2">
-      <div class="ss-img-wrap fit">
-        <img src="assets/image_aibrother2/rimag_report_qc_win.png" alt="报告质控界面" loading="lazy">
-        <div class="ss-caption"><strong>Report QC 实时质控</strong>提交前自动核查，标注问题位置与建议修改</div>
+      <div class="ss-img-wrap">
+        <img src="assets/image_aibrother2/_crop/full-ppt-report-qc.png" alt="报告实时质控" loading="lazy">
+        <div class="ss-caption"><strong>Report QC 实时报告质控</strong>提交前自动核查，包含文本、逻辑及专业提示三重校验</div>
       </div>
       <div class="ss-side">
         <div class="ss-feature-item">
           <h4>🔍 三重核查机制</h4>
-          <p>书写错误、逻辑一致性、专业复核三层叠加，报告质量有保障。</p>
+          <p><strong>1. 文本错误识别：</strong>自动核查错别字、漏字、多字及标点符号格式，确保术语规范。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>⚡ 极低误报设计</h4>
-          <p>医疗场景专属模型，避免频繁打扰医生正常工作流程。</p>
+          <h4>⚡ 逻辑一致性校验</h4>
+          <p><strong>2. 逻辑核查：</strong>深度校验“左右侧矛盾”、“性别与器官冲突”、“描述与结论矛盾”等前后矛盾问题。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>🔒 本地推理可选</h4>
-          <p>质控模型支持院内私有化部署，报告内容完全不离开院内网络。</p>
+          <h4>🛡️ 影像专业提示</h4>
+          <p><strong>3. 专业提示：</strong>基于影像学常识和指南规则，识别不合理描述并给出审慎的修正建议。</p>
         </div>
       </div>
     </div>
 
     <div id="tab-qa" class="stab-pane ss-grid-2">
       <div class="ss-img-wrap">
-        <img src="assets/temp_ppt_media/image6.png" alt="知识库问答界面 — 多源接入与循证可追溯" loading="lazy">
-        <div class="ss-caption"><strong>医学知识库问答</strong>接入权威临床指南，自然语言提问、结构化可溯源答复</div>
+        <img src="assets/image_aibrother2/_crop/full-ppt-know.png" alt="医学知识库问答" loading="lazy">
+        <div class="ss-caption"><strong>专业医学知识库问答</strong>接入 UpToDate、PubMed 等多源数据库并提供循证可追溯答案</div>
       </div>
       <div class="ss-side">
         <div class="ss-feature-item">
-          <h4>📖 权威文献来源</h4>
-          <p>接入国内外临床指南、循证医学文献及科室内部知识库。</p>
+          <h4>📚 多源医学知识接入</h4>
+          <p>整合互联网权威医学资源，接入 UpToDate、PubMed、ToolUniverse 等专业学术数据库。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>💬 侧边栏即问即答</h4>
-          <p>不离开当前工作窗口，侧边栏直接提问，答案带出处编号。</p>
+          <h4>💬 临床场景深度问答</h4>
+          <p>围绕疑难诊断、鉴别诊断、检查选择以及处置要点，提供可直接参考的结构化条目化解答。</p>
         </div>
         <div class="ss-feature-item">
-          <h4>🏥 院内私有知识</h4>
-          <p>支持接入医院自有指南、SOP 文件，构建科室专属知识代理。</p>
+          <h4>🏥 循证可溯源</h4>
+          <p>回答内容严格基于指南与文献证据，支持来源标注与出处溯源，保障信息高度可靠可信。</p>
         </div>
       </div>
     </div>
@@ -1406,6 +1494,123 @@
     </div>
   </section>
 
+  <!-- 新增：全局感知与 Agent 架构区块 -->
+  <section class="architecture-section" style="padding: 80px 0; background: rgba(6, 10, 22, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.03);">
+    <div class="arch-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; flex-direction: row-reverse;">
+      <div class="arch-visual" style="flex: 1.3; min-width: 320px;">
+        <div class="ss-img-wrap" style="border: 1px solid rgba(139, 92, 246, 0.15); box-shadow: 0 35px 90px rgba(139, 92, 246, 0.15); border-radius: 24px; overflow: hidden; background: rgba(6, 10, 22, 0.8);">
+          <img src="assets/temp_ppt_media/image2.png" alt="RimagAI 医生桌面上的 AI 助手全局架构" style="width: 100%; display: block; border-radius: 24px; transition: transform 0.4s ease;">
+        </div>
+      </div>
+      <div class="arch-content" style="flex: 1; min-width: 320px;">
+        <span class="section-tag" style="display: inline-block; padding: 6px 12px; border-radius: 30px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Desktop AI Intelligent Agent</span>
+        <h2 style="font-size: 32px; font-weight: 800; line-height: 1.3; color: var(--text-main); margin-bottom: 24px;">医生桌面上的 AI 助手<br>全局智能分流与任务路由</h2>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+          RimagAI Brother 客户端在后台构建了一个智能中枢。通过<strong>多模态感知通道</strong>（捕获医生的语音口述和屏幕视觉输入），自动理解医生当前的临床和影像分析意图。
+        </p>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 0;">
+          <strong>智能路由网关 (Agent Route)</strong> 会将提取到的特征进行多路由决策：在开单环节智能匹配 <strong>i-CDSS 检查推荐</strong>，在编写报告时调用 <strong>实时质控算法</strong> 与 <strong>医学专业知识库</strong>。无需医生手动切换软件，一切操作都在医生常用的 PACS/HIS 系统界面内通过无感交互自动触发。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 智能插件生态 -->
+  <section id="plugins" class="plugins-section" style="padding: 80px 0; background: rgba(255, 255, 255, 0.01); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <div class="section-header">
+      <span class="section-tag">Extensible Plugins</span>
+      <h2 class="section-title">基于腾讯 Agent 框架的医疗原生插件生态</h2>
+      <p class="section-subtitle">依托腾讯智能体开发平台与 Workbuddy 平台，提供开箱即用、持续扩展的医疗智能小工具</p>
+    </div>
+
+    <div class="plugins-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1200px; margin: 40px auto 0; padding: 0 20px;">
+      <!-- 腾讯医典 -->
+      <div class="plugin-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px 24px; position: relative; overflow: hidden;">
+        <div class="plugin-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">v1.0.0</div>
+        <div style="font-size: 36px; margin-bottom: 16px;">📘</div>
+        <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-main);">腾讯医典</h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">腾讯官方出品的专业医学知识库。支持高精准的医学问题解答与权威科普知识即时查询，为医生提供可靠的诊断辅助参考。</p>
+      </div>
+
+      <!-- 报告解读 -->
+      <div class="plugin-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px 24px; position: relative; overflow: hidden;">
+        <div class="plugin-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(139, 92, 246, 0.1); color: var(--secondary); padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">v1.0.0</div>
+        <div style="font-size: 36px; margin-bottom: 16px;">📑</div>
+        <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-main);">医疗报告解读</h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">支持上传检验单、病历或体检报告。AI 能够高精准识别关键异常指标，并以结构化、通俗的医学语言进行深度分析与说明。</p>
+      </div>
+
+      <!-- 说明书查询 -->
+      <div class="plugin-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px 24px; position: relative; overflow: hidden;">
+        <div class="plugin-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">v1.0.0</div>
+        <div style="font-size: 36px; margin-bottom: 16px;">🔍</div>
+        <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-main);">药品说明书查询</h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">秒级检索成千上万种临床药品的官方说明书。支持输入药品名称或关联疾病，快速定位适应症、禁忌症及药理毒理。</p>
+      </div>
+
+      <!-- 智能问药 -->
+      <div class="plugin-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px 24px; position: relative; overflow: hidden;">
+        <div class="plugin-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(139, 92, 246, 0.1); color: var(--secondary); padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">v1.0.0</div>
+        <div style="font-size: 36px; margin-bottom: 16px;">💊</div>
+        <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-main);">AI 智能问药</h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">结合前沿大模型与真实说明书库的交互式临床用药咨询。解答多药联合禁忌、特殊人群用药建议及剂量换算等复杂问题。</p>
+      </div>
+    </div>
+
+    <!-- 重构的平台介绍 -->
+    <div style="max-width: 1200px; margin: 50px auto 0; padding: 40px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; display: flex; align-items: center; gap: 40px; justify-content: space-between; flex-wrap: wrap; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+      <div style="flex: 1.1; min-width: 320px;">
+        <h4 style="font-size: 22px; font-weight: 800; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+          <span style="color: #06b6d4;">⚡</span> AI-brother 智能体敏捷开发平台
+        </h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+          依托腾讯智能体开发平台与 Workbuddy 基座，我们为科室和技术人员提供了强大的低代码开发套件。无需复杂的底层代码重构，即可通过拖拉拽与自然语言配置，快速发布自定义医疗原生插件，使临床小工具的搭建与落地效率提升 <strong>10倍以上</strong>。
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted);">
+            <span style="color: #06b6d4; font-weight: bold;">✔</span> <strong>腾讯 Agent 架构深度兼容</strong>：无缝调用云端/本地大模型及提示词管理
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted);">
+            <span style="color: #06b6d4; font-weight: bold;">✔</span> <strong>Workbuddy 平台一键集成</strong>：拖拽式发布桌面小部件与悬浮卡片
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted);">
+            <span style="color: #06b6d4; font-weight: bold;">✔</span> <strong>低代码配置界面</strong>：直接连接知识库、插件接口及场景路由决策
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <span style="font-size: 12px; background: rgba(37, 99, 235, 0.1); padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(37, 99, 235, 0.2); color: var(--primary); font-weight: 500;">Tencent Agent 架构</span>
+          <span style="font-size: 12px; background: rgba(139, 92, 246, 0.1); padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(139, 92, 246, 0.2); color: var(--secondary); font-weight: 500;">Workbuddy 平台集成</span>
+          <span style="font-size: 12px; background: rgba(6, 182, 212, 0.1); padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); color: #06b6d4; font-weight: 500;">低代码敏捷搭建</span>
+        </div>
+      </div>
+      
+      <!-- 右侧：Mac 浏览器风格的真实平台截图 -->
+      <div style="flex: 1.2; min-width: 320px; display: flex; flex-direction: column;">
+        <div style="background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); width: 100%;">
+          <!-- Mac 窗口 Header -->
+          <div style="background: rgba(15, 23, 42, 0.8); padding: 12px 16px; display: flex; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.08); gap: 8px;">
+            <div style="display: flex; gap: 6px;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #eab308; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+            </div>
+            <!-- 浏览器地址栏 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 6px; flex: 1; margin: 0 20px; font-size: 11px; color: var(--text-muted); text-align: center; padding: 4px 0; border: 1px solid rgba(255, 255, 255, 0.05); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 380px;">
+              https://adp.cloud.tencent.com/adp/#/app/home
+            </div>
+          </div>
+          <!-- 图片本身 -->
+          <div class="ss-img-wrap" style="border: none; border-radius: 0; margin: 0;">
+            <img src="assets/temp_ppt_media/image8.png" alt="腾讯云智能体开发平台" style="width: 100%; display: block; filter: brightness(0.95); transition: transform 0.4s ease;">
+          </div>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; font-style: italic;">
+          * 真实运行的腾讯云智能体平台“应用开发”界面
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 部署与配置优势 -->
   <section id="deployment">
     <div class="section-header">
@@ -1415,25 +1620,32 @@
     </div>
 
     <div class="deploy-grid">
-      <!-- 快速上线 -->
+      <!-- 快速部署-VPN -->
       <div class="deploy-card">
         <div class="deploy-icon">⚡</div>
-        <h3 class="deploy-title">云端快速上线</h3>
-        <p class="deploy-desc">基于云端服务，工作站直接安装客户端即可开始体验语音报告与知识问答，硬件门槛极低，最快当天投入运行。</p>
+        <h3 class="deploy-title">快速部署-VPN私有云</h3>
+        <p class="deploy-desc">无需对接繁琐系统，截屏 + OCR 开箱即用，最快当天上线体验语音报告与知识问答。</p>
       </div>
 
-      <!-- 接口对接 -->
+      <!-- HIS API 对接 -->
       <div class="deploy-card">
         <div class="deploy-icon">🔌</div>
-        <h3 class="deploy-title">院内系统接口对接</h3>
-        <p class="deploy-desc">支持与医院 HIS、RIS、PACS、EMR 深入交互对接，双向传递开单及质控数据，完美贴合既有流程。</p>
+        <h3 class="deploy-title">HIS API 深度对接</h3>
+        <p class="deploy-desc">深度集成医院 HIS、EMR、CDR 信息系统，自动拉取并双向同步患者数据，工作流深度融合。</p>
       </div>
 
-      <!-- 本地私有化 -->
+      <!-- 院内私有化 -->
       <div class="deploy-card">
         <div class="deploy-icon">🛡️</div>
-        <h3 class="deploy-title">本地私有化部署</h3>
-        <p class="deploy-desc">可全部部署在院内私有服务器或私有云中，数据模型本地运行，核心敏感信息不出院墙，符合等保合规要求。</p>
+        <h3 class="deploy-title">院内私有化本地部署</h3>
+        <p class="deploy-desc">数据不出院，服务与算力全部本地部署，符合等保合规与敏感数据不出院的严格监管要求。</p>
+      </div>
+
+      <!-- 订阅方案 -->
+      <div class="deploy-card">
+        <div class="deploy-icon">🔄</div>
+        <h3 class="deploy-title">腾讯 Agent 订阅方案</h3>
+        <p class="deploy-desc">借助腾讯 Agent 与算力框架，为医院提供长期的 AI 能力持续升级支持，弹性扩展新服务。</p>
       </div>
     </div>
   </section>
