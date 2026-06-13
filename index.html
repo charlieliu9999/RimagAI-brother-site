@@ -1,388 +1,542 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RimagAi — 医疗认知操作系统 MCOS</title>
-  <meta name="description" content="RimagAi 基于 MCOS 六层架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。告别单点工具，构建医院级认知网络。">
-  <meta name="keywords" content="RimagAi, MCOS, 医疗AI, 临床决策支持, 影像报告, 数据智能体, 医院解决方案">
-  <meta property="og:title" content="RimagAi — 医疗认知操作系统 MCOS">
-  <meta property="og:description" content="基于 MCOS 六层架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。">
-  <meta property="og:type" content="website">
+  <title>RimagAI — 数字化医疗智能生态平台</title>
+  <meta name="description" content="RimagAI 数字化医疗智能生态平台，提供面向医生工作站的 2.0 桌面端智能助手与面向医院级的 3.0 MCOS 医疗认知操作系统解决方案。">
+  <meta name="keywords" content="RimagAI, AI Brother, MCOS, 医疗人工智能, 智能开单, 报告质控, 临床决策支持">
+  
+  <!-- 引入高质感现代字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
-  <link rel="stylesheet" href="assets/css/shared.css">
+
   <style>
-    .hero { padding: 150px 0 80px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-      width: 1000px; height: 600px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+    :root {
+      --bg-color: hsl(222, 47%, 4%);
+      --text-main: hsl(210, 38%, 95%);
+      --text-muted: hsl(215, 20%, 65%);
+      --primary-v2: hsl(199, 100%, 52%);
+      --accent-v2: hsl(174, 100%, 43%);
+      --primary-v3: hsl(263, 90%, 62%);
+      --accent-v3: hsl(285, 90%, 60%);
+      --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+      --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 动态微光能量背景 */
+    .bg-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
       pointer-events: none;
-    }
-    .hero h1 {
-      font-size: clamp(36px, 5.5vw, 64px); font-weight: 800;
-      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 24px;
-      background: linear-gradient(180deg, #fff 30%, var(--text-secondary) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; line-height: 1.75; }
-    .hero-insight {
-      font-size: 14px; color: var(--text-muted); max-width: 580px; margin: 0 auto 40px;
-      padding: 14px 22px; border-radius: 12px;
-      background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.12);
-    }
-    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-    .mcos-strip {
-      display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
-      max-width: 960px; margin: 0 auto;
-    }
-    .mcos-chip {
-      padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
-      border: 1px solid var(--border); background: var(--bg-card);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .mcos-chip .lid { font-weight: 800; font-size: 14px; }
-
-    .arch-visual {
-      max-width: 900px; margin: 48px auto 0;
-      border-radius: var(--radius-lg); overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-    .arch-visual img { width: 100%; display: block; }
-
-    .position-diagram {
-      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0;
-      align-items: stretch; max-width: 960px; margin: 0 auto;
-    }
-    .pos-box {
-      padding: 28px 24px; border-radius: var(--radius);
-      border: 1px solid var(--border); text-align: center;
-    }
-    .pos-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .pos-box p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-    .pos-box.left { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.2); }
-    .pos-box.center { background: rgba(168,85,247,0.08); border-color: rgba(168,85,247,0.25); }
-    .pos-box.right { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.2); }
-    .pos-arrow {
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; color: var(--text-muted); padding: 0 8px;
+      overflow: hidden;
     }
 
-    .runtime-visual {
-      max-width: 900px; margin: 48px auto 0;
-      border-radius: var(--radius-lg); overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-    .runtime-visual img { width: 100%; display: block; }
-
-    .product-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-      max-width: 1000px; margin: 0 auto;
-    }
-    .product-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: all 0.25s; display: flex; flex-direction: column;
-    }
-    .product-card:hover {
-      border-color: var(--border-hover); background: var(--bg-card-hover);
-      transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    }
-    .product-card .layer-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600;
-      margin-bottom: 12px; width: fit-content;
-    }
-    .product-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .product-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
-    .product-card .card-link {
-      margin-top: 14px; font-size: 13px; color: var(--accent-hover); font-weight: 500;
-    }
-    .product-card .card-link:hover { text-decoration: underline; }
-
-    .dept-label {
-      font-size: 14px; font-weight: 700; margin-bottom: 16px; padding-left: 4px;
-      display: flex; align-items: center; gap: 8px;
+    .bg-glow {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.15;
+      animation: float 20s infinite alternate ease-in-out;
     }
 
-    .gov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .gov-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px; text-align: center;
-      transition: all 0.25s;
+    .bg-glow-left {
+      background: radial-gradient(circle, var(--primary-v2) 0%, transparent 70%);
+      top: -200px;
+      left: -200px;
     }
-    .gov-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .gov-card .icon { font-size: 32px; margin-bottom: 14px; }
-    .gov-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-    .gov-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
 
-    .cta-section { padding: 80px 0; text-align: center; }
-    .cta-box {
-      max-width: 700px; margin: 0 auto; padding: 48px 40px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.08));
-      border: 1px solid rgba(99,102,241,0.2);
+    .bg-glow-right {
+      background: radial-gradient(circle, var(--primary-v3) 0%, transparent 70%);
+      bottom: -200px;
+      right: -200px;
+      animation-delay: -5s;
     }
-    .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
-    .cta-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
 
-    @media (max-width: 768px) {
-      .hero { padding: 120px 0 60px; }
-      .product-grid { grid-template-columns: 1fr; }
-      .gov-grid { grid-template-columns: repeat(2, 1fr); }
-      .mcos-strip { gap: 6px; }
-      .mcos-chip { padding: 8px 12px; font-size: 12px; }
-      .position-diagram { grid-template-columns: 1fr; gap: 12px; }
-      .pos-arrow { transform: rotate(90deg); padding: 4px 0; }
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(80px, 50px) scale(1.1);
+      }
+      100% {
+        transform: translate(-50px, -30px) scale(0.95);
+      }
+    }
+
+    /* 顶部导航品牌 */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary-v2), var(--primary-v3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffffff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    /* 主体容器 */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px 80px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .hero-title-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero-title-section h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(180deg, #ffffff 30%, hsl(215, 20%, 80%) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .hero-title-section p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* 双版本选择网格 */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    /* 卡片基础设计 */
+    .portal-card {
+      background: rgba(13, 20, 38, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 520px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .portal-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 0%, var(--glow-color, rgba(255, 255, 255, 0.05)) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* 卡片预览图 */
+    .card-preview {
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portal-card:hover .card-preview img {
+      transform: scale(1.05);
+    }
+
+    /* 悬停动效：位移 + 光晕 + 阴影 */
+    .portal-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--hover-border-color);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px var(--hover-glow-shadow);
+    }
+
+    .portal-card:hover::before {
+      opacity: 1;
+    }
+
+    /* 卡片 1 (2.0 AI Brother) 悬停颜色 */
+    .portal-card.v2 {
+      --glow-color: rgba(6, 182, 212, 0.12);
+      --hover-border-color: rgba(6, 182, 212, 0.35);
+      --hover-glow-shadow: rgba(6, 182, 212, 0.15);
+    }
+
+    /* 卡片 2 (3.0 MCOS) 悬停颜色 */
+    .portal-card.v3 {
+      --glow-color: rgba(168, 85, 247, 0.12);
+      --hover-border-color: rgba(168, 85, 247, 0.35);
+      --hover-glow-shadow: rgba(168, 85, 247, 0.15);
+    }
+
+    /* 卡片内容排版 */
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .version-tag {
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+
+    .v2 .version-tag {
+      color: var(--primary-v2);
+      border-color: rgba(6, 182, 212, 0.3);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .v3 .version-tag {
+      color: var(--primary-v3);
+      border-color: rgba(168, 85, 247, 0.3);
+      background: rgba(168, 85, 247, 0.05);
+    }
+
+    .status-dot-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-v2);
+      box-shadow: 0 0 10px var(--accent-v2);
+    }
+
+    .v3 .status-dot {
+      background-color: var(--primary-v3);
+      box-shadow: 0 0 10px var(--primary-v3);
+    }
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .v2 .card-title {
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary-v2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .v3 .card-title {
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary-v3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-subtitle {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    /* 核心特性列表 */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .features-list li {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .features-list li::before {
+      content: "✦";
+      color: var(--primary-v2);
+      font-weight: 700;
+    }
+
+    .v3 .features-list li::before {
+      color: var(--primary-v3);
+    }
+
+    /* 按钮设计 */
+    .card-btn {
+      width: 100%;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .v2 .card-btn {
+      background: linear-gradient(90deg, var(--primary-v2), var(--accent-v2));
+      color: #060a16;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+    }
+
+    .v2:hover .card-btn {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    .v3 .card-btn {
+      background: linear-gradient(90deg, var(--primary-v3), var(--accent-v3));
+      color: white;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+    }
+
+    .v3:hover .card-btn {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    /* 页脚 */
+    footer {
+      position: relative;
+      z-index: 10;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 响应式适配 */
+    @media (max-width: 900px) {
+      header {
+        padding: 30px 20px;
+      }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .portal-card {
+        min-height: auto;
+        padding: 40px 30px;
+      }
     }
   </style>
 </head>
-<body>
 
-  <nav>
-    <div class="container">
-      <a href="index.html" class="nav-brand">
-        <div class="logo">R</div>
-        <span>RimagAi</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html" class="active">首页</a>
-        <a href="system-introduction.html">系统介绍</a>
-        <a href="hospital-solution.html">医院解决方案</a>
-        <div class="nav-dropdown">
-          <a href="#">场景方案</a>
-          <div class="dropdown-menu">
-            <a href="radiology-solution.html">影像 · 报告生成与质控</a>
-            <a href="cdss-solution.html">临床 · CDSS 决策支持</a>
-            <a href="data-platform.html">信息 · 数据智能体</a>
-            <a href="comprehensive-solution.html">综合 · 知识库/DRG/质控</a>
+<body>
+  
+  <!-- 能量发光背景 -->
+  <div class="bg-animation" aria-hidden="true">
+    <div class="bg-glow bg-glow-left"></div>
+    <div class="bg-glow bg-glow-right"></div>
+  </div>
+
+  <!-- 顶部导航品牌 -->
+  <header>
+    <a href="index.html" class="brand-logo" aria-label="RimagAI 官网主页">
+      <div class="logo-box">R</div>
+      <span class="brand-name">RimagAI</span>
+    </a>
+  </header>
+
+  <!-- 主体入口区域 -->
+  <main>
+    <div class="hero-title-section">
+      <h1>请选择您的产品体系</h1>
+      <p>麦迪特旗下数字化影像与临床人工智能解决方案，提供桌面辅助助手与医院认知操作系统双重架构支撑。</p>
+    </div>
+
+    <div class="portal-grid">
+      <!-- 2.0 AI Brother 入口卡片 -->
+      <a href="aibrother.html" class="portal-card v2" id="entry-v2" aria-label="进入 AI Brother 桌面端助手系统介绍">
+        <div class="card-meta">
+          <span class="version-tag">AI Brother 2.0</span>
+          <div class="status-dot-container">
+            <span class="status-dot"></span>
+            <span>医生工作站伴随</span>
           </div>
         </div>
-        <a href="architecture.html">架构与愿景</a>
-        <a href="mcos-blueprint-whitepaper.html">白皮书</a>
-      </div>
+        <div class="card-preview">
+          <img src="assets/image_aibrother2/app_main.png" alt="AI Brother 桌面助手预览" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">医生桌面 AI 助手</h2>
+          <p class="card-subtitle">医生桌面上的客户端系统与智能小工具。即时、自然、低负担地融入现有高频工作流。</p>
+          <p class="card-desc">针对开单检查、报告生成、实时质控与文献指南问答，提供桌面级工具协同与端侧即时响应。</p>
+          <ul class="features-list">
+            <li>临床开单智能推荐 (i-CDSS)</li>
+            <li>影像报告语音生成与多轮修改</li>
+            <li>影像报告实时审核质控 (Report_QC)</li>
+            <li>客户端悬浮球、截图工具快捷调用</li>
+          </ul>
+        </div>
+        <button class="card-btn" tabindex="-1">进入 2.0 客户端系统介绍</button>
+      </a>
+
+      <!-- 3.0 MCOS 入口卡片 -->
+      <a href="index-mcos.html" class="portal-card v3" id="entry-v3" aria-label="进入 MCOS 医疗认知操作系统介绍">
+        <div class="card-meta">
+          <span class="version-tag">Rimag MCOS 3.0</span>
+          <div class="status-dot-container">
+            <span class="status-dot"></span>
+            <span>医院认知网络底座</span>
+          </div>
+        </div>
+        <div class="card-preview">
+          <img src="assets/presentation/mcos-runtime-loop.webp" alt="MCOS 六层架构运行时闭环" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">医疗认知操作系统</h2>
+          <p class="card-subtitle">面向医院级的智能底座。基于六层架构（L1-L6），为临床、影像、信息科室提供系统级 AI 矩阵。</p>
+          <p class="card-desc">打破单点 AI 插件的数据与流程孤岛，建立高安全、院内私有化部署、可审计且持续自进化的认知基础设施。</p>
+          <ul class="features-list">
+            <li>MCOS L1-L6 六层完整能力架构</li>
+            <li>横切治理层 (L5) 与经验自进化层 (L6)</li>
+            <li>院内数据智能体与病历内涵质控</li>
+            <li>Hermes 自然语言查询引擎与 90 天交付</li>
+          </ul>
+        </div>
+        <button class="card-btn" tabindex="-1">进入 3.0 院内系统级方案介绍</button>
+      </a>
     </div>
-  </nav>
+  </main>
 
-  <section class="hero">
-    <div class="container">
-      <h1>医疗认知操作系统<br>MCOS</h1>
-      <p class="hero-sub">告别单点 AI 插件，构建系统级医疗人工智能。RimagAi 基于自主研发的 MCOS 六层架构，将大模型能力、合规约束与数据资产编织进临床、影像、信息三大科室的真实工作流。</p>
-      <div class="hero-insight">核心判断：医疗 AI 的主要矛盾，已从"模型能力不足"转变为"架构与治理能力缺位"。</div>
-      <div class="hero-actions">
-        <a href="hospital-solution.html" class="btn-primary">查看解决方案</a>
-        <a href="architecture.html" class="btn-secondary">了解 MCOS 架构</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>MCOS 六层架构</h2>
-        <p>L1-L4 构成前向运行链路，L5 横切治理，L6 负责持续进化</p>
-      </div>
-      <div class="mcos-strip animate-in">
-        <div class="mcos-chip"><span class="lid" style="color:var(--blue);">L1</span> 感知层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--cyan);">L2</span> 上下文层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--accent);">L3</span> 认知层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--purple);">L4</span> 执行层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--orange);">L5</span> 治理层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--green);">L6</span> 进化层</div>
-      </div>
-      <div class="arch-visual animate-in">
-        <img src="assets/presentation/mcos-operating-layer.webp" alt="MCOS 医疗认知运行层架构" loading="lazy">
-      </div>
-      <p style="text-align:center; font-size:13px; color:var(--text-muted); max-width:600px; margin:24px auto 0;">MCOS 不是 HIS/EMR/PACS 本身，也不是某个大模型的别名，而是把多种 AI 能力组织进临床工作流的系统层。<a href="architecture.html" style="color:var(--accent-hover);"> 了解更多 →</a></p>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>MCOS 的系统位置</h2>
-        <p>位于医院现有系统与 AI 能力之间，不替代，而是组织</p>
-      </div>
-      <div class="position-diagram animate-in">
-        <div class="pos-box left">
-          <h4>医院现有系统</h4>
-          <p>HIS / EMR / PACS / RIS / LIS<br>挂号、收费、医嘱、阅片、存储<br>已有业务流程与数据资产</p>
-        </div>
-        <div class="pos-arrow">→</div>
-        <div class="pos-box center">
-          <h4>MCOS 认知运行层</h4>
-          <p>场景感知 · 上下文组织<br>推理调度 · 执行控制<br>治理约束 · 持续进化</p>
-        </div>
-        <div class="pos-arrow">→</div>
-        <div class="pos-box right">
-          <h4>AI 能力层</h4>
-          <p>医疗大模型 / 通用 LLM<br>规则引擎 / 知识库<br>工具调用 / Agent Harness</p>
-        </div>
-      </div>
-      <div class="runtime-visual animate-in">
-        <img src="assets/presentation/mcos-system-position.webp" alt="MCOS 系统位置 — 医院系统与 AI 能力之间的认知运行层" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>产品矩阵</h2>
-        <p>覆盖临床、影像、信息三大科室的 8 个核心产品</p>
-      </div>
-      <div class="arch-visual animate-in" style="margin-bottom:48px;">
-        <img src="assets/presentation/mcos-product-matrix.webp" alt="MCOS 产品矩阵总览" loading="lazy">
-      </div>
-
-      <div class="dept-label" style="color:var(--blue);">🏥 临床科室</div>
-      <div class="product-grid animate-in" style="margin-bottom:32px;">
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 认知层</div>
-          <h4>CDSS 智能临床决策支持</h4>
-          <p>融合在工作流中的分阶段推理引擎，从诊断到处置每步提供置信度与依据关联。</p>
-          <a href="hospital-solution.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(168,85,247,0.12); color:var(--purple);">L1 + L4</div>
-          <h4>智能病历录入工作站</h4>
-          <p>语音、截屏、文字三通道并行，AI 自动提取结构化 EMR 字段，一键确认写回 HIS。</p>
-          <a href="hospital-solution.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(249,115,22,0.12); color:var(--orange);">L5 治理层</div>
-          <h4>DRG 费用合规预警</h4>
-          <p>医嘱提交前实时拦截编码错误和不合理收费，本地规则引擎零延迟执行。</p>
-          <a href="hospital-solution.html" class="card-link">了解更多 →</a>
-        </div>
-      </div>
-
-      <div class="dept-label" style="color:var(--cyan);">📡 影像科室</div>
-      <div class="product-grid animate-in" style="margin-bottom:32px;">
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(6,182,212,0.12); color:var(--cyan);">L1 + L4</div>
-          <h4>智能影像报告生成</h4>
-          <p>语音控制 + DICOM 集成 + 结构化模板，大幅缩短报告编写时间。</p>
-          <a href="radiology-solution.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(249,115,22,0.12); color:var(--orange);">L3 + L5</div>
-          <h4>影像报告双重质控</h4>
-          <p>规则引擎拦截低级错误 + 大模型语义质控，双重保障报告质量。</p>
-          <a href="radiology-solution.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(168,85,247,0.12); color:var(--purple);">L3 认知层</div>
-          <h4>ACRAC 检查适宜性推荐</h4>
-          <p>基于 ACR 准则的智能检查方案推荐，减少不必要的辐射暴露。</p>
-          <a href="cdss-solution.html" class="card-link">了解更多 →</a>
-        </div>
-      </div>
-
-      <div class="dept-label" style="color:var(--green);">💻 信息科室</div>
-      <div class="product-grid animate-in">
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(6,182,212,0.12); color:var(--cyan);">L2 + L5</div>
-          <h4>院内数据智能体</h4>
-          <p>受控语义查询 + MCP 工具链，权限矩阵与审计日志保障数据安全。</p>
-          <a href="data-platform.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card">
-          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 认知层</div>
-          <h4>病历内涵质控</h4>
-          <p>后台自动轮询，批量检查病历内涵质量，问题项推送至质管科审核。</p>
-          <a href="hospital-solution.html" class="card-link">了解更多 →</a>
-        </div>
-        <div class="product-card" style="border-color: rgba(34,197,94,0.2);">
-          <div class="layer-badge" style="background:rgba(34,197,94,0.12); color:var(--green);">L6 进化层</div>
-          <h4>知识沉淀与自进化</h4>
-          <p>整合本院诊疗规范，捕获医生反馈，持续迭代本地规则库与知识检索库。</p>
-          <a href="architecture.html" class="card-link">了解更多 →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>治理与安全</h2>
-        <p>没有治理层，MCOS 只是能力系统；有了治理层，才是可落地的临床辅助系统</p>
-      </div>
-      <div class="gov-grid">
-        <div class="gov-card animate-in">
-          <div class="icon">🔒</div>
-          <h4>本地优先部署</h4>
-          <p>核心数据不出院墙，敏感计算端侧优先。支持国产算力本地模型私有化部署。</p>
-        </div>
-        <div class="gov-card animate-in">
-          <div class="icon">🔌</div>
-          <h4>无缝旧系统融合</h4>
-          <p>非侵入式对接 HIS / EMR / PACS / RIS / LIS，提供平滑的工作流改造路径。</p>
-        </div>
-        <div class="gov-card animate-in">
-          <div class="icon">⚖️</div>
-          <h4>可控可审计</h4>
-          <p>所有 AI 生成操作可追溯，决策路径透明。规则引擎干预作为确定性兜底。</p>
-        </div>
-        <div class="gov-card animate-in">
-          <div class="icon">🌱</div>
-          <h4>资产可积累</h4>
-          <p>知识、工具和业务规则以组织级维度沉淀，不依赖特定模型平台锁定。</p>
-        </div>
-      </div>
-      <div class="runtime-visual animate-in" style="margin-top:48px;">
-        <img src="assets/presentation/mcos-governance-levels.webp" alt="MCOS 治理层级" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-box animate-in">
-        <h2>从单点工具走向认知操作系统</h2>
-        <p>MCOS 六层架构已在 8 个核心临床场景中完成工程级验证（58 个测试用例）。我们诚邀医院信息科、临床科室和影像科室的决策者，共同探索系统级医疗 AI 的落地路径。</p>
-        <div class="hero-actions">
-          <a href="hospital-solution.html" class="btn-primary">查看解决方案</a>
-          <a href="mcos-blueprint-whitepaper.html" class="btn-secondary">阅读白皮书全文</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- 页脚 -->
   <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="system-introduction.html">系统介绍</a>
-        <a href="hospital-solution.html">医院解决方案</a>
-        <a href="radiology-solution.html">影像科方案</a>
-        <a href="cdss-solution.html">CDSS 决策支持</a>
-        <a href="data-platform.html">数据智能体</a>
-        <a href="architecture.html">架构与愿景</a>
-        <a href="mcos-blueprint-whitepaper.html">MCOS 白皮书</a>
-        <a href="download.html">下载</a>
-      </div>
-      <p>RimagAi · 医疗认知操作系统（MCOS）· 重塑医院智能底层逻辑</p>
-    </div>
+    <p>RimagAI &middot; 麦迪特人工智能技术有限公司 &copy; 2026</p>
   </footer>
 
-  <button id="backToTop" aria-label="回到顶部">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-  </button>
-
-  <script>
-    const btt = document.getElementById('backToTop');
-    if (btt) {
-      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500));
-      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
-    document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
-  </script>
 </body>
+
 </html>

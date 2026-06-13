@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="i-CDSS 临床检查智能推荐平台 (Smart_Order) - 影像检查适宜性标准与多模型临床决策支持系统白皮书">
+    <title>i-CDSS 临床检查智能推荐平台 | AI 赋能的检查决策与合规卫士</title>
+
+    <!-- 引入高质感现代字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: hsl(222, 47%, 6%);
+            --card-bg: hsla(223, 47%, 11%, 0.65);
+            --card-border: hsla(217, 100%, 50%, 0.15);
+            --primary: hsl(210, 100%, 55%);
+            --secondary: hsl(271, 91%, 65%);
+            --accent: hsl(174, 100%, 43%);
+            --text-main: hsl(210, 38%, 95%);
+            --text-muted: hsl(215, 20%, 65%);
+            --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+            --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
+            --glow-blue: 0 0 25px hsla(210, 100%, 55%, 0.15);
+            --glow-purple: 0 0 25px hsla(271, 91%, 65%, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(210, 100%, 15%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(271, 100%, 15%, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* 顶部导航栏 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(6, 10, 22, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "✦";
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-btn-small {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* 英雄 Banner 主屏 */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 40px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 30px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 40%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .hero-desc span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .cta-btn-large {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cta-btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+        }
+
+        .cta-btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 极简图形化 SVG 样式 */
+        .graphic-svg {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            filter: drop-shadow(0 15px 35px rgba(37, 99, 235, 0.15));
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-image:hover .graphic-svg {
+            transform: translateY(-8px) scale(1.03);
+            filter: drop-shadow(0 20px 45px rgba(37, 99, 235, 0.3));
+        }
+
+        /* SVG 动画 */
+        @keyframes float-slower {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        @keyframes draw-flow {
+            to {
+                stroke-dashoffset: -100;
+            }
+        }
+
+        @keyframes pulse-dot {
+            0% {
+                r: 4px;
+                opacity: 0.4;
+            }
+
+            50% {
+                r: 8px;
+                opacity: 1;
+            }
+
+            100% {
+                r: 4px;
+                opacity: 0.4;
+            }
+        }
+
+        .animate-float {
+            animation: float-slower 6s ease-in-out infinite;
+        }
+
+        .animate-dash {
+            stroke-dasharray: 8, 8;
+            animation: draw-flow 15s linear infinite;
+        }
+
+        .animate-pulse-node {
+            animation: pulse-dot 2.5s infinite;
+        }
+
+        /* 通用区块布局 */
+        section {
+            padding: 100px 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* 应用方案卡片区 (事中/事后) */
+        .pain-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 35px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .pain-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: var(--glow-blue);
+        }
+
+        .pain-card:hover::before {
+            opacity: 1;
+        }
+
+        .pain-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .pain-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .pain-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            min-height: 70px;
+        }
+
+        .pain-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pain-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .pain-badge.highlight {
+            border-color: rgba(174, 100, 43, 0.3);
+            color: var(--accent);
+            background: rgba(174, 100, 43, 0.05);
+        }
+
+        /* 评测指标区 */
+        .metrics-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%), var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 50px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .metrics-left {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* 极简仪表盘 SVG 指针动画效果 */
+        .gauge-svg {
+            width: 220px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .gauge-needle {
+            transform-origin: 120px 140px;
+            /* F1 = 0.825 在半圆180度里的旋转角：-90deg + 180 * 0.825 = 58.5deg */
+            transform: rotate(58.5deg);
+            transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gauge-fill-arc {
+            stroke-dasharray: 251.3;
+            /* 82.5% 对应的虚线偏移：251.3 * (1 - 0.825) = 44.0 */
+            stroke-dashoffset: 251.3;
+            animation: draw-gauge-arc 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes draw-gauge-arc {
+            to {
+                stroke-dashoffset: 44.0;
+            }
+        }
+
+        .metric-highlight-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .metric-highlight-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            max-width: 280px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .metric-mini-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .metric-num {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* 延伸技术指标样式 */
+        .metrics-extended-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            text-align: left;
+            width: 100%;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 6px;
+        }
+
+        .extended-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .ext-metric-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 12px 8px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .ext-metric-card:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .ext-metric-num {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ext-metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 4px;
+        }
+
+        .ext-metric-desc {
+            font-size: 9px;
+            color: var(--text-muted);
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        .metrics-right {
+            flex: 1.2;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .chart-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chart-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .chart-label {
+            font-weight: 600;
+        }
+
+        .chart-val {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .chart-bar-bg {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .chart-pointer {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            z-index: 10;
+        }
+
+        /* 流程说明区 */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+            z-index: 1;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-num {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 25px 30px;
+            flex-grow: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* 部署与硬件配置区 */
+        .deploy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .deploy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .deploy-card:hover {
+            border-color: rgba(139, 92, 246, 0.25);
+            box-shadow: var(--glow-purple);
+        }
+
+        .deploy-card.active {
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: var(--glow-blue);
+        }
+
+        .deploy-badge {
+            align-self: flex-start;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .deploy-card.active .deploy-badge {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: var(--primary);
+        }
+
+        .deploy-badge-purple {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--secondary);
+        }
+
+        .deploy-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .deploy-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .spec-list {
+            list-style: none;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .spec-list li {
+            font-size: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .spec-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .deploy-image-box {
+            margin-top: auto;
+            text-align: center;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .deploy-image-box svg {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+            transition: transform 0.5s ease;
+        }
+
+        .deploy-card:hover .deploy-image-box svg {
+            transform: scale(1.05);
+        }
+
+        /* 推荐规则与引擎区 */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .adv-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .adv-card:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .adv-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .adv-card:hover .adv-number {
+            color: var(--primary);
+            opacity: 0.8;
+            text-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .adv-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .adv-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* 文献共识同步区 */
+        .loop-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .loop-content {
+            flex: 1.2;
+            min-width: 350px;
+        }
+
+        .loop-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .loop-list li {
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .loop-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary);
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        .loop-list-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .loop-list-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .loop-visual {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .loop-visual-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 咨询页脚 */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 40px;
+            text-align: center;
+            background: rgba(3, 7, 18, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .footer-btn {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .footer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+        }
+
+        .copyright {
+            margin-top: 60px;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 12px;
+        }
+
+        /* 关键动画 */
+        @keyframes pulse {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.03);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+        }
+
+        /* ================= 服务端/架构设计 CSS ================= */
+        .server-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .server-card {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, hsla(210, 100%, 55%, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .server-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: var(--glow-blue);
+        }
+
+        .server-card.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .server-card.reverse::after {
+            background: radial-gradient(circle at 20% 20%, hsla(271, 91%, 65%, 0.05) 0%, transparent 50%);
+        }
+
+        .server-visual {
+            flex: 1.3;
+            min-width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            background: rgba(6, 10, 22, 0.6);
+            padding: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .server-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .server-visual svg {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            background: #030712;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .server-card:hover .server-visual svg {
+            transform: scale(1.025);
+        }
+
+        .server-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .server-card-tag {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-card-tag::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        .server-card.reverse .server-card-tag {
+            color: var(--secondary);
+        }
+
+        .server-card.reverse .server-card-tag::before {
+            background-color: var(--secondary);
+            box-shadow: 0 0 8px var(--secondary);
+        }
+
+        .server-card-title {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.25;
+            background: linear-gradient(135deg, #fff 60%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .server-card-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .server-metrics-mini {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .server-metric-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 15px 18px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .server-metric-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .server-metric-num {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .server-card.reverse .server-metric-num {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .server-metric-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 992px) {
+
+            .server-card,
+            .server-card.reverse {
+                flex-direction: column;
+                padding: 30px;
+                gap: 35px;
+            }
+
+            .server-visual,
+            .server-info {
+                width: 100%;
+            }
+        }
+
+        /* ================= 四阶段规则引擎 CSS ================= */
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .error-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .error-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37, 99, 235, 0.35);
+            box-shadow: var(--glow-blue);
+        }
+
+        .error-num-tag {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .error-card:hover .error-num-tag {
+            color: var(--primary);
+            opacity: 0.15;
+        }
+
+        .error-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .error-card-desc {
+            color: var(--text-muted);
+            font-size: 13.5px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* ================= 适宜性准则数据接入 CSS ================= */
+        .deploy-extended-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            margin: 50px 0 25px;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+
+        .integration-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .integration-card:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(37, 99, 235, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .integration-icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .integration-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .integration-desc {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* ================= 三甲落地案例 CSS ================= */
+        .case-card {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .case-card:hover {
+            border-color: rgba(139, 92, 246, 0.25);
+            box-shadow: var(--glow-purple);
+        }
+
+        .case-content {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .case-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .case-visual svg {
+            width: 100%;
+            height: auto;
+            max-width: 360px;
+            filter: drop-shadow(0 15px 35px rgba(139, 92, 246, 0.1));
+        }
+
+        .case-badge {
+            align-self: flex-start;
+            padding: 6px 14px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--secondary);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .case-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .case-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .case-stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .case-stat-num {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .case-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .integration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card {
+                flex-direction: column;
+                padding: 30px;
+                gap: 35px;
+            }
+
+            .case-content,
+            .case-visual {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .nav-links,
+            .cta-btn-small {
+                display: none;
+                /* 移动端导航精简 */
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <a href="../aibrother.html" class="logo">i-CDSS</a>
+        <ul class="nav-links">
+            <li><a href="../aibrother.html" style="color: var(--primary); font-weight: 700;">← 返回 2.0 主页</a></li>
+            <li><a href="#schemes">应用方案</a></li>
+            <li><a href="#rules">规则引擎</a></li>
+            <li><a href="#process">匹配流程</a></li>
+            <li><a href="#doctor-client">临床体验</a></li>
+            <li><a href="#agent-interface">AI 评测</a></li>
+            <li><a href="#consensus">共识同步</a></li>
+            <li><a href="#deployment">部署方案</a></li>
+            <li><a href="#success-case">应用成效</a></li>
+        </ul>
+        <button class="cta-btn-small"
+            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">申请试用</button>
+    </header>
+
+    <!-- 英雄 Banner 主屏 -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">🌟 Icdss 适宜性标准与多模型引擎</span>
+            <h1 class="hero-title">i-CDSS 临床智能推荐系统<br>使影像检查开单<span>更精准、更合规</span></h1>
+            <p class="hero-desc">基于<span>2.2
+                    万行临床适宜性标准知识库（Icdss）</span>与大模型语义向量检索（RAG），结合四阶段规则拦截控制引擎。在开单环节实现实时临床决策支持，<span>规避医保拒付</span>并<span>降低不合理检查率</span>。
+            </p>
+            <div class="hero-actions">
+                <button class="cta-btn-large"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">申请演示 DEMO</button>
+                <button class="cta-btn-secondary"
+                    onclick="document.getElementById('metrics').scrollIntoView({behavior: 'smooth'})">了解推荐指标</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- 极简图形化智能开单流程 SVG -->
+            <svg class="graphic-svg animate-float" viewBox="0 0 520 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 背景发光渐变圆 -->
+                <circle cx="260" cy="250" r="180" fill="url(#hero-bg-glow)" opacity="0.15" />
+
+                <!-- 外围环形装饰线 -->
+                <circle cx="260" cy="250" r="210" stroke="url(#hero-ring-grad)" stroke-width="1.5"
+                    stroke-dasharray="10 15" opacity="0.6" />
+                <circle cx="260" cy="250" r="230" stroke="url(#hero-ring-grad-2)" stroke-width="1" opacity="0.3"
+                    class="animate-dash" />
+
+                <!-- 主控制屏窗口 -->
+                <rect x="80" y="100" width="360" height="270" rx="20" fill="#0b1122" stroke="url(#border-grad)"
+                    stroke-width="2" />
+
+                <!-- 顶部控制栏 -->
+                <rect x="80" y="100" width="360" height="40" rx="20" fill="rgba(255, 255, 255, 0.02)" />
+                <circle cx="110" cy="120" r="5" fill="#ef4444" />
+                <circle cx="125" cy="120" r="5" fill="#f59e0b" />
+                <circle cx="140" cy="120" r="5" fill="#10b981" />
+                <text x="200" y="125" fill="rgba(255, 255, 255, 0.3)" font-size="12" font-family="var(--font-display)"
+                    font-weight="600">i-CDSS RECOMMENDATION</text>
+
+                <!-- 临床开单主诉输入框 (模拟输入) -->
+                <rect x="105" y="160" width="310" height="42" rx="8" fill="rgba(255,255,255,0.03)"
+                    stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                <circle cx="125" cy="181" r="8" fill="url(#blue-dot-grad)" />
+                <text x="145" y="185" fill="#ffffff" font-size="11.5" font-family="var(--font-sans)"
+                    font-weight="500">主诉：左侧胸痛3天，伴背部放射痛</text>
+
+                <!-- 中间匹配动态线（流向） -->
+                <path d="M 260 202 L 260 238" stroke="url(#line-glow-grad)" stroke-width="2" stroke-dasharray="5 5"
+                    class="animate-dash" />
+
+                <!-- 规则与向量匹配匹配指示器 -->
+                <g filter="url(#shadow-filter)">
+                    <rect x="135" y="225" width="250" height="115" rx="14" fill="#111827" stroke="url(#badge-border)"
+                        stroke-width="1.5" />
+                    <!-- 匹配状态徽章 -->
+                    <rect x="155" y="245" width="210" height="24" rx="12" fill="rgba(20, 184, 166, 0.1)"
+                        stroke="#14b8a6" stroke-width="1" />
+                    <text x="260" y="261" fill="#14b8a6" font-size="11" font-family="var(--font-sans)" font-weight="700"
+                        text-anchor="middle">推荐：胸部 CT 平扫 + 主动脉 CTA</text>
+
+                    <!-- 理由及分值 -->
+                    <text x="155" y="295" fill="var(--text-muted)" font-size="10" font-family="var(--font-sans)">适宜性等级:
+                        首选检查 (Icdss 评分: 8分)</text>
+                    <text x="155" y="315" fill="var(--text-muted)" font-size="10" font-family="var(--font-sans)">推荐理由:
+                        排除主动脉夹层等危急重症</text>
+
+                    <!-- 指示推荐通过的打勾图标 -->
+                    <circle cx="355" cy="298" r="14" fill="url(#checkmark-bg)" />
+                    <path d="M349 298 L353 302 L361 294" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </g>
+
+                <!-- 渐变和滤镜 -->
+                <defs>
+                    <linearGradient id="hero-bg-glow" x1="260" y1="70" x2="260" y2="430" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb" />
+                        <stop offset="1" stop-color="#8b5cf6" stop-opacity="0" />
+                    </linearGradient>
+                    <linearGradient id="hero-ring-grad" x1="50" y1="250" x2="470" y2="250"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb" stop-opacity="0.8" />
+                        <stop offset="1" stop-color="#8b5cf6" stop-opacity="0.1" />
+                    </linearGradient>
+                    <linearGradient id="hero-ring-grad-2" x1="30" y1="250" x2="490" y2="250"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#14b8a6" stop-opacity="0.4" />
+                        <stop offset="1" stop-color="#2563eb" stop-opacity="0.05" />
+                    </linearGradient>
+                    <linearGradient id="border-grad" x1="80" y1="100" x2="440" y2="370" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb" />
+                        <stop offset="0.5" stop-color="#3b82f6" stop-opacity="0.2" />
+                        <stop offset="1" stop-color="#8b5cf6" />
+                    </linearGradient>
+                    <linearGradient id="blue-dot-grad" x1="117" y1="173" x2="133" y2="189"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#38bdf8" />
+                        <stop offset="1" stop-color="#2563eb" />
+                    </linearGradient>
+                    <linearGradient id="line-glow-grad" x1="260" y1="202" x2="260" y2="238"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb" />
+                        <stop offset="1" stop-color="#14b8a6" />
+                    </linearGradient>
+                    <linearGradient id="badge-border" x1="135" y1="225" x2="385" y2="340"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#14b8a6" />
+                        <stop offset="1" stop-color="#2563eb" stop-opacity="0.2" />
+                    </linearGradient>
+                    <linearGradient id="checkmark-bg" x1="341" y1="284" x2="369" y2="312"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#10b981" />
+                        <stop offset="1" stop-color="#059669" />
+                    </linearGradient>
+                    <filter id="shadow-filter" x="115" y="210" width="290" height="155" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.4" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 应用方案 -->
+    <section id="schemes">
+        <div class="section-header">
+            <span class="section-tag">Solutions</span>
+            <h2 class="section-title">两大核心业务应用方案</h2>
+            <p class="section-subtitle">打通门诊实时开单与事后质量审计，全方位约束检查合理性</p>
+        </div>
+        <div class="pain-points-grid">
+            <div class="pain-card">
+                <div class="pain-icon">🩺</div>
+                <h3 class="pain-title">事中实时推荐与拦截（门急诊/住院）</h3>
+                <p class="pain-desc">深度嵌入 HIS 和电子病历系统。当临床医生下达检查医嘱时，系统在 2.5
+                    秒内完成主诉向量检索和多模型推理，实时弹出适宜检查建议。对违反红线禁忌（如孕妇放射性检查）直接强制拦截。</p>
+                <div class="pain-badge-container">
+                    <span class="pain-badge highlight">实时阻断与提示</span>
+                    <span class="pain-badge">Icdss适宜度评分</span>
+                    <span class="pain-badge">SSE流式输出</span>
+                </div>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">📋</div>
+                <h3 class="pain-title">事后处方合理性审计（离线分析）</h3>
+                <p class="pain-desc">对已归档的历史处方进行全量批量审计。从医保控费、适应证匹配度、解剖侧别等多个维度计算临床开单合规率，导出科室及医师检查合理性分析白皮书，实现精细化临床绩效评价。
+                </p>
+                <div class="pain-badge-container">
+                    <span class="pain-badge highlight">离线大批量审计</span>
+                    <span class="pain-badge">多阶段归因诊断</span>
+                    <span class="pain-badge">医师合规力排行榜</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四阶段规则控制引擎 -->
+    <section id="rules">
+        <div class="section-header">
+            <span class="section-tag">Rule Engine</span>
+            <h2 class="section-title">四阶段规则引擎精准管控</h2>
+            <p class="section-subtitle">结合权威临床决策指南，打造逻辑无懈可击的安全红线防护网</p>
+        </div>
+        <div class="error-grid">
+            <div class="error-card">
+                <div class="error-num-tag">01</div>
+                <h3 class="error-card-title">前置条件过滤 (pre_filter)</h3>
+                <p class="error-card-desc">自动校验患者基础属性禁忌。例如，根据年龄、性别（如非生育期女性、孕妇）自动过滤掉带有电离辐射的检查类型。</p>
+            </div>
+            <div class="error-card">
+                <div class="error-num-tag">02</div>
+                <h3 class="error-card-title">适应证加权 (boost)</h3>
+                <p class="error-card-desc">深度提取主诉中的特征词（如特定阳性体征、病史），对指南明确推荐的检查项目进行权重加成，优先推荐。</p>
+            </div>
+            <div class="error-card">
+                <div class="error-num-tag">03</div>
+                <h3 class="error-card-title">不合理抑制 (suppress)</h3>
+                <p class="error-card-desc">针对低适宜度、短期内重复做同类型检查或医保不予报销的多余检查进行自动分数调减，抑制医生过度开单。</p>
+            </div>
+            <div class="error-card">
+                <div class="error-num-tag">04</div>
+                <h3 class="error-card-title">后置合规性校验 (post_validate)</h3>
+                <p class="error-card-desc">校对推荐项目的解剖方位。例如，检测到开单部位侧别（如“右侧”）与临床主诉部位（如“左膝疼痛”）发生偏差时报错。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 匹配流程 -->
+    <section id="process">
+        <div class="section-header">
+            <span class="section-tag">Recommendation Workflow</span>
+            <h2 class="section-title">智能开单推荐引擎工作流</h2>
+            <p class="section-subtitle">“NLP + 向量检索 + LLM”多阶段融合，实现极低误判与毫秒级决策反馈</p>
+        </div>
+        <div class="process-steps">
+            <div class="step-item">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3 class="step-title">主诉及临床体征语义解析</h3>
+                    <p class="step-desc">系统截取医生输入的诊断与病历，使用专业医学 NLP 模块提取核心病因、定位器官、发病时长和阳性体征。</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3 class="step-title">Icdss 知识库语义向量匹配 (RAG)</h3>
+                    <p class="step-desc">提取出的核心特征经向量化，在 Milvus 数据库中进行多维相似度检索，秒级匹配最相关的 Icdss 适宜性评价标准和循证条款。</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3 class="step-title">大语言模型（LLM）推理与理由生成</h3>
+                    <p class="step-desc">调用经过医学增强训练的推理大模型，将检索出的 Icdss 指南融合患者当前体征，推理出 3 个最佳备选项目并生成简化推荐理由。</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h3 class="step-title">四阶段规则引擎实时干预过滤</h3>
+                    <p class="step-desc">将 LLM 推理结果输入规则过滤器，最终执行前置/后置禁忌抑制规则，通过 SSE 流式动态展现给开单医生，随开随算。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 评测指标 -->
+    <section id="metrics">
+        <div class="section-header">
+            <span class="section-tag">Evaluation Metrics</span>
+            <h2 class="section-title">卓越的检查适宜性推荐精度</h2>
+            <p class="section-subtitle">经三甲影像科与临床专家联合盲测，实现学术适宜度与临床实用性的深度融合</p>
+        </div>
+        <div class="metrics-container">
+            <div class="metrics-left">
+                <!-- 仪表盘物理指针指向 82.5% -->
+                <svg class="gauge-svg" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 仪表盘背景环 -->
+                    <path d="M 40 140 A 80 80 0 0 1 200 140" stroke="rgba(255, 255, 255, 0.05)" stroke-width="12"
+                        fill="none" stroke-linecap="round" />
+                    <!-- 仪表盘彩色填充环 (82.5%) -->
+                    <path d="M 40 140 A 80 80 0 0 1 200 140" stroke="url(#gauge-glow-grad)" stroke-width="12"
+                        fill="none" stroke-linecap="round" class="gauge-fill-arc" />
+
+                    <!-- 指针 Needle (物理旋转指向 82.5%) -->
+                    <g class="gauge-needle">
+                        <line x1="120" y1="140" x2="120" y2="65" stroke="url(#needle-grad)" stroke-width="3"
+                            stroke-linecap="round" />
+                        <polygon points="117,140 120,55 123,140" fill="url(#needle-grad)" opacity="0.8" />
+                        <circle cx="120" cy="140" r="8" fill="#ffffff" stroke="var(--primary)" stroke-width="2" />
+                        <circle cx="120" cy="140" r="3" fill="#000000" />
+                    </g>
+                    <!-- 下方数值 -->
+                    <text x="120" y="170" fill="#ffffff" font-size="28" font-family="var(--font-display)"
+                        font-weight="800" text-anchor="middle">0.825</text>
+
+                    <defs>
+                        <linearGradient id="gauge-glow-grad" x1="40" y1="140" x2="200" y2="140"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--primary)" />
+                            <stop offset="0.7" stop-color="var(--secondary)" />
+                            <stop offset="1" stop-color="var(--accent)" />
+                        </linearGradient>
+                        <linearGradient id="needle-grad" x1="120" y1="140" x2="120" y2="55"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--primary)" />
+                            <stop offset="1" stop-color="#ffffff" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <div class="metric-highlight-label">系统综合 Top-1 匹配率</div>
+                <p class="metric-highlight-desc">基于双重语义模型和四阶段规则微调所得的数据，可做到媲美资深影像专家的检查项目推荐准度。</p>
+                <div class="metrics-grid">
+                    <div class="metric-mini-card">
+                        <div class="metric-num">91.2%</div>
+                        <div class="metric-label">Top-3 检查覆盖率</div>
+                    </div>
+                    <div class="metric-mini-card">
+                        <div class="metric-num">95.6%</div>
+                        <div class="metric-label">临床可采纳适宜度</div>
+                    </div>
+                </div>
+
+                <div class="metrics-extended-title">延伸临床技术指标</div>
+                <div class="extended-metrics-grid">
+                    <div class="ext-metric-card">
+                        <div class="ext-metric-num">&gt; 98%</div>
+                        <div class="ext-metric-label">高危禁忌拦截率</div>
+                        <div class="ext-metric-desc">针对孕妇X线等高辐射及造影剂过敏等高危限制</div>
+                    </div>
+                    <div class="ext-metric-card">
+                        <div class="ext-metric-num">~ 40%</div>
+                        <div class="ext-metric-label">检查费用节约率</div>
+                        <div class="ext-metric-desc">剔除低适宜性及过度检查带来的不合理门诊开支</div>
+                    </div>
+                    <div class="ext-metric-card">
+                        <div class="ext-metric-num">10 倍+</div>
+                        <div class="ext-metric-label">评测效率增益</div>
+                        <div class="ext-metric-desc">由 AI Agent 自主评测闭环实现效率提升</div>
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-right">
+                <div class="chart-row">
+                    <div class="chart-info">
+                        <span class="chart-label">骨骼与关节病变匹配度 (Bone & Joint)</span>
+                        <span class="chart-val">0.932</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 93.2%;">
+                            <div class="chart-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-info">
+                        <span class="chart-label">心血管系统危重急症筛选度 (Cardiovascular)</span>
+                        <span class="chart-val">0.898</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 89.8%;">
+                            <div class="chart-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-info">
+                        <span class="chart-label">腹部与骨盆软组织适宜度 (Abdomen & Pelvis)</span>
+                        <span class="chart-val">0.865</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 86.5%;">
+                            <div class="chart-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-info">
+                        <span class="chart-label">平均单例开单推理时长 (HIS 集成)</span>
+                        <span class="chart-val">&lt; 2.5s</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill"
+                            style="width: 98%; background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);">
+                            <div class="chart-pointer"
+                                style="border-color: var(--accent); box-shadow: 0 0 10px var(--accent);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 医生端体验与实操 -->
+    <section id="doctor-client">
+        <div class="section-header">
+            <span class="section-tag">Doctor Client Experience</span>
+            <h2 class="section-title">医生端无感集成与实时推荐</h2>
+            <p class="section-subtitle">智能病历解析、一键采纳、合规防护，临床医生的开单“决策助手”</p>
+        </div>
+        <div class="server-card">
+            <div class="server-info">
+                <span class="server-card-tag">智能开单客户端</span>
+                <h3 class="server-card-title">主诉秒级识别，推荐一键确认</h3>
+                <p class="server-card-desc">i-CDSS 推荐端点通过轻量化接口无感集成至临床医生 HIS/EMR
+                    书写流中。当医生在输入诊断或主诉病历时，系统在后台实现静默检索和推理。推荐面板随开随算，点击“采纳”，即可自动生成合规、适宜的影像检查医嘱，并填入理由，大幅减少开单的沟通和确认耗时。</p>
+                <ul class="spec-list" style="margin-bottom:0;">
+                    <li><strong>无感知毫秒级反馈</strong>：病历录入同时静默计算，2.5s 内返回最佳适宜性推荐。</li>
+                    <li><strong>检查项目一键确认</strong>：拒绝繁杂的多级目录翻找，最佳影像检查即点即填。</li>
+                    <li><strong>医保防拒付机制</strong>：前置排除不合理过度检查及禁忌症项目，从源头消灭开单拒付。</li>
+                </ul>
+            </div>
+            <div class="server-visual" style="flex: 1.5;">
+                <img src="检查推荐-1.gif" alt="i-CDSS 临床智能推荐开单实操演示"
+                    style="width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Agent 自主评测分析体验 -->
+    <section id="agent-interface">
+        <div class="section-header">
+            <span class="section-tag">AI Agent Evaluation</span>
+            <h2 class="section-title">AI Agent 闭环评测与性能审计</h2>
+            <p class="section-subtitle">基于 Agent Tool-Use 自主分析引擎，全天候诊断推荐算法的微小缺陷</p>
+        </div>
+        <div class="server-card">
+            <div class="server-info">
+                <span class="server-card-tag">自主评测 Agent</span>
+                <h3 class="server-card-title">内置 5 大工具，自主归因分析</h3>
+                <p class="server-card-desc">i-CDSS 特别配备了基于 Tool-Use 模式的评测分析 Agent。在每次大批量基准评测任务完成后，Agent 能够自主调配 5
+                    大内置分析工具：从宏观 KPI 任务摘要、失败案例具体归因，到适宜性质量分布、跨任务多维度对比以及复杂错误模式分类，输出高度可读的 Markdown 诊断报告，甚至支持多轮人机交互追问。</p>
+                <ul class="spec-list" style="margin-bottom:0;">
+                    <li><strong>自动追溯与归因</strong>：针对推荐出错或评分低案例，自动定位是 RAG 知识缺失还是大模型幻觉。</li>
+                    <li><strong>MD5 原始数据防篡改</strong>：评测报告与 PostgreSQL 数据库数据一致性通过 MD5 校验和实时追溯。</li>
+                    <li><strong>跨模型并发比对</strong>：支持不同大模型（如 Qwen 与 GPT-4）对同批临床案例的推荐合理性 KPI 跨任务对比。</li>
+                </ul>
+            </div>
+            <div class="server-visual" style="flex: 1.5;">
+                <!-- 模拟 AI Agent 诊断拓扑的 SVG 图形 -->
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 中心 Agent 节点 -->
+                    <circle cx="200" cy="150" r="40" fill="url(#agent-glow)" stroke="var(--primary)" stroke-width="2" />
+                    <circle cx="200" cy="150" r="30" fill="#090d1a" />
+                    <!-- 闪烁发光的内核 -->
+                    <circle cx="200" cy="150" r="10" fill="var(--accent)" opacity="0.8">
+                        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" />
+                        <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="200" y="154" fill="#ffffff" font-size="10" font-family="var(--font-display)"
+                        font-weight="700" text-anchor="middle">AGENT</text>
+
+                    <!-- 周围的 5 个工具节点 -->
+                    <!-- 工具 1: 任务摘要 -->
+                    <g>
+                        <line x1="200" y1="150" x2="200" y2="50" stroke="url(#line-tool)" stroke-width="1.5"
+                            stroke-dasharray="4 4" class="animate-dash" />
+                        <circle cx="200" cy="50" r="22" fill="#111827" stroke="var(--primary)" stroke-width="1.5" />
+                        <text x="200" y="53" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
+                            font-weight="600" text-anchor="middle">任务摘要</text>
+                    </g>
+                    <!-- 工具 2: 失败案例 -->
+                    <g>
+                        <line x1="200" y1="150" x2="310" y2="100" stroke="url(#line-tool)" stroke-width="1.5"
+                            stroke-dasharray="4 4" class="animate-dash" />
+                        <circle cx="310" cy="100" r="22" fill="#111827" stroke="var(--secondary)" stroke-width="1.5" />
+                        <text x="310" y="103" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
+                            font-weight="600" text-anchor="middle">失败归因</text>
+                    </g>
+                    <!-- 工具 3: 质量分布 -->
+                    <g>
+                        <line x1="200" y1="150" x2="270" y2="240" stroke="url(#line-tool)" stroke-width="1.5"
+                            stroke-dasharray="4 4" class="animate-dash" />
+                        <circle cx="270" cy="240" r="22" fill="#111827" stroke="var(--accent)" stroke-width="1.5" />
+                        <text x="270" y="243" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
+                            font-weight="600" text-anchor="middle">质量分布</text>
+                    </g>
+                    <!-- 工具 4: 对比数据 -->
+                    <g>
+                        <line x1="200" y1="150" x2="130" y2="240" stroke="url(#line-tool)" stroke-width="1.5"
+                            stroke-dasharray="4 4" class="animate-dash" />
+                        <circle cx="130" cy="240" r="22" fill="#111827" stroke="var(--primary)" stroke-width="1.5" />
+                        <text x="130" y="243" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
+                            font-weight="600" text-anchor="middle">对比数据</text>
+                    </g>
+                    <!-- 工具 5: 错误模式 -->
+                    <g>
+                        <line x1="200" y1="150" x2="90" y2="100" stroke="url(#line-tool)" stroke-width="1.5"
+                            stroke-dasharray="4 4" class="animate-dash" />
+                        <circle cx="90" cy="100" r="22" fill="#111827" stroke="var(--secondary)" stroke-width="1.5" />
+                        <text x="90" y="103" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
+                            font-weight="600" text-anchor="middle">错误模式</text>
+                    </g>
+
+                    <defs>
+                        <linearGradient id="agent-glow" x1="200" y1="110" x2="200" y2="190"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--primary)" />
+                            <stop offset="1" stop-color="var(--secondary)" />
+                        </linearGradient>
+                        <linearGradient id="line-tool" x1="200" y1="150" x2="200" y2="50"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--primary)" />
+                            <stop offset="1" stop-color="rgba(11, 17, 34, 0.1)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文献共识与自学习 -->
+    <section id="consensus">
+        <div class="section-header">
+            <span class="section-tag">Consensus & Learning</span>
+            <h2 class="section-title">文献共识库管理与向量自同步</h2>
+            <p class="section-subtitle">打破知识壁垒，将临床指南最新研究快速转化为推荐依据</p>
+        </div>
+        <div class="loop-container">
+            <div class="loop-content">
+                <p class="section-subtitle" style="text-align:left; margin-bottom: 20px;">i-CDSS 特别集成了独立运行的<b>共识文献子系统
+                        (Paper Management)</b>。在主平台通过高性能 Nginx 代理与 Iframe 无缝整合，通过以下闭环确保知识库处于医学最前沿：</p>
+                <ul class="loop-list">
+                    <li>
+                        <div class="loop-list-title">医学文献/临床指南结构化提取</div>
+                        <div class="loop-list-desc">后台提取 PDF 及权威医学文献，借助专有 LLM 抽取出包含“患者体征-首选检查-推荐级别”的标准结构。</div>
+                    </li>
+                    <li>
+                        <div class="loop-list-title">多级文献审核与版本控制</div>
+                        <div class="loop-list-desc">支持医学部专家在前端通过“文献管理”模块对提取出的结构化条款进行人工审核校对与定稿。</div>
+                    </li>
+                    <li>
+                        <div class="loop-list-title">Milvus 向量库一键自同步</div>
+                        <div class="loop-list-desc">定稿文献一键启动后台同步，瞬间更新 Milvus 数据库中的向量特征，实时更新临床开单的检索基准。</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="loop-visual">
+                <span class="loop-visual-title">共识文献子系统无缝架构</span>
+                <!-- Nginx 代理 Iframe 关系图的极简 SVG -->
+                <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="width: 100%; height: auto;">
+                    <!-- 主平台窗口 -->
+                    <rect x="20" y="30" width="160" height="130" rx="10" fill="rgba(255,255,255,0.02)"
+                        stroke="var(--primary)" stroke-width="1.5" />
+                    <text x="100" y="50" fill="#ffffff" font-size="10" font-family="var(--font-sans)" font-weight="700"
+                        text-anchor="middle">i-CDSS 主系统</text>
+
+                    <!-- Iframe 嵌套区 -->
+                    <rect x="35" y="65" width="130" height="80" rx="6" fill="#0c1020" stroke="rgba(255,255,255,0.08)"
+                        stroke-width="1" />
+                    <text x="100" y="100" fill="var(--text-muted)" font-size="9" font-family="var(--font-sans)"
+                        text-anchor="middle">Iframe 嵌套</text>
+                    <text x="100" y="115" fill="var(--text-muted)" font-size="8" font-family="var(--font-sans)"
+                        text-anchor="middle">/paper-management/</text>
+
+                    <!-- 独立子系统 -->
+                    <rect x="200" y="90" width="100" height="70" rx="10" fill="rgba(255,255,255,0.02)"
+                        stroke="var(--secondary)" stroke-width="1.5" />
+                    <text x="250" y="115" fill="#ffffff" font-size="9" font-family="var(--font-sans)" font-weight="700"
+                        text-anchor="middle">共识文献系统</text>
+                    <text x="250" y="130" fill="var(--text-muted)" font-size="8" font-family="var(--font-sans)"
+                        text-anchor="middle">(独立服务)</text>
+
+                    <!-- Nginx 代理指向线 -->
+                    <path d="M 165 105 C 180 95, 185 110, 200 110" stroke="var(--accent)" stroke-width="1.5"
+                        stroke-dasharray="4 4" class="animate-dash" />
+                    <text x="182" y="90" fill="var(--accent)" font-size="8" font-family="var(--font-sans)"
+                        font-weight="600" text-anchor="middle">Nginx 转发</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 部署方案 -->
+    <section id="deployment">
+        <div class="section-header">
+            <span class="section-tag">Deployment</span>
+            <h2 class="section-title">高弹性、低延迟的部署方案</h2>
+            <p class="section-subtitle">满足三甲医院本地数据安全限制与集团云端弹性扩展的多样化诉求</p>
+        </div>
+        <div class="deploy-grid">
+            <div class="deploy-card active">
+                <span class="deploy-badge">医院内网部署 (On-Premise)</span>
+                <h3 class="deploy-title">本地离线，零泄露风险</h3>
+                <p class="deploy-subtitle">针对对患者隐私有严苛监管的三甲医院或区域影像中心。系统数据底座与推理模型完全部署在院内内网 GPU 节点中，支持离线运行。</p>
+                <ul class="spec-list">
+                    <li><strong>数据不出院</strong>：Milvus、PostgreSQL 等核心数据库均安装在内网，不与外网通信。</li>
+                    <li><strong>模型本地推理</strong>：采用 Xinference 在本地 GPU 显卡中对开源大模型（如 Qwen2-7B-Instruct）进行高性能私有推理。</li>
+                    <li><strong>极速局域网对接</strong>：HIS/EMR 接口通过内网 API 极速调用，平均响应时间压缩至 1.8 秒。</li>
+                </ul>
+                <div class="deploy-image-box">
+                    <!-- 极简服务器机架 SVG -->
+                    <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="10" width="120" height="80" rx="10" fill="#0b1122" stroke="var(--primary)"
+                            stroke-width="2" />
+                        <line x1="50" y1="30" x2="150" y2="30" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <circle cx="58" cy="24" r="3" fill="var(--accent)" />
+                        <line x1="70" y1="24" x2="140" y2="24" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+
+                        <line x1="50" y1="55" x2="150" y2="55" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <circle cx="58" cy="49" r="3" fill="var(--accent)" />
+                        <line x1="70" y1="49" x2="140" y2="49" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+
+                        <line x1="50" y1="80" x2="150" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <circle cx="58" cy="74" r="3" fill="var(--primary)" />
+                        <line x1="70" y1="74" x2="140" y2="74" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="deploy-card">
+                <span class="deploy-badge deploy-badge-purple">集团云端服务部署 (Cloud SaaS)</span>
+                <h3 class="deploy-title">多机构弹性，集中管控</h3>
+                <p class="deploy-subtitle">针对联体医院、集团医疗机构或互联网医院。数据托管于安全专有云，多分支机构一键快速接入，低建设维护成本。</p>
+                <ul class="spec-list">
+                    <li><strong>API Provider Pool 容灾</strong>：支持配置多个大模型提供商（如 OpenAI、Ollama 等），当某个端点异常时自动熔断和故障切换。</li>
+                    <li><strong>Redis 高效缓存</strong>：对常规症状匹配的适宜性结果进行 Redis 高并发缓存，海量请求无延迟瞬时响应。</li>
+                    <li><strong>统一版本升级</strong>：最新的 Icdss 规则集及模型微调在云端一键完成，所有接入分支机构即刻共享。</li>
+                </ul>
+                <div class="deploy-image-box">
+                    <!-- 极简云端服务器 SVG -->
+                    <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M 70 80 C 40 80, 30 60, 50 40 C 40 20, 70 10, 100 25 C 120 10, 150 15, 155 35 C 175 40, 170 70, 145 80 Z"
+                            fill="#0b1122" stroke="var(--secondary)" stroke-width="2" />
+                        <rect x="75" y="45" width="50" height="25" rx="4" fill="rgba(255,255,255,0.03)"
+                            stroke="rgba(255,255,255,0.1)" />
+                        <text x="100" y="60" fill="var(--secondary)" font-size="8" font-family="var(--font-display)"
+                            font-weight="700" text-anchor="middle">CLOUD API</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="deploy-extended-title">标准的适宜性指南与知识结构</div>
+        <div class="integration-grid">
+            <div class="integration-card">
+                <div class="integration-icon">🧬</div>
+                <h3 class="integration-title">14 大专业科室分类 (Panels)</h3>
+                <p class="integration-desc">涵盖放射科、超声科、核医学等 14 大科室，完美支持国内主要临床检查科室划分和职责匹配。</p>
+            </div>
+            <div class="integration-card">
+                <div class="integration-icon">📂</div>
+                <h3 class="integration-title">304 类临床诊断专题 (Topics)</h3>
+                <p class="integration-desc">针对“急慢性胸痛”、“非创伤性头痛”等 300 多个专题构建专属诊断模型检索链。</p>
+            </div>
+            <div class="integration-card">
+                <div class="integration-icon">🎯</div>
+                <h3 class="integration-title">1,658 个细分临床场景 (Scenarios)</h3>
+                <p class="integration-desc">涵盖患者发病急缓、合并症、年龄等细分场景，实现“一人一案”的个性化精准开单提示。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用成效 -->
+    <section id="success-case">
+        <div class="section-header">
+            <span class="section-tag">Success Case</span>
+            <h2 class="section-title">三甲医院落地成效</h2>
+            <p class="section-subtitle">通过引入 i-CDSS 系统，显著规范医生临床检查决策，降低不合理检查支出</p>
+        </div>
+        <div class="case-card">
+            <div class="case-content">
+                <span class="case-badge">落地成效白皮书</span>
+                <h3 class="case-title">某大型三甲医院合理影像检查试点项目</h3>
+                <p class="case-desc">该三甲医院在门诊与急诊区域全量对接 i-CDSS 智能推荐引擎。在为期 6 个月的上线试运行期间，系统成功拦截并纠正了数万起低适宜性开单（Icdss 评分 1-3
+                    分），并在开单界面为临床医生无感提供了备选的高适宜性检查建议。项目成效表明，系统在降低重复检查率和保障医保合规核销方面具备极其显著的实用价值。</p>
+                <div class="case-stats">
+                    <div class="case-stat-item">
+                        <span class="case-stat-num">- 40%</span>
+                        <span class="case-stat-label">不合理检查发生率</span>
+                    </div>
+                    <div class="case-stat-item">
+                        <span class="case-stat-num">&lt; 2.5s</span>
+                        <span class="case-stat-label">平均开单推荐时间</span>
+                    </div>
+                    <div class="case-stat-item">
+                        <span class="case-stat-num">- 65%</span>
+                        <span class="case-stat-label">医保控费拒付金额</span>
+                    </div>
+                </div>
+            </div>
+            <div class="case-visual">
+                <!-- 极简成效可视化柱状图 SVG -->
+                <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 网格线 -->
+                    <line x1="40" y1="40" x2="260" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="40" y1="90" x2="260" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="40" y1="140" x2="260" y2="140" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="40" y1="190" x2="260" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+
+                    <!-- 柱状图 1: 改造前 (高不合理率) -->
+                    <rect x="70" y="70" width="35" height="120" rx="4" fill="url(#bar-red-glow)" />
+                    <text x="87.5" y="60" fill="#ef4444" font-size="10" font-family="var(--font-sans)" font-weight="700"
+                        text-anchor="middle">18.5%</text>
+                    <text x="87.5" y="210" fill="var(--text-muted)" font-size="9" font-family="var(--font-sans)"
+                        text-anchor="middle">接入前</text>
+
+                    <!-- 柱状图 2: 接入后 (显著下降) -->
+                    <rect x="185" y="145" width="35" height="45" rx="4" fill="url(#bar-green-glow)" />
+                    <text x="202.5" y="135" fill="var(--accent)" font-size="10" font-family="var(--font-sans)"
+                        font-weight="700" text-anchor="middle">4.2%</text>
+                    <text x="202.5" y="210" fill="var(--text-muted)" font-size="9" font-family="var(--font-sans)"
+                        text-anchor="middle">接入后</text>
+
+                    <!-- 标题：不合理开单检查占比 -->
+                    <text x="150" y="20" fill="#ffffff" font-size="11" font-family="var(--font-sans)" font-weight="600"
+                        text-anchor="middle">不合理开单比例对比</text>
+
+                    <defs>
+                        <linearGradient id="bar-red-glow" x1="87.5" y1="70" x2="87.5" y2="190"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#ef4444" />
+                            <stop offset="1" stop-color="#b91c1c" stop-opacity="0.2" />
+                        </linearGradient>
+                        <linearGradient id="bar-green-glow" x1="202.5" y1="145" x2="202.5" y2="190"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--accent)" />
+                            <stop offset="1" stop-color="#0f766e" stop-opacity="0.2" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们/申请演示 -->
+    <section id="contact"
+        style="border-top: 1px solid rgba(255, 255, 255, 0.05); background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 60%); text-align: center;">
+        <div class="section-header" style="margin-bottom: 40px;">
+            <span class="section-tag">Apply For Trial</span>
+            <h2 class="section-title">开启您科室的影像开单智控时代</h2>
+            <p class="section-subtitle">联系我们获取定制化的院内本地部署方案评估或开启免费云端 DEMO 测试</p>
+        </div>
+        <button class="footer-btn" style="margin-bottom: 20px;">申请试用与专业演示</button>
+        <p style="color: var(--text-muted); font-size: 13px; font-weight: 300;">技术支持热线：400-xxx-xxxx |
+            邮箱：cdss-support@example.com</p>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-logo">i-CDSS</div>
+        <p class="footer-desc">面向医学影像检查的临床决策支持系统 (Clinical Decision Support System)。基于 2.2 万行 Icdss
+            临床适宜性标准，结合先进的向量数据库（Milvus）与医疗大语言模型，帮助临床医生做更规范、更具循证医学依据的影像检查决策。</p>
+        <div class="copyright">
+            &copy; 2026 i-CDSS Team. 保留所有权利。
+        </div>
+    </footer>
+
+</body>
+
+</html>

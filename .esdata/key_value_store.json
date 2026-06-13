@@ -1,0 +1,25 @@
+{
+    "statistics_cache_Rimag-site": {
+        "timestamp": 1781320837.836376,
+        "data": {
+            "chat": {
+                "conversation_count": 0,
+                "total_input_tokens": 0,
+                "total_output_tokens": 0,
+                "total_tokens": 0,
+                "total_field1": 0
+            },
+            "file": {
+                "total_size": 431880306,
+                "file_count": 1056,
+                "dir_count": 463,
+                "root_dir": "/Users/charlieliu/git_project_vscode/09_medical/demo-web/rimagai-brother-site",
+                "stat_time": "2026-06-13 11:20:37"
+            }
+        }
+    },
+    "user_default_system_prompt": {
+        "userCustom": "",
+        "version": "1.0"
+    }
+}
