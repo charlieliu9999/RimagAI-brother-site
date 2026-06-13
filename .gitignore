@@ -21,3 +21,9 @@ node_modules/
 # 临时输出
 output/
 .playwright-cli/
+
+# GitLab shell runner 构建产物（其他项目被误检出到此目录）
+builds/
+
+# Electron Store 本地数据
+.esdata/
