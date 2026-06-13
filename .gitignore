@@ -27,3 +27,9 @@ builds/
 
 # Electron Store 本地数据
 .esdata/
+
+# 大文件（GitHub 限制 100MB）— 源文件不入库，按需放 VPS / 外部存储
+*.pptx
+*.mp4
+*.mov
+*.zip
