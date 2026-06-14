@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RimagAi — 医疗智能运行平台 MCOP</title>
-  <meta name="description" content="RimagAi 基于 MCOP 六层运行与管理架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。告别单点工具，构建医院级认知网络。">
-  <meta name="keywords" content="RimagAi, MCOP, 医疗AI, 临床决策支持, 影像报告, 数据智能体, 医院解决方案">
-  <meta property="og:title" content="RimagAi — 医疗智能运行平台 MCOP">
-  <meta property="og:description" content="基于 MCOP 六层运行与管理架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。">
+  <title>RimagAi — 医疗认知操作系统 MCOS</title>
+  <meta name="description" content="RimagAi 基于 MCOS 六层架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。告别单点工具，构建医院级认知网络。">
+  <meta name="keywords" content="RimagAi, MCOS, 医疗AI, 临床决策支持, 影像报告, 数据智能体, 医院解决方案">
+  <meta property="og:title" content="RimagAi — 医疗认知操作系统 MCOS">
+  <meta property="og:description" content="基于 MCOS 六层架构，为临床、影像、信息三大科室提供系统级 AI 产品矩阵。">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
@@ -541,24 +541,6 @@
       }
     }
   </style>
-
-  <!-- 引入 Mermaid 库用于严谨的技术架构与流程展示 -->
-  <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: 'dark',
-        themeVariables: {
-          background: '#1e293b',
-          primaryColor: '#2563eb',
-          primaryTextColor: '#f8fafc',
-          lineColor: '#475569',
-          actorLineColor: '#64748b'
-        }
-      });
-    });
-  </script>
 </head>
 
 <body>
@@ -591,12 +573,12 @@
 
   <section class="hero">
     <div class="container">
-      <h1>医疗智能运行平台<br>MCOP</h1>
-      <p class="hero-sub">无缝整合离散 AI 能力，构建科室系统级业务辅助通道。RimagAi 基于自主研发的 MCOP 六层运行与管理架构，将大模型推理、临床指南合规约束与医院数据中心无缝结合并融入临床、影像、信息三大科室的真实工作流。</p>
-      <div class="hero-insight">核心判断：医疗信息化上层应用的核心局限，已从"模型推理能力弱"转变为"系统集成架构与安全治理能力缺位"。</div>
+      <h1>医疗认知操作系统<br>MCOS</h1>
+      <p class="hero-sub">告别单点 AI 插件，构建系统级医疗人工智能。RimagAi 基于自主研发的 MCOS 六层架构，将大模型能力、合规约束与数据资产编织进临床、影像、信息三大科室的真实工作流。</p>
+      <div class="hero-insight">核心判断：医疗 AI 的主要矛盾，已从"模型能力不足"转变为"架构与治理能力缺位"。</div>
       <div class="hero-actions">
         <a href="hospital-solution.html" class="btn-primary">查看解决方案</a>
-        <a href="architecture.html" class="btn-secondary">了解 MCOP 架构</a>
+        <a href="architecture.html" class="btn-secondary">了解 MCOS 架构</a>
       </div>
     </div>
   </section>
@@ -604,43 +586,21 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>MCOP 六层运行与管理架构</h2>
-        <p>L1-L4 构成前向运行链路，L5 合规安全审计，L6 负责自学习与规则迭代</p>
+        <h2>MCOS 六层架构</h2>
+        <p>L1-L4 构成前向运行链路，L5 横切治理，L6 负责持续进化</p>
       </div>
       <div class="mcos-strip animate-in">
         <div class="mcos-chip"><span class="lid" style="color:var(--blue);">L1</span> 感知层</div>
         <div class="mcos-chip"><span class="lid" style="color:var(--cyan);">L2</span> 上下文层</div>
-        <div class="mcos-chip"><span class="lid" style="color:var(--accent);">L3</span> 规则与推理层</div>
+        <div class="mcos-chip"><span class="lid" style="color:var(--accent);">L3</span> 认知层</div>
         <div class="mcos-chip"><span class="lid" style="color:var(--purple);">L4</span> 执行层</div>
         <div class="mcos-chip"><span class="lid" style="color:var(--orange);">L5</span> 治理层</div>
         <div class="mcos-chip"><span class="lid" style="color:var(--green);">L6</span> 进化层</div>
       </div>
-            <div class="arch-visual animate-in" style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
-        <div class="mermaid">
-sequenceDiagram
-    autonumber
-    actor Doctor as 临床医生
-    participant Client as 桌面智能客户端 (MCOP)
-    participant Gateway as 院内脱敏与审计网关
-    participant Milvus as 院内知识库 (Milvus)
-    participant LocalLLM as 本地推理引擎 (Xinference)
-    participant HIS as 医院核心业务系统 (HIS/EMR)
-
-    Doctor->>HIS: 录入病历或下达医嘱
-    Client->>Client: 实时捕捉输入事件(语音/视觉)
-    Client->>Gateway: 发送就诊上下文数据
-    Gateway->>Gateway: 执行前置拦截过滤 (去除隐私敏感词)
-    Gateway->>Milvus: 静态与语义相似度检索 (RAG)
-    Milvus-->>Gateway: 返回指南条款与历史相似病历
-    Gateway->>LocalLLM: 多模型模型并行推理 (提取意图与推荐检查)
-    LocalLLM-->>Gateway: 返回检查项目建议及评分
-    Gateway->>Gateway: 执行后置合规性校验 (侧别/性别禁忌校验)
-    Gateway-->>Client: 流式推送推荐结果 (i-CDSS)
-    Doctor->>Client: 确认采纳检查建议
-    Client->>HIS: 受控回写医嘱数据
-        </div>
+      <div class="arch-visual animate-in">
+        <img src="assets/presentation/mcos-operating-layer.webp" alt="MCOS 医疗认知运行层架构" loading="lazy">
       </div>
-      <p style="text-align:center; font-size:13px; color:var(--text-muted); max-width:600px; margin:24px auto 0;">MCOP
+      <p style="text-align:center; font-size:13px; color:var(--text-muted); max-width:600px; margin:24px auto 0;">MCOS
         不是 HIS/EMR/PACS 本身，也不是某个大模型的别名，而是把多种 AI 能力组织进临床工作流的系统层。<a href="architecture.html"
           style="color:var(--accent-hover);"> 了解更多 →</a></p>
     </div>
@@ -649,7 +609,7 @@ sequenceDiagram
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>MCOP 的系统位置</h2>
+        <h2>MCOS 的系统位置</h2>
         <p>位于医院现有系统与 AI 能力之间，不替代，而是组织</p>
       </div>
       <div class="position-diagram animate-in">
@@ -659,7 +619,7 @@ sequenceDiagram
         </div>
         <div class="pos-arrow">→</div>
         <div class="pos-box center">
-          <h4>MCOP 认知运行层</h4>
+          <h4>MCOS 认知运行层</h4>
           <p>场景感知 · 上下文组织<br>推理调度 · 执行控制<br>治理约束 · 持续进化</p>
         </div>
         <div class="pos-arrow">→</div>
@@ -668,34 +628,8 @@ sequenceDiagram
           <p>医疗大模型 / 通用 LLM<br>规则引擎 / 知识库<br>工具调用 / Agent Harness</p>
         </div>
       </div>
-            <div class="runtime-visual animate-in" style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
-        <div class="mermaid">
-graph TD
-    subgraph 医生终端
-        W[医生工作站/阅片终端] -->|语音/截图输入| C[桌面智能客户端 MCOP]
-    end
-    
-    subgraph 医院受控内网
-        C -->|HTTPS/WS 安全传输| App[MCOP 业务前置机]
-        App -->|数据与逻辑审计| Audit[安全审计与权限网关]
-        
-        subgraph 离线算力集群
-            Audit -->|离线推理请求| GPU[院内 GPU 本地推理节点]
-            GPU -->|模型运行| Models[Llama / Qwen 量化版大模型]
-        end
-        
-        subgraph 本地知识库集群
-            Audit -->|相似度匹配| VectorDB[Milvus 向量数据库]
-            Audit -->|系统日志与持久化| DB[PostgreSQL 数据库]
-        end
-        
-        App -->|受控接口调用| HIS[医院 HIS / EMR 系统]
-        App -->|影像数据调取| PACS[医院 PACS 影像系统]
-    end
-    
-    classDef inside fill:#0f172a,stroke:#334155,color:#f8fafc;
-    class W,C,App,Audit,GPU,Models,VectorDB,DB,HIS,PACS inside;
-        </div>
+      <div class="runtime-visual animate-in">
+        <img src="assets/presentation/mcos-system-position.webp" alt="MCOS 系统位置 — 医院系统与 AI 能力之间的认知运行层" loading="lazy">
       </div>
     </div>
   </section>
@@ -707,13 +641,13 @@ graph TD
         <p>覆盖临床、影像、信息三大科室的 8 个核心产品</p>
       </div>
       <div class="arch-visual animate-in" style="margin-bottom:48px;">
-        <img src="assets/presentation/mcos-product-matrix.webp" alt="MCOP 产品矩阵总览" loading="lazy">
+        <img src="assets/presentation/mcos-product-matrix.webp" alt="MCOS 产品矩阵总览" loading="lazy">
       </div>
 
       <div class="dept-label" style="color:var(--blue);">🏥 临床科室</div>
       <div class="product-grid animate-in" style="margin-bottom:32px;">
         <div class="product-card">
-          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 规则与推理层</div>
+          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 认知层</div>
           <h4>CDSS 智能临床决策支持</h4>
           <p>融合在工作流中的分阶段推理引擎，从诊断到处置每步提供置信度与依据关联。</p>
           <a href="hospital-solution.html" class="card-link">了解更多 →</a>
@@ -725,7 +659,7 @@ graph TD
           <a href="hospital-solution.html" class="card-link">了解更多 →</a>
         </div>
         <div class="product-card">
-          <div class="layer-badge" style="background:rgba(249,115,22,0.12); color:var(--orange);">L5 合规审计层</div>
+          <div class="layer-badge" style="background:rgba(249,115,22,0.12); color:var(--orange);">L5 治理层</div>
           <h4>DRG 费用合规预警</h4>
           <p>医嘱提交前实时拦截编码错误和不合理收费，本地规则引擎零延迟执行。</p>
           <a href="hospital-solution.html" class="card-link">了解更多 →</a>
@@ -747,7 +681,7 @@ graph TD
           <a href="radiology-solution.html" class="card-link">了解更多 →</a>
         </div>
         <div class="product-card">
-          <div class="layer-badge" style="background:rgba(168,85,247,0.12); color:var(--purple);">L3 规则与推理层</div>
+          <div class="layer-badge" style="background:rgba(168,85,247,0.12); color:var(--purple);">L3 认知层</div>
           <h4>ACRAC 检查适宜性推荐</h4>
           <p>基于 ACR 准则的智能检查方案推荐，减少不必要的辐射暴露。</p>
           <a href="cdss-solution.html" class="card-link">了解更多 →</a>
@@ -763,13 +697,13 @@ graph TD
           <a href="data-platform.html" class="card-link">了解更多 →</a>
         </div>
         <div class="product-card">
-          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 规则与推理层</div>
+          <div class="layer-badge" style="background:rgba(99,102,241,0.12); color:var(--accent);">L3 认知层</div>
           <h4>病历内涵质控</h4>
           <p>后台自动轮询，批量检查病历内涵质量，问题项推送至质管科审核。</p>
           <a href="hospital-solution.html" class="card-link">了解更多 →</a>
         </div>
         <div class="product-card" style="border-color: rgba(34,197,94,0.2);">
-          <div class="layer-badge" style="background:rgba(34,197,94,0.12); color:var(--green);">L6 反馈优化层</div>
+          <div class="layer-badge" style="background:rgba(34,197,94,0.12); color:var(--green);">L6 进化层</div>
           <h4>知识沉淀与自进化</h4>
           <p>整合本院诊疗规范，捕获医生反馈，持续迭代本地规则库与知识检索库。</p>
           <a href="architecture.html" class="card-link">了解更多 →</a>
@@ -781,8 +715,8 @@ graph TD
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>安全审计与等保合规机制</h2>
-        <p>完善的安全合规审计，是平台能够在三甲医院生产环境中上线运行的关键红线</p>
+        <h2>治理与安全</h2>
+        <p>没有治理层，MCOS 只是能力系统；有了治理层，才是可落地的临床辅助系统</p>
       </div>
       <div class="gov-grid">
         <div class="gov-card animate-in">
@@ -807,7 +741,7 @@ graph TD
         </div>
       </div>
       <div class="runtime-visual animate-in" style="margin-top:48px;">
-        <img src="assets/presentation/mcos-governance-levels.webp" alt="MCOP 治理层级" loading="lazy">
+        <img src="assets/presentation/mcos-governance-levels.webp" alt="MCOS 治理层级" loading="lazy">
       </div>
     </div>
   </section>
@@ -880,8 +814,8 @@ graph TD
   <section class="cta-section">
     <div class="container">
       <div class="cta-box animate-in">
-        <h2>从单点工具走向智能运行平台</h2>
-        <p>MCOP 六层运行与管理架构已在 8 个核心临床场景中完成工程级验证（58 个测试用例）。我们诚邀医院信息科、临床科室和影像科室的决策者，共同探索系统级医疗 AI 的落地路径。</p>
+        <h2>从单点工具走向认知操作系统</h2>
+        <p>MCOS 六层架构已在 8 个核心临床场景中完成工程级验证（58 个测试用例）。我们诚邀医院信息科、临床科室和影像科室的决策者，共同探索系统级医疗 AI 的落地路径。</p>
         <div class="hero-actions">
           <a href="hospital-solution.html" class="btn-primary">查看解决方案</a>
           <a href="mcos-blueprint-whitepaper.html" class="btn-secondary">阅读白皮书全文</a>
@@ -899,10 +833,10 @@ graph TD
         <a href="cdss-solution.html">CDSS 决策支持</a>
         <a href="data-platform.html">数据智能体</a>
         <a href="architecture.html">架构与愿景</a>
-        <a href="mcos-blueprint-whitepaper.html">MCOP 白皮书</a>
+        <a href="mcos-blueprint-whitepaper.html">MCOS 白皮书</a>
         <a href="download.html">下载</a>
       </div>
-      <p>RimagAi · 医疗智能运行平台（MCOP）· 重塑医院智能底层逻辑</p>
+      <p>RimagAi · 医疗认知操作系统（MCOS）· 重塑医院智能底层逻辑</p>
     </div>
   </footer>
 

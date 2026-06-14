@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>医院解决方案 — 三科室系统级 AI 落地路径 | RimagAi</title>
-  <meta name="description" content="RimagAi 为临床、影像、信息三大科室提供系统级 AI 落地方案。基于 MCOP 六层运行与管理架构，90 天分阶段交付，本地优先部署。">
+  <meta name="description" content="RimagAi 为临床、影像、信息三大科室提供系统级 AI 落地方案。基于 MCOS 六层架构，90 天分阶段交付，本地优先部署。">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
   <link rel="stylesheet" href="assets/css/shared.css">
@@ -299,10 +299,10 @@
   <section class="hero-hospital">
     <div class="container">
       <h1>医院解决方案</h1>
-      <p>不是卖单点工具，而是帮医院建设系统级 AI 能力。基于 MCOP 六层运行与管理架构，覆盖临床、影像、信息三大科室，90 天分阶段交付，本地优先部署。</p>
+      <p>不是卖单点工具，而是帮医院建设系统级 AI 能力。基于 MCOS 六层架构，覆盖临床、影像、信息三大科室，90 天分阶段交付，本地优先部署。</p>
       <div class="hero-actions">
         <a href="complete-solution.html" class="btn-primary">查看完整方案</a>
-        <a href="architecture.html" class="btn-secondary">了解 MCOP 架构</a>
+        <a href="architecture.html" class="btn-secondary">了解 MCOS 架构</a>
         <a href="mcos-blueprint-whitepaper.html" class="btn-secondary">阅读白皮书</a>
       </div>
     </div>
@@ -323,7 +323,7 @@
           <div class="icon">🧠</div>
           <h4>CDSS 分阶段推理</h4>
           <p>诊断→检查→用药→处置四阶段独立推理，每步附带置信度评分与文献/指南依据。医生可在任意节点介入修正，规则引擎同步拦截关键禁忌。</p>
-          <span class="tag">L3 规则与推理层</span>
+          <span class="tag">L3 认知层</span>
         </div>
         <div class="solution-card">
           <div class="icon">📝</div>
@@ -335,7 +335,7 @@
           <div class="icon">💰</div>
           <h4>DRG 费用预警</h4>
           <p>医嘱提交前实时检查编码正确性、费用合理性和医保政策合规性。本地规则引擎零延迟执行，支持自定义规则集适配各地政策。</p>
-          <span class="tag">L5 合规审计层</span>
+          <span class="tag">L5 治理层</span>
         </div>
       </div>
       <div class="screenshot-box animate-in">
@@ -356,7 +356,7 @@
       </div>
       <p
         style="font-size:14px; color:var(--text-secondary); max-width:700px; margin:0 auto 24px; text-align:center; line-height:1.7;">
-        影像科医生的核心痛点是报告编写耗时和质量一致性。MCOP 从生成到质控形成闭环，同时通过 ACRAC 减少不必要检查。</p>
+        影像科医生的核心痛点是报告编写耗时和质量一致性。MCOS 从生成到质控形成闭环，同时通过 ACRAC 减少不必要检查。</p>
       <div class="solution-grid animate-in">
         <div class="solution-card">
           <div class="icon">📄</div>
@@ -374,7 +374,7 @@
           <div class="icon">🎯</div>
           <h4>ACRAC 检查推荐</h4>
           <p>基于 ACR 适宜性准则 + 国内专科共识，覆盖 200+ 临床场景。医嘱提交前评估检查适宜性（1-9 分），低适宜性检查给出替代建议。</p>
-          <span class="tag">L3 规则与推理层</span>
+          <span class="tag">L3 认知层</span>
         </div>
       </div>
       <div class="screenshot-box animate-in">
@@ -407,13 +407,13 @@
           <div class="icon">📊</div>
           <h4>病历内涵质控</h4>
           <p>后台自动轮询批量扫描在院和归档病历。多维度检查：完整性 + 逻辑一致性 + 时效性 + 规范性。问题项按严重程度分级推送至质管科，支持整改闭环追踪。</p>
-          <span class="tag">L3 规则与推理层</span>
+          <span class="tag">L3 认知层</span>
         </div>
         <div class="solution-card">
           <div class="icon">🌱</div>
           <h4>知识沉淀与自进化</h4>
           <p>将科室诊疗规范、操作流程、用药习惯等隐性知识结构化存储。捕获医生对 AI 推荐的采纳/修正行为，自动萃取经验规则，持续迭代本地知识库。</p>
-          <span class="tag">L6 反馈优化层</span>
+          <span class="tag">L6 进化层</span>
         </div>
       </div>
       <div class="screenshot-box animate-in">
@@ -434,7 +434,7 @@
           <div class="timeline-phase" style="background:rgba(59,130,246,0.12); color:var(--blue);">P1<br>30天</div>
           <div class="timeline-content">
             <h4>基础接入 + 单场景验证</h4>
-            <p>完成 HIS/EMR/PACS 数据对接，部署 MCOP 核心运行层，选择 1 个高价值场景（如影像报告生成）完成端到端验证。</p>
+            <p>完成 HIS/EMR/PACS 数据对接，部署 MCOS 核心运行层，选择 1 个高价值场景（如影像报告生成）完成端到端验证。</p>
           </div>
         </div>
         <div class="timeline-item animate-in">
@@ -453,7 +453,7 @@
         </div>
       </div>
       <div class="screenshot-box animate-in">
-        <img src="assets/presentation/mcos-90-day-plan.webp" alt="MCOP 90 天落地计划" loading="lazy">
+        <img src="assets/presentation/mcos-90-day-plan.webp" alt="MCOS 90 天落地计划" loading="lazy">
       </div>
     </div>
   </section>
@@ -490,7 +490,7 @@
     <div class="container">
       <div class="cta-box animate-in">
         <h2>开始构建医院认知网络</h2>
-        <p>MCOP 已在 8 个核心场景完成工程级验证（58 个测试用例）。我们提供从需求评估到上线运营的全程支持，欢迎安排技术交流。</p>
+        <p>MCOS 已在 8 个核心场景完成工程级验证（58 个测试用例）。我们提供从需求评估到上线运营的全程支持，欢迎安排技术交流。</p>
         <div class="hero-actions">
           <a href="complete-solution.html" class="btn-primary">查看完整方案</a>
           <a href="mcos-blueprint-whitepaper.html" class="btn-primary">阅读白皮书</a>
@@ -512,7 +512,7 @@
         <a href="architecture.html">架构与愿景</a>
         <a href="mcos-blueprint-whitepaper.html">白皮书全文</a>
       </div>
-      <p>RimagAi · MCOP 智能·医疗流程与数据效能底座 · 让医院拥有会思考的 AI 基础设施</p>
+      <p>RimagAi · MCOS 智能·认知底座 · 让医院拥有会思考的 AI 基础设施</p>
     </div>
   </footer>
 
