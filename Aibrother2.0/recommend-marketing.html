@@ -164,7 +164,7 @@
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 40%, var(--text-muted) 100%);
+            background: linear-gradient(135deg, var(--primary) 40%, var(--text-muted) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1557,10 +1557,9 @@
     <!-- 英雄 Banner 主屏 -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-tag">🌟 Icdss 适宜性标准与多模型引擎</span>
-            <h1 class="hero-title">i-CDSS 临床智能推荐系统<br>使影像检查开单<span>更精准、更合规</span></h1>
-            <p class="hero-desc">基于<span>2.2
-                    万行临床适宜性标准知识库（Icdss）</span>与大模型语义向量检索（RAG），结合四阶段规则拦截控制引擎。在开单环节实现实时临床决策支持，<span>规避医保拒付</span>并<span>降低不合理检查率</span>。
+            <span class="hero-tag">🌟 ICDSS 检查适宜性指南与多路由匹配引擎</span>
+            <h1 class="hero-title">i-CDSS 临床检查推荐系统<br>使影像检查开单<span>更精准、更合规</span></h1>
+            <p class="hero-desc">基于<span>ICDSS 检查适宜性指南知识库（包含2.2万条细则）</span>，融合医学语义关联检索与多级规则审计网关。在开单环节提供精准的临床决策支持与循证依据，有效<span>预防医保违规拒付</span>并<span>控制不合理检查率</span>。
             </p>
             <div class="hero-actions">
                 <button class="cta-btn-large"
@@ -1582,11 +1581,11 @@
                     class="animate-dash" />
 
                 <!-- 主控制屏窗口 -->
-                <rect x="80" y="100" width="360" height="270" rx="20" fill="#0b1122" stroke="url(#border-grad)"
+                <rect x="80" y="100" width="360" height="270" rx="20" fill="#f8fafc" stroke="url(#border-grad)"
                     stroke-width="2" />
 
                 <!-- 顶部控制栏 -->
-                <rect x="80" y="100" width="360" height="40" rx="20" fill="rgba(0, 0, 0, 0.02)" />
+                <rect x="80" y="100" width="360" height="40" rx="20" fill="rgba(0, 0, 0, 0.04)" />
                 <circle cx="110" cy="120" r="5" fill="#ef4444" />
                 <circle cx="125" cy="120" r="5" fill="#f59e0b" />
                 <circle cx="140" cy="120" r="5" fill="#10b981" />
@@ -1594,11 +1593,11 @@
                     font-weight="600">i-CDSS RECOMMENDATION</text>
 
                 <!-- 临床开单主诉输入框 (模拟输入) -->
-                <rect x="105" y="160" width="310" height="42" rx="8" fill="rgba(255,255,255,0.03)"
-                    stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                <rect x="105" y="160" width="310" height="42" rx="8" fill="rgba(0, 0, 0, 0.02)"
+                    stroke="rgba(0, 0, 0, 0.08)" stroke-width="1" />
                 <circle cx="125" cy="181" r="8" fill="url(#blue-dot-grad)" />
-                <text x="145" y="185" fill="#ffffff" font-size="11.5" font-family="var(--font-sans)"
-                    font-weight="500">主诉：左侧胸痛3天，伴背部放射痛</text>
+                <text x="145" y="185" fill="var(--text-main)" font-size="11.5" font-family="var(--font-sans)"
+                    font-weight="600">主诉：左侧胸痛3天，伴背部放射痛</text>
 
                 <!-- 中间匹配动态线（流向） -->
                 <path d="M 260 202 L 260 238" stroke="url(#line-glow-grad)" stroke-width="2" stroke-dasharray="5 5"
@@ -1745,7 +1744,7 @@
         <div class="section-header">
             <span class="section-tag">Recommendation Workflow</span>
             <h2 class="section-title">智能开单推荐引擎工作流</h2>
-            <p class="section-subtitle">“NLP + 向量检索 + LLM”多阶段融合，实现极低误判与毫秒级决策反馈</p>
+            <p class="section-subtitle">“语义处理 + 知识检索 + 多路由推理”多阶段融合，实现极低误判与毫秒级决策反馈</p>
         </div>
         <div class="process-steps">
             <div class="step-item">
@@ -1773,7 +1772,7 @@
                 <div class="step-num">04</div>
                 <div class="step-content">
                     <h3 class="step-title">四阶段规则引擎实时干预过滤</h3>
-                    <p class="step-desc">将 LLM 推理结果输入规则过滤器，最终执行前置/后置禁忌抑制规则，通过 SSE 流式动态展现给开单医生，随开随算。</p>
+                    <p class="step-desc">将语义推理结果输入规则过滤器，最终执行前置/后置禁忌抑制规则，通过 SSE 流式动态展现给开单医生，随开随算。</p>
                 </div>
             </div>
         </div>
@@ -1947,9 +1946,9 @@
                 <p class="server-card-desc">i-CDSS 特别配备了基于 Tool-Use 模式的自动评测引擎。在每次大批量基准评测任务完成后，评测工具能够自动调度 5
                     大内置分析工具：从宏观 KPI 任务摘要、失败案例具体归因，到适宜性质量分布、跨任务多维度对比以及复杂错误模式分类，输出高度可读的 Markdown 诊断报告，甚至支持多轮人机交互追问。</p>
                 <ul class="spec-list" style="margin-bottom:0;">
-                    <li><strong>自动追溯与归因</strong>：针对推荐出错或评分低案例，自动定位是 RAG 知识缺失还是大模型幻觉。</li>
+                    <li><strong>自动追溯与归因</strong>：针对推荐出错或评分低案例，自动定位是知识库缺失还是推理逻辑偏差。</li>
                     <li><strong>MD5 原始数据防篡改</strong>：评测报告与 PostgreSQL 数据库数据一致性通过 MD5 校验和实时追溯。</li>
-                    <li><strong>跨模型并发比对</strong>：支持不同大模型（如 Qwen 与 GPT-4）对同批临床案例的推荐合理性 KPI 跨任务对比。</li>
+                    <li><strong>跨模型并发比对</strong>：支持多维度推荐机制对同批临床案例的推荐合理性 KPI 跨任务对比。</li>
                 </ul>
             </div>
             <div class="server-visual" style="flex: 1.5;">
@@ -2039,7 +2038,7 @@
                 <ul class="loop-list">
                     <li>
                         <div class="loop-list-title">医学文献/临床指南结构化提取</div>
-                        <div class="loop-list-desc">后台提取 PDF 及权威医学文献，借助专有 LLM 抽取出包含“患者体征-首选检查-推荐级别”的标准结构。</div>
+                        <div class="loop-list-desc">后台提取 PDF 及权威医学文献，借助语义识别机制抽取出包含“患者体征-首选检查-推荐级别”的标准结构。</div>
                     </li>
                     <li>
                         <div class="loop-list-title">多级文献审核与版本控制</div>
@@ -2102,7 +2101,7 @@
                 <p class="deploy-subtitle">针对对患者隐私有严苛监管的三甲医院或区域影像中心。系统数据底座与推理模型完全部署在院内内网 GPU 节点中，支持离线运行。</p>
                 <ul class="spec-list">
                     <li><strong>数据不出院</strong>：Milvus、PostgreSQL 等核心数据库均安装在内网，不与外网通信。</li>
-                    <li><strong>模型本地推理</strong>：采用 Xinference 在本地 GPU 显卡中对开源大模型（如 Qwen2-7B-Instruct）进行高性能私有推理。</li>
+                    <li><strong>模型本地推理</strong>：采用 Xinference 在本地 GPU 算力中对专用模型进行高性能私有推理。</li>
                     <li><strong>极速局域网对接</strong>：HIS/EMR 接口通过内网 API 极速调用，平均响应时间压缩至 1.8 秒。</li>
                 </ul>
                 <div class="deploy-image-box">
@@ -2129,7 +2128,7 @@
                 <h3 class="deploy-title">多机构弹性，集中管控</h3>
                 <p class="deploy-subtitle">针对联体医院、集团医疗机构或互联网医院。数据托管于安全专有云，多分支机构一键快速接入，低建设维护成本。</p>
                 <ul class="spec-list">
-                    <li><strong>API Provider Pool 容灾</strong>：支持配置多个大模型提供商（如 OpenAI、Ollama 等），当某个端点异常时自动熔断和故障切换。</li>
+                    <li><strong>API Provider Pool 容灾</strong>：支持配置多个语义推理节点，当某个端点异常时自动熔断和故障切换。</li>
                     <li><strong>Redis 高效缓存</strong>：对常规症状匹配的适宜性结果进行 Redis 高并发缓存，海量请求无延迟瞬时响应。</li>
                     <li><strong>统一版本升级</strong>：最新的 Icdss 规则集及模型微调在云端一键完成，所有接入分支机构即刻共享。</li>
                 </ul>
@@ -2257,7 +2256,7 @@
     <footer>
         <div class="footer-logo">i-CDSS</div>
         <p class="footer-desc">面向医学影像检查的临床决策支持系统 (Clinical Decision Support System)。基于 2.2 万行 Icdss
-            临床适宜性标准，结合先进的向量数据库（Milvus）与医疗大语言模型，帮助临床医生做更规范、更具循证医学依据的影像检查决策。</p>
+            临床适宜性标准，结合先进的向量数据库（Milvus）与医学语义理解引擎，帮助临床医生做更规范、更具循证医学依据的影像检查决策。</p>
         <div class="copyright">
             &copy; 2026 i-CDSS Team. 保留所有权利。
         </div>
