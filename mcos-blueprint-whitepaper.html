@@ -623,6 +623,69 @@
         line-height: 1.5;
       }
     }
+
+    /* 移动端 Hamburger 与侧边滑出抽屉样式 */
+    .nav-toggle-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ink);
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 110;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .nav-toggle-btn:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 640px) {
+      .nav-toggle-btn {
+        display: flex;
+      }
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+      }
+      .nav-links {
+        position: fixed;
+        top: 58px;
+        right: -100%;
+        width: 240px;
+        height: calc(100vh - 58px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start !important;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 20px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-shadow: -6px 0 20px rgba(0, 0, 0, 0.08);
+        display: flex !important;
+      }
+      .nav-links.show {
+        right: 0;
+      }
+      .nav-links a {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: left;
+      }
+    }
   </style>
 </head>
 
@@ -637,11 +700,12 @@
       </svg>
       RimagAi Brother
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle-btn" id="navToggle" aria-label="切换菜单">☰</button>
+    <div class="nav-links" id="navLinks">
       <a href="index.html" style="color: #6366f1; font-weight: 700; margin-right: 12px; border: 1px solid rgba(99,102,241,0.2); padding: 4px 10px; border-radius: 6px;">← 返回总入口</a>
       <a href="index-mcos.html">首页</a>
-      <a href="index-mcos.html#features">功能</a>
-      <a href="index-mcos.html#download">下载</a>
+      <a href="index-mcos.html#scenes">功能</a>
+      <a href="download.html">下载</a>
     </div>
   </nav>
 
@@ -1649,6 +1713,16 @@
 
       headings.forEach(heading => observer.observe(heading));
     })();
+
+    // 导航抽屉开关
+    const toggleBtn = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (toggleBtn && navLinks) {
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        toggleBtn.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
+      });
+    }
   </script>
 </body>
 

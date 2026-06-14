@@ -1465,6 +1465,72 @@
                 gap: 15px;
             }
         }
+
+        /* 移动端自适应导航样式 */
+        .nav-toggle-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 110;
+            width: 36px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .nav-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle-btn {
+                display: flex;
+            }
+            header {
+                position: relative;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 260px;
+                height: calc(100vh - 70px);
+                background: rgba(9, 13, 26, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-left: 1px solid var(--card-border);
+                flex-direction: column;
+                align-items: flex-start !important;
+                justify-content: flex-start;
+                gap: 8px;
+                padding: 24px 20px;
+                transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 105;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+                display: flex !important;
+            }
+            .nav-links.show {
+                right: 0;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 10px 14px;
+                border-radius: 8px;
+                font-size: 14px;
+                text-align: left;
+            }
+            .cta-btn-small {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -1473,7 +1539,8 @@
     <!-- 导航栏 -->
     <header>
         <a href="../aibrother.html" class="logo">i-CDSS</a>
-        <ul class="nav-links">
+        <button class="nav-toggle-btn" id="navToggle" aria-label="切换菜单">☰</button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="../aibrother.html" style="color: var(--primary); font-weight: 700;">← 返回 2.0 主页</a></li>
             <li><a href="#schemes">应用方案</a></li>
             <li><a href="#rules">规则引擎</a></li>
@@ -1861,7 +1928,7 @@
                 </ul>
             </div>
             <div class="server-visual" style="flex: 1.5;">
-                <img src="检查推荐-1.gif" alt="i-CDSS 临床智能推荐开单实操演示"
+                <img src="../assets/image_aibrother2/ppt-cdss.png" alt="i-CDSS 临床智能推荐开单实操演示"
                     style="width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
             </div>
         </div>
@@ -2197,6 +2264,16 @@
         </div>
     </footer>
 
+    <script>
+        const toggleBtn = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (toggleBtn && navLinks) {
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                toggleBtn.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
+            });
+        }
+    </script>
 </body>
 
 </html>

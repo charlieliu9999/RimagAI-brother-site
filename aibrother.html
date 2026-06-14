@@ -1185,7 +1185,74 @@
         display: none;
       }
     }
-  </style>
+  
+    /* 移动端汉堡菜单自适应 */
+    .nav-toggle-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 110;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle-btn {
+        display: flex;
+      }
+      header {
+        position: relative;
+        padding: 15px 20px;
+      }
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        right: -100%;
+        width: 260px;
+        height: calc(100vh - 64px);
+        background: rgba(9, 13, 26, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--card-border);
+        flex-direction: column;
+        align-items: flex-start !important;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 24px 20px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        display: flex !important;
+      }
+      .nav-links.show {
+        right: 0;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        width: 100%;
+        display: block;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: left;
+      }
+      .header-actions {
+        display: none;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -1193,7 +1260,8 @@
   <!-- 顶部导航栏 -->
   <header>
     <div class="logo">AI Brother</div>
-    <ul class="nav-links">
+    <button class="nav-toggle-btn" id="navToggle" aria-label="切换菜单">☰</button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="Aibrother2.0/recommend-marketing.html">i-CDSS 检查推荐</a></li>
       <li><a href="Aibrother2.0/report-marketing.html">Report_QC 报告质控</a></li>
       <li><a href="#scenes">应用场景</a></li>
@@ -1638,6 +1706,16 @@
       document.querySelectorAll('.stab-pane').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(tabId).classList.add('active');
+    }
+  
+    // 移动端导航抽屉开关
+    const toggleBtn = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (toggleBtn && navLinks) {
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        toggleBtn.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
+      });
     }
   </script>
 </body>
