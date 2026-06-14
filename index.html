@@ -7,96 +7,47 @@
   <title>RimagAI — 数字化医疗智能生态平台</title>
   <meta name="description" content="RimagAI 数字化医疗智能生态平台，提供面向医生工作站的 2.0 桌面端智能助手与面向医院级的 3.0 MCOS 医疗认知操作系统解决方案。">
   <meta name="keywords" content="RimagAI, AI Brother, MCOS, 医疗人工智能, 智能开单, 报告质控, 临床决策支持">
-  
-  <!-- 引入高质感现代字体 -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23dd541a'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='system-ui'>R</text></svg>">
 
   <style>
     :root {
-      --bg-color: hsl(222, 47%, 4%);
-      --text-main: hsl(210, 38%, 95%);
-      --text-muted: hsl(215, 20%, 65%);
-      --primary-v2: hsl(199, 100%, 52%);
-      --accent-v2: hsl(174, 100%, 43%);
-      --primary-v3: hsl(263, 90%, 62%);
-      --accent-v3: hsl(285, 90%, 60%);
-      --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
-      --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
+      --bg-primary: #ffffff;
+      --bg-section: #f5f6f7;
+      --brand-orange: #dd541a;
+      --brand-orange-hover: #c04515;
+      --brand-orange-light: rgba(221, 84, 26, 0.06);
+      --brand-navy: #0e3566;
+      --brand-navy-light: #1f4a8a;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --border: #e2e2e2;
+      --radius: 4px;
+      --radius-lg: 8px;
+      --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: var(--font-sans);
-      background-color: var(--bg-color);
-      color: var(--text-main);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* 动态微光能量背景 */
-    .bg-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .bg-glow {
-      position: absolute;
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      filter: blur(140px);
-      opacity: 0.15;
-      animation: float 20s infinite alternate ease-in-out;
-    }
-
-    .bg-glow-left {
-      background: radial-gradient(circle, var(--primary-v2) 0%, transparent 70%);
-      top: -200px;
-      left: -200px;
-    }
-
-    .bg-glow-right {
-      background: radial-gradient(circle, var(--primary-v3) 0%, transparent 70%);
-      bottom: -200px;
-      right: -200px;
-      animation-delay: -5s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translate(0, 0) scale(1);
-      }
-      50% {
-        transform: translate(80px, 50px) scale(1.1);
-      }
-      100% {
-        transform: translate(-50px, -30px) scale(0.95);
-      }
-    }
-
-    /* 顶部导航品牌 */
+    /* ── Header ── */
     header {
-      position: relative;
-      z-index: 10;
       padding: 40px 60px;
       display: flex;
       justify-content: center;
@@ -113,32 +64,27 @@
     .logo-box {
       width: 42px;
       height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary-v2), var(--primary-v3));
+      border-radius: var(--radius-lg);
+      background: var(--brand-navy);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: 22px;
       font-weight: 800;
       color: white;
-      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
     }
 
     .brand-name {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: 24px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #ffffff, var(--text-muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      color: var(--brand-navy);
       letter-spacing: -0.5px;
     }
 
-    /* 主体容器 */
+    /* ── Main ── */
     main {
-      position: relative;
-      z-index: 10;
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px 40px 80px;
@@ -152,146 +98,104 @@
 
     .hero-title-section {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 64px;
     }
 
     .hero-title-section h1 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 4.5vw, 52px);
-      font-weight: 800;
-      line-height: 1.2;
-      background: linear-gradient(180deg, #ffffff 30%, hsl(215, 20%, 80%) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
       margin-bottom: 16px;
     }
 
     .hero-title-section p {
       font-size: 16px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       max-width: 600px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* 双版本选择网格 */
+    /* ── Portal Grid ── */
     .portal-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 32px;
       width: 100%;
-      margin-bottom: 40px;
     }
 
-    /* 卡片基础设计 */
     .portal-card {
-      background: rgba(13, 20, 38, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 28px;
-      padding: 50px 40px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 520px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
       cursor: pointer;
       text-decoration: none;
     }
 
-    .portal-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 0%, var(--glow-color, rgba(255, 255, 255, 0.05)) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
+    .portal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
     }
 
-    /* 卡片预览图 */
+    .portal-card.v2:hover { border-color: var(--brand-orange); }
+    .portal-card.v3:hover { border-color: var(--brand-navy); }
+
+    /* ── Card Preview ── */
     .card-preview {
       width: 100%;
       height: 200px;
-      border-radius: 16px;
+      border-radius: var(--radius);
       overflow: hidden;
       margin-bottom: 24px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      position: relative;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
     }
 
     .card-preview img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.4s ease;
     }
 
     .portal-card:hover .card-preview img {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
-    /* 悬停动效：位移 + 光晕 + 阴影 */
-    .portal-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--hover-border-color);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px var(--hover-glow-shadow);
-    }
-
-    .portal-card:hover::before {
-      opacity: 1;
-    }
-
-    /* 卡片 1 (2.0 AI Brother) 悬停颜色 */
-    .portal-card.v2 {
-      --glow-color: rgba(6, 182, 212, 0.12);
-      --hover-border-color: rgba(6, 182, 212, 0.35);
-      --hover-glow-shadow: rgba(6, 182, 212, 0.15);
-    }
-
-    /* 卡片 2 (3.0 MCOS) 悬停颜色 */
-    .portal-card.v3 {
-      --glow-color: rgba(168, 85, 247, 0.12);
-      --hover-border-color: rgba(168, 85, 247, 0.35);
-      --hover-glow-shadow: rgba(168, 85, 247, 0.15);
-    }
-
-    /* 卡片内容排版 */
+    /* ── Card Meta ── */
     .card-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .version-tag {
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-family: var(--font-display);
+      padding: 5px 12px;
+      border-radius: var(--radius);
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-main);
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .v2 .version-tag {
-      color: var(--primary-v2);
-      border-color: rgba(6, 182, 212, 0.3);
-      background: rgba(6, 182, 212, 0.05);
+      color: var(--brand-orange);
+      border: 1px solid rgba(221, 84, 26, 0.25);
+      background: var(--brand-orange-light);
     }
 
     .v3 .version-tag {
-      color: var(--primary-v3);
-      border-color: rgba(168, 85, 247, 0.3);
-      background: rgba(168, 85, 247, 0.05);
+      color: var(--brand-navy);
+      border: 1px solid rgba(14, 53, 102, 0.2);
+      background: rgba(14, 53, 102, 0.05);
     }
 
     .status-dot-container {
@@ -306,65 +210,46 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: var(--accent-v2);
-      box-shadow: 0 0 10px var(--accent-v2);
+      background-color: #16a34a;
     }
 
-    .v3 .status-dot {
-      background-color: var(--primary-v3);
-      box-shadow: 0 0 10px var(--primary-v3);
-    }
-
+    /* ── Card Body ── */
     .card-body {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
     .card-title {
       font-family: var(--font-display);
-      font-size: 32px;
-      font-weight: 800;
+      font-size: 28px;
+      font-weight: 700;
       margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .v2 .card-title {
-      background: linear-gradient(135deg, #ffffff 40%, var(--primary-v2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .v3 .card-title {
-      background: linear-gradient(135deg, #ffffff 40%, var(--primary-v3) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text-primary);
     }
 
     .card-subtitle {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 500;
-      color: var(--text-main);
-      margin-bottom: 20px;
-      line-height: 1.4;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
 
     .card-desc {
       font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
-    /* 核心特性列表 */
     .features-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .features-list li {
@@ -372,95 +257,71 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--text-main);
+      color: var(--text-secondary);
     }
 
     .features-list li::before {
-      content: "✦";
-      color: var(--primary-v2);
+      content: "—";
+      color: var(--brand-orange);
       font-weight: 700;
     }
 
     .v3 .features-list li::before {
-      color: var(--primary-v3);
+      color: var(--brand-navy);
     }
 
-    /* 按钮设计 */
+    /* ── Card Button ── */
     .card-btn {
       width: 100%;
-      height: 52px;
-      border-radius: 14px;
+      height: 48px;
+      border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
+      transition: background 0.2s, transform 0.2s;
     }
 
     .v2 .card-btn {
-      background: linear-gradient(90deg, var(--primary-v2), var(--accent-v2));
-      color: #060a16;
-      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+      background: var(--brand-orange);
+      color: #fff;
     }
 
     .v2:hover .card-btn {
-      transform: scale(1.02);
-      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+      background: var(--brand-orange-hover);
     }
 
     .v3 .card-btn {
-      background: linear-gradient(90deg, var(--primary-v3), var(--accent-v3));
-      color: white;
-      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+      background: var(--brand-navy);
+      color: #fff;
     }
 
     .v3:hover .card-btn {
-      transform: scale(1.02);
-      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+      background: var(--brand-navy-light);
     }
 
-    /* 页脚 */
+    /* ── Footer ── */
     footer {
-      position: relative;
-      z-index: 10;
-      padding: 30px;
+      padding: 32px;
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      border-top: 1px solid var(--border);
       font-size: 13px;
       color: var(--text-muted);
     }
 
-    /* 响应式适配 */
+    /* ── Responsive ── */
     @media (max-width: 900px) {
-      header {
-        padding: 30px 20px;
-      }
-
-      .portal-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .portal-card {
-        min-height: auto;
-        padding: 40px 30px;
-      }
+      header { padding: 30px 20px; }
+      .portal-grid { grid-template-columns: 1fr; gap: 24px; }
+      .portal-card { min-height: auto; padding: 32px 24px; }
     }
   </style>
 </head>
 
 <body>
-  
-  <!-- 能量发光背景 -->
-  <div class="bg-animation" aria-hidden="true">
-    <div class="bg-glow bg-glow-left"></div>
-    <div class="bg-glow bg-glow-right"></div>
-  </div>
 
   <!-- 顶部导航品牌 -->
   <header>
@@ -474,7 +335,7 @@
   <main>
     <div class="hero-title-section">
       <h1>请选择您的产品体系</h1>
-      <p>麦迪特旗下数字化影像与临床人工智能解决方案，提供桌面辅助助手与医院认知操作系统双重架构支撑。</p>
+      <p>一脉阳光旗下数字化影像与临床人工智能解决方案，提供桌面辅助助手与医院认知操作系统双重架构支撑。</p>
     </div>
 
     <div class="portal-grid">
@@ -501,7 +362,7 @@
             <li>客户端悬浮球、截图工具快捷调用</li>
           </ul>
         </div>
-        <button class="card-btn" tabindex="-1">进入 2.0 客户端系统介绍</button>
+        <button class="card-btn" tabindex="-1">进入 2.0 客户端系统介绍 →</button>
       </a>
 
       <!-- 3.0 MCOS 入口卡片 -->
@@ -527,14 +388,14 @@
             <li>Hermes 自然语言查询引擎与 90 天交付</li>
           </ul>
         </div>
-        <button class="card-btn" tabindex="-1">进入 3.0 院内系统级方案介绍</button>
+        <button class="card-btn" tabindex="-1">进入 3.0 院内系统级方案介绍 →</button>
       </a>
     </div>
   </main>
 
   <!-- 页脚 -->
   <footer>
-    <p>RimagAI &middot; 麦迪特人工智能技术有限公司 &copy; 2026</p>
+    <p>RimagAI · 一脉阳光医学影像 © 2026</p>
   </footer>
 
 </body>
