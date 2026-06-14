@@ -10,24 +10,23 @@
     <!-- 引入高质感现代字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #0a0f1d; /* 深海医疗蓝灰背景 */
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary: #2563eb; /* 临床核心蓝 */
-            --secondary: #0f766e; /* 经典手术绿 */
-            --accent: #14b8a6;
-            --text-main: #f8fafc;
-            --text-muted: #64748b;
-            --font-display: 'Inter', 'Noto Sans SC', sans-serif;
-            --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
-            --glow-blue: 0 0 25px rgba(37, 99, 235, 0.15);
-            --glow-purple: 0 0 25px rgba(15, 118, 110, 0.15);
+            --bg-color: #ffffff;
+            --bg-section: #f5f6f7;
+            --card-bg: #ffffff;
+            --card-border: #e2e2e2;
+            --primary: #0e3566; /* 藏青蓝：主品牌色 */
+            --secondary: #dd541a; /* 暖阳橙：高亮/引导色 */
+            --accent: #14b8a6; /* 医疗青色 */
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+            --font-sans: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            --glow-blue: 0 4px 20px rgba(14, 53, 102, 0.06);
+            --glow-purple: 0 4px 20px rgba(221, 84, 26, 0.06);
         }
 
         html {
@@ -47,8 +46,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image:
-                radial-gradient(at 0% 0%, hsla(210, 100%, 15%, 0.2) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(15, 118, 110, 0.12) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(14, 53, 102, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(221, 84, 26, 0.03) 0px, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -71,8 +70,8 @@
             z-index: 100;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            background: rgba(6, 10, 22, 0.7);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--card-border);
         }
 
         .logo {
@@ -107,7 +106,7 @@
 
         .nav-links a:hover {
             color: var(--text-main);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: none;
         }
 
         .cta-btn-small {
@@ -212,8 +211,8 @@
         }
 
         .cta-btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.035);
+            border: 1px solid rgba(0, 0, 0, 0.07);
             color: var(--text-main);
             padding: 16px 36px;
             border-radius: 50px;
@@ -224,8 +223,8 @@
         }
 
         .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.12);
         }
 
         .hero-image {
@@ -411,8 +410,8 @@
         }
 
         .pain-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.025);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 30px;
             padding: 4px 12px;
             font-size: 12px;
@@ -499,8 +498,8 @@
         }
 
         .metric-mini-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.035);
             border-radius: 16px;
             padding: 15px;
             text-align: center;
@@ -531,7 +530,7 @@
             margin-bottom: 12px;
             text-align: left;
             width: 100%;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.07);
             padding-bottom: 6px;
         }
 
@@ -544,8 +543,8 @@
         }
 
         .ext-metric-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.025);
             border-radius: 12px;
             padding: 12px 8px;
             text-align: left;
@@ -553,8 +552,8 @@
         }
 
         .ext-metric-card:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.025);
+            border-color: rgba(0, 0, 0, 0.06);
             transform: translateY(-2px);
         }
 
@@ -613,7 +612,7 @@
 
         .chart-bar-bg {
             height: 12px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.035);
             border-radius: 10px;
             position: relative;
         }
@@ -800,8 +799,8 @@
             text-align: center;
             border-radius: 20px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.035);
             padding: 25px;
             display: flex;
             justify-content: center;
@@ -827,8 +826,8 @@
         }
 
         .adv-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             border-radius: 24px;
             padding: 40px;
             text-align: left;
@@ -836,15 +835,15 @@
         }
 
         .adv-card:hover {
-            background: rgba(255, 255, 255, 0.02);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.02);
+            border-color: rgba(0, 0, 0, 0.07);
         }
 
         .adv-number {
             font-family: var(--font-display);
             font-size: 48px;
             font-weight: 800;
-            color: rgba(255, 255, 255, 0.05);
+            color: rgba(0, 0, 0, 0.035);
             margin-bottom: 10px;
             line-height: 1;
         }
@@ -943,7 +942,7 @@
 
         /* 咨询页脚 */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.035);
             padding: 80px 40px;
             text-align: center;
             background: rgba(3, 7, 18, 0.6);
@@ -990,7 +989,7 @@
 
         .copyright {
             margin-top: 60px;
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(0, 0, 0, 0.1);
             font-size: 12px;
         }
 
@@ -1065,10 +1064,10 @@
             min-width: 320px;
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
             position: relative;
-            background: rgba(6, 10, 22, 0.6);
+            background: var(--bg-section);
             padding: 10px;
             transition: all 0.4s ease;
         }
@@ -1079,7 +1078,7 @@
             inset: 0;
             border-radius: 20px;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.02) 50%, rgba(0, 0, 0, 0.07));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -1161,8 +1160,8 @@
         }
 
         .server-metric-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             border-radius: 16px;
             padding: 15px 18px;
             text-align: left;
@@ -1171,8 +1170,8 @@
         }
 
         .server-metric-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.06);
             transform: translateY(-2px);
         }
 
@@ -1245,7 +1244,7 @@
             font-family: var(--font-display);
             font-size: 36px;
             font-weight: 800;
-            color: rgba(255, 255, 255, 0.03);
+            color: rgba(0, 0, 0, 0.025);
             position: absolute;
             top: 15px;
             right: 20px;
@@ -1291,8 +1290,8 @@
         }
 
         .integration-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             border-radius: 20px;
             padding: 30px;
             transition: all 0.3s ease;
@@ -1301,7 +1300,7 @@
         }
 
         .integration-card:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.02);
             border-color: rgba(37, 99, 235, 0.2);
             transform: translateY(-2px);
         }
@@ -1483,7 +1482,7 @@
             transition: background 0.2s;
         }
         .nav-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.035);
         }
 
         @media (max-width: 992px) {
@@ -1587,11 +1586,11 @@
                     stroke-width="2" />
 
                 <!-- 顶部控制栏 -->
-                <rect x="80" y="100" width="360" height="40" rx="20" fill="rgba(255, 255, 255, 0.02)" />
+                <rect x="80" y="100" width="360" height="40" rx="20" fill="rgba(0, 0, 0, 0.02)" />
                 <circle cx="110" cy="120" r="5" fill="#ef4444" />
                 <circle cx="125" cy="120" r="5" fill="#f59e0b" />
                 <circle cx="140" cy="120" r="5" fill="#10b981" />
-                <text x="200" y="125" fill="rgba(255, 255, 255, 0.3)" font-size="12" font-family="var(--font-display)"
+                <text x="200" y="125" fill="rgba(0, 0, 0, 0.5)" font-size="12" font-family="var(--font-display)"
                     font-weight="600">i-CDSS RECOMMENDATION</text>
 
                 <!-- 临床开单主诉输入框 (模拟输入) -->
@@ -1607,7 +1606,7 @@
 
                 <!-- 规则与向量匹配匹配指示器 -->
                 <g filter="url(#shadow-filter)">
-                    <rect x="135" y="225" width="250" height="115" rx="14" fill="#111827" stroke="url(#badge-border)"
+                    <rect x="135" y="225" width="250" height="115" rx="14" fill="#ffffff" stroke="url(#badge-border)"
                         stroke-width="1.5" />
                     <!-- 匹配状态徽章 -->
                     <rect x="155" y="245" width="210" height="24" rx="12" fill="rgba(20, 184, 166, 0.1)"
@@ -1792,7 +1791,7 @@
                 <!-- 仪表盘物理指针指向 82.5% -->
                 <svg class="gauge-svg" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- 仪表盘背景环 -->
-                    <path d="M 40 140 A 80 80 0 0 1 200 140" stroke="rgba(255, 255, 255, 0.05)" stroke-width="12"
+                    <path d="M 40 140 A 80 80 0 0 1 200 140" stroke="rgba(0, 0, 0, 0.06)" stroke-width="12"
                         fill="none" stroke-linecap="round" />
                     <!-- 仪表盘彩色填充环 (82.5%) -->
                     <path d="M 40 140 A 80 80 0 0 1 200 140" stroke="url(#gauge-glow-grad)" stroke-width="12"
@@ -1807,7 +1806,7 @@
                         <circle cx="120" cy="140" r="3" fill="#000000" />
                     </g>
                     <!-- 下方数值 -->
-                    <text x="120" y="170" fill="#ffffff" font-size="28" font-family="var(--font-display)"
+                    <text x="120" y="170" fill="var(--text-main)" font-size="28" font-family="var(--font-display)"
                         font-weight="800" text-anchor="middle">0.81</text>
 
                     <defs>
@@ -1958,7 +1957,7 @@
                 <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- 中心评测节点 -->
                     <circle cx="200" cy="150" r="40" fill="url(#agent-glow)" stroke="var(--primary)" stroke-width="2" />
-                    <circle cx="200" cy="150" r="30" fill="#090d1a" />
+                    <circle cx="200" cy="150" r="30" fill="var(--primary)" />
                     <!-- 闪烁发光的内核 -->
                     <circle cx="200" cy="150" r="10" fill="var(--accent)" opacity="0.8">
                         <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" />
@@ -1972,7 +1971,7 @@
                     <g>
                         <line x1="200" y1="150" x2="200" y2="50" stroke="url(#line-tool)" stroke-width="1.5"
                             stroke-dasharray="4 4" class="animate-dash" />
-                        <circle cx="200" cy="50" r="22" fill="#111827" stroke="var(--primary)" stroke-width="1.5" />
+                        <circle cx="200" cy="50" r="22" fill="#ffffff" stroke="var(--primary)" stroke-width="1.5" />
                         <text x="200" y="53" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
                             font-weight="600" text-anchor="middle">任务摘要</text>
                     </g>
@@ -1980,7 +1979,7 @@
                     <g>
                         <line x1="200" y1="150" x2="310" y2="100" stroke="url(#line-tool)" stroke-width="1.5"
                             stroke-dasharray="4 4" class="animate-dash" />
-                        <circle cx="310" cy="100" r="22" fill="#111827" stroke="var(--secondary)" stroke-width="1.5" />
+                        <circle cx="310" cy="100" r="22" fill="#ffffff" stroke="var(--secondary)" stroke-width="1.5" />
                         <text x="310" y="103" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
                             font-weight="600" text-anchor="middle">失败归因</text>
                     </g>
@@ -1988,7 +1987,7 @@
                     <g>
                         <line x1="200" y1="150" x2="270" y2="240" stroke="url(#line-tool)" stroke-width="1.5"
                             stroke-dasharray="4 4" class="animate-dash" />
-                        <circle cx="270" cy="240" r="22" fill="#111827" stroke="var(--accent)" stroke-width="1.5" />
+                        <circle cx="270" cy="240" r="22" fill="#ffffff" stroke="var(--accent)" stroke-width="1.5" />
                         <text x="270" y="243" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
                             font-weight="600" text-anchor="middle">质量分布</text>
                     </g>
@@ -1996,7 +1995,7 @@
                     <g>
                         <line x1="200" y1="150" x2="130" y2="240" stroke="url(#line-tool)" stroke-width="1.5"
                             stroke-dasharray="4 4" class="animate-dash" />
-                        <circle cx="130" cy="240" r="22" fill="#111827" stroke="var(--primary)" stroke-width="1.5" />
+                        <circle cx="130" cy="240" r="22" fill="#ffffff" stroke="var(--primary)" stroke-width="1.5" />
                         <text x="130" y="243" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
                             font-weight="600" text-anchor="middle">对比数据</text>
                     </g>
@@ -2004,7 +2003,7 @@
                     <g>
                         <line x1="200" y1="150" x2="90" y2="100" stroke="url(#line-tool)" stroke-width="1.5"
                             stroke-dasharray="4 4" class="animate-dash" />
-                        <circle cx="90" cy="100" r="22" fill="#111827" stroke="var(--secondary)" stroke-width="1.5" />
+                        <circle cx="90" cy="100" r="22" fill="#ffffff" stroke="var(--secondary)" stroke-width="1.5" />
                         <text x="90" y="103" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)"
                             font-weight="600" text-anchor="middle">错误模式</text>
                     </g>
@@ -2018,7 +2017,7 @@
                         <linearGradient id="line-tool" x1="200" y1="150" x2="200" y2="50"
                             gradientUnits="userSpaceOnUse">
                             <stop stop-color="var(--primary)" />
-                            <stop offset="1" stop-color="rgba(11, 17, 34, 0.1)" />
+                            <stop offset="1" stop-color="rgba(255, 255, 255, 0.1)" />
                         </linearGradient>
                     </defs>
                 </svg>
