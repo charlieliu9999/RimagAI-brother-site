@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCOS 医疗 AI 智能·认知底座白皮书 | RimagAi Brother</title>
+  <title>MCOP 医疗 AI 智能·医疗流程与数据效能底座白皮书 | RimagAi Brother</title>
 
   <!-- SEO -->
-  <meta name="description" content="MCOS：医疗 AI 智能·认知底座的架构定义、验证边界与落地路径。">
-  <meta property="og:title" content="MCOS 医疗 AI 智能·认知底座白皮书">
+  <meta name="description" content="MCOP：医疗 AI 智能·医疗流程与数据效能底座的架构定义、验证边界与落地路径。">
+  <meta property="og:title" content="MCOP 医疗 AI 智能·医疗流程与数据效能底座白皮书">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
@@ -719,7 +719,7 @@
     <!-- Main Content -->
     <main class="content-wrapper">
       <header class="article-header">
-        <h1>MCOS：医疗 AI 智能·认知底座白皮书</h1>
+        <h1>MCOP：医疗 AI 智能·医疗流程与数据效能底座白皮书</h1>
         <div class="article-meta">
           <span>作者：RimagAI Team</span>
           <span>|</span>
@@ -731,30 +731,30 @@
         <h2 id="执行摘要">0. 执行摘要</h2>
         <p>本白皮书的中心主张是：当模型能力逐渐成为基础资源，医疗行业真正缺失的已不再只是更多
           AI
-          工具，而是一层能够把模型、数据、流程、治理与进化组织起来的智能·认知底座。MCOS（Medical
+          工具，而是一层能够把模型、数据、流程、治理与进化组织起来的智能·医疗流程与数据效能底座。MCOP（Medical
           Cognitive Operating
-          System，智能·认知底座）正是对这层新型基础设施的架构定义与落地路径。</p>
+          System，智能·医疗流程与数据效能底座）正是对这层新型基础设施的架构定义与落地路径。</p>
         <p>过去，医院信息化主要解决的是数据存储、系统集成和业务处理问题；进入 AI
           时代之后，行业新增了一个更难的问题：如何让模型能力稳定进入临床工作流，并在真实环境中持续产生价值。单点
           AI、传统 CDSS、工作站插件和通用 Agent
           编排框架都能解决部分问题，但很难同时回答场景感知、上下文组织、分层推理、执行控制、治理约束与持续进化这些系统级问题。换句话说，医疗
           AI 的主要矛盾，正在从“模型能力不足”转向“架构能力缺位”。</p>
-        <p>MCOS
+        <p>MCOP
           的答案不是再做一个单点应用，也不是把某个大模型包装成医疗产品，而是定义医疗
-          AI 的智能·认知底座：位于医院现有信息系统与 AI
+          AI 的智能·医疗流程与数据效能底座：位于医院现有信息系统与 AI
           能力之间，负责把感知、上下文、认知、执行、治理和进化组织成一个可运行、可治理、可持续进化的临床辅助系统。</p>
-        <p>当前阶段，RimagAi Brother 已在 6 个核心临床场景中，对 MCOS
+        <p>当前阶段，RimagAi Brother 已在 6 个核心临床场景中，对 MCOP
           前四层（L1-L4）的若干关键能力完成工程级验证。现阶段可以审慎地说，高价值场景与前四层逻辑已获得初步支撑；但不能说
-          MCOS 已完成平台化、合规化和临床终局价值验证。其中，L5 治理层和 L6
+          MCOP 已完成平台化、合规化和临床终局价值验证。其中，L5 合规审计层和 L6
           进化层仍处于建设早期或目标态推演阶段；白皮书中的效率与延迟数据，应被视为工程验证阶段的参考值，而不是医院真实生产环境下的系统性临床结论。</p>
         <p>本白皮书希望建立三个判断。</p>
         <ol type="1">
           <li>医疗 AI 的核心矛盾，正在从“模型能力不足”转向“架构能力缺位”。</li>
-          <li>医疗系统在数据层和业务层之外，缺少一层“智能·认知底座”。</li>
-          <li>MCOS 不是一个单点产品，而是一套使医疗 AI
+          <li>医疗系统在数据层和业务层之外，缺少一层“智能·医疗流程与数据效能底座”。</li>
+          <li>MCOP 不是一个单点产品，而是一套使医疗 AI
             逐步成为基础设施的架构方法。</li>
         </ol>
-        <p>阅读上，如果最关心“MCOS 到底是什么”，建议优先阅读第 2、3、4
+        <p>阅读上，如果最关心“MCOP 到底是什么”，建议优先阅读第 2、3、4
           章；如果最关心“现在验证到了哪里”，建议优先阅读第 6、7、11
           章；如果最关心“它怎样进入医院并形成产品”，建议优先阅读第 8、9、10
           章。</p>
@@ -775,30 +775,30 @@
           Agent，而是一层能够把 AI
           能力稳定组织进医疗工作流的系统结构。只有当这层结构出现，模型能力才可能从“偶尔有用”变成“持续可用”；也只有当这层结构成立，AI
           才可能从单点工具演进为可被医院信任的长期能力。</p>
-        <p>从这个意义上说，医疗行业正在进入一个新阶段：模型正在成为认知能力的基础资源，而系统架构则开始决定这些能力能否真正释放临床价值。MCOS
+        <p>从这个意义上说，医疗行业正在进入一个新阶段：模型正在成为认知能力的基础资源，而系统架构则开始决定这些能力能否真正释放临床价值。MCOP
           正是在这一背景下被提出的。</p>
         <hr />
-        <h2 id="mcos-是什么智能·认知底座的定义与边界">2. MCOS
-          是什么：智能·认知底座的定义与边界</h2>
-        <p>MCOS 是位于医院现有信息系统与 AI
-          能力之间的医疗智能·认知底座，用于把模型、工具、规则、数据和工作流组织成可运行、可治理、可持续进化的临床辅助系统。</p>
+        <h2 id="mcos-是什么智能·医疗流程与数据效能底座的定义与边界">2. MCOP
+          是什么：智能·医疗流程与数据效能底座的定义与边界</h2>
+        <p>MCOP 是位于医院现有信息系统与 AI
+          能力之间的医疗智能·医疗流程与数据效能底座，用于把模型、工具、规则、数据和工作流组织成可运行、可治理、可持续进化的临床辅助系统。</p>
         <p>它不是 HIS、EMR、PACS、RIS
           本身，不承担挂号、收费、医嘱、阅片、存储等基础业务系统职责；它也不是某个影像
-          AI 产品、某个医疗大模型的别名，或一个单点工作站界面。MCOS
+          AI 产品、某个医疗大模型的别名，或一个单点工作站界面。MCOP
           的核心任务不是替代现有系统，而是在现有系统之上建立一层负责场景感知、上下文组织、推理调度、执行控制、治理约束与能力进化的系统层。</p>
-        <p>从工程角度看，MCOS
+        <p>从工程角度看，MCOP
           可以被理解为一套医疗认知中间件平台；从架构角度看，它是医疗 AI
-          的智能·认知底座；从商业角度看，它不应一开始就被当作“全院平台”售卖，而应先以高价值场景切入，再在跨场景运行中逐步平台化。</p>
+          的智能·医疗流程与数据效能底座；从商业角度看，它不应一开始就被当作“全院平台”售卖，而应先以高价值场景切入，再在跨场景运行中逐步平台化。</p>
         <figure>
-          <img role="img" aria-label="图1 MCOS 在医院系统与 AI 能力之间的位置"
+          <img role="img" aria-label="图1 MCOP 在医院系统与 AI 能力之间的位置"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIj4KPGRlZnM+CjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIj4KPHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjNWI2NDcwIiAvPgo8L21hcmtlcj4KPHN0eWxlPjwhW0NEQVRBWwoudGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToyOHB4OyBmb250LXdlaWdodDo3MDA7IGZpbGw6IzFmMjkzN30KLnN1YnRpdGxle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTZweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiM0NzU1Njl9Ci5sYWJlbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE4cHg7IGZvbnQtd2VpZ2h0OjYwMDsgZmlsbDojMWYyOTM3fQouYm9keXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojMzM0MTU1fQouc21hbGx7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzQ3NTU2OX0KLm11dGVke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTNweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiM2NDc0OGJ9Ci5ib3h7c3Ryb2tlOiM0NzU1Njk7IHN0cm9rZS13aWR0aDoyfQouZGFzaHtzdHJva2UtZGFzaGFycmF5OjggNn0KLmFycm93e3N0cm9rZTojNWI2NDcwOyBzdHJva2Utd2lkdGg6MzsgZmlsbDpub25lOyBtYXJrZXItZW5kOnVybCgjYXJyb3cpfQoubGluZXtzdHJva2U6Izk0YTNiODsgc3Ryb2tlLXdpZHRoOjI7IGZpbGw6bm9uZX0KLnpvbmV7c3Ryb2tlOiNjYmQ1ZTE7IHN0cm9rZS13aWR0aDoyOyBzdHJva2UtZGFzaGFycmF5OjYgNn0KdGV4dHtwYWludC1vcmRlcjpzdHJva2U7IHN0cm9rZTpub25lfQpdXT48L3N0eWxlPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iODAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpdGxlIj48dHNwYW4geD0iODAwIiBkeT0iMCI+5Zu+MSAgTUNPUyDlnKjljLvpmaLns7vnu5/kuI4gQUkg6IO95Yqb5LmL6Ze055qE5L2N572uPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjgwMCIgeT0iODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzdWJ0aXRsZSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuWumuS5ieKAnOiupOefpei/kOihjOWxguKAneeahOezu+e7n+S9jee9ruOAgei+ueeVjOS4juS9nOeUqDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI5MCIgeT0iMTgwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjQyMCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNkYmVhZmUiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHJlY3QgeD0iNjIwIiB5PSIxNDAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTAwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2U5ZDVmZiIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8cmVjdCB4PSIxMTUwIiB5PSIxODAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNDIwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2RjZmNlNyIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIyNzAiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iMjcwIiBkeT0iMCI+5Yy76Zmi546w5pyJ57O757ufPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjgwMCIgeT0iMTkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj5NQ09TIOiupOefpei/kOihjOWxgjwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIxMzMwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjEzMzAiIGR5PSIwIj5BSSDog73lipvlsYI8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMjcwIiB5PSIyOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMjcwIiBkeT0iMCI+SElTIC8gRU1SIC8gUEFDUyAvIFJJUzwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIyNzAiIHk9IjM2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIyNzAiIGR5PSIwIj5MSVMgLyBDRFNTIC8g5pWw5o2u5Lit5Y+wPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjI3MCIgeT0iNDMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjI3MCIgZHk9IjAiPuaMguWPtyDmlLbotLkg5Yy75ZixIOmYheeJhyDlrZjlgqg8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMjcwIiB5PSI1MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMjcwIiBkeT0iMCI+5pei5pyJ5Lia5Yqh5rWB56iL5LiO5pWw5o2u6LWE5LqnPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjY5MCIgeT0iMjUwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjQwIiByeD0iMTIiIHJ5PSIxMiIgZmlsbD0iI2Y1ZjNmZiIgc3Ryb2tlPSIjN2MzYWVkIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI4MDAiIHk9IjI3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj7lnLrmma/mhJ/nn6U8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iNjkwIiB5PSIzMDUiIHdpZHRoPSIyMjAiIGhlaWdodD0iNDAiIHJ4PSIxMiIgcnk9IjEyIiBmaWxsPSIjZjVmM2ZmIiBzdHJva2U9IiM3YzNhZWQiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjgwMCIgeT0iMzMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuS4iuS4i+aWh+e7hOe7hzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI2OTAiIHk9IjM2MCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI0MCIgcng9IjEyIiByeT0iMTIiIGZpbGw9IiNmNWYzZmYiIHN0cm9rZT0iIzdjM2FlZCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iODAwIiB5PSIzODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iODAwIiBkeT0iMCI+5o6o55CG6LCD5bqmPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjY5MCIgeT0iNDE1IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjQwIiByeD0iMTIiIHJ5PSIxMiIgZmlsbD0iI2Y1ZjNmZiIgc3Ryb2tlPSIjN2MzYWVkIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI4MDAiIHk9IjQ0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj7miafooYzmjqfliLY8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iNjkwIiB5PSI0NzAiIHdpZHRoPSIyMjAiIGhlaWdodD0iNDAiIHJ4PSIxMiIgcnk9IjEyIiBmaWxsPSIjZjVmM2ZmIiBzdHJva2U9IiM3YzNhZWQiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjgwMCIgeT0iNDk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuayu+eQhue6puadnzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI2OTAiIHk9IjUyNSIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI0MCIgcng9IjEyIiByeT0iMTIiIGZpbGw9IiNmNWYzZmYiIHN0cm9rZT0iIzdjM2FlZCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iODAwIiB5PSI1NTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iODAwIiBkeT0iMCI+5oyB57ut6L+b5YyWPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjEzMzAiIHk9IjI5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMzMwIiBkeT0iMCI+5Yy755aX5aSn5qih5Z6LIC8g6YCa55SoIExMTTwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIxMzMwIiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTMzMCIgZHk9IjAiPuinhOWImeW8leaTjiAvIOefpeivhuW6kzwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIxMzMwIiB5PSI0MzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTMzMCIgZHk9IjAiPuW3peWFt+iwg+eUqCAvIEFnZW50IEhhcm5lc3M8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMTMzMCIgeT0iNTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjEzMzAiIGR5PSIwIj7lpJrmqKHmgIHmqKHlnosgLyDmo4DntKLns7vnu588L3RzcGFuPjwvdGV4dD4KPGxpbmUgeDE9IjQ1MCIgeTE9IjM5MCIgeDI9IjYyMCIgeTI9IjM5MCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSI5ODAiIHkxPSIzOTAiIHgyPSIxMTUwIiB5Mj0iMzkwIiBjbGFzcz0iYXJyb3ciLz4KPHJlY3QgeD0iMjYwIiB5PSI4MCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNDgiIHJ4PSIyMCIgcnk9IjIwIiBmaWxsPSIjZmZmN2VkIiBzdHJva2U9IiNmYjkyM2MiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjgwMCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuWMu+eUn+S4juS4tOW6iuW3peS9nOa1ge+8muWGs+WumuS7u+WKoei1t+eCueOAgeehruiupOmrmOmjjumZqeiKgueCueOAgeaJv+aLheacgOe7iOWMu+eWl+i0o+S7uzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxODAiIHk9IjcwMCIgd2lkdGg9IjEyNDAiIGhlaWdodD0iMTEwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI4MDAiIHk9Ijc0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj7msrvnkIYgLyDlrqHorqEgLyDlm57pgIAgLyDlj43ppojotK/nqb/lhajnqIs8L3RzcGFuPjx0c3BhbiB4PSI4MDAiIGR5PSIyMiI+TUNPUyDkuI3mmK8gSElTL0VNUi9QQUNTIOacrOi6q++8jOS5n+S4jeaYr+WNleS4gOaooeWei+OAgeWNleS4gOaPkuS7tuaIluWNleeCueW3peS9nOermTwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI3MCIgeT0iODQwIiB3aWR0aD0iNDMwIiBoZWlnaHQ9IjM4IiByeD0iMTQiIHJ5PSIxNCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCBkYXNoIi8+Cjx0ZXh0IHg9IjI4NSIgeT0iODY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSIyODUiIGR5PSIwIj7kuI3mmK/ljLvpmaLmoLjlv4PkuJrliqHns7vnu5/nmoTmm7/ku6Plk4E8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMTExMCIgeT0iODQwIiB3aWR0aD0iNDIwIiBoZWlnaHQ9IjM4IiByeD0iMTQiIHJ5PSIxNCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCBkYXNoIi8+Cjx0ZXh0IHg9IjEzMjAiIHk9Ijg2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InNtYWxsIj48dHNwYW4geD0iMTMyMCIgZHk9IjAiPuS4jeaYr+WNleS4quaooeWei+aIluWNleeCuSBBSSDkuqflk4HnmoTliKvlkI08L3RzcGFuPjwvdGV4dD4KPC9zdmc+"
-            alt="图1 MCOS 在医院系统与 AI 能力之间的位置" />
-          <figcaption aria-hidden="true">图1 MCOS 在医院系统与 AI
+            alt="图1 MCOP 在医院系统与 AI 能力之间的位置" />
+          <figcaption aria-hidden="true">图1 MCOP 在医院系统与 AI
             能力之间的位置</figcaption>
         </figure>
-        <p><em>图1. MCOS 位于医院现有系统与 AI
-            能力之间，承担“智能·认知底座”职责；其价值不在替代医院核心系统，也不在等同于单一模型或插件，而在于把多种能力组织进临床工作流。</em></p>
-        <p>为了避免误解，有必要把 MCOS 的边界讲清楚。</p>
+        <p><em>图1. MCOP 位于医院现有系统与 AI
+            能力之间，承担“智能·医疗流程与数据效能底座”职责；其价值不在替代医院核心系统，也不在等同于单一模型或插件，而在于把多种能力组织进临床工作流。</em></p>
+        <p>为了避免误解，有必要把 MCOP 的边界讲清楚。</p>
         <table>
           <colgroup>
             <col style="width: 33%" />
@@ -808,14 +808,14 @@
           <thead>
             <tr>
               <th>维度</th>
-              <th>MCOS 是什么</th>
-              <th>MCOS 不是什么</th>
+              <th>MCOP 是什么</th>
+              <th>MCOP 不是什么</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>系统定位</td>
-              <td>医疗 AI 的智能·认知底座</td>
+              <td>医疗 AI 的智能·医疗流程与数据效能底座</td>
               <td>HIS/EMR/PACS/RIS 本身</td>
             </tr>
             <tr>
@@ -847,18 +847,18 @@
         </table>
         <p>因此，对外口径应尽量统一。</p>
         <ul>
-          <li>架构口径：MCOS 是医疗 AI 的智能·认知底座。</li>
-          <li>工程口径：MCOS 是一套医疗认知中间件平台。</li>
-          <li>商业口径：MCOS 先以高价值场景产品切入，再逐步平台化。</li>
+          <li>架构口径：MCOP 是医疗 AI 的智能·医疗流程与数据效能底座。</li>
+          <li>工程口径：MCOP 是一套医疗认知中间件平台。</li>
+          <li>商业口径：MCOP 先以高价值场景产品切入，再逐步平台化。</li>
         </ul>
-        <p>MCOS 的意义不在于提出了一个新的名词，而在于把医疗 AI
+        <p>MCOP 的意义不在于提出了一个新的名词，而在于把医疗 AI
           长期缺失的一类系统职责显式化。如果没有这层，AI
           能力就只能附着在某个单点应用或某个模型调用上；有了这层，AI
           才可能真正形成医院可用、可控、可积累的长期能力。</p>
         <hr />
-        <h2 id="mcos-为什么成立从系统需求到架构假设">3. MCOS
+        <h2 id="mcos-为什么成立从系统需求到架构假设">3. MCOP
           为什么成立：从系统需求到架构假设</h2>
-        <p>MCOS
+        <p>MCOP
           之所以成立，不是因为医疗行业需要一个新概念，而是因为医疗工作天然不是一次性问答问题，而是一个连续运行的问题。医生面对的不是单个回答，而是一条持续的认知链路：先识别当前场景，再理解患者是谁、当前
           encounter
           处于什么阶段、历史发生过什么，再决定应该调用哪些知识、哪些工具、哪些规则、哪些模型，最后根据风险等级决定给建议、生成草稿还是进入执行。</p>
@@ -871,17 +871,17 @@
         <p>
           但这一模式代价很高：认知负荷大、跨系统信息整合成本高、个体经验差异大、重复劳动占比高。随着系统开始具备感知、上下文组织和分层推理能力，医生的角色正在发生转型——不再是亲力亲为的全流程执行者，而更像认知系统的指挥者：系统承担例行认知执行，医生聚焦于监督、判断、决策和人文沟通。
         </p>
-        <p>需要明确的是，医生角色的变化并不意味着责任减轻，而意味着认知焦点的转移。在高不确定性、多学科协作和责任敏感场景中，医生承担的不是更少的责任，而是更高密度的判断与协调责任。MCOS
+        <p>需要明确的是，医生角色的变化并不意味着责任减轻，而意味着认知焦点的转移。在高不确定性、多学科协作和责任敏感场景中，医生承担的不是更少的责任，而是更高密度的判断与协调责任。MCOP
           的设计前提不是替代医生，而是把医生从大量例行认知执行中释放出来，使其把时间投入到必须由人承担的判断上。</p>
-        <h3 id="医院信息系统缺的不是数据层而是认知层">3.2
-          医院信息系统缺的不是数据层，而是认知层</h3>
+        <h3 id="医院信息系统缺的不是数据层而是规则与推理层">3.2
+          医院信息系统缺的不是数据层，而是规则与推理层</h3>
         <p>
           过去二十年，医院已经建立了较完整的信息化栈：HIS、EMR、RIS、PACS、LIS、CDSS、集成平台、数据中台等。这些系统在数据存储、流转、展示和业务处理上已经很成熟，但它们共同的边界在于：擅长“存、取、传、显”，不擅长“理解、组织、推理、分级执行”。
         </p>
-        <p>因此，MCOS 不应被理解为替代现有系统的新一代 HIS 或
-          RIS，而应被理解为信息化版图中缺失的智能·认知底座。它架在现有系统之上，通过标准接口或低侵入方式接入，不重写已有系统的业务逻辑，而是把这些系统中的数据第一次组织成可参与临床认知流程的系统能力。</p>
-        <h3 id="智能·认知底座应承担哪些职责">3.3 智能·认知底座应承担哪些职责</h3>
-        <p>从医疗工作流倒推，一个真正的智能·认知底座至少需要承担六类职责：</p>
+        <p>因此，MCOP 不应被理解为替代现有系统的新一代 HIS 或
+          RIS，而应被理解为信息化版图中缺失的智能·医疗流程与数据效能底座。它架在现有系统之上，通过标准接口或低侵入方式接入，不重写已有系统的业务逻辑，而是把这些系统中的数据第一次组织成可参与临床认知流程的系统能力。</p>
+        <h3 id="智能·医疗流程与数据效能底座应承担哪些职责">3.3 智能·医疗流程与数据效能底座应承担哪些职责</h3>
+        <p>从医疗工作流倒推，一个真正的智能·医疗流程与数据效能底座至少需要承担六类职责：</p>
         <ol type="1">
           <li>感知职责：采集多模态输入信号，包括文本、影像、语音、行为和结构化事件。</li>
           <li>上下文职责：把离散信息组织成患者语境、场景语境和任务状态，而不是把原始数据直接丢给模型。</li>
@@ -893,18 +893,18 @@
         <p>这六类职责不是任意拼接出来的，而是从“医疗辅助任务如何在真实环境中持续运行”反推出的最低系统要求。</p>
         <h3 id="为什么它不是纯编排层也不是纯模型层">3.4
           为什么它不是纯编排层，也不是纯模型层</h3>
-        <p>把 MCOS 仅仅看成“更强的 Agent
+        <p>把 MCOP 仅仅看成“更强的 Agent
           编排层”是不够的，因为编排层通常回答的是“怎么调用工具与模型”，而医疗场景还要求系统回答“当前是什么场景、哪些信息相关、哪些动作允许自动化、哪些必须留给医生”。</p>
-        <p>把 MCOS
-          仅仅看成“更强的医疗模型层”也不够，因为即使拥有优秀的大模型，仍然需要一层系统来感知临床现场、维护患者纵向上下文、按风险分级决定执行方式、留下完整审计记录，并在伦理约束下持续进化。模型解决的是认知能力问题，MCOS
+        <p>把 MCOP
+          仅仅看成“更强的医疗模型层”也不够，因为即使拥有优秀的大模型，仍然需要一层系统来感知临床现场、维护患者纵向上下文、按风险分级决定执行方式、留下完整审计记录，并在伦理约束下持续进化。模型解决的是认知能力问题，MCOP
           解决的是认知组织问题。</p>
-        <p>MCOS
+        <p>MCOP
           成立的根本原因，不在于它提出了一个新名字，而在于医疗工作流本身要求一套新的系统层：既能承接通用模型与工具能力，又能把这些能力组织成稳定、受控、可持续改进的临床辅助过程。正因为医院现有系统缺少这一层，医生才长期被迫扮演“全能执行者”；也正因为这一层开始出现，医生才可能逐步转型为“认知指挥者”。
         </p>
         <hr />
-        <h2 id="mcos-六层架构">4. MCOS 六层架构</h2>
-        <p>MCOS 的架构设计起点不是“用 AI
-          替代医生”，而是“为医生的认知与行动提供可靠的系统性支撑”。六层架构的划分依据，不是技术栈的习惯分层，而是信息在医疗场景中的流动逻辑：原始信号如何被感知、如何被赋予语境、如何驱动认知推理、如何安全地落地为行动、如何受到治理约束，以及如何随时间积累而持续改进。
+        <h2 id="mcos-六层运行与管理架构">4. MCOP 六层运行与管理架构</h2>
+        <p>MCOP 的架构设计起点不是“用 AI
+          替代医生”，而是“为医生的认知与行动提供可靠的系统性支撑”。六层运行与管理架构的划分依据，不是技术栈的习惯分层，而是信息在医疗场景中的流动逻辑：原始信号如何被感知、如何被赋予语境、如何驱动认知推理、如何安全地落地为行动、如何受到治理约束，以及如何随时间积累而持续改进。
         </p>
         <h3 id="架构总览">4.1 架构总览</h3>
         <p>六层从下至上依次为：</p>
@@ -929,7 +929,7 @@
             </tr>
             <tr>
               <td>L3</td>
-              <td>认知层（Cognition Layer）</td>
+              <td>规则与推理层（Cognition Layer）</td>
               <td>意图识别、推理、规划、工具调用</td>
             </tr>
             <tr>
@@ -953,32 +953,32 @@
           构成一次临床辅助任务的前向运行链路，L5 作为横切层贯穿各层，L6
           则承担系统随时间改进的反向学习链路。</p>
         <figure>
-          <img role="img" aria-label="图2 MCOS 六层架构总览"
+          <img role="img" aria-label="图2 MCOP 六层运行与管理架构总览"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAwIiBoZWlnaHQ9Ijk4MCIgdmlld0JveD0iMCAwIDE1MDAgOTgwIj4KPGRlZnM+CjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIj4KPHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjNWI2NDcwIiAvPgo8L21hcmtlcj4KPHN0eWxlPjwhW0NEQVRBWwoudGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToyOHB4OyBmb250LXdlaWdodDo3MDA7IGZpbGw6IzFmMjkzN30KLnN1YnRpdGxle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTZweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiM0NzU1Njl9Ci5sYWJlbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE4cHg7IGZvbnQtd2VpZ2h0OjYwMDsgZmlsbDojMWYyOTM3fQouYm9keXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojMzM0MTU1fQouc21hbGx7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzQ3NTU2OX0KLm11dGVke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTNweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiM2NDc0OGJ9Ci5ib3h7c3Ryb2tlOiM0NzU1Njk7IHN0cm9rZS13aWR0aDoyfQouZGFzaHtzdHJva2UtZGFzaGFycmF5OjggNn0KLmFycm93e3N0cm9rZTojNWI2NDcwOyBzdHJva2Utd2lkdGg6MzsgZmlsbDpub25lOyBtYXJrZXItZW5kOnVybCgjYXJyb3cpfQoubGluZXtzdHJva2U6Izk0YTNiODsgc3Ryb2tlLXdpZHRoOjI7IGZpbGw6bm9uZX0KLnpvbmV7c3Ryb2tlOiNjYmQ1ZTE7IHN0cm9rZS13aWR0aDoyOyBzdHJva2UtZGFzaGFycmF5OjYgNn0KdGV4dHtwYWludC1vcmRlcjpzdHJva2U7IHN0cm9rZTpub25lfQpdXT48L3N0eWxlPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iNzUwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpdGxlIj48dHNwYW4geD0iNzUwIiBkeT0iMCI+5Zu+MiAgTUNPUyDlha3lsYLmnrbmnoTmgLvop4g8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNzUwIiB5PSI4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InN1YnRpdGxlIj48dHNwYW4geD0iNzUwIiBkeT0iMCI+TDEtTDQg5p6E5oiQ5YmN5ZCR6L+Q6KGM6ZO+6Lev77yMTDUg5qiq5YiH5rK755CG77yMTDYg6LSf6LSj5oyB57ut6L+b5YyWPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjMwMCIgeT0iNzQwIiB3aWR0aD0iNzYwIiBoZWlnaHQ9Ijg4IiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2RiZWFmZSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI2ODAiIHk9Ijc3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iNjgwIiBkeT0iMCI+TDEg5oSf55+l5bGCPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjY4MCIgeT0iODAzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSI2ODAiIGR5PSIwIj7lpJrmqKHmgIHkv6Hlj7fph4fpm4bkuI7pooTlpITnkIY8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMzAwIiB5PSI2MzAiIHdpZHRoPSI3NjAiIGhlaWdodD0iODgiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjY2NmYmYxIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjY4MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI2ODAiIGR5PSIwIj5MMiDkuIrkuIvmloflsYI8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNjgwIiB5PSI2OTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9IjY4MCIgZHk9IjAiPuaCo+iAheeKtuaAgeOAgWVuY291bnRlciDkuI7lnLrmma/or63looPnu4Tnu4c8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMzAwIiB5PSI1MjAiIHdpZHRoPSI3NjAiIGhlaWdodD0iODgiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZTlkNWZmIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjY4MCIgeT0iNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI2ODAiIGR5PSIwIj5MMyDorqTnn6XlsYI8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNjgwIiB5PSI1ODMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9IjY4MCIgZHk9IjAiPuaEj+WbvuivhuWIq+OAgeaOqOeQhuOAgeinhOWIkuOAgeW3peWFt+iwg+eUqDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIzMDAiIHk9IjQxMCIgd2lkdGg9Ijc2MCIgaGVpZ2h0PSI4OCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNkY2ZjZTciIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iNjgwIiB5PSI0NDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjY4MCIgZHk9IjAiPkw0IOaJp+ihjOWxgjwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSI2ODAiIHk9IjQ3MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InNtYWxsIj48dHNwYW4geD0iNjgwIiBkeT0iMCI+5bu66K6u44CB6I2J56i/44CB6aKE5aGr44CB5Y+X5o6n5YaZ5ZuePC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjMwMCIgeT0iMTcwIiB3aWR0aD0iNzYwIiBoZWlnaHQ9Ijg4IiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2ZlZjNjNyIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI2ODAiIHk9IjIwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iNjgwIiBkeT0iMCI+TDYg6L+b5YyW5bGCPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjY4MCIgeT0iMjMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSI2ODAiIGR5PSIwIj7nu4/pqozokIPlj5bjgIHlj43ppojlrabkuaDjgIHmioDog73kvJjljJY8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMTI4MCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSIxMjgwIiBkeT0iMCI+TDUg5rK755CG5bGCPC90c3Bhbj48dHNwYW4geD0iMTI4MCIgZHk9IjIyIj7mqKrliIflkITlsYLvvJrmnYPpmZDjgIHlrqHorqHjgIHpo47mjqfjgIHotKPku7vlvZLlsZ48L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMTEyMCIgeT0iMTUwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjcyMCIgcng9IjI0IiByeT0iMjQiIGZpbGw9IiNmZmY3ZWQiIHN0cm9rZT0iI2ZiOTIzYyIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHJlY3QgeD0iMTE2MCIgeT0iMjMwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjU4IiByeD0iMTQiIHJ5PSIxNCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjZmRiYTc0IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMjQwIiB5PSIyNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTI0MCIgZHk9IjAiPuWQiOinhOi+ueeVjDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMTYwIiB5PSIzNjAiIHdpZHRoPSIxNjAiIGhlaWdodD0iNTgiIHJ4PSIxNCIgcnk9IjE0IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZGJhNzQiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjEyNDAiIHk9IjM5NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMjQwIiBkeT0iMCI+5p2D6ZmQ5YiG57qnPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjExNjAiIHk9IjQ5MCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI1OCIgcng9IjE0IiByeT0iMTQiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2ZkYmE3NCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iMTI0MCIgeT0iNTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjEyNDAiIGR5PSIwIj7lrqHorqHpk748L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMTE2MCIgeT0iNjIwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjU4IiByeD0iMTQiIHJ5PSIxNCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjZmRiYTc0IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMjQwIiB5PSI2NTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTI0MCIgZHk9IjAiPumjjumZqeaOp+WItjwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMTYwIiB5PSI3NTAiIHdpZHRoPSIxNjAiIGhlaWdodD0iNTgiIHJ4PSIxNCIgcnk9IjE0IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZGJhNzQiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjEyNDAiIHk9Ijc4NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMjQwIiBkeT0iMCI+5Lit5patL+WbnumAgDwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iNjgwIiB5MT0iNzQwIiB4Mj0iNjgwIiB5Mj0iNzE4IiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9IjY4MCIgeTE9IjYzMCIgeDI9IjY4MCIgeTI9IjYwOCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSI2ODAiIHkxPSI1MjAiIHgyPSI2ODAiIHkyPSI0OTgiIGNsYXNzPSJhcnJvdyIvPgo8dGV4dCB4PSI4MzAiIHk9IjMwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InNtYWxsIj48dHNwYW4geD0iODMwIiBkeT0iMCI+TDYg5LiN5piv4oCc5bey5a6M5oiQ5Y2W54K54oCdPC90c3Bhbj48dHNwYW4geD0iODMwIiBkeT0iMjIiPuiAjOaYr+S7jui/kOihjOS4remAkOatpeW9ouaIkOeahOi/m+WMluiDveWKmzwvdHNwYW4+PC90ZXh0Pgo8cG9seWxpbmUgcG9pbnRzPSI2ODAsNDEwIDY4MCwzMzAgOTgwLDMzMCA5ODAsMjE0IiBjbGFzcz0iYXJyb3ciLz4KPHBvbHlsaW5lIHBvaW50cz0iNjAwLDIxNCA0MjAsMjE0IDQyMCw3ODQgNjIwLDc4NCIgY2xhc3M9ImFycm93Ii8+Cjx0ZXh0IHg9IjUxMCIgeT0iMzA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSI1MTAiIGR5PSIwIj7mjIHnu63lj43ppojlm57mtYE8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNzgwIiB5PSIzODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9Ijc4MCIgZHk9IjAiPuWJjeWQkei/kOihjOmTvui3rzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMjAiIHk9IjE3MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI2NTgiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjE4MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSIxODAiIGR5PSIwIj7ljLvnlJ/nm5HnnaM8L3RzcGFuPjx0c3BhbiB4PSIxODAiIGR5PSIyMiI+5LiO56Gu6K6kPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjE4MCIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjE4MCIgZHk9IjAiPuWvuemrmOmjjumZqeiKgueCuTwvdHNwYW4+PHRzcGFuIHg9IjE4MCIgZHk9IjIyIj7kv53nlZnkurrlt6XlhrPnrZY8L3RzcGFuPjwvdGV4dD4KPC9zdmc+"
-            alt="图2 MCOS 六层架构总览" />
-          <figcaption aria-hidden="true">图2 MCOS 六层架构总览</figcaption>
+            alt="图2 MCOP 六层运行与管理架构总览" />
+          <figcaption aria-hidden="true">图2 MCOP 六层运行与管理架构总览</figcaption>
         </figure>
-        <p><em>图2. MCOS 六层架构总览：L1-L4 构成前向运行链路，L5
+        <p><em>图2. MCOP 六层运行与管理架构总览：L1-L4 构成前向运行链路，L5
             以横切方式提供合规、审计、风险控制与责任归属，L6
             则通过反馈学习推动系统持续进化。</em></p>
         <h3 id="l1-感知层让系统看见临床现场">4.2 L1
           感知层：让系统看见临床现场</h3>
-        <p>感知层是 MCOS
+        <p>感知层是 MCOP
           与真实医疗世界的接触面，负责把文本、影像、语音、行为和结构化数据转化为后续层级可处理的结构化或半结构化事件。它的边界非常明确：只负责“看见”和“描述”，不负责“理解”和“判断”。</p>
         <p>这一层的价值在于：如果系统不能稳定接入临床现场，就谈不上真正进入工作流。感知层的存在让
-          MCOS 不依赖单一输入形态，而可以在不同部署条件下从
+          MCOP 不依赖单一输入形态，而可以在不同部署条件下从
           API、屏幕感知、语音采集、图像接入等多种方式获取任务起点。</p>
         <h3 id="l2-上下文层把离散信息组织成语境">4.3 L2
           上下文层：把离散信息组织成语境</h3>
         <p>上下文层的任务不是简单堆叠信息，而是把离散感知事件组织成连贯的患者语境、场景语境和任务状态。对医疗场景来说，这一层比“更多上下文
           token”更重要，因为临床决策的关键往往不是信息量，而是相关性。</p>
         <p>上下文层至少要管理三类信息：患者纵向上下文、当前 encounter
-          上下文，以及场景工作流上下文。没有这一层，认知层拿到的只是无差别的原始信息；有了这一层，系统才知道此刻哪些信息重要、哪些是噪声、哪些必须保留给医生判断。</p>
-        <h3 id="l3-认知层把上下文转化为可执行认知结果">4.4 L3
-          认知层：把上下文转化为可执行认知结果</h3>
-        <p>认知层负责意图识别、推理、规划和工具调用。它不等于一次模型请求，而更像一个受场景约束的认知执行面：在不同任务下决定用什么能力、调用哪些工具、如何表达不确定性、是否需要多步推理。</p>
+          上下文，以及场景工作流上下文。没有这一层，规则与推理层拿到的只是无差别的原始信息；有了这一层，系统才知道此刻哪些信息重要、哪些是噪声、哪些必须保留给医生判断。</p>
+        <h3 id="l3-规则与推理层把上下文转化为可执行认知结果">4.4 L3
+          规则与推理层：把上下文转化为可执行认知结果</h3>
+        <p>规则与推理层负责意图识别、推理、规划和工具调用。它不等于一次模型请求，而更像一个受场景约束的认知执行面：在不同任务下决定用什么能力、调用哪些工具、如何表达不确定性、是否需要多步推理。</p>
         <p>
-          这一层至少应具备三类核心能力：分层推理、显式不确定性和场景化认知模式。对医疗系统而言，最危险的不是“不会回答”，而是“看似会回答却没有表达边界”。因此，认知层必须明确知道何时该给出建议，何时只该给出线索，何时必须提示需要人工确认。
+          这一层至少应具备三类核心能力：分层推理、显式不确定性和场景化认知模式。对医疗系统而言，最危险的不是“不会回答”，而是“看似会回答却没有表达边界”。因此，规则与推理层必须明确知道何时该给出建议，何时只该给出线索，何时必须提示需要人工确认。
         </p>
         <h3 id="l4-执行层把认知结果安全落地">4.5 L4
           执行层：把认知结果安全落地</h3>
@@ -990,48 +990,48 @@
           治理层：作为横切层的系统宪法</h3>
         <p>治理层不是一个独立步骤，而是所有层级的约束框架。它在感知阶段限制数据采集边界，在认知阶段限制推理与工具调用范围，在执行阶段定义自动化级别，在进化阶段设定学习和数据使用的合规底线。</p>
         <p>这层至少包含四类能力：权限分级、日志与审计链、风险控制与中断机制、责任归属框架。没有
-          L5，MCOS 只能算一个能力系统；有了 L5，MCOS
+          L5，MCOP 只能算一个能力系统；有了 L5，MCOP
           才可能成为可落地的临床辅助系统。</p>
         <h3 id="l6-进化层让系统从使用中变好">4.7 L6
           进化层：让系统从使用中变好</h3>
-        <p>进化层的作用，在于使 MCOS
-          不停留于部署时的静态能力水平，而能够在实际使用中持续优化。从能力属性看，MCOS
+        <p>进化层的作用，在于使 MCOP
+          不停留于部署时的静态能力水平，而能够在实际使用中持续优化。从能力属性看，MCOP
           的进化主要分为两类：一类是围绕场景表现、反馈采集、Skill
           优化的运营性进化；另一类是涉及数据飞轮、研究增益、知识生产的更强进化能力。</p>
         <p>当前阶段应对外明确：前者可以谈局部框架与方向，后者只能作为目标态或受强伦理治理约束的远期演进，不宜写成已成立能力。</p>
         <h3 id="六层运行闭环">4.8 六层运行闭环</h3>
-        <p>从运行逻辑上看，MCOS 的闭环可概括为两条链路：</p>
+        <p>从运行逻辑上看，MCOP 的闭环可概括为两条链路：</p>
         <ul>
           <li>感知 → 上下文 → 认知 → 执行：一次医疗辅助任务的前向信息流。</li>
           <li>执行 → 治理 → 进化 →
             再影响感知与认知：系统随时间改进的反向学习流。</li>
         </ul>
-        <p>这意味着，MCOS
+        <p>这意味着，MCOP
           不只是“让模型进入医院”，而是让模型、规则、工具、反馈和治理共同组成一个长期可运行的系统闭环。</p>
         <p>
-          六层架构的本质，不是为了把系统画得更复杂，而是为了把医疗场景中原本隐含的职责分工显式化。只有把感知、上下文、认知、执行、治理和进化拆开，医院才能真正讨论：哪些能力已经具备，哪些能力还不能自动化，哪些必须由医生决定，哪些未来可以持续进化。这也是
-          MCOS 与单点应用最大的不同。</p>
+          六层运行与管理架构的本质，不是为了把系统画得更复杂，而是为了把医疗场景中原本隐含的职责分工显式化。只有把感知、上下文、认知、执行、治理和进化拆开，医院才能真正讨论：哪些能力已经具备，哪些能力还不能自动化，哪些必须由医生决定，哪些未来可以持续进化。这也是
+          MCOP 与单点应用最大的不同。</p>
         <figure>
-          <img role="img" aria-label="图3 MCOS 运行闭环"
+          <img role="img" aria-label="图3 MCOP 运行闭环"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE0MDAgOTAwIj4KPGRlZnM+CjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIj4KPHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjNWI2NDcwIiAvPgo8L21hcmtlcj4KPHN0eWxlPjwhW0NEQVRBWwoudGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToyOHB4OyBmb250LXdlaWdodDo3MDA7IGZpbGw6IzFmMjkzN30KLnN1YnRpdGxle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTZweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiM0NzU1Njl9Ci5sYWJlbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE4cHg7IGZvbnQtd2VpZ2h0OjYwMDsgZmlsbDojMWYyOTM3fQouYm9keXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojMzM0MTU1fQouc21hbGx7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzQ3NTU2OX0KLm11dGVke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTNweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiM2NDc0OGJ9Ci5ib3h7c3Ryb2tlOiM0NzU1Njk7IHN0cm9rZS13aWR0aDoyfQouZGFzaHtzdHJva2UtZGFzaGFycmF5OjggNn0KLmFycm93e3N0cm9rZTojNWI2NDcwOyBzdHJva2Utd2lkdGg6MzsgZmlsbDpub25lOyBtYXJrZXItZW5kOnVybCgjYXJyb3cpfQoubGluZXtzdHJva2U6Izk0YTNiODsgc3Ryb2tlLXdpZHRoOjI7IGZpbGw6bm9uZX0KLnpvbmV7c3Ryb2tlOiNjYmQ1ZTE7IHN0cm9rZS13aWR0aDoyOyBzdHJva2UtZGFzaGFycmF5OjYgNn0KdGV4dHtwYWludC1vcmRlcjpzdHJva2U7IHN0cm9rZTpub25lfQpdXT48L3N0eWxlPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iNzAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpdGxlIj48dHNwYW4geD0iNzAwIiBkeT0iMCI+5Zu+MyAgTUNPUyDov5DooYzpl63njq88L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNzAwIiB5PSI4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InN1YnRpdGxlIj48dHNwYW4geD0iNzAwIiBkeT0iMCI+5YmN5ZCR5L+h5oGv5rWBICsg5rK755CG57qm5p2fICsg5Y+N6aaI5a2m5Lmg77yM5p6E5oiQ5oyB57ut6L+Q6KGM57O757ufPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjYwNSIgeT0iMTM4IiB3aWR0aD0iMTkwIiBoZWlnaHQ9Ijg0IiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2RiZWFmZSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI3MDAiIHk9IjE4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iNzAwIiBkeT0iMCI+5oSf55+lPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjkzNSIgeT0iMjc4IiB3aWR0aD0iMTkwIiBoZWlnaHQ9Ijg0IiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2NjZmJmMSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMDMwIiB5PSIzMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjEwMzAiIGR5PSIwIj7kuIrkuIvmloc8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iOTM1IiB5PSI1NTgiIHdpZHRoPSIxOTAiIGhlaWdodD0iODQiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZTlkNWZmIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjEwMzAiIHk9IjYwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iMTAzMCIgZHk9IjAiPuiupOefpTwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI2MDUiIHk9IjY5OCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSI4NCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNkY2ZjZTciIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iNzAwIiB5PSI3NDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjcwMCIgZHk9IjAiPuaJp+ihjDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIyNzUiIHk9IjU1OCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSI4NCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNmZmY3ZWQiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iMzcwIiB5PSI2MDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjM3MCIgZHk9IjAiPuayu+eQhjwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIyNzUiIHk9IjI3OCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSI4NCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNmZWYzYzciIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iMzcwIiB5PSIzMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjM3MCIgZHk9IjAiPui/m+WMljwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iNzAwIiB5MT0iMjIyIiB4Mj0iOTcwIiB5Mj0iMzIwIiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9IjEwMzAiIHkxPSIzNjIiIHgyPSIxMDMwIiB5Mj0iNTU4IiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9Ijk3MCIgeTE9IjY0MiIgeDI9IjcwMCIgeTI9IjY5OCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSI2MDUiIHkxPSI2OTgiIHgyPSI0MzAiIHkyPSI2NDIiIGNsYXNzPSJhcnJvdyIvPgo8bGluZSB4MT0iMzcwIiB5MT0iNTU4IiB4Mj0iMzcwIiB5Mj0iMzYyIiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9IjQzMCIgeTE9IjI3OCIgeDI9IjYwNSIgeTI9IjIyMiIgY2xhc3M9ImFycm93Ii8+CjxyZWN0IHg9IjUyNSIgeT0iMzkwIiB3aWR0aD0iMzUwIiBoZWlnaHQ9IjEyMCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iIzk0YTNiOCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iNzAwIiB5PSI0MzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iNzAwIiBkeT0iMCI+5Li05bqK6L6F5Yqp5Lu75YqhPC90c3Bhbj48dHNwYW4geD0iNzAwIiBkeT0iMjIiPuWcqOato+ehruWcuuaZr+OAgeato+ehruS4iuS4i+aWh+OAgeato+ehrui0o+S7u+i+ueeVjOWGheS6p+WHuuWPr+eUqOe7k+aenDwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIxMTE1IiB5PSI0NjUiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMTE1IiBkeT0iMCI+5YmN5ZCR6L+Q6KGM6ZO+77yaPC90c3Bhbj48dHNwYW4geD0iMTExNSIgZHk9IjIyIj7mhJ/nn6Ug4oaSIOS4iuS4i+aWhyDihpIg6K6k55+lIOKGkiDmiafooYw8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMTI1IiB5PSI0NjUiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMjUiIGR5PSIwIj7lj43lkJHlrabkuaDpk77vvJo8L3RzcGFuPjx0c3BhbiB4PSIxMjUiIGR5PSIyMiI+5omn6KGMIOKGkiDmsrvnkIYg4oaSIOi/m+WMliDihpIg5YaN5b2x5ZON5oSf55+lL+iupOefpTwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMDEwIiB5PSI3NjAiIHdpZHRoPSIyNTAiIGhlaWdodD0iNjAiIHJ4PSIxNCIgcnk9IjE0IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94IGRhc2giLz4KPHRleHQgeD0iMTEzNSIgeT0iNzk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSIxMTM1IiBkeT0iMCI+5bu66K6uIC8g6I2J56i/IC8g6aKE5aGrIC8g5YaZ5ZuePC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjExNSIgeT0iOTUiIHdpZHRoPSIzMTAiIGhlaWdodD0iNjAiIHJ4PSIxNCIgcnk9IjE0IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94IGRhc2giLz4KPHRleHQgeD0iMjcwIiB5PSIxMzIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9IjI3MCIgZHk9IjAiPuecn+WunuS9v+eUqOWPjemmiOOAgeW8guW4uOagt+acrOOAgeWkjeebmOe7k+iuujwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4="
-            alt="图3 MCOS 运行闭环" />
-          <figcaption aria-hidden="true">图3 MCOS 运行闭环</figcaption>
+            alt="图3 MCOP 运行闭环" />
+          <figcaption aria-hidden="true">图3 MCOP 运行闭环</figcaption>
         </figure>
-        <p><em>图3. MCOS
+        <p><em>图3. MCOP
             的运行闭环由“感知—上下文—认知—执行”的前向信息流，以及“执行—治理—进化—再影响感知与认知”的反向学习流共同构成。</em></p>
         <h3 id="六层在典型医疗场景中的覆盖方式">4.9
           六层在典型医疗场景中的覆盖方式</h3>
-        <p>MCOS
-          的六层并非抽象技术分层，而是可以在真实医院工作流中被逐层识别的运行结构。以门诊慢病复诊与续方协同为例，系统需要先完成多源数据采集（L1），再将检验、处方、历史记录组织为本次复诊语境（L2），进而完成风险分层与续方建议（L3），最终以建议、草稿、医生确认和诊后同步的方式落地执行（L4），并在全流程中接受规则、解释、责任和升级机制约束（L5），同时通过阈值优化、模板优化和反馈复盘形成持续改进能力（L6）。类似地，在住院异常预警场景中，六层更突出持续感知与分级响应；在临床路径管理场景中，六层则更突出流程治理、协作编排与路径优化。由此可见，MCOS
+        <p>MCOP
+          的六层并非抽象技术分层，而是可以在真实医院工作流中被逐层识别的运行结构。以门诊慢病复诊与续方协同为例，系统需要先完成多源数据采集（L1），再将检验、处方、历史记录组织为本次复诊语境（L2），进而完成风险分层与续方建议（L3），最终以建议、草稿、医生确认和诊后同步的方式落地执行（L4），并在全流程中接受规则、解释、责任和升级机制约束（L5），同时通过阈值优化、模板优化和反馈复盘形成持续改进能力（L6）。类似地，在住院异常预警场景中，六层更突出持续感知与分级响应；在临床路径管理场景中，六层则更突出流程治理、协作编排与路径优化。由此可见，MCOP
           的六层不是为了增加系统复杂度，而是为了把不同医疗场景中原本混杂在一起的职责与边界显式化，使医院能够逐层讨论哪些能力已经成熟，哪些能力仍应保留在人工确认与审慎治理之下。</p>
         <figure>
-          <img role="img" aria-label="图4 MCOS 六层在典型医疗场景中的覆盖图"
+          <img role="img" aria-label="图4 MCOP 六层在典型医疗场景中的覆盖图"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwODAiIHZpZXdCb3g9IjAgMCAxNjAwIDEwODAiPgo8ZGVmcz4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMTAlIiB5PSItMTAlIiB3aWR0aD0iMTIwJSIgaGVpZ2h0PSIxMjAlIj4KICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iNCIgc3RkRGV2aWF0aW9uPSI2IiBmbG9vZC1jb2xvcj0iIzBmMTcyYSIgZmxvb2Qtb3BhY2l0eT0iMC4xMCIvPgo8L2ZpbHRlcj4KPC9kZWZzPgo8c3R5bGU+PCFbQ0RBVEFbCi50aXRsZXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjtmb250LXNpemU6MzBweDtmb250LXdlaWdodDo3MDA7ZmlsbDojMGYxNzJhfQouc3VidGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NDAwO2ZpbGw6IzQ3NTU2OX0KLmNvbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjtmb250LXNpemU6MThweDtmb250LXdlaWdodDo3MDA7ZmlsbDojMWUyOTNifQoucm93e2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmO2ZvbnQtc2l6ZToyMnB4O2ZvbnQtd2VpZ2h0OjcwMDtmaWxsOiMxZjI5Mzd9Ci5jZWxse2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxNnB4O2ZvbnQtd2VpZ2h0OjUwMDtmaWxsOiMzMzQxNTV9Ci5ub3Rle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OjUwMDtmaWxsOiM2NDc0OGJ9Cl1dPjwvc3R5bGU+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iODAwLjAiIHk9IjU0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0idGl0bGUiPk1DT1Mg5YWt5bGC5Zyo5YW45Z6L5Yy755aX5Zy65pmv5Lit55qE6KaG55uW5Zu+PC90ZXh0Pgo8dGV4dCB4PSI4MDAuMCIgeT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzdWJ0aXRsZSI+5ZCM5LiA5YWt5bGC57uT5p6E5Zyo5LiN5ZCM5Zy65pmv5Lit5om/5ouF5LiN5ZCM6YeN5b+D77ya6Zeo6K+K5pu05by66LCD6K6k55+l5LiO5omn6KGM77yM6aKE6K2m5pu05by66LCD5oyB57ut5oSf55+l5LiO5ZON5bqU77yM6Lev5b6E566h55CG5pu05by66LCD5rK755CG5LiO6L+b5YyW44CCPC90ZXh0Pgo8cmVjdCB4PSIyNDAuMCIgeT0iMTIwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSI2OCIgcng9IjE2IiBmaWxsPSIjZWZmNmZmIiBzdHJva2U9IiM5M2M1ZmQiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjx0ZXh0IHg9IjM0Ni4wIiB5PSIxNjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNvbCI+TDEg5oSf55+lPC90ZXh0Pgo8cmVjdCB4PSI0NjAuMCIgeT0iMTIwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSI2OCIgcng9IjE2IiBmaWxsPSIjZWNmZWZmIiBzdHJva2U9IiM2N2U4ZjkiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjx0ZXh0IHg9IjU2Ni4wIiB5PSIxNjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNvbCI+TDIg5LiK5LiL5paHPC90ZXh0Pgo8cmVjdCB4PSI2ODAuMCIgeT0iMTIwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSI2OCIgcng9IjE2IiBmaWxsPSIjZWVmMmZmIiBzdHJva2U9IiNhNWI0ZmMiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjx0ZXh0IHg9Ijc4Ni4wIiB5PSIxNjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNvbCI+TDMg6K6k55+lPC90ZXh0Pgo8cmVjdCB4PSI5MDAuMCIgeT0iMTIwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSI2OCIgcng9IjE2IiBmaWxsPSIjZjVmM2ZmIiBzdHJva2U9IiNjNGI1ZmQiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjx0ZXh0IHg9IjEwMDYuMCIgeT0iMTYyLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjb2wiPkw0IOaJp+ihjDwvdGV4dD4KPHJlY3QgeD0iMTEyMC4wIiB5PSIxMjAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjY4IiByeD0iMTYiIGZpbGw9IiNmZWYzYzciIHN0cm9rZT0iI2ZjZDM0ZCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPHRleHQgeD0iMTIyNi4wIiB5PSIxNjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNvbCI+TDUg5rK755CGPC90ZXh0Pgo8cmVjdCB4PSIxMzQwLjAiIHk9IjEyMC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iNjgiIHJ4PSIxNiIgZmlsbD0iI2VjZmRmNSIgc3Ryb2tlPSIjODZlZmFjIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8dGV4dCB4PSIxNDQ2LjAiIHk9IjE2Mi4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY29sIj5MNiDov5vljJY8L3RleHQ+CjxyZWN0IHg9IjM2IiB5PSIxMjAuMCIgd2lkdGg9IjE4NCIgaGVpZ2h0PSI2OCIgcng9IjE2IiBmaWxsPSIjZjFmNWY5IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjx0ZXh0IHg9IjEyOC4wIiB5PSIxNjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNvbCI+5YW45Z6L5Zy65pmvPC90ZXh0Pgo8cmVjdCB4PSIyOCIgeT0iMjEyLjAiIHdpZHRoPSIxNTQ0IiBoZWlnaHQ9IjIwNiIgcng9IjI0IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNlMmU4ZjAiIHN0cm9rZS13aWR0aD0iMS4yIiBmaWx0ZXI9InVybCgjc2hhZG93KSIvPgo8cmVjdCB4PSI0MiIgeT0iMjMwLjAiIHdpZHRoPSIxNzIiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iMTI4LjAiIHk9IjI4Ni4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0icm93Ij7pl6jor4rmhaLnl4XlpI3or4rnu63mlrk8L3RleHQ+CjxyZWN0IHg9IjI0MC4wIiB5PSIyMzAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZWZmNmZmIiBzdHJva2U9IiM5M2M1ZmQiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjM0Ni4wIiB5PSIyOTAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPuajgOmqjC/lpITmlrkv55eF5Y6GCuWkmua6kOmHh+mbhjwvdGV4dD4KPHJlY3QgeD0iNDYwLjAiIHk9IjIzMC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNlY2ZlZmYiIHN0cm9rZT0iIzY3ZThmOSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iNTY2LjAiIHk9IjI5MC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+5aSN6K+K5pGY6KaBCui2i+WKv+e7hOe7hzwvdGV4dD4KPHJlY3QgeD0iNjgwLjAiIHk9IjIzMC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNlZWYyZmYiIHN0cm9rZT0iI2E1YjRmYyIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iNzg2LjAiIHk9IjI5MC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+6aOO6Zmp5YiG5bGCCue7reaWueW7uuiurjwvdGV4dD4KPHJlY3QgeD0iOTAwLjAiIHk9IjIzMC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNmNWYzZmYiIHN0cm9rZT0iI2M0YjVmZCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iMTAwNi4wIiB5PSIyOTAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPuWMu+eUn+ehruiupArnu63mlrnkuI7pmo/orr/lkIzmraU8L3RleHQ+CjxyZWN0IHg9IjExMjAuMCIgeT0iMjMwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSIxNzAiIHJ4PSIxOCIgZmlsbD0iI2ZlZjNjNyIgc3Ryb2tlPSIjZmNkMzRkIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8dGV4dCB4PSIxMjI2LjAiIHk9IjI5MC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+6KeE5YiZ57u05oqkCui0o+S7u+W9kuWxnjwvdGV4dD4KPHJlY3QgeD0iMTM0MC4wIiB5PSIyMzAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZWNmZGY1IiBzdHJva2U9IiM4NmVmYWMiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjE0NDYuMCIgeT0iMjkwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjZWxsIj7pmIjlgLwv5qih5p2/CuaMgee7reS8mOWMljwvdGV4dD4KPHJlY3QgeD0iMjgiIHk9IjQ0Mi4wIiB3aWR0aD0iMTU0NCIgaGVpZ2h0PSIyMDYiIHJ4PSIyNCIgZmlsbD0iI2ZlZmVmZSIgc3Ryb2tlPSIjZTJlOGYwIiBzdHJva2Utd2lkdGg9IjEuMiIgZmlsdGVyPSJ1cmwoI3NoYWRvdykiLz4KPHJlY3QgeD0iNDIiIHk9IjQ2MC4wIiB3aWR0aD0iMTcyIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjEyOC4wIiB5PSI1MTYuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InJvdyI+5L2P6Zmi5byC5bi46aKE6K2mPC90ZXh0Pgo8cmVjdCB4PSIyNDAuMCIgeT0iNDYwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSIxNzAiIHJ4PSIxOCIgZmlsbD0iI2VmZjZmZiIgc3Ryb2tlPSIjOTNjNWZkIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8dGV4dCB4PSIzNDYuMCIgeT0iNTIwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjZWxsIj7nlJ/lkb3kvZPlvoEv5qOA6aqML+aKpOeQhgrov57nu63ph4fpm4Y8L3RleHQ+CjxyZWN0IHg9IjQ2MC4wIiB5PSI0NjAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZWNmZWZmIiBzdHJva2U9IiM2N2U4ZjkiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjU2Ni4wIiB5PSI1MjAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPuWfuue6v+S4jui2i+WKvwrpo47pmannirbmgIHlu7rmqKE8L3RleHQ+CjxyZWN0IHg9IjY4MC4wIiB5PSI0NjAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZWVmMmZmIiBzdHJva2U9IiNhNWI0ZmMiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9Ijc4Ni4wIiB5PSI1MjAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPuW8guW4uOivhuWIqwrlpITnva7lu7rorq48L3RleHQ+CjxyZWN0IHg9IjkwMC4wIiB5PSI0NjAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZjVmM2ZmIiBzdHJva2U9IiNjNGI1ZmQiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjEwMDYuMCIgeT0iNTIwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjZWxsIj7liIbnuqfpooToraYK5o6o6YCB5LiO6Lef6LiqPC90ZXh0Pgo8cmVjdCB4PSIxMTIwLjAiIHk9IjQ2MC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNmZWYzYzciIHN0cm9rZT0iI2ZjZDM0ZCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iMTIyNi4wIiB5PSI1MjAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPuadg+mZkOaOp+WItgrnlZnnl5XlrqHorqE8L3RleHQ+CjxyZWN0IHg9IjEzNDAuMCIgeT0iNDYwLjAiIHdpZHRoPSIyMTIuMCIgaGVpZ2h0PSIxNzAiIHJ4PSIxOCIgZmlsbD0iI2VjZmRmNSIgc3Ryb2tlPSIjODZlZmFjIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8dGV4dCB4PSIxNDQ2LjAiIHk9IjUyMC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+6KeE5YiZL+aooeWeiwrov63ku6PkvJjljJY8L3RleHQ+CjxyZWN0IHg9IjI4IiB5PSI2NzIuMCIgd2lkdGg9IjE1NDQiIGhlaWdodD0iMjA2IiByeD0iMjQiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iI2UyZThmMCIgc3Ryb2tlLXdpZHRoPSIxLjIiIGZpbHRlcj0idXJsKCNzaGFkb3cpIi8+CjxyZWN0IHg9IjQyIiB5PSI2OTAuMCIgd2lkdGg9IjE3MiIgaGVpZ2h0PSIxNzAiIHJ4PSIxOCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8dGV4dCB4PSIxMjguMCIgeT0iNzQ2LjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJyb3ciPuS4tOW6iui3r+W+hOeuoeeQhjwvdGV4dD4KPHJlY3QgeD0iMjQwLjAiIHk9IjY5MC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNlZmY2ZmYiIHN0cm9rZT0iIzkzYzVmZCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iMzQ2LjAiIHk9Ijc1MC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+6Lev5b6E5omn6KGM5LqL5Lu2CuajgOafpeayu+eWl+mHh+mbhjwvdGV4dD4KPHJlY3QgeD0iNDYwLjAiIHk9IjY5MC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNlY2ZlZmYiIHN0cm9rZT0iIzY3ZThmOSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iNTY2LjAiIHk9Ijc1MC4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2VsbCI+6Lev5b6E6IqC54K5L+i/m+W6pgrlj5jlvILnirbmgIHlu7rmqKE8L3RleHQ+CjxyZWN0IHg9IjY4MC4wIiB5PSI2OTAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZWVmMmZmIiBzdHJva2U9IiNhNWI0ZmMiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9Ijc4Ni4wIiB5PSI3NTAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPui3r+W+hOWMuemFjQrlgY/lt67or4bliKs8L3RleHQ+CjxyZWN0IHg9IjkwMC4wIiB5PSI2OTAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZjVmM2ZmIiBzdHJva2U9IiNjNGI1ZmQiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjEwMDYuMCIgeT0iNzUwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjZWxsIj7mj5DphpIv5Lya6K+K6Kem5Y+RCua1geeoi+e8luaOkjwvdGV4dD4KPHJlY3QgeD0iMTEyMC4wIiB5PSI2OTAuMCIgd2lkdGg9IjIxMi4wIiBoZWlnaHQ9IjE3MCIgcng9IjE4IiBmaWxsPSIjZmVmM2M3IiBzdHJva2U9IiNmY2QzNGQiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjx0ZXh0IHg9IjEyMjYuMCIgeT0iNzUwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjZWxsIj7otKjph4/mjIfmoIcK5a6h6K6h5ZCI6KeEPC90ZXh0Pgo8cmVjdCB4PSIxMzQwLjAiIHk9IjY5MC4wIiB3aWR0aD0iMjEyLjAiIGhlaWdodD0iMTcwIiByeD0iMTgiIGZpbGw9IiNlY2ZkZjUiIHN0cm9rZT0iIzg2ZWZhYyIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPHRleHQgeD0iMTQ0Ni4wIiB5PSI3NTAuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImNlbGwiPui3r+W+hOagh+WHhgrnn6Xor4bmsonmt4A8L3RleHQ+Cjx0ZXh0IHg9IjgwMC4wIiB5PSIxMDU0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibm90ZSI+6K+05piO77ya6K+l5Zu+55So5LqO5bGV56S64oCc5ZCM5LiA5p625p6E5aaC5L2V5Zyo5LiN5ZCM5Yy755aX5Zy65pmv5Lit5bGV5byA4oCd77yM5LiN5piv5oiQ54af5bqm5omT5YiG77yM5Lmf5LiN6KGo56S65omA5pyJ5Zy65pmv6YO95bey6L6+5Yiw5ZCM562J6aqM6K+B5rex5bqm44CCPC90ZXh0Pgo8L3N2Zz4="
-            alt="图4 MCOS 六层在典型医疗场景中的覆盖图" />
-          <figcaption aria-hidden="true">图4 MCOS
+            alt="图4 MCOP 六层在典型医疗场景中的覆盖图" />
+          <figcaption aria-hidden="true">图4 MCOP
             六层在典型医疗场景中的覆盖图</figcaption>
         </figure>
-        <p><em>图4. 同一 MCOS
+        <p><em>图4. 同一 MCOP
             六层结构在不同医疗场景中的展开方式并不相同：门诊慢病复诊更突出上下文组织、风险分层与医生确认后的执行闭环，住院异常预警更突出持续感知与分级响应，临床路径管理则更突出治理、协作编排与持续优化。</em></p>
         <table style="width:100%;">
           <colgroup>
@@ -1085,51 +1085,51 @@
           </tbody>
         </table>
         <hr />
-        <h2 id="mcos-与现有方案的差异">5. MCOS 与现有方案的差异</h2>
-        <p>MCOS
+        <h2 id="mcos-与现有方案的差异">5. MCOP 与现有方案的差异</h2>
+        <p>MCOP
           的成立，并不是因为现有方案毫无价值，而是因为它们分别解决了不同层级的问题。要让读者理解
-          MCOS 的独特性，必须把它与单点 AI、传统 CDSS、数据中台、通用 Agent
+          MCOP 的独特性，必须把它与单点 AI、传统 CDSS、数据中台、通用 Agent
           框架以及医疗大模型平台区分开来。</p>
-        <h3 id="mcos-与单点-ai-工作站插件">5.1 MCOS 与单点 AI / 工作站插件</h3>
+        <h3 id="mcos-与单点-ai-工作站插件">5.1 MCOP 与单点 AI / 工作站插件</h3>
         <p>单点 AI
           和工作站插件通常围绕单一任务优化，例如报告生成、影像检出、病历结构化、质控提醒。它们的优势是切口明确、易于采购、容易试点；它们的边界则在于：能力分散、难以跨场景复用、治理与反馈机制往往附着在具体应用里，难以上升为系统层。
         </p>
-        <p>MCOS 与单点 AI
-          的差异，不在于“是否也能做一个场景”，而在于它试图把多个场景背后的共性能力抽象成一个智能·认知底座。单点产品是切口，MCOS
+        <p>MCOP 与单点 AI
+          的差异，不在于“是否也能做一个场景”，而在于它试图把多个场景背后的共性能力抽象成一个智能·医疗流程与数据效能底座。单点产品是切口，MCOP
           则是把多个切口背后的系统结构提炼出来。</p>
-        <h3 id="mcos-与传统-cdss">5.2 MCOS 与传统 CDSS</h3>
+        <h3 id="mcos-与传统-cdss">5.2 MCOP 与传统 CDSS</h3>
         <p>传统 CDSS
           的架构假设是触发—响应式：事件触发、规则匹配、弹窗提醒。它在强规则、确定性高的场景下表现稳定，且解释性较好；但一旦进入多模态、多阶段、不确定性高的医疗场景，其架构边界就会变得明显。</p>
-        <p>MCOS 并不是要替代 CDSS，而是要把 CDSS
-          放回它最适合的位置：作为认知层或执行层中的确定性约束与低风险规则能力。换句话说，CDSS
-          可以成为 MCOS 的一部分，但 MCOS 不等于升级版 CDSS。MCOS
+        <p>MCOP 并不是要替代 CDSS，而是要把 CDSS
+          放回它最适合的位置：作为规则与推理层或执行层中的确定性约束与低风险规则能力。换句话说，CDSS
+          可以成为 MCOP 的一部分，但 MCOP 不等于升级版 CDSS。MCOP
           的差异在于：它处理的是持续认知流程，而不是离散规则告警。</p>
-        <h3 id="mcos-与数据中台">5.3 MCOS 与数据中台</h3>
-        <p>数据中台解决的是“数据如何被组织、汇聚、分析和访问”的问题，MCOS
+        <h3 id="mcos-与数据中台">5.3 MCOP 与数据中台</h3>
+        <p>数据中台解决的是“数据如何被组织、汇聚、分析和访问”的问题，MCOP
           解决的是“这些数据如何进入实时医疗场景并支持认知与执行”的问题。</p>
-        <p>两者不是竞争关系，而是上下游关系：数据中台提供历史数据、统一接口与数据资产能力，MCOS
-          消费这些数据，构建上下文，并把结果带回工作流。因此，数据中台是数据基础设施，MCOS
-          是智能·认知底座。</p>
-        <h3 id="mcos-与通用-agent-框架-agentic-os">5.4 MCOS 与通用 Agent 框架 /
+        <p>两者不是竞争关系，而是上下游关系：数据中台提供历史数据、统一接口与数据资产能力，MCOP
+          消费这些数据，构建上下文，并把结果带回工作流。因此，数据中台是数据基础设施，MCOP
+          是智能·医疗流程与数据效能底座。</p>
+        <h3 id="mcos-与通用-agent-框架-agentic-os">5.4 MCOP 与通用 Agent 框架 /
           Agentic OS</h3>
         <p>通用 Agent
           框架关注的是“怎么把模型、工具、状态和任务组织起来”，其核心优势在于通用性和能力扩展性。但医疗场景比通用任务多了几个额外要求：场景识别必须更细，上下文必须围绕患者与
           encounter
           组织，不确定性必须显式表达，执行动作必须分级，审计与责任链必须明确。</p>
-        <p>因此，MCOS 与通用 Agent 框架的关系更像上下层关系：底层框架解决通用
-          orchestration，MCOS 解决医疗场景中的运行层组织。MCOS
+        <p>因此，MCOP 与通用 Agent 框架的关系更像上下层关系：底层框架解决通用
+          orchestration，MCOP 解决医疗场景中的运行层组织。MCOP
           不是对底层框架的简单再包装，而是在其上定义医疗领域的认知结构、边界与治理方式。</p>
-        <h3 id="mcos-与-openclaw-hermes">5.5 MCOS 与 OpenClaw / Hermes</h3>
+        <h3 id="mcos-与-openclaw-hermes">5.5 MCOP 与 OpenClaw / Hermes</h3>
         <p>OpenClaw、Hermes 这类系统在 harness、skills、tooling、memory 与
-          multi-agent orchestration 方面已经很强。MCOS
+          multi-agent orchestration 方面已经很强。MCOP
           不否定这类系统，而是把它们视为通用能力基础设施。</p>
-        <p>差异在于，OpenClaw / Hermes 更偏通用 agent 编排与能力路由，而 MCOS
+        <p>差异在于，OpenClaw / Hermes 更偏通用 agent 编排与能力路由，而 MCOP
           更偏医疗场景中的认知推理、执行分级、治理约束和场景能力沉淀。因此，两者不应被理解为竞争替代关系，而应被理解为分层协作关系：通用框架可以是
-          MCOS 的底层能力承载，MCOS 则是医疗领域的运行层抽象。</p>
-        <h3 id="mcos-与医疗大模型平台">5.6 MCOS 与医疗大模型平台</h3>
+          MCOP 的底层能力承载，MCOP 则是医疗领域的运行层抽象。</p>
+        <h3 id="mcos-与医疗大模型平台">5.6 MCOP 与医疗大模型平台</h3>
         <p>医疗大模型平台解决的是“如何提供更懂医疗的模型能力”，但即使拥有优秀的医疗大模型，仍然要回答：它如何接入工作流、如何维护患者上下文、如何决定执行边界、如何接受治理约束、如何持续进化。</p>
-        <p>因此，医疗大模型是 MCOS 可以调度的重要能力提供者，但它本身不等于
-          MCOS。模型解决认知能力问题，MCOS 解决认知组织问题。</p>
+        <p>因此，医疗大模型是 MCOP 可以调度的重要能力提供者，但它本身不等于
+          MCOP。模型解决认知能力问题，MCOP 解决认知组织问题。</p>
         <h3 id="差异矩阵">5.7 差异矩阵</h3>
         <table>
           <colgroup>
@@ -1171,50 +1171,50 @@
               <td>不自动形成系统运行层</td>
             </tr>
             <tr>
-              <td><strong>MCOS</strong></td>
-              <td>医疗 AI 的智能·认知底座</td>
+              <td><strong>MCOP</strong></td>
+              <td>医疗 AI 的智能·医疗流程与数据效能底座</td>
               <td>当前治理层、进化层和规模部署仍待继续验证</td>
             </tr>
           </tbody>
         </table>
-        <p>MCOS
+        <p>MCOP
           的意义不在于宣布其他路径无效，而在于明确：这些路径各自只覆盖了医疗 AI
-          的某一部分问题，而 MCOS
+          的某一部分问题，而 MCOP
           试图覆盖的是“如何把这些能力组织成一个可运行系统”的问题。它的独特性不在单项能力最强，而在于提供了一个能够让多种能力在医疗工作流中协同运转的系统层。</p>
         <figure>
-          <img role="img" aria-label="图5 MCOS 与现有方案的差异定位"
+          <img role="img" aria-label="图5 MCOP 与现有方案的差异定位"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAwIiBoZWlnaHQ9Ijk0MCIgdmlld0JveD0iMCAwIDE1MDAgOTQwIj4KPGRlZnM+CjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIj4KPHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjNWI2NDcwIiAvPgo8L21hcmtlcj4KPHN0eWxlPjwhW0NEQVRBWwoudGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToyOHB4OyBmb250LXdlaWdodDo3MDA7IGZpbGw6IzFmMjkzN30KLnN1YnRpdGxle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTZweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiM0NzU1Njl9Ci5sYWJlbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE4cHg7IGZvbnQtd2VpZ2h0OjYwMDsgZmlsbDojMWYyOTM3fQouYm9keXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojMzM0MTU1fQouc21hbGx7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzQ3NTU2OX0KLm11dGVke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTNweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiM2NDc0OGJ9Ci5ib3h7c3Ryb2tlOiM0NzU1Njk7IHN0cm9rZS13aWR0aDoyfQouZGFzaHtzdHJva2UtZGFzaGFycmF5OjggNn0KLmFycm93e3N0cm9rZTojNWI2NDcwOyBzdHJva2Utd2lkdGg6MzsgZmlsbDpub25lOyBtYXJrZXItZW5kOnVybCgjYXJyb3cpfQoubGluZXtzdHJva2U6Izk0YTNiODsgc3Ryb2tlLXdpZHRoOjI7IGZpbGw6bm9uZX0KLnpvbmV7c3Ryb2tlOiNjYmQ1ZTE7IHN0cm9rZS13aWR0aDoyOyBzdHJva2UtZGFzaGFycmF5OjYgNn0KdGV4dHtwYWludC1vcmRlcjpzdHJva2U7IHN0cm9rZTpub25lfQpdXT48L3N0eWxlPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iNzUwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpdGxlIj48dHNwYW4geD0iNzUwIiBkeT0iMCI+5Zu+NCAgTUNPUyDkuI7njrDmnInmlrnmoYjnmoTlt67lvILlrprkvY08L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNzUwIiB5PSI4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InN1YnRpdGxlIj48dHNwYW4geD0iNzUwIiBkeT0iMCI+5qiq6L205L2T546w57O757uf5bGC57qn5rex5bqm77yM57q16L205L2T546w5LiK5LiL5paHL+ayu+eQhuiDveWKmzwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iMTgwIiB5MT0iNzYwIiB4Mj0iMTMyMCIgeTI9Ijc2MCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSIxODAiIHkxPSI3NjAiIHgyPSIxODAiIHkyPSIxNTAiIGNsYXNzPSJhcnJvdyIvPgo8dGV4dCB4PSIxMjcwIiB5PSI4MDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTI3MCIgZHk9IjAiPuezu+e7n+Wxgue6p+a3seW6pu+8muWNleeCueW3peWFtyDihpIg6L+Q6KGM5bGCPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjEwNSIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjEwNSIgZHk9IjAiPuS4iuS4i+aWhyAvIOayu+eQhuiDveWKmzwvdHNwYW4+PHRzcGFuIHg9IjEwNSIgZHk9IjIyIj7kvY4g4oaSIOmrmDwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iNDYwIiB5MT0iMTgwIiB4Mj0iNDYwIiB5Mj0iNzYwIiBjbGFzcz0ibGluZSIvPgo8bGluZSB4MT0iNzQwIiB5MT0iMTgwIiB4Mj0iNzQwIiB5Mj0iNzYwIiBjbGFzcz0ibGluZSIvPgo8bGluZSB4MT0iMTAyMCIgeTE9IjE4MCIgeDI9IjEwMjAiIHkyPSI3NjAiIGNsYXNzPSJsaW5lIi8+CjxsaW5lIHgxPSIxODAiIHkxPSIzMjAiIHgyPSIxMzIwIiB5Mj0iMzIwIiBjbGFzcz0ibGluZSIvPgo8bGluZSB4MT0iMTgwIiB5MT0iNDgwIiB4Mj0iMTMyMCIgeTI9IjQ4MCIgY2xhc3M9ImxpbmUiLz4KPGxpbmUgeDE9IjE4MCIgeTE9IjY0MCIgeDI9IjEzMjAiIHkyPSI2NDAiIGNsYXNzPSJsaW5lIi8+CjxjaXJjbGUgY3g9IjM2MCIgY3k9IjY1MCIgcj0iNTYiIGZpbGw9IiNiZmRiZmUiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjM2MCIgeT0iNjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSIzNjAiIGR5PSIwIj7ljZXngrkgQUkgLyDmj5Lku7Y8L3RzcGFuPjwvdGV4dD4KPGNpcmNsZSBjeD0iNDcwIiBjeT0iNTIwIiByPSI1NiIgZmlsbD0iI2ZkZTY4YSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iNDcwIiB5PSI1MjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9IjQ3MCIgZHk9IjAiPuS8oOe7nyBDRFNTPC90c3Bhbj48L3RleHQ+CjxjaXJjbGUgY3g9IjUyMCIgY3k9IjY5MCIgcj0iNTYiIGZpbGw9IiNjN2QyZmUiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjUyMCIgeT0iNjk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSI1MjAiIGR5PSIwIj7mlbDmja7kuK3lj7A8L3RzcGFuPjwvdGV4dD4KPGNpcmNsZSBjeD0iODQwIiBjeT0iNDMwIiByPSI1NiIgZmlsbD0iI2RkZDZmZSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iODQwIiB5PSI0MzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9Ijg0MCIgZHk9IjAiPumAmueUqCBBZ2VudCDmoYbmnrY8L3RzcGFuPjwvdGV4dD4KPGNpcmNsZSBjeD0iOTAwIiBjeT0iNTYwIiByPSI1NiIgZmlsbD0iI2JiZjdkMCIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iOTAwIiB5PSI1NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzbWFsbCI+PHRzcGFuIHg9IjkwMCIgZHk9IjAiPuWMu+eWl+Wkp+aooeWei+W5s+WPsDwvdHNwYW4+PC90ZXh0Pgo8Y2lyY2xlIGN4PSIxMTIwIiBjeT0iMjUwIiByPSI1NiIgZmlsbD0iI2Y1ZDBmZSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iMTEyMCIgeT0iMjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ic21hbGwiPjx0c3BhbiB4PSIxMTIwIiBkeT0iMCI+TUNPUzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMDEwIiB5PSIxMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iNzAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZmZmN2VkIiBzdHJva2U9IiNmYjkyM2MiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjExNDAiIHk9IjE0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMTQwIiBkeT0iMCI+TUNPU++8muimhuebluKAnOWmguS9leaKiuWkmuenjeiDveWKmzwvdHNwYW4+PHRzcGFuIHg9IjExNDAiIGR5PSIyMiI+57uE57uH5oiQ5Yy755aX5Y+v6L+Q6KGM57O757uf4oCdPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjI2MCIgeT0iODE1IiB3aWR0aD0iOTgwIiBoZWlnaHQ9IjU4IiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI3NTAiIHk9Ijg1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSI3NTAiIGR5PSIwIj7njrDmnInot6/lvoTlkIToh6rop6PlhrPlsYDpg6jpl67popjvvJtNQ09TIOivleWbvuino+WGs+eahOaYr+ezu+e7n+i/kOihjOWxgumXrumimDwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4="
-            alt="图5 MCOS 与现有方案的差异定位" />
-          <figcaption aria-hidden="true">图5 MCOS
+            alt="图5 MCOP 与现有方案的差异定位" />
+          <figcaption aria-hidden="true">图5 MCOP
             与现有方案的差异定位</figcaption>
         </figure>
-        <p><em>图5. MCOS 与单点 AI、传统 CDSS、数据中台、通用 Agent
+        <p><em>图5. MCOP 与单点 AI、传统 CDSS、数据中台、通用 Agent
             框架和医疗大模型平台并非简单替代关系，而是在系统层级深度与上下文/治理能力上形成新的定位。</em></p>
         <hr />
         <h2 id="当前验证到了哪里已验证部分验证未验证">6.
           当前验证到了哪里：已验证、部分验证、未验证</h2>
-        <p>围绕 MCOS
+        <p>围绕 MCOP
           的现实问题，不是这套架构在概念上是否自洽，而是它是否已经在真实医疗场景中形成可观察、可复盘、可复制的运行能力。现阶段的结论已经可以比“概念成立”更进一步，但仍应清晰停留在工程验证与场景验证的边界之内。</p>
-        <p>从已取得的结果看，MCOS
+        <p>从已取得的结果看，MCOP
           已经完成从架构设想到系统雏形的关键跃迁。它不再只是对未来医疗 AI
-          形态的理论描绘，而是在若干高价值临床辅助场景中，以明确的运行链路进入真实工作流，形成了可以被观察的效率收益、表达一致性收益和协作收益。这意味着，智能·认知底座不只是一个合理的抽象层次，而是已经具备现实可行性的系统结构。
+          形态的理论描绘，而是在若干高价值临床辅助场景中，以明确的运行链路进入真实工作流，形成了可以被观察的效率收益、表达一致性收益和协作收益。这意味着，智能·医疗流程与数据效能底座不只是一个合理的抽象层次，而是已经具备现实可行性的系统结构。
         </p>
         <h3 id="当前阶段判断">6.1 当前阶段判断</h3>
-        <p>对 MCOS
+        <p>对 MCOP
           当前状态的更准确判断，应是“已被初步证明可行的中早期系统”。这一判断既区别于“仍停留在蓝图阶段”的谨慎否定，也区别于“已经完成平台化成熟”的过度外推。现阶段成立的，是其在部分高价值场景中的系统级可运行性；尚未成立的，则是院级规模化、制度化治理与长期临床终局价值的充分验证。
         </p>
         <p>
-          这一阶段判断直接决定白皮书的可信边界。若将当前成果表述为成熟平台，会掩盖治理、合规和复制能力仍在建设之中的现实；若将其仅仅定义为架构构想，又无法准确反映其已经进入真实流程并产生工程价值的事实。更符合实际的表述是：MCOS
+          这一阶段判断直接决定白皮书的可信边界。若将当前成果表述为成熟平台，会掩盖治理、合规和复制能力仍在建设之中的现实；若将其仅仅定义为架构构想，又无法准确反映其已经进入真实流程并产生工程价值的事实。更符合实际的表述是：MCOP
           已具备系统雏形，并已在场景化运行中证明其建设方向值得继续投入。</p>
         <h3 id="已被验证的部分">6.2 已被验证的部分</h3>
         <p>首先被验证的是架构方向本身。报告生成、病历录入辅助、CDSS
           语境化辅助推理、质控与复核等场景表明，医疗 AI
-          的确需要一层独立于单点工具之上的智能·认知底座，用于组织输入、上下文、推理、执行与反馈。换言之，MCOS
+          的确需要一层独立于单点工具之上的智能·医疗流程与数据效能底座，用于组织输入、上下文、推理、执行与反馈。换言之，MCOP
           并非先有概念、后找场景的命名包装，而是从实际系统运行中被反向逼出的架构需求。</p>
-        <p>其次被验证的是系统形态。当前实践已证明，MCOS
+        <p>其次被验证的是系统形态。当前实践已证明，MCOP
           可以以具体系统能力存在：能够接入多源触发与多模态输入，能够围绕患者、encounter
           与任务状态建立运行语境，能够把模型、规则、工具和流程组织成可被临床接受的候选输出，也能够在人工主导下形成建议、确认、回退与审计并存的受控执行链路。这说明
-          MCOS 已跨过“是否能够以系统存在”的门槛。</p>
+          MCOP 已跨过“是否能够以系统存在”的门槛。</p>
         <p>再次被验证的是场景价值。在若干高价值场景中，系统已表现出工程层与流程层的可见收益，包括缩短从信息输入到可用结果生成的时间、降低重复性认知劳动负担、提升文书与输出的一致性，以及提高
           AI
           结果被纳入既有工作流的可能性。这些结果并不意味着系统已经达到终局水平，但足以证明其具备继续扩展和复制的现实基础。</p>
@@ -1223,49 +1223,49 @@
         <p>
           治理层已出现框架与局部实践，但距离院级制度化运行仍有明显距离。跨系统、跨科室、跨院区的稳定复制能力尚未得到充分验证。版本治理、异常管理、组织协同和持续运营能力仍需更长周期观察。反馈采集、提示优化和流程调整已形成雏形，但系统性的数据飞轮与知识飞轮尚未闭合。
         </p>
-        <p>因此，MCOS
+        <p>因此，MCOP
           当前更接近“已具备运行能力的中早期系统”，而不是“已完成平台化建设的成熟底座”。这一点不是保守修辞，而是对白皮书可信度的必要约束。</p>
         <h3 id="尚未被验证当前不能主张的部分">6.4
           尚未被验证、当前不能主张的部分</h3>
         <p>基于现有证据，以下结论仍不应被主张：</p>
         <ul>
-          <li>MCOS 已完成全院级成熟部署；</li>
-          <li>MCOS 已在广泛临床环境下证明长期终局疗效改善；</li>
+          <li>MCOP 已完成全院级成熟部署；</li>
+          <li>MCOP 已在广泛临床环境下证明长期终局疗效改善；</li>
           <li>高自主等级自动执行已具备可规模复制的广泛适用性；</li>
           <li>当前试点结果可直接外推为所有医院、所有科室、所有病种的通用结论。</li>
         </ul>
         <p>医疗场景中的专业可信度，来自对边界的明确划定，而不来自对能力的夸大。只有在未验证部分被主动说清之后，已验证部分才具有足够的说服力。</p>
         <figure>
-          <img role="img" aria-label="图6 MCOS 当前验证边界"
+          <img role="img" aria-label="图6 MCOP 当前验证边界"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAwIiBoZWlnaHQ9Ijk2MCIgdmlld0JveD0iMCAwIDE0MDAgOTYwIj4KPGRlZnM+CjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIj4KPHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjNWI2NDcwIiAvPgo8L21hcmtlcj4KPHN0eWxlPjwhW0NEQVRBWwoudGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToyOHB4OyBmb250LXdlaWdodDo3MDA7IGZpbGw6IzFmMjkzN30KLnN1YnRpdGxle2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTZweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiM0NzU1Njl9Ci5sYWJlbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE4cHg7IGZvbnQtd2VpZ2h0OjYwMDsgZmlsbDojMWYyOTM3fQouYm9keXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojMzM0MTU1fQouc21hbGx7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzQ3NTU2OX0KLm11dGVke2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTNweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiM2NDc0OGJ9Ci5ib3h7c3Ryb2tlOiM0NzU1Njk7IHN0cm9rZS13aWR0aDoyfQouZGFzaHtzdHJva2UtZGFzaGFycmF5OjggNn0KLmFycm93e3N0cm9rZTojNWI2NDcwOyBzdHJva2Utd2lkdGg6MzsgZmlsbDpub25lOyBtYXJrZXItZW5kOnVybCgjYXJyb3cpfQoubGluZXtzdHJva2U6Izk0YTNiODsgc3Ryb2tlLXdpZHRoOjI7IGZpbGw6bm9uZX0KLnpvbmV7c3Ryb2tlOiNjYmQ1ZTE7IHN0cm9rZS13aWR0aDoyOyBzdHJva2UtZGFzaGFycmF5OjYgNn0KdGV4dHtwYWludC1vcmRlcjpzdHJva2U7IHN0cm9rZTpub25lfQpdXT48L3N0eWxlPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz4KPHRleHQgeD0iNzAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpdGxlIj48dHNwYW4geD0iNzAwIiBkeT0iMCI+5Zu+NSAgTUNPUyDlvZPliY3pqozor4HovrnnlYw8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNzAwIiB5PSI4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InN1YnRpdGxlIj48dHNwYW4geD0iNzAwIiBkeT0iMCI+5oqK4oCc5bey6aqM6K+B44CB6YOo5YiG6aqM6K+B44CB5pyq6aqM6K+B4oCd5piO56Gu5YiG5bGC77yM5o+Q5Y2H55m955qu5Lmm5Y+v5L+h5bqmPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjE4MCIgeT0iNjMwIiB3aWR0aD0iMzgwIiBoZWlnaHQ9IjE4MCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNkY2ZjZTciIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iMzcwLjAiIHk9IjY3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iMzcwLjAiIGR5PSIwIj7lt7Lpqozor4E8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMzcwLjAiIHk9IjcyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIzNzAuMCIgZHk9IjAiPuW3peeoi+WPr+i/kOihjOaApzwvdHNwYW4+PHRzcGFuIHg9IjM3MC4wIiBkeT0iMjIiPua1geeoi+aUtuebijwvdHNwYW4+PHRzcGFuIHg9IjM3MC4wIiBkeT0iMjIiPuWcuuaZr+e6p+WPr+eUqOaApzwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI1MjAiIHk9IjQzMCIgd2lkdGg9IjM4MCIgaGVpZ2h0PSIyMjAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZmVmM2M3IiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjcxMC4wIiB5PSI0NzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjcxMC4wIiBkeT0iMCI+6YOo5YiG6aqM6K+BPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjcxMC4wIiB5PSI1MjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iNzEwLjAiIGR5PSIwIj7msrvnkIbmoYbmnrY8L3RzcGFuPjx0c3BhbiB4PSI3MTAuMCIgZHk9IjIyIj7lpI3liLbog73lips8L3RzcGFuPjx0c3BhbiB4PSI3MTAuMCIgZHk9IjIyIj7ov5DokKXkuI7niYjmnKzmsrvnkIY8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iODYwIiB5PSIyMTAiIHdpZHRoPSIzODAiIGhlaWdodD0iMjYwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2YxZjVmOSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMDUwLjAiIHk9IjI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iMTA1MC4wIiBkeT0iMCI+5b2T5YmN5LiN6IO95Li75bygPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjEwNTAuMCIgeT0iMzA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjEwNTAuMCIgZHk9IjAiPuWFqOmZoue6p+aIkOeGn+mDqOe9sjwvdHNwYW4+PHRzcGFuIHg9IjEwNTAuMCIgZHk9IjIyIj7plb/mnJ/kuLTluornu4jlsYDnlpfmlYg8L3RzcGFuPjx0c3BhbiB4PSIxMDUwLjAiIGR5PSIyMiI+5bm/5rOb6auY6Ieq5Li75omn6KGMPC90c3Bhbj48L3RleHQ+CjxsaW5lIHgxPSI1NjAiIHkxPSI2MjAiIHgyPSI1MjAiIHkyPSI1NDAiIGNsYXNzPSJhcnJvdyIvPgo8bGluZSB4MT0iOTAwIiB5MT0iNDIwIiB4Mj0iODYwIiB5Mj0iMzQwIiBjbGFzcz0iYXJyb3ciLz4KPHJlY3QgeD0iMTkwIiB5PSI4MzAiIHdpZHRoPSI0NTAiIGhlaWdodD0iNzAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiM4NmVmYWMiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+CjxyZWN0IHg9Ijc4MCIgeT0iNTMwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjkwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIzMjAiIHk9Ijg0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIzMjAiIGR5PSIwIj7lj6/lrqHmhY7kuLvlvKDvvJo8L3RzcGFuPjx0c3BhbiB4PSIzMjAiIGR5PSIyMiI+5pa55ZCR5oiQ56uL44CB57O757uf6ZuP5b2i5oiQ56uL44CB57un57ut5oqV5YWl5pyJ546w5a6e5oSP5LmJPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjEwMzAiIHk9IjU2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSIxMDMwIiBkeT0iMCI+5b+F6aG75YWL5Yi277yaPC90c3Bhbj48dHNwYW4geD0iMTAzMCIgZHk9IjIyIj7kuI3og73miorlt6XnqIvpqozor4HljIXoo4XmiJDmiJDnhp/lubPlj7DmiJbkuLTluornu4jlsYDor4Hmja48L3RzcGFuPjwvdGV4dD4KPC9zdmc+"
-            alt="图6 MCOS 当前验证边界" />
-          <figcaption aria-hidden="true">图6 MCOS 当前验证边界</figcaption>
+            alt="图6 MCOP 当前验证边界" />
+          <figcaption aria-hidden="true">图6 MCOP 当前验证边界</figcaption>
         </figure>
-        <p><em>图6. MCOS
+        <p><em>图6. MCOP
             当前更适合被表述为“已初步证明可行的中早期系统”：底层是已验证的工程与流程价值，中层是仍在深化的治理与复制能力，顶层则是当前不能主张的全院成熟部署与长期终局结论。</em></p>
         <h3 id="当前验证的现实意义">6.5 当前验证的现实意义</h3>
-        <p>尽管 MCOS
+        <p>尽管 MCOP
           尚未进入成熟平台阶段，但当前这轮验证依然具有决定性意义。它已经回答了一个关键问题：医疗
           AI
-          的下一阶段，是否值得围绕智能·认知底座持续建设，而不是继续沿着孤立工具堆叠的路径演进。现有结果表明，模型能力只有被系统性组织起来，才可能稳定进入临床流程；一旦进入流程，执行边界、治理约束、反馈学习和跨场景复用就会自然成为系统建设的核心议题。
+          的下一阶段，是否值得围绕智能·医疗流程与数据效能底座持续建设，而不是继续沿着孤立工具堆叠的路径演进。现有结果表明，模型能力只有被系统性组织起来，才可能稳定进入临床流程；一旦进入流程，执行边界、治理约束、反馈学习和跨场景复用就会自然成为系统建设的核心议题。
         </p>
-        <p>由此可见，MCOS
+        <p>由此可见，MCOP
           不只是一个概念上更完整的架构表述，而是一条已经获得初步现实支撑的系统路径。它已经足以说明方向成立，但尚不足以宣布终局完成。这一判断，也构成后续验证案例、落地路径和演进路线的前提。</p>
         <hr />
         <h2 id="验证案例与方法说明">7. 验证案例与方法说明</h2>
-        <p>MCOS
-          的证据基础，不应建立在零散功能展示之上，而应建立在真实场景中的运行事实之上。现阶段的验证重点，既不是追求案例数量，也不是把试点结果包装为终局成果，而是说明：在怎样的场景中、以怎样的方式、依据怎样的指标，MCOS
+        <p>MCOP
+          的证据基础，不应建立在零散功能展示之上，而应建立在真实场景中的运行事实之上。现阶段的验证重点，既不是追求案例数量，也不是把试点结果包装为终局成果，而是说明：在怎样的场景中、以怎样的方式、依据怎样的指标，MCOP
           已经表现出系统级可行性。</p>
         <p>本文对验证案例的呈现，统一遵循场景选择、运行方式、指标观察与边界控制四个维度，以确保所有结论都能对应到明确的证据来源与适用范围。这一方法有助于把“案例可讲”转化为“证据可用”，也有助于防止工程验证被误读为临床终局验证。
         </p>
         <p>从架构对应关系看，本章案例并非若干互不相关的功能样本，而是对第 4.9
-          节所示“场景化六层覆盖”的验证切面：有的案例更能说明上下文组织与执行闭环，有的更能说明语境化推理与治理边界，但其背后指向的是同一套智能·认知底座。</p>
+          节所示“场景化六层覆盖”的验证切面：有的案例更能说明上下文组织与执行闭环，有的更能说明语境化推理与治理边界，但其背后指向的是同一套智能·医疗流程与数据效能底座。</p>
         <h3 id="验证方法框架">7.1 验证方法框架</h3>
         <p>
           现阶段验证遵循四项共同原则。第一，优先选择高频、高负荷、可量化、可回退的临床辅助任务；第二，优先验证系统是否真正进入工作流，而不是只验证模型在离线环境中的表现；第三，优先观察工程指标与流程指标，而不提前外推长期临床结局；第四，所有场景均保留人工确认、异常记录和回退路径。
         </p>
         <p>在具体执行中，验证通常遵循统一的运行逻辑：先建立原流程基线，识别耗时、错误类型、协作痛点和人工负担；再让
-          MCOS
+          MCOP
           以建议优先、人工确认为主的方式进入真实流程；随后持续跟踪可用率、耗时、人工回退、异常样本与复核结果；最后基于复盘判断收益是否成立、问题集中在哪些环节，以及哪些结论仍不适合外推。</p>
         <h3 id="指标定义与当前证据口径">7.2 指标定义与当前证据口径</h3>
         <p>本白皮书当前采用的是工程验证口径，而非长期临床终局口径。原因在于，现阶段需要回答的是“系统能否稳定运行并产生流程价值”，而不是“系统是否已经改变长期医疗结局”。</p>
@@ -1319,11 +1319,11 @@
         </table>
         <p>这些指标能够支持对系统可运行性和工程价值的判断，但不能替代多中心、长期、终局性的临床研究证据。它们的作用，是为架构方向提供现实支撑，而不是提前替代更高等级的医学结论。</p>
         <h3 id="典型案例一报告生成辅助">7.3 典型案例一：报告生成辅助</h3>
-        <p>报告生成辅助是目前最容易观察系统价值的场景之一。它同时具备高频、结构化、可复核和可回退的特点，因此能够较清晰地反映智能·认知底座是否真正进入日常流程。</p>
-        <p>在这一场景中，MCOS
+        <p>报告生成辅助是目前最容易观察系统价值的场景之一。它同时具备高频、结构化、可复核和可回退的特点，因此能够较清晰地反映智能·医疗流程与数据效能底座是否真正进入日常流程。</p>
+        <p>在这一场景中，MCOP
           的职责不是自动产出最终报告，而是在既有检查信息、历史上下文和场景规则的基础上生成结构化候选草稿，并将其交由医生确认、修订和签发。该过程所验证的，不仅是文本生成能力，更是系统围绕多源输入建立运行语境、围绕既有工作方式组织输出结果的能力。
         </p>
-        <p>从当前结果看，这一场景已经说明三点。其一，MCOS
+        <p>从当前结果看，这一场景已经说明三点。其一，MCOP
           能够围绕具体任务组织多源输入，而不是以一次性文本喂入替代真实工作流。其二，系统输出可以较自然地嵌回医生原有流程，而不需要额外制造工作路径分裂。其三，在结构性较强的任务中，AI
           的主要价值体现为缩短起草时间、提升表达一致性和降低重复劳动，而不是替代最终专业判断。</p>
         <p>这一场景的边界同样应被明确。复杂疑难病例的表达深度仍高度依赖高级专家复核；不同科室与不同医院之间的报告规范差异，意味着泛化仍需要持续配置与训练；即便候选草稿质量较高，最终医疗责任仍然由医生承担，而不由系统承担。</p>
@@ -1331,7 +1331,7 @@
         <p>病历录入场景的难点，不在文本生成本身，而在于如何把对话内容、检查结果、患者纵向信息与当前
           encounter
           组织为结构化、可确认、可写回的候选内容。其价值评价标准，也因此不只是“写得像不像”，而是“能否真正进入文书流程”。</p>
-        <p>在这一场景中，MCOS
+        <p>在这一场景中，MCOP
           的价值主要体现为信息组织能力。系统能够把患者历史、当前诉求、检查结果和文书结构纳入同一运行语境，输出适合医生确认的候选字段、候选段落与补全建议，并在受控条件下进入预填或人工确认写回链路。由此带来的收益，不仅是录入效率提升，更是认知负荷的结构性下降。
         </p>
         <p>这一案例进一步表明，医疗文书类场景真正需要的并不只是更强的生成模型，而是一层能够围绕工作流组织上下文与执行边界的系统层。若缺乏这层组织能力，模型即使生成流畅文本，也未必能真正进入临床流程。</p>
@@ -1339,43 +1339,43 @@
         </p>
         <h3 id="典型案例三cdss-语境化辅助推理">7.5 典型案例三：CDSS
           语境化辅助推理</h3>
-        <p>相较于文书类场景，CDSS 语境化辅助推理更能体现 MCOS
+        <p>相较于文书类场景，CDSS 语境化辅助推理更能体现 MCOP
           与传统规则系统之间的差异。传统 CDSS
-          更擅长在确定性规则基础上进行触发式提醒，而 MCOS
+          更擅长在确定性规则基础上进行触发式提醒，而 MCOP
           所追求的是：在患者语境中汇聚证据、约束规则与模型能力，并生成更具上下文的辅助判断链条。</p>
-        <p>在这一场景中，MCOS
+        <p>在这一场景中，MCOP
           并不替代医生决策，而是将关键证据、规则约束与模型推理组织为更可用的建议结构，明确建议来源与依据，便于后续审计与复核。其价值在于让
           CDSS
           从静态规则告警延伸为更贴近临床语境的辅助推理能力，同时保留临床责任仍由人承担的基本前提。</p>
-        <p>这一案例说明，MCOS
+        <p>这一案例说明，MCOP
           的适用范围并不局限于文书效率工具，而可以进入更复杂的临床辅助判断场景。但这一结论仍必须附带边界：在高不确定性决策场景中，系统只能提供参考增强，不能替代临床判断；当多学科协作与责任分摊机制不清晰时，系统建议越强，组织风险反而越高；更高等级的临床决策支持，仍需要更强治理体系与更长周期的验证积累。
         </p>
         <h3 id="典型案例四检查项目推荐">7.6 典型案例四：检查项目推荐</h3>
-        <p>检查项目推荐（如基于 ACR 知识库的影像推荐）验证了 MCOS 在高价值、强专业性决策辅助中的落地可行性。与传统静态检索不同，这一场景不仅要求系统具备丰富的专业知识库，更要求系统能将其动态组织到当前的临床语境中。
+        <p>检查项目推荐（如基于 ACR 知识库的影像推荐）验证了 MCOP 在高价值、强专业性决策辅助中的落地可行性。与传统静态检索不同，这一场景不仅要求系统具备丰富的专业知识库，更要求系统能将其动态组织到当前的临床语境中。
         </p>
         <p>在该场景的 6 层架构实现中，系统首先通过感知层（L1）获取患者的主诉、现病史等碎片化信息，并在上下文层（L2）将这些信息构建为完整的患者 Encounter
-          语境。随后，认知层（L3）调用向量检索与大模型推理，将临床特征与 ACR 推荐指南进行匹配，生成带有证据评级（如 Usually
+          语境。随后，规则与推理层（L3）调用向量检索与大模型推理，将临床特征与 ACR 推荐指南进行匹配，生成带有证据评级（如 Usually
           Appropriate）的推荐项目。在执行层（L4），推荐结果通过独立卡片提供给医生，在医生主动确认后，系统才通过受控接口自动预填医嘱。同时，治理层（L5）通过本地规则引擎实施禁忌症拦截并留存审计日志。这一完整链路的跑通，证明了
-          MCOS 不仅能做信息检索，还能形成合规、可追溯且有效降低医生认知负荷的实际落地应用。</p>
+          MCOP 不仅能做信息检索，还能形成合规、可追溯且有效降低医生认知负荷的实际落地应用。</p>
         <h3 id="典型案例五报告质控的自进化方案">7.7 典型案例五：报告质控的自进化闭环</h3>
-        <p>报告质控场景不仅是执行层规范化的体现，更是对 MCOS 进化层（L6）能够实现系统自学习、自优化的有力证明。真正的质控不能永远停留在静态规则上，而是需要随着业务运行持续逼近临床真实的质量要求。</p>
-        <p>在报告质控的自进化方案中，MCOS
+        <p>报告质控场景不仅是执行层规范化的体现，更是对 MCOP 进化层（L6）能够实现系统自学习、自优化的有力证明。真正的质控不能永远停留在静态规则上，而是需要随着业务运行持续逼近临床真实的质量要求。</p>
+        <p>在报告质控的自进化方案中，MCOP
           通过系统运行沉淀了大量医生真实的“采纳”与“拒绝”交互日志。系统定期将这些运行数据引入评测框架，针对高频被忽略的假阳性（FP）和医生手动纠正的假阴性（FN）进行基线人工复盘与审核。基于复盘结果，进化层驱动了两个方向的演进：一是针对性调优大模型的推理提示词与逻辑抽取规则；二是动态优化本地规则引擎的拦截阈值。通过“真实运行感知
-          → 医生判读审核 → 基线评测分析 → 策略差异化进化 → 重新部署”的闭环机制，质控方案的准确率和临床可用性获得了持续提升，真正印证了 MCOS 从单次静态交付迈向持续认知优化的能力边界。</p>
+          → 医生判读审核 → 基线评测分析 → 策略差异化进化 → 重新部署”的闭环机制，质控方案的准确率和临床可用性获得了持续提升，真正印证了 MCOP 从单次静态交付迈向持续认知优化的能力边界。</p>
         <h3 id="案例汇总后的总体判断">7.8 案例汇总后的总体判断</h3>
-        <p>综合上述案例，可以得到一个比“若干功能可用”更重要的结论：MCOS
+        <p>综合上述案例，可以得到一个比“若干功能可用”更重要的结论：MCOP
           的价值不在单点任务本身，而在于它为不同场景提供了同一类底层系统能力，即把输入、上下文、推理、执行与反馈组织成一个可运行、可回退、可审视的流程。</p>
-        <p>若与第 4.9 节对照来看，这些案例共同说明：MCOS
+        <p>若与第 4.9 节对照来看，这些案例共同说明：MCOP
           的六层并不是只能停留在架构图上的抽象划分，而是能够在文书生成、病历录入、语境化辅助推理等不同任务中被具体识别与验证。不同场景的六层重心可以不同，但只要系统真正进入工作流，就必须面对感知来源、上下文组织、认知边界、执行分级、治理约束与反馈优化这些共同问题。
         </p>
-        <p>基于上述验证结果，可以形成较为审慎的阶段判断：MCOS
+        <p>基于上述验证结果，可以形成较为审慎的阶段判断：MCOP
           已不再停留在概念层，它已经具有系统级运行雏形；其当前收益主要体现在工程层与流程层，而非长期终局层；其建设方向已经获得现实支撑，但仍需要在治理、复制和长期证据上持续推进。</p>
         <h3 id="方法学边界与可信声明">7.9 方法学边界与可信声明</h3>
         <p>本章案例支持的结论范围，应严格限定在以下三点：</p>
         <ul>
-          <li>MCOS 已能在部分高价值场景中进入真实工作流；</li>
-          <li>MCOS 已表现出可观察的工程收益和流程收益；</li>
-          <li>MCOS 具备继续扩展、复制与治理化建设的现实价值。</li>
+          <li>MCOP 已能在部分高价值场景中进入真实工作流；</li>
+          <li>MCOP 已表现出可观察的工程收益和流程收益；</li>
+          <li>MCOP 具备继续扩展、复制与治理化建设的现实价值。</li>
         </ul>
         <p>相应地，本章不支持以下外推：</p>
         <ul>
@@ -1383,24 +1383,24 @@
           <li>将工程指标直接外推为长期临床终局收益；</li>
           <li>将少数场景的结果直接外推为所有专科、所有流程的普遍结论。</li>
         </ul>
-        <p>只有在证据边界被明确定义的前提下，验证案例才真正构成白皮书的可信基础。MCOS
+        <p>只有在证据边界被明确定义的前提下，验证案例才真正构成白皮书的可信基础。MCOP
           当前获得的，不是对终局状态的证明，而是对“继续建设这一系统路径具有现实意义”的证明。</p>
         <hr />
         <h2 id="医院落地方案部署对接运维回退">8.
           医院落地方案：部署、对接、运维、回退</h2>
         <p>对于医院而言，决定一项 AI
-          系统能否真正进入生产环境的，不是概念是否先进，而是它能否低风险融入既有流程、能否在不破坏原有秩序的前提下产生收益，以及能否在出现异常时快速回退。MCOS
+          系统能否真正进入生产环境的，不是概念是否先进，而是它能否低风险融入既有流程、能否在不破坏原有秩序的前提下产生收益，以及能否在出现异常时快速回退。MCOP
           的落地价值，最终必须通过部署方式、对接路径、运维体系和责任边界来体现。</p>
-        <p>因此，MCOS
+        <p>因此，MCOP
           的建设路径不应从全院统一平台的宏大叙事起步，而应从单场景、可运行、可回退的方案起步。在医疗环境中，先把一个高价值场景做成，往往比先宣称平台化能力更符合实际，也更容易形成持续投入的组织基础。</p>
         <h3 id="交付形态从单点入口到运行体系">8.1
           交付形态：从单点入口到运行体系</h3>
-        <p>MCOS 的交付不应被理解为某个独立界面或某个 AI
+        <p>MCOP 的交付不应被理解为某个独立界面或某个 AI
           插件，而应被理解为一套由运行底座、配置与治理入口、以及医院侧接入层共同组成的运行体系。</p>
-        <p>其中，MCOS Core
-          负责承载上下文管理、认知调度、执行控制、日志与审计，是系统运行的底座；MCOS
+        <p>其中，MCOP Core
+          负责承载上下文管理、认知调度、执行控制、日志与审计，是系统运行的底座；MCOP
           Studio
-          负责承载规则、流程、提示、监控、反馈和版本管理，是运营与治理入口；MCOS
+          负责承载规则、流程、提示、监控、反馈和版本管理，是运营与治理入口；MCOP
           Endpoints
           则负责与医院现有系统、工作站、消息机制及终端入口连接，是能力进入现场的接入层。这样的拆分方式，有利于在保持底层稳定演进的同时，根据不同医院条件灵活调整场景能力与接入形态。</p>
         <h3 id="落地路径单场景切入多场景复制平台化沉淀">8.2
@@ -1409,19 +1409,19 @@
         </p>
         <p>这一顺序的价值在于，它让平台能力来自真实运行的自然抽象，而不是来自前期设想的过度预支。对于医院而言，能够被复制的能力，往往比一开始被命名为“平台”的能力更可信。</p>
         <h3 id="四级部署模式">8.3 四级部署模式</h3>
-        <p>为适应不同医院的信息化成熟度，MCOS
+        <p>为适应不同医院的信息化成熟度，MCOP
           可以按低侵入到深集成的顺序，形成四类部署模式。</p>
         <p>第一类是 Overlay
           模式。系统以独立入口、侧边工具或外部辅助工作站的方式运行，只提供建议和候选结果，不直接写回核心系统。这一模式适合接口受限、协调成本较高、但需要尽快验证价值的环境。</p>
         <p>第二类是标准接口模式。在医院已具备部分
-          API、消息机制或数据服务的前提下，MCOS
+          API、消息机制或数据服务的前提下，MCOP
           通过标准接口完成数据获取与受控写回。这一阶段的关键，不在于接入多少接口，而在于只开放高价值、低风险、可审计的最小必要链路。</p>
-        <p>第三类是深度嵌入模式。当场景价值已经得到证明，且医院具备足够的信息化协同能力时，MCOS
+        <p>第三类是深度嵌入模式。当场景价值已经得到证明，且医院具备足够的信息化协同能力时，MCOP
           可以进一步嵌入主工作站，形成单点登录、上下文自动联动、结构化写回和统一审计。在这一阶段，系统开始从外挂能力转化为流程内能力。</p>
-        <p>第四类是基座化模式。这属于长期目标，而非首期目标。只有在多个场景稳定运行、治理机制相对成熟、医院具备统一身份体系与数据治理基础之后，MCOS
-          才有条件成为院内医疗 AI 的统一智能·认知底座。</p>
+        <p>第四类是基座化模式。这属于长期目标，而非首期目标。只有在多个场景稳定运行、治理机制相对成熟、医院具备统一身份体系与数据治理基础之后，MCOP
+          才有条件成为院内医疗 AI 的统一智能·医疗流程与数据效能底座。</p>
         <h3 id="接口受限条件下的现实路径">8.4 接口受限条件下的现实路径</h3>
-        <p>在医院项目中，接口不充分开放是常见情况。面对这一现实，MCOS
+        <p>在医院项目中，接口不充分开放是常见情况。面对这一现实，MCOP
           的推进不应依赖“等接口全部开放后再启动”，而应依赖“先形成运行事实，再推动深度对接”。</p>
         <p>在实践层面，可以先通过 Overlay
           或半自动导入导出方式验证价值；对高风险字段保留人工确认、双录校验和人工签发；在首期只接入最小必要数据链路，而不追求一次性打通所有系统；当试点价值被真实证明后，再推动关键接口开放与更深层协同。</p>
@@ -1434,13 +1434,13 @@
         <h3 id="风险控制与回退机制">8.6 风险控制与回退机制</h3>
         <p>医疗 AI
           的上线前提，不是预设系统永不出错，而是在承认系统会在某些时刻出错的前提下，提前设计好完整的回退路径。对
-          MCOS 而言，回退能力不是附属项，而是上线资格的一部分。</p>
+          MCOP 而言，回退能力不是附属项，而是上线资格的一部分。</p>
         <p>
           可执行的回退机制至少应覆盖四个层级：运行级回退，使单个场景可立即切换为只给建议、不做写回；能力级回退，使高风险策略能够被关闭，仅保留低风险辅助能力；系统级回退，使异常时期可整体切回既有人工流程，不影响核心医疗业务连续性；责任级回退，使所有高风险节点都能追溯到最终人工确认，避免责任悬空。
         </p>
         <p>具备回退能力的系统，才有可能在医院环境中获得长期信任。</p>
         <h3 id="运维责任与治理分工">8.7 运维责任与治理分工</h3>
-        <p>MCOS
+        <p>MCOP
           的长期运行，不是软件上线后的自动延续，而是医院、临床与交付方持续协作的结果。为了避免所有人都参与、却没有关键环节真正负责的常见失败模式，需要在项目早期就对责任分工进行明确约定。</p>
         <table>
           <thead>
@@ -1499,8 +1499,8 @@
           至 10 周接入最小必要接口，验证受控写回和审计链路；第 11 至 13
           周完成复盘，并决定是复制到第二场景，还是继续优化首场景。</p>
         <p>真正关键的，不是节奏天数本身，而是每个阶段都具有清晰的退出条件、复盘结论与后续决策依据。</p>
-        <p>综上，MCOS
-          的医院落地并不依赖“先建成平台”，而依赖“先把一个场景做成”。只有在低侵入、可回退、责任清晰且收益可衡量的前提下，智能·认知底座才可能从架构概念转化为医院愿意持续投入的运行能力。</p>
+        <p>综上，MCOP
+          的医院落地并不依赖“先建成平台”，而依赖“先把一个场景做成”。只有在低侵入、可回退、责任清晰且收益可衡量的前提下，智能·医疗流程与数据效能底座才可能从架构概念转化为医院愿意持续投入的运行能力。</p>
         <figure>
           <img role="img" aria-label="图7 医院落地路径：部署模式与 90 天节奏"
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiPgo8ZGVmcz4KPG1hcmtlciBpZD0iYXJyb3ciIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSIxMCIgcmVmWD0iOSIgcmVmWT0iNSIgb3JpZW50PSJhdXRvIiBtYXJrZXJVbml0cz0ic3Ryb2tlV2lkdGgiPgo8cGF0aCBkPSJNMCwwIEwxMCw1IEwwLDEwIHoiIGZpbGw9IiM1YjY0NzAiIC8+CjwvbWFya2VyPgo8c3R5bGU+PCFbQ0RBVEFbCi50aXRsZXtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjI4cHg7IGZvbnQtd2VpZ2h0OjcwMDsgZmlsbDojMWYyOTM3fQouc3VidGl0bGV7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxNnB4OyBmb250LXdlaWdodDo2MDA7IGZpbGw6IzQ3NTU2OX0KLmxhYmVse2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MThweDsgZm9udC13ZWlnaHQ6NjAwOyBmaWxsOiMxZjI5Mzd9Ci5ib2R5e2ZvbnQtZmFtaWx5OiJQaW5nRmFuZyBTQyIsICJIaXJhZ2lubyBTYW5zIEdCIiwgIk1pY3Jvc29mdCBZYUhlaSIsICJOb3RvIFNhbnMgQ0pLIFNDIiwgIlNvdXJjZSBIYW4gU2FucyBTQyIsIEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6MTVweDsgZm9udC13ZWlnaHQ6NDAwOyBmaWxsOiMzMzQxNTV9Ci5zbWFsbHtmb250LWZhbWlseToiUGluZ0ZhbmcgU0MiLCAiSGlyYWdpbm8gU2FucyBHQiIsICJNaWNyb3NvZnQgWWFIZWkiLCAiTm90byBTYW5zIENKSyBTQyIsICJTb3VyY2UgSGFuIFNhbnMgU0MiLCBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOjEzcHg7IGZvbnQtd2VpZ2h0OjQwMDsgZmlsbDojNDc1NTY5fQoubXV0ZWR7Zm9udC1mYW1pbHk6IlBpbmdGYW5nIFNDIiwgIkhpcmFnaW5vIFNhbnMgR0IiLCAiTWljcm9zb2Z0IFlhSGVpIiwgIk5vdG8gU2FucyBDSksgU0MiLCAiU291cmNlIEhhbiBTYW5zIFNDIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxM3B4OyBmb250LXdlaWdodDo0MDA7IGZpbGw6IzY0NzQ4Yn0KLmJveHtzdHJva2U6IzQ3NTU2OTsgc3Ryb2tlLXdpZHRoOjJ9Ci5kYXNoe3N0cm9rZS1kYXNoYXJyYXk6OCA2fQouYXJyb3d7c3Ryb2tlOiM1YjY0NzA7IHN0cm9rZS13aWR0aDozOyBmaWxsOm5vbmU7IG1hcmtlci1lbmQ6dXJsKCNhcnJvdyl9Ci5saW5le3N0cm9rZTojOTRhM2I4OyBzdHJva2Utd2lkdGg6MjsgZmlsbDpub25lfQouem9uZXtzdHJva2U6I2NiZDVlMTsgc3Ryb2tlLXdpZHRoOjI7IHN0cm9rZS1kYXNoYXJyYXk6NiA2fQp0ZXh0e3BhaW50LW9yZGVyOnN0cm9rZTsgc3Ryb2tlOm5vbmV9Cl1dPjwvc3R5bGU+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ZmZmZmZiIvPgo8dGV4dCB4PSI4MDAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0idGl0bGUiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj7lm742ICDljLvpmaLokL3lnLDot6/lvoTvvJrpg6jnvbLmqKHlvI/kuI4gOTAg5aSp6IqC5aWPPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjgwMCIgeT0iODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJzdWJ0aXRsZSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuWFiOWNleWcuuaZr+OAgeWPr+WbnumAgOWcsOi/m+WFpea1geeoi++8jOWGjemAkOatpeWkjeWItuS4juW5s+WPsOWMljwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSI4MDAiIHk9IjE1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iODAwIiBkeT0iMCI+5Zub57qn6YOo572y5qih5byPPC90c3Bhbj48L3RleHQ+CjxyZWN0IHg9IjEyMCIgeT0iMjAwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjE0MCIgcng9IjE4IiByeT0iMTgiIGZpbGw9IiNkYmVhZmUiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIxLjAiIGNsYXNzPSJib3giLz4KPHRleHQgeD0iMjMwIiB5PSIyNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjIzMCIgZHk9IjAiPk92ZXJsYXk8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMjMwIiB5PSIyODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMjMwIiBkeT0iMCI+54us56uL5YWl5Y+jIC8g5aSW5oyC6L6F5YqpPC90c3Bhbj48dHNwYW4geD0iMjMwIiBkeT0iMjIiPuWPque7meW7uuiuru+8jOS4jeebtOaOpeWGmeWbnjwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI1MDAiIHk9IjIwMCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSIxNDAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjY2NmYmYxIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjYxMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI2MTAiIGR5PSIwIj7moIflh4bmjqXlj6M8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iNjEwIiB5PSIyODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iNjEwIiBkeT0iMCI+5pyA5bCP5b+F6KaB5o6l5Y+j5o6l5YWlPC90c3Bhbj48dHNwYW4geD0iNjEwIiBkeT0iMjIiPuWPl+aOp+WGmeWbnu+8jOWPr+WuoeiuoTwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI4ODAiIHk9IjIwMCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSIxNDAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZTlkNWZmIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9Ijk5MCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI5OTAiIGR5PSIwIj7mt7HluqbltYzlhaU8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iOTkwIiB5PSIyODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iOTkwIiBkeT0iMCI+5Li75bel5L2c56uZ6IGU5YqoPC90c3Bhbj48dHNwYW4geD0iOTkwIiBkeT0iMjIiPue7n+S4gOeZu+W9leS4juS4iuS4i+aWh+iHquWKqOiBlOWKqDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMjYwIiB5PSIyMDAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMTQwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2ZlZjNjNyIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMzcwIiB5PSIyNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjEzNzAiIGR5PSIwIj7ln7rluqfljJY8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMTM3MCIgeT0iMjg1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjEzNzAiIGR5PSIwIj7lpJrlnLrmma/nqLPlrprov5DooYzlkI48L3RzcGFuPjx0c3BhbiB4PSIxMzcwIiBkeT0iMjIiPuaJjeiuqOiuuue7n+S4gOiupOefpei/kOihjOWxgjwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iMzQwIiB5MT0iMjcwIiB4Mj0iNDgwIiB5Mj0iMjcwIiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9IjcyMCIgeTE9IjI3MCIgeDI9Ijg2MCIgeTI9IjI3MCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSIxMTAwIiB5MT0iMjcwIiB4Mj0iMTI0MCIgeTI9IjI3MCIgY2xhc3M9ImFycm93Ii8+Cjx0ZXh0IHg9IjgwMCIgeT0iMzkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuS9juS+teWFpSDihpIg5rex6ZuG5oiQ77yb5bmz5Y+w5YyW5piv57uT5p6c77yM5LiN5piv6aaW5pyf5YmN5o+QPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjgwMCIgeT0iNDcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI4MDAiIGR5PSIwIj45MCDlpKnor5XngrnoioLlpY88L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iMTIwIiB5PSI1NDAiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTYwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2UyZThmMCIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIyNDAuMCIgeT0iNTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSIyNDAuMCIgZHk9IjAiPuesrDEtMuWRqDwvdHNwYW4+PC90ZXh0Pgo8dGV4dCB4PSIyNDAuMCIgeT0iNjI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjI0MC4wIiBkeT0iMCI+5Zy65pmv6YCJ5oupPC90c3Bhbj48dHNwYW4geD0iMjQwLjAiIGR5PSIyMiI+5oyH5qCH5Y+j5b6EPC90c3Bhbj48dHNwYW4geD0iMjQwLjAiIGR5PSIyMiI+U09QL+i0o+S7u+i+ueeVjDwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSI0MDAiIHk9IjU0MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxNjAiIHJ4PSIxOCIgcnk9IjE4IiBmaWxsPSIjZGJlYWZlIiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjU0MC4wIiB5PSI1ODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+PHRzcGFuIHg9IjU0MC4wIiBkeT0iMCI+56ysMy025ZGoPC90c3Bhbj48L3RleHQ+Cjx0ZXh0IHg9IjU0MC4wIiB5PSI2MjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iNTQwLjAiIGR5PSIwIj5PdmVybGF5IOivlei/kOihjDwvdHNwYW4+PHRzcGFuIHg9IjU0MC4wIiBkeT0iMjIiPuinguWvn+WPr+eUqOeOhy/lm57pgIDnjoc8L3RzcGFuPjx0c3BhbiB4PSI1NDAuMCIgZHk9IjIyIj7orrDlvZXlvILluLjmoLfmnKw8L3RzcGFuPjwvdGV4dD4KPHJlY3QgeD0iNzQwIiB5PSI1NDAiIHdpZHRoPSIyODAiIGhlaWdodD0iMTYwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2NjZmJmMSIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSI4ODAuMCIgeT0iNTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPjx0c3BhbiB4PSI4ODAuMCIgZHk9IjAiPuesrDctMTDlkag8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iODgwLjAiIHk9IjYyOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImJvZHkiPjx0c3BhbiB4PSI4ODAuMCIgZHk9IjAiPuaOpeWFpeacgOWwj+W/heimgeaOpeWPozwvdHNwYW4+PHRzcGFuIHg9Ijg4MC4wIiBkeT0iMjIiPumqjOivgeWPl+aOp+WGmeWbnuS4juWuoeiuoemTvjwvdHNwYW4+PC90ZXh0Pgo8cmVjdCB4PSIxMDgwIiB5PSI1NDAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTYwIiByeD0iMTgiIHJ5PSIxOCIgZmlsbD0iI2U5ZDVmZiIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjEuMCIgY2xhc3M9ImJveCIvPgo8dGV4dCB4PSIxMjMwLjAiIHk9IjU4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj48dHNwYW4geD0iMTIzMC4wIiBkeT0iMCI+56ysMTEtMTPlkag8L3RzcGFuPjwvdGV4dD4KPHRleHQgeD0iMTIzMC4wIiB5PSI2MjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJib2R5Ij48dHNwYW4geD0iMTIzMC4wIiBkeT0iMCI+5aSN55uY57uT6K66PC90c3Bhbj48dHNwYW4geD0iMTIzMC4wIiBkeT0iMjIiPuWGs+WumuWkjeWItuesrOS6jOWcuuaZr+aIlue7p+e7reS8mOWMljwvdHNwYW4+PC90ZXh0Pgo8bGluZSB4MT0iMzYwIiB5MT0iNjIwIiB4Mj0iNDAwIiB5Mj0iNjIwIiBjbGFzcz0iYXJyb3ciLz4KPGxpbmUgeDE9IjY4MCIgeTE9IjYyMCIgeDI9Ijc0MCIgeTI9IjYyMCIgY2xhc3M9ImFycm93Ii8+CjxsaW5lIHgxPSIxMDIwIiB5MT0iNjIwIiB4Mj0iMTA4MCIgeTI9IjYyMCIgY2xhc3M9ImFycm93Ii8+CjxyZWN0IHg9IjI0MCIgeT0iNzcwIiB3aWR0aD0iMTEyMCIgaGVpZ2h0PSIxMTAiIHJ4PSIyMCIgcnk9IjIwIiBmaWxsPSIjZmZmN2VkIiBzdHJva2U9IiNmYjkyM2MiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMS4wIiBjbGFzcz0iYm94Ii8+Cjx0ZXh0IHg9IjgwMCIgeT0iODEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iYm9keSI+PHRzcGFuIHg9IjgwMCIgZHk9IjAiPuWbnumAgOacuuWItui0r+epv+WFqOeoi++8mui/kOihjOe6p+WbnumAgOOAgeiDveWKm+e6p+WbnumAgOOAgeezu+e7n+e6p+WbnumAgOOAgei0o+S7u+e6p+WbnumAgDwvdHNwYW4+PHRzcGFuIHg9IjgwMCIgZHk9IjIyIj7kuIrnur/liY3mj5DkuI3mmK/igJzmsLjkuI3lh7rplJnigJ3vvIzogIzmmK/igJzlh7rplJnml7blj6/lv6vpgJ/liIflm57ml6LmnInkurrlt6XmtYHnqIvigJ08L3RzcGFuPjwvdGV4dD4KPC9zdmc+"
@@ -1513,15 +1513,15 @@
         <hr />
         <h2 id="价值交付与生态共建路径">9. 价值交付与生态共建路径</h2>
         <p>一套架构能否真正走出白皮书，最终取决于它能否被采购、被交付、被复制，并在现实商业关系中维持可持续增长。对
-          MCOS
+          MCOP
           而言，价值交付与实施路径不是附属议题，而是其系统路径能否成立的重要组成部分。</p>
-        <p>由于 MCOS
+        <p>由于 MCOP
           当前所获得的验证，主要体现为中早期系统在高价值场景中的可运行性，因此其实施交付路径也应与这一成熟度相匹配。更符合实际的方式，不是直接出售“全院级成熟平台”，而是先以高价值场景解决方案完成首轮价值闭环，再通过复制扩展逐步沉淀平台能力。
         </p>
         <h3 id="系统引入的价值逻辑">9.1 系统引入的价值逻辑</h3>
-        <p>从医院视角看，MCOS 的价值通常分布在三个层级。</p>
+        <p>从医院视角看，MCOP 的价值通常分布在三个层级。</p>
         <p>第一层是科室层价值。减少重复录入、缩短起草时间、提高表达一致性、降低重复性认知劳动，这些收益最先被临床一线感知，也最容易转化为初始建设动力。它们未必宏大，但往往足够具体。</p>
-        <p>第二层是管理层价值。管理层关注的不只是某一场景的效率提升，而是这套能力是否可控、是否可复用、是否会引入新的治理负担。MCOS
+        <p>第二层是管理层价值。管理层关注的不只是某一场景的效率提升，而是这套能力是否可控、是否可复用、是否会引入新的治理负担。MCOP
           的吸引力在于，它有潜力把多个场景纳入同一运行与治理框架，从而降低长期建设成本。</p>
         <p>第三层是生态层价值。当多个场景开始复用同一底座时，系统引入的不再只是若干功能，而是一种持续积累
           AI 运行能力的方式。长期来看，这种复利结构比单点工具更具战略意义。</p>
@@ -1537,7 +1537,7 @@
         <p>前两类场景更容易较快形成“效率提升 +
           一致性提升”的双指标成果，适合作为首期切入点；第三类场景更能体现临床辅助深度，适合作为扩展阶段；第四类能力则更适合在平台化阶段放大价值，而非作为首期成交点。</p>
         <h3 id="长期系统韧性的来源">9.4 长期系统韧性的来源</h3>
-        <p>MCOS
+        <p>MCOP
           的长期韧性并不主要来自单一模型性能，而来自四类能力的长期组合：对真实临床流程与角色协作方式的理解，对真实使用反馈与复盘机制的积累，对审计、回退、可追责与可配置工程体系的建设，以及对跨临床、信息和合规三方协同交付方法的沉淀。
         </p>
         <p>这类能力壁垒形成速度较慢，但一旦形成，其可复制性往往低于单点算法优势，因此更有可能支撑长期竞争力。</p>
@@ -1546,15 +1546,15 @@
           更稳健的能力复制顺序，不是先追求全国铺开，而是先在科室级试点中拿到明确结果，再在院内复制中验证跨场景复用，最后在区域复制中沉淀标准化交付模板。每跨越一层组织，就同步沉淀一层资产，包括流程模板、指标模板、集成模板与治理模板。
         </p>
         <p>由此形成的规模化，不依赖单纯的销售叙事放大，而依赖可复制资产的持续积累。对
-          MCOS
+          MCOP
           而言，生态共建的关键不在于先把平台讲大，而在于让产品节奏始终与系统成熟度保持一致。</p>
         <hr />
         <h2 id="演进路线图">10. 演进路线图</h2>
         <p>任何可信的路线图，都不应以终局状态为起点，而应以现实能力边界为起点。对
-          MCOS
+          MCOP
           而言，现阶段最重要的不是描绘一个抽象而宏大的医院级未来，而是在当前已被初步验证的基础上，明确后续阶段的建设重点、退出条件与能力边界。</p>
-        <p>从这一前提出发，MCOS
-          的演进应遵循由单场景运行、多场景复制、治理增强到平台成熟与进化探索的渐进顺序。这样的路线既符合医疗系统的审慎原则，也符合智能·认知底座作为新基础设施的自然形成方式。</p>
+        <p>从这一前提出发，MCOP
+          的演进应遵循由单场景运行、多场景复制、治理增强到平台成熟与进化探索的渐进顺序。这样的路线既符合医疗系统的审慎原则，也符合智能·医疗流程与数据效能底座作为新基础设施的自然形成方式。</p>
         <h3 id="阶段一单场景跑通0-6-个月">10.1 阶段一：单场景跑通（0-6
           个月）</h3>
         <p>第一阶段的核心，不是追求覆盖面，而是建立确定性。其目标是在 1 至 2
@@ -1563,7 +1563,7 @@
         <h3 id="阶段二多场景复制6-18-个月">10.2 阶段二：多场景复制（6-18
           个月）</h3>
         <p>当首场景已经证明价值，系统建设的重点将从“能否跑通”转向“能否复用”。这一阶段需要把能力扩展至
-          2 至 5 个场景，观察共性能力的复用比例；建立 MCOS
+          2 至 5 个场景，观察共性能力的复用比例；建立 MCOP
           Studio，统一规则、流程、提示、版本与反馈管理；在部分场景中完成标准接口接入与受控写回；并逐步沉淀跨场景的监控、运维与配置能力。</p>
         <p>其退出标准，不应只是场景数量增加，而应体现平台化能力是否开始形成。新场景接入周期明显缩短、场景间共性能力稳定复用、运维复杂度未随场景数量线性增加，才说明多场景复制真正成立。</p>
         <h3 id="阶段三治理增强18-36-个月">10.3 阶段三：治理增强（18-36
@@ -1575,11 +1575,11 @@
         </p>
         <h3 id="阶段四平台成熟与进化探索36-个月以后">10.4
           阶段四：平台成熟与进化探索（36 个月以后）</h3>
-        <p>只有在前述阶段均取得扎实结果之后，MCOS
-          才有资格讨论医院级智能·认知底座的成熟状态。届时，其特征应包括：多场景统一运行与统一治理，不同系统、不同时间周期的数据、流程与反馈能够形成稳定复利结构，并在明确伦理和监管框架下逐步探索更高阶的进化能力。</p>
+        <p>只有在前述阶段均取得扎实结果之后，MCOP
+          才有资格讨论医院级智能·医疗流程与数据效能底座的成熟状态。届时，其特征应包括：多场景统一运行与统一治理，不同系统、不同时间周期的数据、流程与反馈能够形成稳定复利结构，并在明确伦理和监管框架下逐步探索更高阶的进化能力。</p>
         <p>就当前阶段而言，进化层不应被作为既成卖点提前兑现。它更接近治理、运行与反馈长期积累之后的自然结果，而不是首期部署时即可完整宣称的既成能力。</p>
         <h3 id="路线图执行原则">10.5 路线图执行原则</h3>
-        <p>MCOS
+        <p>MCOP
           的路线推进，应长期遵循三项原则：先证明可运行，再追求可扩展；治理建设与功能建设同步推进；任何阶段的对外表述都不超出当前证据边界。</p>
         <p>这些原则的价值，在于确保路线图始终与现实成熟度相匹配，避免因为叙事超前而削弱系统可信度。</p>
         <h3 id="路线图中的典型风险">10.6 路线图中的典型风险</h3>
@@ -1587,7 +1587,7 @@
           在演进过程中，最常见的风险包括：过早追求全院平台化，导致资源摊薄、价值不聚焦；持续扩展功能却未同步建设治理能力，导致后期风险与运维成本集中暴露；缺乏指标化复盘，使项目在功能越来越多的同时，反而难以清晰回答其实际创造了什么价值。
         </p>
         <p>因此，一条可信的路线图，必须让每个阶段都具备明确的建设目标、验证标准、退出条件和适用边界。对
-          MCOS
+          MCOP
           而言，真正可持续的成长，不是跳跃式迈向终局，而是在每个阶段都把“能证明什么”与“不能声称什么”同时说清。</p>
         <figure>
           <img role="img" aria-label="图8 价值验证与能力演进双轨图"
@@ -1595,61 +1595,61 @@
             alt="图8 商业化与演进双轨图" />
           <figcaption aria-hidden="true">图8 价值验证与能力演进双轨图</figcaption>
         </figure>
-        <p><em>图8. MCOS
+        <p><em>图8. MCOP
             的产品打包路径必须与系统成熟度同步推进：从单场景验证包到多场景复制包，再到平台治理包；从单场景跑通到多场景复制，再到治理增强与平台成熟，避免系统预期超前于真实的运行能力。</em></p>
         <hr />
         <h2 id="局限性与前提条件">11. 局限性与前提条件</h2>
         <p>医疗 AI
           的专业可信度，不仅来自能力展示，也来自对局限性、前提条件和适用范围的清晰界定。对
-          MCOS
+          MCOP
           而言，边界说明并非对系统价值的削弱，而是使其能够在真实医疗环境中被严肃理解和审慎采用的必要条件。</p>
         <h3 id="合规与监管边界">11.1 合规与监管边界</h3>
-        <p>MCOS
+        <p>MCOP
           的基本定位始终应当是临床辅助系统，而非临床责任替代系统。它不能替代执业医师的最终判断，不能绕过高风险节点的人类确认，其数据采集、处理、传输与留存必须遵守当地法规与院内制度，任何更高自主等级的执行尝试，也都必须建立在明确的伦理审查与治理框架之上。
         </p>
-        <p>在医疗环境中，系统能力越强，越需要责任与合规边界同步清晰。只有在这一前提下，智能·认知底座的能力扩展才不会转化为制度风险。</p>
+        <p>在医疗环境中，系统能力越强，越需要责任与合规边界同步清晰。只有在这一前提下，智能·医疗流程与数据效能底座的能力扩展才不会转化为制度风险。</p>
         <h3 id="医院环境前提">11.2 医院环境前提</h3>
-        <p>MCOS
+        <p>MCOP
           并非在任何环境下都能自然生效。它至少依赖若干基础前提：医院具备基本的信息化基础，包括身份体系、最小可用接口与日志能力；临床、信息、合规之间存在可持续协作机制；试点场景稳定，指标口径明确；项目推进目标聚焦于单场景或有限场景试点，而非一开始即追求全院同步上线。
         </p>
         <p>当这些前提不具备时，系统往往难以形成真实生产价值，而更容易停留在演示层与展示层。</p>
         <h3 id="证据层级的局限">11.3 证据层级的局限</h3>
-        <p>当前关于 MCOS
+        <p>当前关于 MCOP
           的主要证据，仍集中在工程指标与流程指标层面，例如耗时、一致性、可用率和回退率。这些证据足以支持“系统雏形成立”和“工程价值成立”的判断，但不足以支持“长期临床终局价值已经被证明”的判断。</p>
         <p>因此，现阶段不宜将工程期结论直接外推为并发症下降、预后改善或广泛医疗质量提升。这类结论需要更长周期、多中心、对照充分且设计严谨的研究支持。</p>
         <h3 id="治理层与进化层仍处建设早期">11.4 治理层与进化层仍处建设早期</h3>
         <p>
-          在六层架构中，治理层与进化层是决定系统长期成熟度的关键部分，但也正是当前最需要审慎表述的部分。治理层目前更多体现为框架和局部实践，距离制度化、院级化和跨机构化运行仍有距离；进化层则更多体现为反馈采集、提示优化和流程调整的早期能力，尚未形成稳定的数据飞轮与知识飞轮。
+          在六层运行与管理架构中，治理层与进化层是决定系统长期成熟度的关键部分，但也正是当前最需要审慎表述的部分。治理层目前更多体现为框架和局部实践，距离制度化、院级化和跨机构化运行仍有距离；进化层则更多体现为反馈采集、提示优化和流程调整的早期能力，尚未形成稳定的数据飞轮与知识飞轮。
         </p>
-        <p>因此，MCOS
+        <p>因此，MCOP
           当前仍应被理解为一个具备现实运行能力、但尚未完成全栈成熟的中早期系统。对这两层能力的描述越克制，整套架构的可信度反而越高。</p>
         <h3 id="不适用或需谨慎适用的场景">11.5 不适用或需谨慎适用的场景</h3>
-        <p>对于超高风险、容错极低且缺少治理与回退机制的流程，对于数据质量极不稳定、关键上下文长期缺失的流程，对于组织责任边界不清、协作机制断裂的流程，以及对于试图跳过试点、直接建设全院统一平台的项目，MCOS
+        <p>对于超高风险、容错极低且缺少治理与回退机制的流程，对于数据质量极不稳定、关键上下文长期缺失的流程，对于组织责任边界不清、协作机制断裂的流程，以及对于试图跳过试点、直接建设全院统一平台的项目，MCOP
           当前都应采取谨慎态度。</p>
         <p>在这些条件下，更优先的工作通常不是强推
           AI，而是先补齐流程、治理和数据条件，为系统进入真实运行创造必要基础。</p>
         <h3 id="典型失败模式">11.6 典型失败模式</h3>
         <p>围绕
-          MCOS，较常见的失败模式包括：将中早期系统包装成成熟平台，导致外部预期与内部能力错配；首场景试点成功后缺乏复制机制，长期停留在样板点；过度重视模型和功能，却忽视治理和运维，导致后期集中暴露风险；指标体系不清，最终无法准确说明项目究竟创造了什么价值。
+          MCOP，较常见的失败模式包括：将中早期系统包装成成熟平台，导致外部预期与内部能力错配；首场景试点成功后缺乏复制机制，长期停留在样板点；过度重视模型和功能，却忽视治理和运维，导致后期集中暴露风险；指标体系不清，最终无法准确说明项目究竟创造了什么价值。
         </p>
         <p>避免这些失败模式的基本方法，是让所有结论都绑定证据等级与适用范围，在每次扩展前进行“指标—风险—回退”的联合评审，并把治理能力建设放在与功能建设同等重要的位置。</p>
-        <p>综上，MCOS
+        <p>综上，MCOP
           的局限性并不否定其方向价值，恰恰相反，正是对这些局限的清晰承认，使其作为一条医疗
           AI
           系统路径更具现实可信度。只有在前提条件与边界被充分说明之后，落地路径、商业路径和演进路线才不会被不切实际的承诺所扭曲。</p>
         <hr />
         <h2 id="结语">12. 结语</h2>
         <p>医疗 AI
-          正在从单点能力竞争，走向系统组织能力竞争。当模型逐步成为基础资源之后，真正决定其能否持续进入临床现场并形成长期价值的，不再只是模型本身，而是能否存在一层把模型、数据、流程、治理与反馈稳定组织起来的智能·认知底座。MCOS
+          正在从单点能力竞争，走向系统组织能力竞争。当模型逐步成为基础资源之后，真正决定其能否持续进入临床现场并形成长期价值的，不再只是模型本身，而是能否存在一层把模型、数据、流程、治理与反馈稳定组织起来的智能·医疗流程与数据效能底座。MCOP
           的提出，正是对这一结构的系统定义。</p>
-        <p>从当前证据出发，可以确认的是：MCOS
-          已经跨过“是否只是概念”的门槛。它已在多个高价值场景中以系统雏形进入真实流程，并形成了可以被观察、被复盘和被讨论的工程与流程收益。这足以说明，围绕智能·认知底座继续建设，并非抽象设想，而是一条已经获得现实支撑的路径。
+        <p>从当前证据出发，可以确认的是：MCOP
+          已经跨过“是否只是概念”的门槛。它已在多个高价值场景中以系统雏形进入真实流程，并形成了可以被观察、被复盘和被讨论的工程与流程收益。这足以说明，围绕智能·医疗流程与数据效能底座继续建设，并非抽象设想，而是一条已经获得现实支撑的路径。
         </p>
-        <p>同时，也必须清楚看到，MCOS
+        <p>同时，也必须清楚看到，MCOP
           仍远未抵达终局。治理层与进化层仍在建设，规模化复制仍需时间，长期临床价值仍需更高等级证据。这些限制不应被回避，因为它们构成了这一路径继续前进所必须面对的真实条件。</p>
-        <p>因此，MCOS
+        <p>因此，MCOP
           的意义，不在于被过早包装为一个已经完成的平台，而在于它为医疗 AI
-          提供了一条更具长期性的系统演进路线：先在高价值场景中证明系统价值，再在治理约束下完成复制与沉淀，最终成长为医院可信赖的智能·认知底座。对于医疗
+          提供了一条更具长期性的系统演进路线：先在高价值场景中证明系统价值，再在治理约束下完成复制与沉淀，最终成长为医院可信赖的智能·医疗流程与数据效能底座。对于医疗
           AI 而言，这不仅是一种产品路径，更可能是一类新的基础设施路径。</p>
 
       </article>

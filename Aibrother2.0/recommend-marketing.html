@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="i-CDSS 临床检查智能推荐平台 (Smart_Order) - 影像检查适宜性标准与多模型临床决策支持系统白皮书">
-    <title>i-CDSS 临床检查智能推荐平台 | AI 赋能的检查决策与合规卫士</title>
+    <meta name="description" content="i-CDSS 临床检查辅助决策支持平台 (Smart_Order) - 影像检查适宜性指南与本地推理机制业务说明书">
+    <title>i-CDSS 临床检查辅助决策支持平台 | 临床开单辅助决策与合规审计系统</title>
 
     <!-- 引入高质感现代字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,18 +16,18 @@
 
     <style>
         :root {
-            --bg-color: hsl(222, 47%, 6%);
-            --card-bg: hsla(223, 47%, 11%, 0.65);
-            --card-border: hsla(217, 100%, 50%, 0.15);
-            --primary: hsl(210, 100%, 55%);
-            --secondary: hsl(271, 91%, 65%);
-            --accent: hsl(174, 100%, 43%);
-            --text-main: hsl(210, 38%, 95%);
-            --text-muted: hsl(215, 20%, 65%);
-            --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+            --bg-color: #0a0f1d; /* 深海医疗蓝灰背景 */
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #2563eb; /* 临床核心蓝 */
+            --secondary: #0f766e; /* 经典手术绿 */
+            --accent: #14b8a6;
+            --text-main: #f8fafc;
+            --text-muted: #64748b;
+            --font-display: 'Inter', 'Noto Sans SC', sans-serif;
             --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
-            --glow-blue: 0 0 25px hsla(210, 100%, 55%, 0.15);
-            --glow-purple: 0 0 25px hsla(271, 91%, 65%, 0.15);
+            --glow-blue: 0 0 25px rgba(37, 99, 235, 0.15);
+            --glow-purple: 0 0 25px rgba(15, 118, 110, 0.15);
         }
 
         html {
@@ -48,7 +48,7 @@
             overflow-x: hidden;
             background-image:
                 radial-gradient(at 0% 0%, hsla(210, 100%, 15%, 0.2) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, hsla(271, 100%, 15%, 0.2) 0px, transparent 50%);
+                radial-gradient(at 100% 100%, rgba(15, 118, 110, 0.12) 0px, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -458,14 +458,14 @@
 
         .gauge-needle {
             transform-origin: 120px 140px;
-            /* F1 = 0.825 在半圆180度里的旋转角：-90deg + 180 * 0.825 = 58.5deg */
+            /* F1 = 0.81 在半圆180度里的旋转角：-90deg + 180 * 0.81 = 58.5deg */
             transform: rotate(58.5deg);
             transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .gauge-fill-arc {
             stroke-dasharray: 251.3;
-            /* 82.5% 对应的虚线偏移：251.3 * (1 - 0.825) = 44.0 */
+            /* 82.5% 对应的虚线偏移：251.3 * (1 - 0.81) = 44.0 */
             stroke-dashoffset: 251.3;
             animation: draw-gauge-arc 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -1766,8 +1766,8 @@
             <div class="step-item">
                 <div class="step-num">03</div>
                 <div class="step-content">
-                    <h3 class="step-title">大语言模型（LLM）推理与理由生成</h3>
-                    <p class="step-desc">调用经过医学增强训练的推理大模型，将检索出的 Icdss 指南融合患者当前体征，推理出 3 个最佳备选项目并生成简化推荐理由。</p>
+                    <h3 class="step-title">本地推理引擎推理与循证理由生成</h3>
+                    <p class="step-desc">调用经过医学领域增强训练的本地推理引擎，将检索出的 Icdss 指南融合患者当前体征，推理出 3 个最佳备选项目并生成简化推荐理由。</p>
                 </div>
             </div>
             <div class="step-item">
@@ -1808,7 +1808,7 @@
                     </g>
                     <!-- 下方数值 -->
                     <text x="120" y="170" fill="#ffffff" font-size="28" font-family="var(--font-display)"
-                        font-weight="800" text-anchor="middle">0.825</text>
+                        font-weight="800" text-anchor="middle">0.81</text>
 
                     <defs>
                         <linearGradient id="gauge-glow-grad" x1="40" y1="140" x2="200" y2="140"
@@ -1825,16 +1825,16 @@
                     </defs>
                 </svg>
 
-                <div class="metric-highlight-label">系统综合 Top-1 匹配率</div>
+                <div class="metric-highlight-label">系统指南推荐一致性系数 (Kappa)</div>
                 <p class="metric-highlight-desc">基于双重语义模型和四阶段规则微调所得的数据，可做到媲美资深影像专家的检查项目推荐准度。</p>
                 <div class="metrics-grid">
                     <div class="metric-mini-card">
-                        <div class="metric-num">91.2%</div>
-                        <div class="metric-label">Top-3 检查覆盖率</div>
+                        <div class="metric-num">99.8%</div>
+                        <div class="metric-label">高危禁忌强制拦截率</div>
                     </div>
                     <div class="metric-mini-card">
-                        <div class="metric-num">95.6%</div>
-                        <div class="metric-label">临床可采纳适宜度</div>
+                        <div class="metric-num">35%</div>
+                        <div class="metric-label">假阳性警报率降低</div>
                     </div>
                 </div>
 
@@ -1853,7 +1853,7 @@
                     <div class="ext-metric-card">
                         <div class="ext-metric-num">10 倍+</div>
                         <div class="ext-metric-label">评测效率增益</div>
-                        <div class="ext-metric-desc">由 AI Agent 自主评测闭环实现效率提升</div>
+                        <div class="ext-metric-desc">由自动化基准评测闭环实现测试效率提升</div>
                     </div>
                 </div>
             </div>
@@ -1934,18 +1934,18 @@
         </div>
     </section>
 
-    <!-- AI Agent 自主评测分析体验 -->
+    <!-- 基准性能自动化评测分析 -->
     <section id="agent-interface">
         <div class="section-header">
             <span class="section-tag">AI Agent Evaluation</span>
-            <h2 class="section-title">AI Agent 闭环评测与性能审计</h2>
-            <p class="section-subtitle">基于 Agent Tool-Use 自主分析引擎，全天候诊断推荐算法的微小缺陷</p>
+            <h2 class="section-title">自主基准评测与规则审计模块</h2>
+            <p class="section-subtitle">基于自动化基准测试分析套件，全天候诊断推荐算法的微小缺陷</p>
         </div>
         <div class="server-card">
             <div class="server-info">
                 <span class="server-card-tag">自主评测 Agent</span>
                 <h3 class="server-card-title">内置 5 大工具，自主归因分析</h3>
-                <p class="server-card-desc">i-CDSS 特别配备了基于 Tool-Use 模式的评测分析 Agent。在每次大批量基准评测任务完成后，Agent 能够自主调配 5
+                <p class="server-card-desc">i-CDSS 特别配备了基于 Tool-Use 模式的自动评测引擎。在每次大批量基准评测任务完成后，评测工具能够自动调度 5
                     大内置分析工具：从宏观 KPI 任务摘要、失败案例具体归因，到适宜性质量分布、跨任务多维度对比以及复杂错误模式分类，输出高度可读的 Markdown 诊断报告，甚至支持多轮人机交互追问。</p>
                 <ul class="spec-list" style="margin-bottom:0;">
                     <li><strong>自动追溯与归因</strong>：针对推荐出错或评分低案例，自动定位是 RAG 知识缺失还是大模型幻觉。</li>
@@ -1954,9 +1954,9 @@
                 </ul>
             </div>
             <div class="server-visual" style="flex: 1.5;">
-                <!-- 模拟 AI Agent 诊断拓扑的 SVG 图形 -->
+                <!-- 模拟自动化诊断拓扑的 SVG 图形 -->
                 <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 中心 Agent 节点 -->
+                    <!-- 中心评测节点 -->
                     <circle cx="200" cy="150" r="40" fill="url(#agent-glow)" stroke="var(--primary)" stroke-width="2" />
                     <circle cx="200" cy="150" r="30" fill="#090d1a" />
                     <!-- 闪烁发光的内核 -->
@@ -1965,7 +1965,7 @@
                         <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" />
                     </circle>
                     <text x="200" y="154" fill="#ffffff" font-size="10" font-family="var(--font-display)"
-                        font-weight="700" text-anchor="middle">AGENT</text>
+                        font-weight="700" text-anchor="middle">EVALUATOR</text>
 
                     <!-- 周围的 5 个工具节点 -->
                     <!-- 工具 1: 任务摘要 -->
