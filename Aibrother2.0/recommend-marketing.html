@@ -1090,7 +1090,7 @@
             height: auto;
             border-radius: 12px;
             display: block;
-            background: #030712;
+            background: var(--bg-section);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -2036,7 +2036,7 @@
                         <linearGradient id="line-tool" x1="200" y1="150" x2="200" y2="50"
                             gradientUnits="userSpaceOnUse">
                             <stop stop-color="var(--primary)" />
-                            <stop offset="1" stop-color="rgba(255, 255, 255, 0.1)" />
+                            <stop offset="1" stop-color="rgba(0, 0, 0, 0.08)" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -2076,13 +2076,13 @@
                 <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg"
                     style="width: 100%; height: auto;">
                     <!-- 主平台窗口 -->
-                    <rect x="20" y="30" width="160" height="130" rx="10" fill="rgba(255,255,255,0.02)"
+                    <rect x="20" y="30" width="160" height="130" rx="10" fill="rgba(0,0,0,0.02)"
                         stroke="var(--primary)" stroke-width="1.5" />
-                    <text x="100" y="50" fill="#ffffff" font-size="10" font-family="var(--font-sans)" font-weight="700"
+                    <text x="100" y="50" fill="var(--text-main)" font-size="10" font-family="var(--font-sans)" font-weight="700"
                         text-anchor="middle">i-CDSS 主系统</text>
 
                     <!-- Iframe 嵌套区 -->
-                    <rect x="35" y="65" width="130" height="80" rx="6" fill="#0c1020" stroke="rgba(255,255,255,0.08)"
+                    <rect x="35" y="65" width="130" height="80" rx="6" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)"
                         stroke-width="1" />
                     <text x="100" y="100" fill="var(--text-muted)" font-size="9" font-family="var(--font-sans)"
                         text-anchor="middle">Iframe 嵌套</text>
@@ -2090,9 +2090,9 @@
                         text-anchor="middle">/paper-management/</text>
 
                     <!-- 独立子系统 -->
-                    <rect x="200" y="90" width="100" height="70" rx="10" fill="rgba(255,255,255,0.02)"
+                    <rect x="200" y="90" width="100" height="70" rx="10" fill="rgba(0,0,0,0.02)"
                         stroke="var(--secondary)" stroke-width="1.5" />
-                    <text x="250" y="115" fill="#ffffff" font-size="9" font-family="var(--font-sans)" font-weight="700"
+                    <text x="250" y="115" fill="var(--text-main)" font-size="9" font-family="var(--font-sans)" font-weight="700"
                         text-anchor="middle">共识文献系统</text>
                     <text x="250" y="130" fill="var(--text-muted)" font-size="8" font-family="var(--font-sans)"
                         text-anchor="middle">(独立服务)</text>
@@ -2127,19 +2127,19 @@
                 <div class="deploy-image-box">
                     <!-- 极简服务器机架 SVG -->
                     <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="10" width="120" height="80" rx="10" fill="#0b1122" stroke="var(--primary)"
+                        <rect x="40" y="10" width="120" height="80" rx="10" fill="#ffffff" stroke="var(--primary)"
                             stroke-width="2" />
-                        <line x1="50" y1="30" x2="150" y2="30" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <line x1="50" y1="30" x2="150" y2="30" stroke="rgba(0,0,0,0.1)" stroke-width="1.5" />
                         <circle cx="58" cy="24" r="3" fill="var(--accent)" />
-                        <line x1="70" y1="24" x2="140" y2="24" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+                        <line x1="70" y1="24" x2="140" y2="24" stroke="rgba(0,0,0,0.15)" stroke-width="2" />
 
-                        <line x1="50" y1="55" x2="150" y2="55" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <line x1="50" y1="55" x2="150" y2="55" stroke="rgba(0,0,0,0.1)" stroke-width="1.5" />
                         <circle cx="58" cy="49" r="3" fill="var(--accent)" />
-                        <line x1="70" y1="49" x2="140" y2="49" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+                        <line x1="70" y1="49" x2="140" y2="49" stroke="rgba(0,0,0,0.15)" stroke-width="2" />
 
-                        <line x1="50" y1="80" x2="150" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                        <line x1="50" y1="80" x2="150" y2="80" stroke="rgba(0,0,0,0.1)" stroke-width="1.5" />
                         <circle cx="58" cy="74" r="3" fill="var(--primary)" />
-                        <line x1="70" y1="74" x2="140" y2="74" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+                        <line x1="70" y1="74" x2="140" y2="74" stroke="rgba(0,0,0,0.15)" stroke-width="2" />
                     </svg>
                 </div>
             </div>
@@ -2157,9 +2157,9 @@
                     <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M 70 80 C 40 80, 30 60, 50 40 C 40 20, 70 10, 100 25 C 120 10, 150 15, 155 35 C 175 40, 170 70, 145 80 Z"
-                            fill="#0b1122" stroke="var(--secondary)" stroke-width="2" />
-                        <rect x="75" y="45" width="50" height="25" rx="4" fill="rgba(255,255,255,0.03)"
-                            stroke="rgba(255,255,255,0.1)" />
+                            fill="rgba(37, 99, 235, 0.05)" stroke="var(--secondary)" stroke-width="2" />
+                        <rect x="75" y="45" width="50" height="25" rx="4" fill="rgba(0,0,0,0.02)"
+                            stroke="rgba(0,0,0,0.08)" />
                         <text x="100" y="60" fill="var(--secondary)" font-size="8" font-family="var(--font-display)"
                             font-weight="700" text-anchor="middle">CLOUD API</text>
                     </svg>
@@ -2219,10 +2219,10 @@
                 <!-- 极简成效可视化柱状图 SVG -->
                 <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- 网格线 -->
-                    <line x1="40" y1="40" x2="260" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-                    <line x1="40" y1="90" x2="260" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-                    <line x1="40" y1="140" x2="260" y2="140" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-                    <line x1="40" y1="190" x2="260" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+                    <line x1="40" y1="40" x2="260" y2="40" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                    <line x1="40" y1="90" x2="260" y2="90" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                    <line x1="40" y1="140" x2="260" y2="140" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                    <line x1="40" y1="190" x2="260" y2="190" stroke="rgba(0,0,0,0.12)" stroke-width="1.5" />
 
                     <!-- 柱状图 1: 改造前 (高不合理率) -->
                     <rect x="70" y="70" width="35" height="120" rx="4" fill="url(#bar-red-glow)" />
@@ -2239,7 +2239,7 @@
                         text-anchor="middle">接入后</text>
 
                     <!-- 标题：不合理开单检查占比 -->
-                    <text x="150" y="20" fill="#ffffff" font-size="11" font-family="var(--font-sans)" font-weight="600"
+                    <text x="150" y="20" fill="var(--text-main)" font-size="11" font-family="var(--font-sans)" font-weight="600"
                         text-anchor="middle">不合理开单比例对比</text>
 
                     <defs>
