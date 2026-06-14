@@ -1140,7 +1140,7 @@
             font-size: 30px;
             font-weight: 700;
             line-height: 1.25;
-            background: linear-gradient(135deg, #fff 60%, var(--text-muted) 100%);
+            background: linear-gradient(135deg, var(--primary) 60%, var(--text-muted) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1530,7 +1530,27 @@
                 display: none;
             }
         }
-    </style>
+
+        .server-visual.image-container {
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+        }
+        .server-visual.image-container img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            border-radius: 16px !important;
+            border: 1px solid var(--card-border) !important;
+            box-shadow: 0 15px 45px rgba(14, 53, 102, 0.08) !important;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .server-visual.image-container:hover img {
+            transform: translateY(-4px) scale(1.02) !important;
+        }
+        </style>
 </head>
 
 <body>
@@ -1925,7 +1945,7 @@
                     <li><strong>医保防拒付机制</strong>：前置排除不合理过度检查及禁忌症项目，从源头消灭开单拒付。</li>
                 </ul>
             </div>
-            <div class="server-visual" style="flex: 1.5;">
+            <div class="server-visual image-container" style="flex: 1.8;">
                 <img src="../assets/image_aibrother2/ppt-cdss.png" alt="i-CDSS 临床智能推荐开单实操演示"
                     style="width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
             </div>
